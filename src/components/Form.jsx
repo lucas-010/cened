@@ -16,7 +16,7 @@ export default function Form() {
 		}
   }
   return (
-		<div className='w-11/12 flex flex-col lg:flex-row font-bold lg:w-3/4 mt-10 m-auto p-6 border-2 border-black rounded-xl'>
+		<div className='w-11/12 flex flex-col lg:flex-row font-bold lg:w-3/4 mt-10 m-auto p-6 border-4 border-blue-700 rounded-xl'>
 			<form action="POST" autoComplete='off'>
 				<div className='w-full max-w-full p-2 flex flex-wrap'>
 					<div className='flex w-full justify-between flex-wrap items-center'>
@@ -24,11 +24,11 @@ export default function Form() {
 							<label htmlFor="name-form">
 								Nome
 							</label>
-							<input id='name-form' type="text" className='border-2 p-2 rounded-md outline-none border-black'/>
+							<input id='name-form' type="text" className='border-4 p-2 rounded-md outline-none border-blue-700'/>
 						</div>
 						<div className='flex flex-col mt-5 lg:mt-0'>
 							<label htmlFor="uf-form">UF</label>
-							<select id="uf-form" className='border-black border-2 p-2 text-lg rounded-md' name="uf-form">
+							<select id="uf-form" className='border-blue-700 border-4 p-2 text-lg rounded-md' name="uf-form">
 								<option value="AC">Acre</option>
 								<option value="AL">Alagoas</option>
 								<option value="AP">Amapá</option>
@@ -63,23 +63,23 @@ export default function Form() {
 					<div className='flex w-4/5 justify-between flex-wrap ml-0 m-5'>
 						<div className='flex flex-col mt-5'>
 							<label htmlFor="cpf-form">CPF</label>
-							<input type='text' id='cpf-form' onChange={(e)=>{ onlyNumberF(e.target.value, 'cpf') }} value={valueCpf} minLength={11} maxLength={11} className='border-2 p-2 rounded-md outline-none border-black' />
+							<input type='text' id='cpf-form' onChange={(e)=>{ onlyNumberF(e.target.value, 'cpf') }} value={valueCpf} minLength={11} maxLength={11} className='border-4 p-2 rounded-md outline-none border-blue-700' />
 						</div>
 						
 						<div className='flex flex-col mt-5'>
 							<label htmlFor="tel-form">Telefone/Celular</label>
-							<input value={valueTel} type="text" id='tel-form' onChange={(e)=> onlyNumberF(e.target.value, 'tel')} className='border-2 p-2 rounded-md outline-none border-black'/>
+							<input value={valueTel} type="text" id='tel-form' onChange={(e)=> onlyNumberF(e.target.value, 'tel')} className='border-4 p-2 rounded-md outline-none border-blue-700'/>
 						</div>
 
 						<div  className='flex flex-col mt-5'>
 							<label htmlFor="email-form">E-mail</label>
-							<input type="email" id="email-form" className='border-2 p-2 rounded-md outline-none border-black'/>
+							<input type="email" id="email-form" className='border-4 p-2 rounded-md outline-none border-blue-700'/>
 						</div>
 					</div>
 
 					<div className='flex w-full flex-col'>
 						<label htmlFor="msg-form">Mensagem</label>
-						<textarea name="msg-form" id="msg-form" cols="30" rows="10" className='border-2 border-black resize-none rounded-xl p-2 text-lg outline-none w-full'></textarea>
+						<textarea name="msg-form" id="msg-form" cols="30" rows="10" className='border-4 border-blue-700 resize-none rounded-xl p-2 text-lg outline-none w-full'></textarea>
 					</div>
 
 					<div className='py-4 flex w-full justify-around flex-wrap'>
