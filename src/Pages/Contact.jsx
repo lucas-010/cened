@@ -1,6 +1,6 @@
 import React from 'react'
-import Form from '../Components/Form'
-import Title from '../Components/Title'
+import Form from '../components/Form'
+import Title from '../components/Title'
 
 export default function Contact() {
   return (
