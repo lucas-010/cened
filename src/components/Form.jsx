@@ -8,7 +8,6 @@ export default function Form() {
 	const [valueTel, setValueTel] = useState('')
 	const onlyNumberF = (vl, input)=>{
     if(input === 'cpf'){
-		var cpfValido = /^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}))$/;     
 		vl = vl.replace( /(\d{3})(\d)/ , "$1.$2"); 
 		vl = vl.replace( /(\d{3})(\d)/ , "$1.$2"); 
 		vl = vl.replace( /(\d{3})(\d{1,2})$/ , "$1-$2");
