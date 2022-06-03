@@ -8,7 +8,12 @@ export default function Form() {
 	const onlyNumberF = (vl, input)=>{
     if(input === 'cpf'){
 			if(!isNaN(vl)){
+				console.log(vl)
 				setValueCpf(vl)
+				if(valueCpf.length === 3){
+					setValueCpf(valueCpf.split(' '))
+					console.log(valueCpf)
+				}
 			}
 		}else{
 			setValueTel(vl)
