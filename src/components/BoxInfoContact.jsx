@@ -4,7 +4,7 @@ import {MdEmail} from 'react-icons/md'
 import {AiFillClockCircle} from 'react-icons/ai'
 export default function BoxInfoContact() {
   return (
-    <div className='bg-gray-400 lg:ml-5 lg:w-2/6 rounded-lg mt-5 p-2'>
+    <div className='bg-gray-500 lg:ml-5 lg:w-2/6 rounded-lg mt-5 p-2'>
         <h2 className='text-white text-center text-3xl font-bold'>Contatos</h2>
         <div className='text-white text-center p-2'>
             <h3 className='flex justify-center text-2xl font-bold items-center'><AiFillPhone size={35}/>Telefones: </h3>
