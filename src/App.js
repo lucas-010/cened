@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Header from './components/Header';
-import Navbar from './components/Navbar';
 import Contact from './Pages/Contact';
 import Courses from './Pages/Courses';
 import Education from './Pages/Education';
@@ -17,7 +16,6 @@ function App() {
     <div className="App w-screen flex flex-col h-screen overflow-x-hidden">
       <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
         <Header translateNavbar={translateNavbar} setTranslateNavbar={setTranslateNavbar}/>
-        <Navbar translateNavbar={translateNavbar}/>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/instituicao' element={<Institution/>}/>
