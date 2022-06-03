@@ -1,23 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import BoxInfoContact from './BoxInfoContact'
 
 export default function Form() {
+	
 	const [valueCpf, setValueCpf] = useState('')
 	const [valueTel, setValueTel] = useState('')
 	const onlyNumberF = (vl, input)=>{
     if(input === 'cpf'){
-			if(!isNaN(vl)){
-				console.log(valueCpf)
-				setValueCpf(vl)
-				setValueCpf(valueCpf.replace( /(\d{3})(\d)/ , "$1.$2"))
-				setValueCpf(valueCpf.replace( /(\d{3})(\d)/ , "$1.$2"))
-				setValueCpf(valueCpf.replace( /(\d{3})(\d{1,2})$/ , "$1-$2"))
-			}
-		}else{
-			setValueTel(vl)
-			console.log(valueTel.split(''))
+		var cpfValido = /^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}))$/;     
+		vl = vl.replace( /(\d{3})(\d)/ , "$1.$2"); 
+		vl = vl.replace( /(\d{3})(\d)/ , "$1.$2"); 
+		vl = vl.replace( /(\d{3})(\d{1,2})$/ , "$1-$2");
+		setValueCpf(vl)
+		if(valueCpf.length === 11){
+			let valueCpfPorivsory = valueCpf.split('')
+			valueCpfPorivsory[11] = '-'
+			console.log(valueCpfPorivsory)
+			setValueCpf(valueCpfPorivsory.join(''))
 		}
+	}else{
+		setValueTel(vl)
+		console.log(valueTel.split(''))
+	}
   }
   return (
 		<div className='w-11/12 flex flex-col lg:flex-row font-bold lg:w-3/4 mt-10 m-auto p-6 border-4 border-blue-700 rounded-xl'>
@@ -67,7 +72,7 @@ export default function Form() {
 					<div className='flex w-4/5 justify-between flex-wrap ml-0 m-5'>
 						<div className='flex flex-col mt-5'>
 							<label htmlFor="cpf-form">CPF</label>
-							<input type='text' id='cpf-form' onChange={(e)=>{ onlyNumberF(e.target.value, 'cpf') }} value={valueCpf} minLength={11} maxLength={11} className='border-4 p-2 rounded-md outline-none border-blue-700' />
+							<input type='text' id='cpf-form' onChange={(e)=>{ onlyNumberF(e.target.value, 'cpf') }} value={valueCpf} maxLength={14} className='border-4 p-2 rounded-md outline-none border-blue-700' />
 						</div>
 						
 						<div className='flex flex-col mt-5'>
