@@ -1,6 +1,6 @@
 import React from 'react'
-import Title from '../Components/Title'
-import Flags from '../Components/Flags'
+import Title from '../components/Title'
+import Flags from '../components/Flags'
 
 export default function Courses() {
   return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from '../Components/Card'
+import Card from '../components/Card'
 import {BsCheckCircle} from 'react-icons/bs'
 import {HiDownload} from 'react-icons/hi'
 import {MdOutlineMenuBook} from 'react-icons/md'
@@ -8,8 +8,8 @@ import {AiFillCreditCard} from 'react-icons/ai'
 import {HiOutlineDocumentText} from 'react-icons/hi'
 import {IoSchoolOutline} from 'react-icons/io5'
 import {AiOutlineArrowDown} from 'react-icons/ai'
-import DetailInfo from '../Components/DetailInfo'
-import Title from '../Components/Title'
+import DetailInfo from '../components/DetailInfo'
+import Title from '../components/Title'
 
 export default function HowWork() {
   return (
