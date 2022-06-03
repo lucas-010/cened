@@ -6,8 +6,8 @@ import {AiOutlineMenu} from 'react-icons/ai'
 
 export default function Header({setTranslateNavbar, translateNavbar}) {
   return (
-    <div className='fixed z-20'>
-      <div className="flex justify-center bg-zinc-800 h-20 w-screen items-center">
+    <div className='z-20'>
+      <div className="flex justify-center bg-[#0000FF] h-20 w-screen items-center">
         <Link to={'/'}>
           <img src={logo} alt="Icone de um livro" className='w-16 h-16'/>
         </Link>
@@ -17,7 +17,6 @@ export default function Header({setTranslateNavbar, translateNavbar}) {
           <span>Cadastrada no MEC / SISTEC Brasília - Distrito Federal</span>
         </div>
       </div>
-      <Navbar translateNavbar={translateNavbar}/>
     </div>
   )
 }

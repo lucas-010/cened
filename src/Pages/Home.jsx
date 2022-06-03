@@ -1,9 +1,9 @@
 import React from 'react' 
-import AboutSchool from '../Components/AboutSchool'
-import HowItWorks from '../Components/HowItWorks'
-import MostInfo from '../Components/MostInfo'
-import Slide from '../Components/Slide'
-import Tutoring from '../Components/Tutoring'
+import AboutSchool from '../components/AboutSchool'
+import HowItWorks from '../components/HowItWorks'
+import MostInfo from '../components/MostInfo'
+import Slide from '../components/Slide'
+import Tutoring from '../components/Tutoring'
 
 
 export default function Home() {

@@ -1,5 +1,5 @@
 import React from 'react'
-import BoxLogin from '../Components/BoxLogin'
+import BoxLogin from '../components/BoxLogin'
 
 export default function Login() {
   return (

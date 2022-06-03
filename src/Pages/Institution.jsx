@@ -1,6 +1,6 @@
 import React from 'react'
-import AboutSchool from '../Components/AboutSchool'
-import Title from '../Components/Title'
+import AboutSchool from '../components/AboutSchool'
+import Title from '../components/Title'
 
 export default function Institution() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
-import SelectContent from '../Components/SelectContent'
-import Title from '../Components/Title'
+import SelectContent from '../components/SelectContent'
+import Title from '../components/Title'
 
 export default function Education() {
   return (

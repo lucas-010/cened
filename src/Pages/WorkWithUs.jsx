@@ -1,7 +1,7 @@
 import React from 'react'
-import BoxContact from '../Components/BoxContact'
-import Instructions from '../Components/Instructions'
-import Title from '../Components/Title'
+import BoxContact from '../components/BoxContact'
+import Instructions from '../components/Instructions'
+import Title from '../components/Title'
 
 export default function WorkWithUs() {
   return (
