@@ -1,12 +1,12 @@
+import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
 import React from 'react'
+import {MdOutlineExpandMore} from 'react-icons/md'
 
 export default function BoxInfo(props) {
   return (
-    <div className='flex justify-center mt-10'>
-			<div className='p-2 text-center bg-blue-600 w-3/4 rounded-xl'>
-				<h2 className='text-white text-2xl font-bold'>{props.title}</h2>
-				{props.text ? <p className='text-white text-lg mt-2'>{props.text}</p> : props.children}
-			</div>
-    </div>
+    <Accordion className='p-4 mt-2 m-auto w-11/12' >
+				<AccordionSummary expandIcon={<MdOutlineExpandMore/>} className='text-2xl font-bold'>{props.title}</AccordionSummary>
+				{props.text ? <AccordionDetails className='text-lg mt-2'>{props.text}</AccordionDetails> : props.children}
+    </Accordion>
   )
 }

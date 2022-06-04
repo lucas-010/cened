@@ -21,21 +21,21 @@ export default function Navbar({translateNavbar}) {
         <div className="navbar-links lg:items-center lg:h-full">
           <ul className='flex flex-col lg:flex-row h-full'>
             {listText.map((item, key)=>{
-              return <ListItem text={item.text} link={item.link} key={key}/>
+              return <ListItem text={item.text.toUpperCase()} link={item.link} key={key}/>
             })}
           </ul>
         </div>
 
         <div className="flex flex-col lg:flex-row lg:items-center p-2">
-            <Link to="/login" className='text-xs transition mt-3 ease-in-out hover:scale-110 hover:bg-blue-800 text-center duration-150 lg:mr-6 lg:mt-0 flex items-center p-2 rounded-xl'>
+            <Link to="/login" className='text-xs transition mt-3 ease-in-out hover:scale-110 hover:text-white hover:bg-blue-800 text-center duration-150 lg:mr-6 lg:mt-0 flex items-center p-2 rounded-xl'>
               <AiOutlineUser size={15}/> <span>ÁREA DO ALUNO</span>
             </Link>
             
-            <a href='https://cenedpenitenciario.azurewebsites.net/Home/LoginAgentePenitenciario' target='_blank' className="text-xs transition text-center mt-3 ease-in-out hover:bg-blue-800 hover:scale-110 duration-300 lg:mr-6 lg:mt-0 flex items-center p-2 rounded-xl">
+            <a href='https://cenedpenitenciario.azurewebsites.net/Home/LoginAgentePenitenciario' target='_blank' className="text-xs transition text-center mt-3 ease-in-out hover:bg-blue-800 hover:scale-110 hover:text-white duration-300 lg:mr-6 lg:mt-0 flex items-center p-2 rounded-xl">
               <FiUsers size={15}/> <span>PENITENCIÁRIA</span>
             </a>
 
-            <Link to='/cursos' className='hover:bg-blue-800 bg-red-600 text-center mt-3 lg:mt-0 lg:mr-6 transition-colors p-1.5 rounded-xl'>
+            <Link to='/cursos' className='hover:bg-blue-800 hover:text-white bg-red-600 text-center mt-3 lg:mt-0 lg:mr-6 transition-colors p-1.5 rounded-xl'>
               MATRICULE-SE
             </Link>
         </div>

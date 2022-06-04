@@ -19,8 +19,6 @@ export default function Header({setTranslateNavbar, translateNavbar}) {
     window.addEventListener("scroll", posicaoScroll);
     return () => window.removeEventListener("scroll", posicaoScroll);
   }, []);
-
-  console.log(collapse)
   return (
     <div className={`${collapse ? '' : 'fixed'} z-20 `}>
       <div style={{backgroundImage: `url(${imagem})`, backgroundSize: 'cover'}} className={`flex justify-center h-20 w-screen items-center ${collapse ? 'absolute' : ''}`}>
