@@ -13,12 +13,12 @@ export default function HowItWorks() {
     <div className='p-4 w-11/12 mt-10 m-auto'>
       <h2 className='mt-5 text-center text-4xl font-bold'>COMO FUNCIONA</h2>
 			<div className='flex justify-center max-w-full flex-wrap items-center flex-col lg:flex-row '>
-				<div className='text-black border-2 border-black mr-0 lg:mr-10 mt-10 rounded-xl h-80 flex flex-col items-center p-6 w-4/5 lg:w-1/4'>
-          <h2 className='uppercase text-center font-bold text-xl'>1º - Autorização</h2>
+      <div className='text-black bg-[#EBECF0] mr-0 lg:mr-10 mt-10 rounded-xl h-64 flex flex-col items-center p-6 w-4/5 lg:w-1/4'>
+          <h2 className='uppercase text-center font-bold text-xl'>1º - PASSO</h2>
           <BsCheckCircle size={70}/>
           <p className='text-lg text-center p-2'>Solicite a autorização de estudo junto à Unidade Prisional.</p>
           <a target={'_blank'} href="https://www.cenedqualificando.com.br/Arquivos/Requerimento.docx" rel="noreferrer">
-            <button className="bg-black hover:bg-white text-white font-semibold hover:text-black py-2 px-4 border flex items-center border-white transition-colors hover:border-black rounded">
+            <button className="bg-black hover:bg-transparent border-2 text-white font-semibold hover:text-black py-0 px-2 flex items-center transition-colors hover:border-black rounded">
               BAIXAR REQUERIMENTO <HiDownload size={40}/>
             </button>
           </a>

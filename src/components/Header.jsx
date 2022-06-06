@@ -27,7 +27,7 @@ export default function Header({setTranslateNavbar, translateNavbar}) {
       <div style={{backgroundImage: `url(${imagemBackground})`, backgroundSize: 'cover'}} className={`flex justify-around h-21 w-screen items-center ${collapse ? 'absolute' : ''}`}>
         <Link to={'/'}>
           <div style={{borderRadius: '100% 50% 100% 50%', transform: 'rotate(17deg)', backgroundColor: 'white', display: 'flex', justifyContent: 'center', width: '150%'}}>
-            <img style={{transform: 'rotate(-17deg)'}} src={logo} alt="Icone de um livro" className='w-24 h-24'/>
+            <img style={{transform: 'rotate(-17deg)'}} src={logo} alt="Icone de um livro" className='lg:w-24 lg:h-24 w-20 h-20'/>
           </div>
         </Link>
         <AiOutlineMenu onClick={()=> setTranslateNavbar(!translateNavbar)} className='absolute right-5 md:right-8 lg:hidden cursor-pointer block' color='#fff' size={45}/>
@@ -39,7 +39,7 @@ export default function Header({setTranslateNavbar, translateNavbar}) {
           <h1 className='font-bold'>PROGRAMA DE QUALIFICAÇÃO PROFISSIONAL <br/> ÀS PESSOAS PRIVADAS DE LIBERDADE</h1>
           <span className='text-base'>Ofertado há 9 anos!</span>
         </div>
-        <div className='lg:flex justify-center h-24 lg:flex-col-reverse text-white'>
+        <div className='lg:flex md:blck hidden justify-center h-24 lg:flex-col-reverse text-white'>
           <h1 className='mt-1 lg:text-xl'>Brasil - Brasília - DF</h1>
           <div className='flex lg:justify-between'><img className='lg:w-20 w-14' src={bandeiraBrasil} alt=''/>
           <img className='lg:w-20 w-16' src={bandeiraDF} alt=''/></div>

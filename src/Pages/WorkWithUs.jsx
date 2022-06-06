@@ -5,7 +5,7 @@ import Title from '../components/Title'
 
 export default function WorkWithUs() {
   return (
-    <div className='absolute w-screen'>
+    <div className='absolute mt-10 w-screen'>
 			<Title text={'TRABALHE CONOSCO!'}/>
 			<Instructions/>
 			<BoxContact/>
