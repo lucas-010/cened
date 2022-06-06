@@ -26,23 +26,23 @@ export default function Header({setTranslateNavbar, translateNavbar}) {
     <div className={`${collapse ? '' : 'fixed'} z-20 `}>
       <div style={{backgroundImage: `url(${imagemBackground})`, backgroundSize: 'cover'}} className={`flex justify-around h-21 w-screen items-center ${collapse ? 'absolute' : ''}`}>
         <Link to={'/'}>
-          <div style={{borderRadius: '100% 50% 100% 50%', transform: 'rotate(13deg)', backgroundColor: 'white', display: 'flex', justifyContent: 'center'}}>
-            <img style={{transform: 'rotate(-13deg)'}} src={logo} alt="Icone de um livro" className='w-16 h-16'/>
+          <div style={{borderRadius: '100% 50% 100% 50%', transform: 'rotate(17deg)', backgroundColor: 'white', display: 'flex', justifyContent: 'center', width: '150%'}}>
+            <img style={{transform: 'rotate(-17deg)'}} src={logo} alt="Icone de um livro" className='w-24 h-24'/>
           </div>
-          <span className='text-white font-bold'>BRASÍLIA - DF</span>
         </Link>
         <AiOutlineMenu onClick={()=> setTranslateNavbar(!translateNavbar)} className='absolute right-5 md:right-8 lg:hidden cursor-pointer block' color='#fff' size={45}/>
         <div className='hidden p-5 text-white lg:block text-center'>
-          <h1 className='font-bold'>CENTRO DE EDUCAÇÃO PROFISSIONAL</h1>
-          <span>Cadastrada no MEC / SISTEC Brasília - Distrito Federal</span>
+          <h1 className='font-bold text-lg'>CENTRO DE EDUCAÇÃO PROFISSIONAL</h1>
+          <span>Credenciada na Secretaria de Educação do DF<br/>Cadastrada no SISTEC / MEC </span>
         </div>
         <div className='hidden p-5 text-white lg:block text-center'>
           <h1 className='font-bold'>PROGRAMA DE QUALIFICAÇÃO PROFISSIONAL <br/> ÀS PESSOAS PRIVADAS DE LIBERDADE</h1>
-          <span>Ofertado há 9 anos!</span>
+          <span className='text-base'>Ofertado há 9 anos!</span>
         </div>
-        <div className='items-center justify-between h-24 flex-col flex'>
-          <img className='w-16' src={bandeiraBrasil} alt=''/>
-          <img className='w-16' src={bandeiraDF} alt=''/>
+        <div className='lg:flex justify-center h-24 lg:flex-col-reverse text-white'>
+          <h1 className='mt-1 lg:text-xl'>Brasil - Brasília - DF</h1>
+          <div className='flex lg:justify-between'><img className='lg:w-20 w-14' src={bandeiraBrasil} alt=''/>
+          <img className='lg:w-20 w-16' src={bandeiraDF} alt=''/></div>
         </div>
       </div>
       <Navbar translateNavbar={translateNavbar}/>
