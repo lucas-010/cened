@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function Address() {
   return (
-    <div className='bg-gray-400 mt-5 lg:mt-0 text-white lg:ml-5 h-full lg:w-2/6 rounded-lg p-2'>
-        <p>Av. Transversal Qd 21 Conj "M" Lote 23</p>
-        <p>Térreo Ed. CENED - Paranoá/DF</p>
+    <div className='bg-[#EBECF0] text-sm mt-2 w-full text-black rounded-lg p-2'>
+        <p className=''>Av. Transversal, Qd 21, Conj "M", Lotes 22/23</p>
+        <p>Edifício CENED - Brasília, Paranoá (DF)</p>
         <p>CEP: 71.572-113</p>
     </div>
   )

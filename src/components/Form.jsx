@@ -40,7 +40,7 @@ export default function Form() {
 							</label>
 							<input id='name-form' type="text" className='border-4 p-2 rounded-md outline-none border-gray-400'/>
 						</div>
-						<div className='flex flex-col mt-5 lg:mt-5'>
+						<div className='flex flex-col mt-5 lg:mt-0'>
 							<label htmlFor="uf-form">UF</label>
 							<select id="uf-form" className='border-gray-400 border-4 p-2 text-lg rounded-md' name="uf-form">
 								<option value="AC">Acre</option>
@@ -111,7 +111,7 @@ export default function Form() {
 				</div>
 			</form>
 			<BoxInfoContact/>
-			<Address/>
+			
 		</div>
 	)
 }

@@ -45,7 +45,7 @@ export default function SelectContent() {
 			<div className='flex flex-col items-center lg:flex-row justify-center'>
 				{boxContents.map((bx, key)=>{
 					return(
-						<div onClick={()=> setCurrentBox(bx.id)} key={bx.id} className={`${currentBox === bx.id ? 'bg-transparent border-black text-black' : 'bg-blue-600 text-white'} rounded-lg w-4/5 md:w-1/4 lg:w-1/5 p-2 text-center mt-5 lg:mt-0 text-lg lg:mr-4 cursor-pointer hover:border-black hover:bg-transparent border-2 hover:text-black transition-colors`}>
+						<div onClick={()=> setCurrentBox(bx.id)} key={bx.id} className={`${currentBox === bx.id ? 'bg-transparent border-black text-black' : 'bg-[#0000FF] text-white'} rounded-lg w-4/5 md:w-1/4 lg:w-1/5 p-2 text-center mt-5 lg:mt-0 text-lg lg:mr-4 cursor-pointer hover:border-black hover:bg-transparent border-2 hover:text-black transition-colors`}>
 							<span>{bx.text}</span>
 						</div>
 					)

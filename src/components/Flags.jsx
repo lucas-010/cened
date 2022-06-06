@@ -171,15 +171,15 @@ export default function Flags() {
     <div className='flex p-4 mt-10 lg:mt-0 w-11/12 justify-center flex-wrap m-auto'>
 			{flags.map((flag, key)=>{
         return(
-          <div className='w-48 p-2 hover:bg-blue-600 transition-colors flex flex-col justify-between items-center bg-zinc-800 h-36 m-5 text-center' key={key}>
+          <div className='w-48 p-2 hover:bg-[#0000FF] transition-colors flex flex-col justify-between items-center bg-[#F6B112] h-36 m-5 text-center' key={key}>
             <a href="/cursos/lista"><img className='w-40 h-28' src={flag.img} alt="" /></a>
             <span className='text-white font-bold'>{flag.text}</span>
           </div>
         )
       })}
-      <div className='flex bg-zinc-800 rounded-xl flex-col mr-5 mt-7 p-4 h-24 justify-center border-2'>
+      <div className='flex bg-[#0000FF] rounded-xl flex-col mr-5 mt-7 p-6 h-28 justify-center border-2'>
         <h3 className='text-white text-center text-xl'>Cursos cadastrados no MEC/SISTEC</h3>
-        <a target={'_blank'} className='text-center font-bold text-blue-500' href="https://www.cenedqualificando.com.br/Arquivos/relacao-cursos-cadastrados-mec-sistec.pdf" rel="noreferrer">CLIQUE AQUI! LISTA DE CURSOS!</a>
+        <a target={'_blank'} className='text-center font-extrabold text-white' href="https://www.cenedqualificando.com.br/Arquivos/relacao-cursos-cadastrados-mec-sistec.pdf" rel="noreferrer">CLIQUE AQUI! LISTA DE CURSOS!</a>
       </div>
     </div>
   )
