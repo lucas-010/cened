@@ -10,10 +10,6 @@ export default function Home() {
   return (
     <div className='absolute w-screen bg-white'>
       <Intro/>
-      <AboutSchool/>
-      <Tutoring/>
-      <HowItWorks/>
-      <MostInfo/>
     </div>
   )
 }
