@@ -19,7 +19,7 @@ export default function Navbar({translateNavbar}) {
     <div className='fixed'>
     <div className={`absolute ${translateNavbar ? 'translate-x-0' : 'translate-x-full'} lg:translate-x-0 h-screen overflow-y-hidden right-0 transition-transform lg:flex lg:items-center lg:relative px-4 justify-between bg-[#F6B112] lg:p-0 lg:right-0 text-black md:p-4 lg:h-12 lg:w-screen`}>
         <div className="navbar-links lg:items-center lg:h-full">
-          <ul className='flex flex-col lg:flex-row h-full items-center'>
+          <ul className='flex flex-col lg:flex-row h-full items-center xs:text-center'>
             {listText.map((item, key)=>{
               return <ListItem text={item.text.toUpperCase()} link={item.link} key={key}/>
             })}
