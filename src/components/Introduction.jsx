@@ -63,25 +63,25 @@ export default function Intro() {
         </div>
         <Collapse isOpened={open1}>
           <Accordion className='border-4 border-gray-400 mt-2 max-w-5xl'>
-          <AccordionDetails className='text-lg mt-2'><ul className='p-4 list-outside' style={{listStyleType: 'square'}}>{listText1.map((item, key)=>{return <li>{item.text}<br/><br/></li>})}</ul>
+          <AccordionDetails className='text-lg mt-2'><ul className='pl-4 list-outside' style={{listStyleType: 'square'}}>{listText1.map((item, key)=>{return <li>{item.text}</li>})}</ul>
           </AccordionDetails>
           </Accordion>
         </Collapse>
         <Collapse isOpened={open2}>
-          <Accordion className='border-4 border-gray-400 mt-2 max-w-5xl'>
-          <AccordionDetails className='text-lg mt-2'><ul className='p-4 list-outside' style={{listStyleType: 'square'}}>{listText2.map((item, key)=>{return <li>{item.text}<br/><br/></li>})}</ul>
+          <Accordion className='border-4 border-gray-400 max-w-5xl'>
+          <AccordionDetails className='text-lg mt-2'><ul className='pl-4 list-outside' style={{listStyleType: 'square'}}>{listText2.map((item, key)=>{return <li>{item.text}</li>})}</ul>
           </AccordionDetails>
           </Accordion>
         </Collapse>
         <Collapse isOpened={open3}>
-          <Accordion className='border-4 border-gray-400 mt-2 max-w-5xl'>
-          <AccordionDetails className='text-lg mt-2'><ul className='p-4 list-outside' style={{listStyleType: 'square'}}>{listText3.map((item, key)=>{return <li>{item.text}<br/><br/></li>})}</ul>
+          <Accordion className='border-4 border-gray-400 max-w-5xl'>
+          <AccordionDetails className='text-lg mt-2'><ul className='pl-4 list-outside' style={{listStyleType: 'square'}}>{listText3.map((item, key)=>{return <li>{item.text}</li>})}</ul>
           </AccordionDetails>
           </Accordion>
         </Collapse>
         <Collapse isOpened={open4}>
-          <Accordion className='border-4 border-gray-400 mt-2 max-w-5xl'>
-          <AccordionDetails className='text-lg mt-2'><ul className='p-4 list-outside' style={{listStyleType: 'square'}}>{listText4.map((item, key)=>{return <li>{item.text}<br/><br/></li>})}</ul>
+          <Accordion className='border-4 border-gray-400 max-w-5xl'>
+          <AccordionDetails className='text-lg mt-2'><ul className='pl-4 list-outside' style={{listStyleType: 'square'}}>{listText4.map((item, key)=>{return <li>{item.text}</li>})}</ul>
           </AccordionDetails>
           </Accordion>
         </Collapse>
