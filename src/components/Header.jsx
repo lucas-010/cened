@@ -23,7 +23,7 @@ export default function Header({setTranslateNavbar, translateNavbar}) {
     return () => window.removeEventListener("scroll", posicaoScroll);
   }, []);
   return (
-    <div className={`${collapse ? '' : 'fixed'} z-20 `}>
+    <div className={`${collapse ? 'fixed lg:relative' : 'fixed'} z-20 `}>
       <div style={{backgroundImage: `url(${imagemBackground})`, backgroundSize: 'cover'}} className={`flex lg:justify-around h-21 w-screen items-center ${collapse ? 'absolute' : ''}`}>
         <Link to={'/'}>
           <div style={{borderRadius: '100% 50% 100% 50%', transform: 'rotate(17deg)', backgroundColor: 'white', display: 'flex', justifyContent: 'center', width: '150%'}}>
