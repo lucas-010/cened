@@ -13,7 +13,7 @@ export default function Header({setTranslateNavbar, translateNavbar}) {
   let [collapse, setCollapse] = useState(false);
   useEffect(function () {
     function posicaoScroll() {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 20) {
         setCollapse(true);
       } else {
         setCollapse(false);
@@ -23,8 +23,8 @@ export default function Header({setTranslateNavbar, translateNavbar}) {
     return () => window.removeEventListener("scroll", posicaoScroll);
   }, []);
   return (
-    <div className={`${collapse ? 'fixed lg:relative' : 'fixed'} z-20 `}>
-      <div style={{backgroundImage: `url(${imagemBackground})`, backgroundSize: 'cover'}} className={`flex lg:justify-around h-21 w-screen items-center ${collapse ? 'absolute' : ''}`}>
+    <div className='fixed z-20'>
+      <div style={{backgroundImage: `url(${imagemBackground})`, backgroundSize: 'cover'}} className={`flex lg:justify-around h-21 w-screen items-center ${collapse ? 'lg:h-0' : ''}`}>
         <Link to={'/'}>
           <div style={{borderRadius: '100% 50% 100% 50%', transform: 'rotate(17deg)', backgroundColor: 'white', display: 'flex', justifyContent: 'center', width: '150%'}}>
             <img style={{transform: 'rotate(-17deg)'}} src={logo} alt="Icone de um livro" className='lg:w-24 lg:h-24 w-20 h-20'/>

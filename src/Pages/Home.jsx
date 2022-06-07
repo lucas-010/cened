@@ -8,7 +8,7 @@ import Intro from '../components/Introduction'
 
 export default function Home() {
   return (
-    <div className='w-screen bg-white'>
+    <div className='absolute w-screen bg-white' style={{background: 'linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(240,230,140,1) 100%)'}}>
       <div className='lg:h-28 h-20'></div>
       <Intro/>
     </div>
