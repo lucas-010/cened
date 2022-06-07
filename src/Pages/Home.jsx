@@ -8,7 +8,8 @@ import Intro from '../components/Introduction'
 
 export default function Home() {
   return (
-    <div className='absolute w-screen bg-white'>
+    <div className='w-screen bg-white'>
+      <div className='lg:h-28 h-20'></div>
       <Intro/>
     </div>
   )
