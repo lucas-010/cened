@@ -29,22 +29,22 @@ export default function Intro() {
         <h1 className='text-center font-bold lg:text-4xl'>PROGRAMA DE QUALIFICAÇÃO PROFISSIONAL ÀS PESSOAS PRIVADAS DE LIBERDADE</h1>
         <div className='flex mt-10 text-sm text-center lg:text-xl lg:font-bold'>
             <div className='flex justify-between flex-col items-center w-1/4 h-52 lg:h-96'>
-            <button className='lg:w-3/4 hover:w-4/5 h-fit' onClick={() => { allClosed ? setOpen1(true) : open1 ? setOpen1(false) : setTimeout(function(){setOpen1(true)}, 450); 
+            <button className='lg:w-2/3 hover:w-3/4 hover:transition-all h-fit' onClick={() => { allClosed ? setOpen1(true) : open1 ? setOpen1(false) : setTimeout(function(){setOpen1(true)}, 450); 
             setOpen2(false);setOpen3(false);setOpen4(false);}}><img src={slideImg1} alt='' /></button>
             <p>Reconstruindo a vida!</p>
             </div>
             <div className='flex justify-between flex-col items-center h-52 lg:h-96 w-1/4'>
-            <button className='lg:w-3/4 hover:w-4/5 h-fit' onClick={() => { allClosed ? setOpen2(true) : open2 ? setOpen2(false) : setTimeout(function(){setOpen2(true)}, 450); 
+            <button className='lg:w-2/3 hover:w-3/4 hover:transition-all h-fit' onClick={() => { allClosed ? setOpen2(true) : open2 ? setOpen2(false) : setTimeout(function(){setOpen2(true)}, 450); 
             setOpen1(false);setOpen3(false);setOpen4(false);}}> <img src={slideImg2} alt='' /> </button>
             <p>Educação para todos!</p>
             </div>
             <div className='flex justify-between flex-col items-center h-52 lg:h-96 w-1/4'>
-            <button className='lg:w-3/4 hover:w-4/5 h-fit' onClick={() => { allClosed ? setOpen3(true) : open3 ? setOpen3(false) : setTimeout(function(){setOpen3(true)}, 450); 
+            <button className='lg:w-2/3 hover:w-3/4 hover:transition-all h-fit' onClick={() => { allClosed ? setOpen3(true) : open3 ? setOpen3(false) : setTimeout(function(){setOpen3(true)}, 450); 
             setOpen1(false);setOpen2(false);setOpen4(false);}}> <img src={slideImg3} alt='' /> </button>
             <p>Formação profissional!</p>
             </div>
             <div className='flex justify-between flex-col items-center h-52 lg:h-96 w-1/4'>
-            <button className='lg:w-3/4 hover:w-4/5 h-fit' onClick={() => { allClosed ? setOpen4(true) : open4 ? setOpen4(false) : setTimeout(function(){setOpen4(true)}, 450); 
+            <button className='lg:w-2/3 hover:w-3/4 hover:transition-all h-fit' onClick={() => { allClosed ? setOpen4(true) : open4 ? setOpen4(false) : setTimeout(function(){setOpen4(true)}, 450); 
             setOpen2(false);setOpen3(false);setOpen1(false);}}><img src={slideImg4} alt='' /></button>
             <p>Remição da pena pelo estudo</p>
             </div>
