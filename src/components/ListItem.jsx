@@ -7,6 +7,7 @@ export default function ListItem({text, link}) {
 			<li className='p-2 m-2 text-base font-bold h-auto transition-colors ease-in delay-70 flex justify-center items-center hover:bg-blue-800 hover:text-white cursor-pointer rounded-xl'>
 			{text}
       </li>
+      
 		</Link>
   )
 }

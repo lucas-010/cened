@@ -8,6 +8,8 @@ export default function Form() {
 	const [valuePhone, setValuePhone] = useState('')
 	const [valueSmartPhone, setValueSmartPhone] = useState('')
 	const [valueEmail, setValueEmail] = useState('')
+	const [message, setMessage] = useState('')
+	const [uf, setUf] = useState('')
 	function cpfFormat(cpf){
 		cpf = cpf.replace(/[^\d]/g, "");
 		setValueCpf(cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4"))
@@ -27,6 +29,15 @@ export default function Form() {
 		setValuePhone('')
 		setValueSmartPhone('')
 		setValueEmail('')
+		setMessage('')
+	}
+
+	function submitForm(e){
+		if(valueCpf !== '' && valuePhone || valueSmartPhone !== '' && valueEmail !== '' &&  message !== ''){
+			alert(`CPF: ${valueCpf}`)
+		}else{
+			alert('Itens Incompletos')
+		}
 	}
   return (
 		<div className='w-11/12 flex flex-col lg:flex-row font-bold lg:w-3/4 mt-10 m-auto p-6 border-4 border-gray-400 rounded-xl'>
@@ -41,7 +52,7 @@ export default function Form() {
 						</div>
 						<div className='flex flex-col mt-5 lg:mt-0'>
 							<label htmlFor="uf-form">UF</label>
-							<select id="uf-form" className='border-gray-400 border-4 p-2 text-lg rounded-md' name="uf-form">
+							<select onChange={(e)=> setUf(e.target.value)} value={uf} id="uf-form" className='border-gray-400 border-4 p-2 text-lg rounded-md' name="uf-form">
 								<option value="AC">Acre</option>
 								<option value="AL">Alagoas</option>
 								<option value="AP">Amapá</option>
@@ -97,14 +108,14 @@ export default function Form() {
 
 					<div className='flex w-full flex-col mt-5'>
 						<label htmlFor="msg-form">Mensagem</label>
-						<textarea name="msg-form" id="msg-form" cols="30" rows="10" className='border-4 border-gray-400 resize-none rounded-xl p-2 text-lg outline-none w-full'></textarea>
+						<textarea value={message} onChange={(e)=> setMessage(e.target.value)} name="msg-form" id="msg-form" cols="30" rows="10" className='border-4 border-gray-400 resize-none rounded-xl p-2 text-lg outline-none w-full'></textarea>
 					</div>
 
 					<div className='py-4 flex w-full justify-around flex-wrap'>
 						<button type='reset' className='bg-red-600 hover:bg-red-700 transition-colors font-bold text-white p-4 rounded-lg text-xl' 
 						onClick={()=>clearElements()}>Limpar</button>
 
-						<button type="submit" className='bg-green-600 hover:bg-green-700 transition-colors ml-0 mt-5 lg:mt-0 md:mt-0 md:ml-5 lg:ml-5 font-bold text-white p-4 rounded-lg text-xl'>ENVIAR MENSAGEM</button>
+						<button type='button' onClick={()=> submitForm()} className='bg-green-600 hover:bg-green-700 transition-colors ml-0 mt-5 lg:mt-0 md:mt-0 md:ml-5 lg:ml-5 font-bold text-white p-4 rounded-lg text-xl'>ENVIAR MENSAGEM</button>
 						
 					</div>
 				</div>
