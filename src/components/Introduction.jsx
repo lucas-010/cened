@@ -3,7 +3,6 @@ import slideImg1 from '../images/slideIMG1.png'
 import slideImg2 from '../images/slideIMG2.png'
 import slideImg3 from '../images/slideIMG3.png'
 import slideImg4 from '../images/slideIMG4.png'
-import { useState } from 'react';
 import { Accordion, AccordionDetails} from '@mui/material'
 import {Collapse} from 'react-collapse';
 import './Introduction.css';
@@ -62,26 +61,26 @@ export default function Intro() {
             </div>
         </div>
         <Collapse isOpened={open1}>
-          <Accordion className='border-4 border-gray-400 mt-2 max-w-5xl'>
-          <AccordionDetails className='text-lg mt-2'><ul className='pl-4 list-outside' style={{listStyleType: 'square'}}>{listText1.map((item, key)=>{return <li>{item.text}</li>})}</ul>
+          <Accordion className='p-4 border-4 border-gray-400 mt-2 max-w-5xl'>
+          <AccordionDetails className='text-lg mt-2'>{listText1.map((item, key)=>{return <li key={key}>{item.text}</li>})}
           </AccordionDetails>
           </Accordion>
         </Collapse>
         <Collapse isOpened={open2}>
-          <Accordion className='border-4 border-gray-400 max-w-5xl'>
-          <AccordionDetails className='text-lg mt-2'><ul className='pl-4 list-outside' style={{listStyleType: 'square'}}>{listText2.map((item, key)=>{return <li>{item.text}</li>})}</ul>
+          <Accordion className='p-4 border-4 border-gray-400 mt-2 max-w-5xl'>
+          <AccordionDetails className='text-lg mt-2'>{listText2.map((item, key)=>{return <li key={key}>{item.text}</li>})}
           </AccordionDetails>
           </Accordion>
         </Collapse>
         <Collapse isOpened={open3}>
-          <Accordion className='border-4 border-gray-400 max-w-5xl'>
-          <AccordionDetails className='text-lg mt-2'><ul className='pl-4 list-outside' style={{listStyleType: 'square'}}>{listText3.map((item, key)=>{return <li>{item.text}</li>})}</ul>
+          <Accordion className='p-4 border-4 border-gray-400 mt-2 max-w-5xl'>
+          <AccordionDetails className='text-lg mt-2'>{listText3.map((item, key)=>{return <li key={key}>{item.text}</li>})}
           </AccordionDetails>
           </Accordion>
         </Collapse>
         <Collapse isOpened={open4}>
-          <Accordion className='border-4 border-gray-400 max-w-5xl'>
-          <AccordionDetails className='text-lg mt-2'><ul className='pl-4 list-outside' style={{listStyleType: 'square'}}>{listText4.map((item, key)=>{return <li>{item.text}</li>})}</ul>
+          <Accordion className='p-4 border-4 border-gray-400 mt-2 max-w-5xl'>
+          <AccordionDetails className='text-lg mt-2'>{listText4.map((item, key)=>{return <li key={key}>{item.text}</li>})}
           </AccordionDetails>
           </Accordion>
         </Collapse>

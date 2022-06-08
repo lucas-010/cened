@@ -5,22 +5,23 @@ import Contact from './Pages/Contact';
 import Courses from './Pages/Courses';
 import Education from './Pages/Education';
 import Home from './Pages/Home';
-import HowWork from './Pages/HowWork';
 import Institution from './Pages/Institution';
 import Login from './Pages/Login';
+import StepByStep from './Pages/StepByStep';
 import WorkWithUs from './Pages/WorkWithUs';
 
 function App() {
   const [translateNavbar, setTranslateNavbar] = useState(false)
+  const [visible, setVisible] = useState(false)
   return (
     <div className="App w-screen flex flex-col h-screen overflow-x-hidden">
       <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
-        <Header translateNavbar={translateNavbar} setTranslateNavbar={setTranslateNavbar}/>
+        <Header setVisible={setVisible} visible={visible} translateNavbar={translateNavbar} setTranslateNavbar={setTranslateNavbar}/>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/instituicao' element={<Institution/>}/>
           <Route path='/cursos' element={<Courses/>}/>
-          <Route path='/comofunciona' element={<HowWork/>}/>
+          <Route path='/passoapasso' element={<StepByStep/>}/>
           <Route path='/programaeducacional' element={<Education/>}/>
           <Route path='/contato' element={<Contact/>}/>
           <Route path='/trabalheconosco' element={<WorkWithUs/>}/>

@@ -5,24 +5,18 @@ import {AiOutlineUser} from 'react-icons/ai'
 import {FiUsers} from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 
-export default function Navbar({translateNavbar}) {
-  const listText = [
-    {text: 'Início', link: ''},
-    {text: 'Instituição', link: 'instituicao'},
-    {text: 'Cursos', link: 'cursos'},
-    {text: 'Como Funciona', link: 'comofunciona'},
-    /* {text: 'Programa Educacional', link: 'programaeducacional'}, */
-    {text: 'Contato', link: 'contato'},
-    {text: 'Trabalhe Conosco', link: 'trabalheconosco'}
-  ]
+export default function Navbar({translateNavbar, visible, setVisible}) {
   return (
     <div className='fixed'>
     <div className={`absolute ${translateNavbar ? 'translate-x-0' : 'translate-x-full'} lg:translate-x-0 h-screen overflow-y-auto right-0 transition-transform lg:flex lg:items-center lg:relative px-4 justify-between bg-[#F6B112] lg:p-0 lg:right-0 text-black md:p-4 lg:h-auto lg:w-screen`}>
         <div className="navbar-links lg:items-center lg:h-full">
-          <ul className='flex flex-col lg:flex-row h-full items-center text-center'>
-            {listText.map((item, key)=>{
-              return <ListItem text={item.text.toUpperCase()} link={item.link} key={key}/>
-            })}
+          <ul className='flex flex-col lg:flex-row h-full items-center xs:text-center'>
+            <ListItem text={'Início'} link=''/>
+            <ListItem text={'Instituição'} link='instituicao'/>
+            <ListItem text={'Cursos'} link='cursos'/>
+            <li onClick={()=> setVisible(true)} onMouseEnter={()=> setVisible(true)} onMouseLeave={()=> setTimeout(()=> {setVisible(false)}, 100)} className='p-2 m-2 text-base font-bold h-auto transition-colors cursor-default ease-in delay-70 flex justify-center items-center hover:bg-blue-800 hover:text-white rounded-xl'>Como Funciona</li>
+            <ListItem text={'Contato'} link='contato'/>
+            <ListItem text={'Trabalhe Conosco'} link='trabalheconosco'/>
           </ul>
         </div>
 

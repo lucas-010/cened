@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Card from '../components/Card'
 import {BsCheckCircle} from 'react-icons/bs'
 import {HiDownload} from 'react-icons/hi'
@@ -11,10 +11,13 @@ import {AiOutlineArrowDown} from 'react-icons/ai'
 import DetailInfo from '../components/DetailInfo'
 import Title from '../components/Title'
 
-export default function HowWork() {
+export default function StepByStep() {
+  useEffect(()=>{
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className='absolute mt-10 w-screen'>
-      <Title text='COMO FUNCIONA'>
+      <Title text='PASSO A PASSO'>
         VEJA O PASSO A PASSO DO FUNCIONAMENTO DO PROGRAMA EDUCACIONAL PARA INTERNOS DO SISTEMA PRISIONAL BRASILEIRO
       </Title>
 			<div className='flex justify-center mt-2 p-4 max-w-full flex-wrap items-center flex-col lg:flex-row '>
