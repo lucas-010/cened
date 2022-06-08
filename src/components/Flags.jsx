@@ -172,7 +172,7 @@ export default function Flags() {
 			{flags.map((flag, key)=>{
         return(
           <div className='w-48 p-2 transition-colors flex flex-col justify-between items-center h-36 m-5 text-center' key={key}>
-            <a href="/cursos/lista"><img className='w-40 h-28' src={flag.img} alt="" /></a>
+            <a href="/cursos/lista"><img className='hover:transition-all hover:w-44 hover:h-32 w-40 h-28' src={flag.img} alt="" /></a>
             <span className='text-black font-bold'>{flag.text}</span>
           </div>
         )

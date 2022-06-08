@@ -14,7 +14,7 @@ export default function Header({setTranslateNavbar, translateNavbar, visible, se
   let [collapse, setCollapse] = useState(false);
   useEffect(function () {
     function posicaoScroll() {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 20) {
         setCollapse(true);
       } else {
         setCollapse(false);

@@ -7,7 +7,7 @@ export default function Institution() {
     window.scrollTo(0, 0)
   }, [])
   return (
-    <div className='absolute pb-4 mt-10 w-screen bg-white'>
+    <div className='absolute pb-4 lg:mt-5 w-screen bg-white'>
 			<Title text={'INSTITUIÇÃO CENED'}/>
 			<div className='-mt-14'>
         <AboutSchool/>
