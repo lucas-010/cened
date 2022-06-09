@@ -10,14 +10,16 @@ import List from './Pages/List';
 import Login from './Pages/Login';
 import StepByStep from './Pages/StepByStep';
 import WorkWithUs from './Pages/WorkWithUs';
+import Register from './Pages/Register';
 
 function App() {
   const [translateNavbar, setTranslateNavbar] = useState(false)
   const [visible, setVisible] = useState(false)
+  let [id, setId] = useState()
   return (
     <div className="App w-screen flex flex-col h-screen overflow-x-hidden">
       <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
-        <Header setVisible={setVisible} visible={visible} translateNavbar={translateNavbar} setTranslateNavbar={setTranslateNavbar}/>
+        <Header id={id} setId={setId} setVisible={setVisible} visible={visible} translateNavbar={translateNavbar} setTranslateNavbar={setTranslateNavbar}/>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/instituicao' element={<Institution/>}/>
@@ -28,6 +30,7 @@ function App() {
           <Route path='/trabalheconosco' element={<WorkWithUs/>}/>
           <Route path='/lista/:id' element={<List/>}/>
           <Route path='/login' element={<Login/>}/>
+          <Route path='/register' element={<Register/>}/>
         </Routes>
       </BrowserRouter>
     </div>
