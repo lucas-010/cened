@@ -5,7 +5,7 @@ export default function MenuDropdown({collapse, visible, id}) {
   console.log(id);
   return (
     <div>
-        <ul className={`bg-[#EBECF0] top-52 left-44 text-center ${!(id === 1) ? 'hidden' : visible ? 'block' : 'hidden'} md:hover:block lg:hover:block fixed ${collapse ? 'lg:top-12' : 'lg:top-40'} md:top-56 rounded-b-lg mt-1 p-4 md:left-48 lg:left-52`}>
+        <ul className={`bg-[#EBECF0] top-52 left-44 text-center ${!(id === 1) ? 'hidden' : visible ? 'block' : 'hidden'} md:hover:block lg:hover:block fixed ${collapse ? 'lg:top-12' : 'lg:top-40'} md:top-56 rounded-b-lg mt-1 p-4 md:left-48 lg:left-64`}>
             <Link to='passoapasso'>
               <li className='p-2 text-base font-bold h-auto transition-colors ease-in delay-70 flex justify-center items-center hover:bg-blue-800 hover:text-white rounded-xl'>Passo a Passo</li>
             </Link>
