@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Title from '../components/Title'
+import axios from 'axios'
+import CourseBox from '../components/CourseBox'
+import {AiOutlineCheckSquare} from 'react-icons/ai'
+import {BsArrowRightShort} from 'react-icons/bs'
+import {BsCart4} from 'react-icons/bs'
+import CoursesSelect from '../components/CoursesSelect'
 
 export default function List() {
   const abbres = [
@@ -139,6 +145,7 @@ export default function List() {
     },
 
   ]
+
     let {id} = useParams()
     const [state, setState] = useState('')
     useEffect(()=>{
@@ -148,11 +155,25 @@ export default function List() {
         }else{
           return false
         }
+        
       })
     }, [])
+  
   return (
-    <div className='absolute mt-10 w-screen'>
-        <Title text={`CURSOS SUGERIDOS PARA O ESTADO: ${state}`}/>
+    <div className='absolute pb-5 mt-10 w-screen'>
+        <Title text={`CURSOS SUGERIDOS PARA O ESTADO: ${state}`}>
+          Selecione o(s) curso(s) <AiOutlineCheckSquare className='hidden lg:block md:block' size={25}/> e ao final clique na imagem do carrinho de compras<BsArrowRightShort className='hidden lg:block md:block' size={25}/> <BsCart4 className='hidden lg:block md:block' size={25}/>
+        </Title>
+        <div className='w-full flex justify-center'>
+        <div className='flex flex-col'>
+          <CourseBox image={'https://www.cenedqualificando.com.br/Content/images/cened/cursos/84.1.jpg'} id={1} title='DIREITO PROCESSUAL PENAL – PROCEDIMENTO COMUM, NULIDADES E RECURSOS' price={180} time={80} />
+
+          <CourseBox image={'https://www.cenedqualificando.com.br/Content/images/cened/cursos/84.1.jpg'} id={1} title='DIREITO PROCESSUAL PENAL – PROCEDIMENTO COMUM, NULIDADES E RECURSOS' price={180} time={80} />
+
+          <CourseBox image={'https://www.cenedqualificando.com.br/Content/images/cened/cursos/84.1.jpg'} id={1} title='DIREITO PROCESSUAL PENAL – PROCEDIMENTO COMUM, NULIDADES E RECURSOS' price={180} time={80} />
+        </div>
+        <CoursesSelect/>
+        </div>
     </div>
   )
 }

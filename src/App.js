@@ -11,6 +11,7 @@ import Login from './Pages/Login';
 import StepByStep from './Pages/StepByStep';
 import WorkWithUs from './Pages/WorkWithUs';
 import Register from './Pages/Register';
+import axios from 'axios'
 
 function App() {
   const [translateNavbar, setTranslateNavbar] = useState(false)

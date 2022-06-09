@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/cened/static/css/main.97a91f56.css",
+    "main.js": "/cened/static/js/main.30db9ebf.js",
+    "static/media/slideIMG2.png": "/cened/static/media/slideIMG2.c1fab22b8e783f3eeaf1.png",
+    "static/media/slideIMG3.png": "/cened/static/media/slideIMG3.3864416cab9c1b834bd3.png",
+    "static/media/slideIMG1.png": "/cened/static/media/slideIMG1.ce5957b1c8a3859eb2d7.png",
+    "static/media/slideIMG4.png": "/cened/static/media/slideIMG4.2acb2b2e9221dd414685.png",
+    "static/media/headerimg.png": "/cened/static/media/headerimg.f1baf7b5891246166279.png",
+    "static/media/loginIMG.jpeg": "/cened/static/media/loginIMG.cdc7bc19ab43277f2b24.jpeg",
+    "static/media/logo.png": "/cened/static/media/logo.3ffa65bfb56898df688c.png",
+    "static/media/bandeiradobrasil.jpg": "/cened/static/media/bandeiradobrasil.54251ad6dc86ef62d8d0.jpg",
+    "static/media/whatsappIcon.png": "/cened/static/media/whatsappIcon.69a72697fa4550c2f5d3.png",
+    "static/media/slick.svg": "/cened/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/cened/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/cened/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/cened/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/cened/index.html",
+    "main.97a91f56.css.map": "/cened/static/css/main.97a91f56.css.map",
+    "main.30db9ebf.js.map": "/cened/static/js/main.30db9ebf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.97a91f56.css",
+    "static/js/main.30db9ebf.js"
+  ]
+}
