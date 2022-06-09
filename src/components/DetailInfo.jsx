@@ -9,8 +9,8 @@ export default function DetailInfo() {
 			<BoxInfo title={'Entrega do material didático ao Reeducando (apostila)'}>
 				<p>Confirmado o pagamento do curso, a Escola CENED etiquetará o material didático, identificando o nome completo e o endereço prisional do Reeducando.</p>
 
-				<p><span className='text-blue-600 font-extrabold'>NO DISTRITO FEDERAL:</span> O material didático será entregue, em mãos, ao Chefe do Núcleo de Ensino da Unidade Prisional onde se encontra o Interno.</p>
-				<p><span className='text-blue-600 font-extrabold'>NOS ESTADOS:</span> O material didático será encaminhado, via Correios, aos cuidados do Chefe do Núcleo de Ensino ou Agente de Ensino da Unidade Prisional onde se encontra o Reeducando.</p>
+				<p><span className='font-extrabold'>NO DISTRITO FEDERAL:</span> O material didático será entregue, em mãos, ao Chefe do Núcleo de Ensino da Unidade Prisional onde se encontra o Interno.</p>
+				<p><span className='font-extrabold'>NOS ESTADOS:</span> O material didático será encaminhado, via Correios, aos cuidados do Chefe do Núcleo de Ensino ou Agente de Ensino da Unidade Prisional onde se encontra o Reeducando.</p>
 			</BoxInfo>
 
 			<BoxInfo title={'Distribuição do material didático aos Internos'} text={'O Chefe do Núcleo de Ensino ou Agente de Ensino da Unidade Prisional repassará a cada Reeducando o seu material didático - apostila.'}/>
@@ -24,32 +24,32 @@ export default function DetailInfo() {
 			<BoxInfo title={'Avaliação presencial'} text={'O Reeducando realizará, ao final de cada curso, uma prova escrita obrigatória para aferição do seu rendimento. O estudante/reeducando realizará uma única prova, quando obtiver a nota mínima para aprovação, que será de 60% (sessenta por cento) do total da pontuação. Quando o estudante não obtiver a pontuação exigida, deverá realizar outra prova (recuperação da aprendizagem).'}/>
 
 			<BoxInfo title={'Realização da prova final'}>
-				<p className='text-lg mt-5'><span className='text-blue-600 font-extrabold'>NO DISTRITO FEDERAL</span>
-					<br /> a) Aplicação: serão aplicadas aos Reeducandos, na sua Unidade Prisional, as provas escritas relativas aos cursos concluídos. As provas serão aplicadas pelo Chefe do Núcleo de Ensino ou por quem o Diretor do estabelecimento prisional vier a designar, acompanhado de funcionário da Escola CENED.</p>
+				<p className='text-lg mt-5'><span className='font-extrabold'>NO DISTRITO FEDERAL</span>
+					<br /> <b>a)</b> Aplicação: serão aplicadas aos Reeducandos, na sua Unidade Prisional, as provas escritas relativas aos cursos concluídos. As provas serão aplicadas pelo Chefe do Núcleo de Ensino ou por quem o Diretor do estabelecimento prisional vier a designar, acompanhado de funcionário da Escola CENED.</p>
 				
-				<p className='text-lg mt-5'>b) Ao final da aplicação: as provas serão recolhidas e encaminhadas pelo funcionário da Escola CENED para correção.</p>
+				<p className='text-lg mt-5'><b>b)</b> Ao final da aplicação: as provas serão recolhidas e encaminhadas pelo funcionário da Escola CENED para correção.</p>
 
-				<p className='text-lg mt-5'><span className='text-blue-600 font-extrabold'>NOS OUTROS ESTADOS</span>
-				<br />c) Recebimento: a Escola CENED encaminhará, via Correios, com antecedência de 10 (dez) dias, as provas para serem aplicadas.</p>
+				<p className='text-lg mt-5'><span className='font-extrabold'>NOS OUTROS ESTADOS</span>
+				<br /><b>c)</b> Recebimento: a Escola CENED encaminhará, via Correios, com antecedência de 10 (dez) dias, as provas para serem aplicadas.</p>
 
-				<p className='text-lg mt-5'>d) Aplicação: serão aplicadas aos Reeducandos, na sua Unidade Prisional, as provas escritas relativas aos cursos concluídos. As provas poderão ser aplicadas pelo Chefe do Núcleo de Ensino ou por quem o Diretor do estabelecimento prisional vier a designar.</p>
+				<p className='text-lg mt-5'><b>d)</b> Aplicação: serão aplicadas aos Reeducandos, na sua Unidade Prisional, as provas escritas relativas aos cursos concluídos. As provas poderão ser aplicadas pelo Chefe do Núcleo de Ensino ou por quem o Diretor do estabelecimento prisional vier a designar.</p>
 
-				<p className='text-lg mt-5'>e) Devolução: após realização, as provas serão encaminhadas, via Correios, à Escola CENED.</p>
+				<p className='text-lg mt-5'><b>e)</b> Devolução: após realização, as provas serão encaminhadas, via Correios, à Escola CENED.</p>
 			</BoxInfo>
 
 			<BoxInfo title={'Correção e resultado das provas'}>
 				<p className='text-lg mt-5'>A Equipe Pedagógica da Escola CENED fará a correção das provas. O Reeducando que: </p>
-				<p className='text-lg mt-5'>a) Obtiver a nota mínima para aprovação, que será de 60% (sessenta por cento) do total da pontuação, receberá o Certificado expedido por esta Instituição Educacional;</p>
+				<p className='text-lg mt-5'><b>a)</b> Obtiver a nota mínima para aprovação, que será de 60% (sessenta por cento) do total da pontuação, receberá o Certificado expedido por esta Instituição Educacional;</p>
 
-				<p className='text-lg mt-5'>b) Não alcançar a média mínima, realizará outra prova, isento de pagamento, contendo todo o conteúdo do curso estudado, porém com questões diferentes da primeira. Após estas duas avaliações, as demais serão aplicadas mediante pagamento de taxa.</p>
+				<p className='text-lg mt-5'><b>b)</b> Não alcançar a média mínima, realizará outra prova, isento de pagamento, contendo todo o conteúdo do curso estudado, porém com questões diferentes da primeira. Após estas duas avaliações, as demais serão aplicadas mediante pagamento de taxa.</p>
 			</BoxInfo>
 
 			<BoxInfo title={'Entrega do certificado ao Núcleo de Ensino'}>
-				<p className='text-lg mt-5 text-blue-600 font-extrabold'>NO DISTRITO FEDERAL</p>
+				<p className='text-lg mt-5 font-extrabold'>NO DISTRITO FEDERAL</p>
 
 				<p className='text-lg mt-5'>A Escola CENED entregará, em mãos, os certificados dos reeducandos aprovados, aos cuidados do Chefe do Núcleo de Ensino, que por sua vez, os repassarão às Assessorias Jurídicas das Unidades Prisionais para as providências quanto à confecção da certidão relativa ao estudo para fins de remição de pena, junto às Varas de Execuções Penais.</p>
 
-				<p className='text-lg mt-5 text-blue-600 font-extrabold'>NOS OUTROS ESTADOS</p>
+				<p className='text-lg mt-5 font-extrabold'>NOS OUTROS ESTADOS</p>
 
 				<p className='text-lg mt-5'>A Escola CENED encaminhará, via Correios, os certificados dos reeducandos aprovados, aos cuidados do Chefe do Núcleo de Ensino, que por sua vez, os repassarão às Assessorias Jurídicas das Unidades Prisionais para as providências quanto à confecção da certidão relativa ao estudo para fins de remição de pena, junto às Varas de Execuções Penais ou Criminais.</p>
 			</BoxInfo>
@@ -67,11 +67,11 @@ export default function DetailInfo() {
 			<BoxInfo title={'Ação de cooperação educacional entre a Escola CENED e a unidade prisional'}>
 				<p className='text-lg mt-5'>Em síntese, a realização dos cursos pelos Reeducandos será executada mediante a ação conjunta entre a Escola CENED e o Núcleo de Ensino do Estabelecimento Prisional, em cumprimento ao exercício do direito do preso à educação, com rotina semanal para: </p>
 
-				<p className='text-lg mt-5'>a) Entrega do material didático;</p>
+				<p className='text-lg mt-5'><b>a)</b> Entrega do material didático;</p>
 
-				<p className='text-lg mt-5'>b) Aplicação de provas; e</p>
+				<p className='text-lg mt-5'><b>b)</b> Aplicação de provas; e</p>
 
-				<p className='text-lg mt-5'>c) Entrega dos certificados.</p>
+				<p className='text-lg mt-5'><b>c)</b> Entrega dos certificados.</p>
 			</BoxInfo>
 
 			<BoxInfo title={'Matrícula em um novo curso'} text={'Será realizado um curso de cada vez, sendo que o início de um ocorrerá subsequentemente ao término de outro. O aluno/reeducando poderá ser matriculado em mais de um curso: o PRIMEIRO CURSO será ativado e os demais ficarão agendados no sistema, aguardando conclusão do curso em realização. Na hipótese de matrícula em mais de um curso, será encaminhado à Unidade Prisional o material didático, individualmente, de cada curso, conforme a sua conclusão.'}/>
