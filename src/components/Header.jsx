@@ -10,7 +10,7 @@ import bandeiraBrasil from '../images/flags/bandeiradobrasil.jpg';
 import MenuDropdown from './MenuDropdown';
 
 
-export default function Header({setTranslateNavbar, translateNavbar, visible, setVisible}) {
+export default function Header({setTranslateNavbar, translateNavbar, visible, setVisible, id, setId}) {
   let [collapse, setCollapse] = useState(false);
   useEffect(function () {
     function posicaoScroll() {
@@ -24,7 +24,7 @@ export default function Header({setTranslateNavbar, translateNavbar, visible, se
     return () => window.removeEventListener("scroll", posicaoScroll);
   }, []);
   return (
-    <div className={`${collapse ? '' : 'fixed'} z-20 `}>
+    <div className={`fixed z-20 `}>
       <div style={{backgroundImage: `url(${imagemBackground})`, backgroundSize: 'cover'}} className={`flex lg:justify-around w-screen items-center ${collapse ? 'lg:h-0' : ''}`}>
         <Link to={'/'}>
           <div style={{borderRadius: '100% 50% 100% 50%', transform: 'rotate(17deg)', backgroundColor: 'white', display: 'flex', justifyContent: 'center', width: '150%'}}>
@@ -46,8 +46,8 @@ export default function Header({setTranslateNavbar, translateNavbar, visible, se
           <img className='lg:w-20 w-16' src={bandeiraDF} alt=''/></div>
         </div>
       </div>
-      <Navbar setVisible={setVisible} translateNavbar={!translateNavbar}/>
-      <MenuDropdown collapse={collapse} visible={visible}/>
+      <Navbar setVisible={setVisible} translateNavbar={!translateNavbar} setId={setId}/>
+      <MenuDropdown collapse={collapse} visible={visible} id={id}/>
     </div>
   )
 }
