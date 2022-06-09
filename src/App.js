@@ -17,7 +17,7 @@ function App() {
   const [visible, setVisible] = useState(false)
   let [id, setId] = useState()
   return (
-    <div className="App w-screen flex flex-col h-screen overflow-x-hidden">
+    <div className="App w-screen flex flex-col h-screen overflow-x-hidden overflow-y-auto">
       <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
         <Header id={id} setId={setId} setVisible={setVisible} visible={visible} translateNavbar={translateNavbar} setTranslateNavbar={setTranslateNavbar}/>
         <Routes>

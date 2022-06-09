@@ -20,22 +20,17 @@ export default function Box() {
 		}
 	}
   return (
-    <div className='flex flex-col w-screen lg:mt-16'>
-      <ul style={{listStyleType:'square'}} className='list-outside bg-[#EBECF0] p-2 pl-6 pr-6 rounded-xl border-black border-2 self-center lg:ml-10 lg:self-start lg:w-fit w-2/3 lg:text-xl'>
-        <h1 className='font-bold'>
-          INSTRUÇÕES:
-        </h1>
-        <li>Se já for cadastrado, digite o seu LOGIN e SENHA.</li>
-        <li>Se ainda não for cadastrado, clique em PRIMEIRO ACESSO.</li>
-      </ul>
+    <div className='flex flex-col w-screen'>
       <div className='flex flex-col items-center self-center mt-10 lg:w-1/2'> 
         <img className='lg:w-4/12 w-1/2 rounded-md mb-10' src={loginIMG} alt=''/>
         <form className='flex flex-col p-5 bg-[#EBECF0] lg:w-1/2 items-center text-xl'>
         <div className='w-5/6 flex items-center bg-white mb-2'><MdAccountBox/><input placeholder='CPF' type='text' id='cpf-form' onChange={(e)=> cpfFormat(e.target.value)} value={valueCpf} maxLength={14} className='p-2 w-full'></input></div>
         <div className='w-5/6 flex items-center bg-white mb-2'><RiLockPasswordFill/><input placeholder='Senha' maxLength={30} id='password' type='password' className='p-2 w-full'></input></div>
         <button className='bg-blue-900 text-white mb-4 items-center justify-center rounded-md p-2 w-4/6 flex' type='button' onClick={()=> submitForm()}><ImEnter/>&nbsp; Acessar</button>
-        <Link to='/register' className='text-base w-4/6 bg-white text-black items-center justify-center rounded-md p-1 flex'>
+        <Link to='/register' className='mb-4 text-base w-4/6 bg-white text-black items-center justify-center rounded-md p-1 flex'>
         <button type='button' className='flex'><MdPersonAddAlt1/>&nbsp; Primeiro Acesso</button>
+        </Link>
+        <Link to='/register' className='mb-4 text-base w-4/6 bg-white text-black items-center justify-center rounded-md p-1 flex'><button type='button' className='flex'><MdPersonAddAlt1/>&nbsp; Esqueci minha senha</button>
         </Link>
         </form>
       </div>

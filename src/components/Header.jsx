@@ -46,7 +46,7 @@ export default function Header({setTranslateNavbar, translateNavbar, visible, se
           <img className='lg:w-20 w-16' src={bandeiraDF} alt=''/></div>
         </div>
       </div>
-      <Navbar setVisible={setVisible} translateNavbar={!translateNavbar} setId={setId}/>
+      <Navbar setVisible={setVisible} translateNavbar={!translateNavbar} setId={setId} id={id}/>
       <MenuDropdown collapse={collapse} visible={visible} id={id}/>
     </div>
   )

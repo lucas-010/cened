@@ -1,0 +1,15 @@
+input{
+    margin-top: 20px;
+    width: 15%;
+    height: 40px;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: groove;
+    border-color: grey;
+    margin-right: 10px;
+}
+#Form1, #Form2, #Form3, #Form4{   
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+}
