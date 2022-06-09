@@ -1,15 +1,39 @@
-input{
-    margin-top: 20px;
+.inputs{
     width: 15%;
-    height: 40px;
     border-radius: 5px;
     border-width: 2px;
-    border-style: groove;
-    border-color: grey;
+    height: 40px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     margin-right: 10px;
 }
-#Form1, #Form2, #Form3, #Form4{   
-    flex-wrap: wrap;
+#Form1, #Form2, #Form3, #Form4{
+    margin-bottom: 10px;
+    width: 90%;   
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-self: center;
+    align-items: center;
 }
+#Form4{
+    align-self: flex-start;
+    justify-content: flex-start;
+}
+#outterForm4{
+    margin-left: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+@media screen and (max-width: 1200px) {
+    .inputs{
+        width: 80%;
+    }
+    #outterForm4{
+        margin-left: 0;
+    }
+    #Form4{
+        justify-content: center;
+    }
+} 
