@@ -32,7 +32,7 @@ export default function Form() {
 		setMessage('')
 	}
 
-	function submitForm(e){
+	function submitForm(){
 		if(valueCpf !== '' && valuePhone || valueSmartPhone !== '' && valueEmail !== '' &&  message !== ''){
 			alert(`CPF: ${valueCpf}`)
 		}else{
