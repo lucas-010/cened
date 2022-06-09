@@ -6,6 +6,7 @@ import Courses from './Pages/Courses';
 import Education from './Pages/Education';
 import Home from './Pages/Home';
 import Institution from './Pages/Institution';
+import List from './Pages/List';
 import Login from './Pages/Login';
 import StepByStep from './Pages/StepByStep';
 import WorkWithUs from './Pages/WorkWithUs';
@@ -25,6 +26,7 @@ function App() {
           <Route path='/programaeducacional' element={<Education/>}/>
           <Route path='/contato' element={<Contact/>}/>
           <Route path='/trabalheconosco' element={<WorkWithUs/>}/>
+          <Route path='/lista/:id' element={<List/>}/>
           <Route path='/login' element={<Login/>}/>
         </Routes>
       </BrowserRouter>

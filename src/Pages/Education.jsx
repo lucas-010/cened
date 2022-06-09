@@ -8,8 +8,7 @@ export default function Education() {
   }, [])
   return (
     <div className='absolute mt-10 pb-4 w-screen'>
-			<Title text={'Programa de Qualificação Profissional às Pessoas Privadas de Liberdade.'}>
-        PROGRAMA DE QUALIFICAÇÃO PROFISSIONAL AOS INTERNOS DO SISTEMA PRISIONAL BRASILEIRO
+			<Title text={'Programa de Qualificação Profissional às Pessoas Privadas de Liberdade'}>
       </Title>
 			<SelectContent/>
     </div>

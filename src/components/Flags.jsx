@@ -34,136 +34,163 @@ export default function Flags() {
   const flags = [
     {
       img: AC,
-      text: 'Acre'
+      text: 'Acre',
+      abbre: 'ac'
     },
 
     {
       img: AL,
-      text: 'Alagoas'
+      text: 'Alagoas',
+      abbre: 'al'
     },
 
     {
       img: AM,
-      text: 'Amazonas'
+      text: 'Amazonas',
+      abbre: 'am'
     },
 
     {
       img: AP,
-      text: 'Amapá'
+      text: 'Amapá',
+      abbre: 'ap'
     },
 
     {
       img: BA,
-      text: 'Bahia'
+      text: 'Bahia',
+      abbre: 'ba'
     },
 
     {
       img: CE,
-      text: 'Ceará'
+      text: 'Ceará',
+      abbre: 'ce'
     },
 
     {
       img: DF,
-      text: 'Distrito Federal'
+      text: 'Distrito Federal',
+      abbre: 'df'
     },
 
     {
       img: ES,
-      text: 'Espírito Santo'
+      text: 'Espírito Santo',
+      abbre: 'es'
     },
 
     {
       img: GO,
-      text: 'Goiás'
+      text: 'Goiás',
+      abbre: 'go'
     },
 
     {
       img: MA,
-      text: 'Maranhão'
+      text: 'Maranhão',
+      abbre: 'ma'
     },
 
     {
       img: MS,
-      text: 'Mato Grosso do Sul'
+      text: 'Mato Grosso do Sul',
+      abbre: 'ms'
     },
     
     {
       img: MT,
-      text: 'Mato Grosso'
+      text: 'Mato Grosso',
+      abbre: 'mt'
     },
 
     {
       img: MG,
-      text: 'Minas Gerais'
+      text: 'Minas Gerais',
+      abbre: 'mg'
     },
 
     {
       img: PA,
-      text: 'Pará'
+      text: 'Pará',
+      abbre: 'pa'
     },
 
     {
       img: PB,
-      text: 'Paraíba'
+      text: 'Paraíba',
+      abbre: 'pb'
     },
 
     {
       img: PR,
-      text: 'Paraná'
+      text: 'Paraná',
+      abbre: 'pr'
     },
     {
       img: PE,
-      text: 'Pernambuco'
+      text: 'Pernambuco',
+      abbre: 'pe'
     },
 
     {
       img: PI,
-      text: 'Piauí'
+      text: 'Piauí',
+      abbre: 'pi'
     },
 
     {
       img: RJ,
-      text: 'Rio de Janeiro'
+      text: 'Rio de Janeiro',
+      abbre: 'rj'
     },
 
     {
       img: RN,
-      text: 'Rio Grande do Norte'
+      text: 'Rio Grande do Norte',
+      abbre: 'rn'
     },
 
     {
       img: RO,
-      text: 'Rondônia'
+      text: 'Rondônia',
+      abbre: 'ro'
     },
 
     {
       img: RR,
-      text: 'Roraima'
+      text: 'Roraima',
+      abbre: 'rr'
     },
 
     {
       img: RS,
-      text: 'Rio Grande do Sul'
+      text: 'Rio Grande do Sul',
+      abbre: 'rs'
     },
 
     {
       img: SC,
-      text: 'Santa Catarina'
+      text: 'Santa Catarina',
+      abbre: 'sc'
     },
 
     {
       img: SE,
-      text: 'Sergipe'
+      text: 'Sergipe',
+      abbre: 'se'
     },
 
     {
       img: SP,
-      text: 'São Paulo'
+      text: 'São Paulo',
+      abbre: 'sp'
     },
 
     {
       img: TO,
-      text: 'Tocantins'
+      text: 'Tocantins',
+      abbre: 'to'
     },
 
   ]
@@ -172,7 +199,7 @@ export default function Flags() {
 			{flags.map((flag, key)=>{
         return(
           <div className='w-48 p-2 transition-colors flex flex-col justify-between items-center h-36 m-5 text-center' key={key}>
-            <a href="/cursos/lista"><img className='md:hover:transition-all hover:w-44 hover:h-32 w-40 h-28' src={flag.img} alt="" /></a>
+            <a href={`lista/${flag.abbre}`}><img className='md:hover:transition-all hover:w-44 hover:h-32 w-40 h-28' src={flag.img} alt="" /></a>
             <span className='text-black font-bold'>{flag.text}</span>
           </div>
         )
