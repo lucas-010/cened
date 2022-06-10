@@ -1,7 +1,4 @@
 import React from 'react'
-import Slider from 'react-slick'
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
 import AC from '../images/flags/AC.png'
 import AL from '../images/flags/AL.png'
 import AM from '../images/flags/AM.png'
