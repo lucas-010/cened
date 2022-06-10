@@ -29,7 +29,7 @@ function App() {
           <Route path='/programaeducacional' element={<Education/>}/>
           <Route path='/contato' element={<Contact/>}/>
           <Route path='/trabalheconosco' element={<WorkWithUs/>}/>
-          <Route path='/lista/:id' element={<List/>}/>
+          <Route path='/lista/:idState' element={<List/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register/>}/>
         </Routes>

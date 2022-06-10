@@ -19,7 +19,7 @@ export default function StepByStep() {
   return (
     <div className='absolute mt-10 w-screen min-h-screen'>
       <Title text='PASSO-A-PASSO'>
-        VEJA O PASSO A PASSO DO FUNCIONAMENTO DO PROGRAMA EDUCACIONAL PARA INTERNOS DO SISTEMA PRISIONAL BRASILEIRO
+        <p className='text-center flex text-lg items-center font-bold'>VEJA O PASSO A PASSO DO FUNCIONAMENTO DO PROGRAMA EDUCACIONAL PARA INTERNOS DO SISTEMA PRISIONAL BRASILEIRO</p>
       </Title>
 			<div className='flex justify-center mt-2 p-4 max-w-full flex-wrap items-center flex-col lg:flex-row '>
       <div className='text-black bg-[#EBECF0] mr-0 lg:mr-10 mt-10 rounded-xl h-64 flex flex-col items-center p-6 w-4/5 lg:w-1/4'>

@@ -10,7 +10,7 @@ export default function Courses() {
   return (
     <div className='absolute bg-[#EBECF0] mt-10 w-screen min-h-screen'>
 			<Title text={'CURSOS SUGERIDOS POR ESTADO'}>
-				SELECIONE O ESTADO ONDE LOCALIZA-SE A PENITENCIÁRIA DO INTERNO/CUSTODIADO.
+				<p className='text-center flex text-lg items-center font-bold'>SELECIONE O ESTADO ONDE LOCALIZA-SE A PENITENCIÁRIA DO INTERNO/CUSTODIADO.</p>
 			</Title>
 			<Flags/>
 			<Footer/>

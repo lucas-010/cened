@@ -4,7 +4,7 @@ export default function Title(props) {
   return (
     <div className='mt-20 w-full h-28 flex flex-col justify-center items-center p-2 lg:mt-36'>
 			<h2 className='text-2xl uppercase lg:text-4xl font-bold text-center'>{props.text}</h2>
-			<p className='text-center flex text-lg items-center font-bold'>{props.children}</p>
+			{props.children}
 		</div>
   )
 }

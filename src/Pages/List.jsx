@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Title from '../components/Title'
-import axios from 'axios'
 import CourseBox from '../components/CourseBox'
-import {AiOutlineCheckSquare} from 'react-icons/ai'
 import {BsArrowRightShort} from 'react-icons/bs'
 import {BsCart4} from 'react-icons/bs'
-import { RiCheckboxBlankFill } from 'react-icons/ri'
 import { MdCheckBox } from 'react-icons/md'
 import CoursesSelect from '../components/CoursesSelect'
 import Footer from '../components/Footer'
@@ -149,11 +146,27 @@ export default function List() {
 
   ]
 
-    let {id} = useParams()
+  const [coursesSelected, setCoursesSelected] = useState([])
+
+  const addCourseList = (id, image ,title, time, price)=>{
+    let newCourse = [...coursesSelected, {id, image, title, time, price}]
+    setCoursesSelected(newCourse)
+  }
+  const removeCourseList = (id)=>{
+    let newCoursesList = []
+
+    coursesSelected.map((c)=>{
+      if(c.id !== id){
+        newCoursesList.push(c)
+      }
+    })
+    setCoursesSelected(newCoursesList)
+  }
+    let {idState} = useParams()
     const [state, setState] = useState('')
     useEffect(()=>{
       abbres.forEach((a)=>{
-        if(a.abbre === id){
+        if(a.abbre === idState){
           setState(a.text)
         }else{
           return false
@@ -163,21 +176,21 @@ export default function List() {
     }, [])
   
   return (
-    <div className='absolute pb-5 mt-10 w-screen min-h-screen'>
+    <div className='absolute mt-10 w-screen min-h-screen'>
         <Title text={`CURSOS SUGERIDOS PARA O ESTADO: ${state}`}>
-          <p className='text-2xl flex items-center'>
+          <p className='text-2xl text-center flex items-center font-bold'>
           Selecione o(s) curso(s) <MdCheckBox color='#F6B112' className='hidden lg:block md:block' size={25}/> e, ao final, clique na imagem do carrinho de compras<BsArrowRightShort className='hidden lg:block md:block' size={25}/> <BsCart4 className='hidden lg:block md:block' size={25}/>
           </p>
         </Title>
-        <div className='w-full flex justify-center'>
-        <div className='flex flex-col'>
-          <CourseBox image={'https://www.cenedqualificando.com.br/Content/images/cened/cursos/84.1.jpg'} id={1} title='DIREITO PROCESSUAL PENAL – PROCEDIMENTO COMUM, NULIDADES E RECURSOS' price={180} time={80} />
+        <div className='w-full flex-col items-center lg:items-start lg:flex-row flex justify-center'>
+        <div className='flex mb-2 flex-col items-center'>
+          <CourseBox addCourseList={addCourseList} removeCourseList={removeCourseList} image={'https://www.cenedqualificando.com.br/Content/images/cened/cursos/84.1.jpg'} id={1} title='DIREITO PROCESSUAL PENAL – PROCEDIMENTO COMUM, NULIDADES E RECURSOS' price={180} time={80} />
 
-          <CourseBox image={'https://www.cenedqualificando.com.br/Content/images/cened/cursos/84.1.jpg'} id={1} title='DIREITO PROCESSUAL PENAL – PROCEDIMENTO COMUM, NULIDADES E RECURSOS' price={180} time={80} />
+          <CourseBox addCourseList={addCourseList} removeCourseList={removeCourseList} image={'https://www.cenedqualificando.com.br/Content/images/cened/cursos/84.1.jpg'} id={2} title='DIREITO PROCESSUAL PENAL – PROCEDIMENTO COMUM, NULIDADES E RECURSOS' price={180} time={80} />
 
-          <CourseBox image={'https://www.cenedqualificando.com.br/Content/images/cened/cursos/84.1.jpg'} id={1} title='DIREITO PROCESSUAL PENAL – PROCEDIMENTO COMUM, NULIDADES E RECURSOS' price={180} time={80} />
+          <CourseBox addCourseList={addCourseList} removeCourseList={removeCourseList} image={'https://www.cenedqualificando.com.br/Content/images/cened/cursos/84.1.jpg'} id={3} title='DIREITO PROCESSUAL PENAL – PROCEDIMENTO COMUM, NULIDADES E RECURSOS' price={180} time={80} />
         </div>
-        <CoursesSelect/>
+        <CoursesSelect courses={coursesSelected}/>
         </div>
       <Footer/>
     </div>

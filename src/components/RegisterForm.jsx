@@ -47,7 +47,7 @@ export default function RegisterForm(){
 	[valuePenitenciaria, setValuePenitenciaria] = useState(''),
 	[valueBloco, setValueBloco] = useState(''),
 	[valueAla, setValueAla] = useState(''),
-	[valueCela, setValueCela] = useState('aaa'),
+	[valueCela, setValueCela] = useState(''),
 	[valueCondicao, setValueCondicao] = useState(''),
 	[valueRegime, setValueRegime] = useState(''),
     [generalClauses, setGeneralClauses] = useState(false);
@@ -55,14 +55,18 @@ export default function RegisterForm(){
     function clearElements(){
         setValueNomeAluno(''); setValueCpfAluno(''); setValueAtuacaoAluno(''); setValueAla(''); setValueBairroAluno(''); setValueBloco(''); setValueCela(''); setValueCelularResp(''); setValueCepAluno(''); setValueCidadeAluno(''); setValueCondicao(''); setValueCpfResp(''); setValueDtNascAluno(''); setValueEmail(''); setValueEnderAluno(''); setValueFoneResidResp(''); setValueFoneTrabResp(''); setValueGrauInstAluno(''); setValueIdentidadeAluno(''); setValueInfoPen(''); setValueMaeAluno(''); setValueNacionAluno(''); setValueNaturAluno(''); setValueNomeResp(''); setValueOrgExpAluno(''); setValueOrgExpResp(''); setValuePaiAluno(''); setValuePenitenciaria(''); setValueProfAluno(''); setValueRegime(''); setValueRgResp(''); setValueSexoAluno(''); setValueSexoResp(''); setValueUfNaturAluno(''); setValueUfPris(''); setValueUfResidAluno(''); setValueVinculoResp('');
 	}
-    let listElements = {valueNomeAluno, valueCpfAluno, valueAtuacaoAluno, valueAla, valueBairroAluno, valueBloco, valueCela, valueCelularResp, valueCepAluno, valueCidadeAluno, valueCondicao, valueCpfResp, valueDtNascAluno, valueEmail, valueEnderAluno, valueFoneResidResp, valueFoneTrabResp, valueGrauInstAluno, valueIdentidadeAluno, valueInfoPen, valueMaeAluno, valueNacionAluno, valueNaturAluno, valueNomeResp, valueOrgExpAluno, valueOrgExpResp, valuePaiAluno, valuePenitenciaria, valueProfAluno, valueRegime, valueRgResp, valueSexoAluno, valueSexoResp, valueUfNaturAluno, valueUfPris, valueUfResidAluno}
+    const listElements = {valueNomeAluno, valueCpfAluno, valueAtuacaoAluno, valueAla, valueBairroAluno, valueBloco, valueCela, valueCelularResp, valueCepAluno, valueCidadeAluno, valueCondicao, valueCpfResp, valueDtNascAluno, valueEmail, valueEnderAluno, valueFoneResidResp, valueFoneTrabResp, valueGrauInstAluno, valueIdentidadeAluno, valueInfoPen, valueMaeAluno, valueNacionAluno, valueNaturAluno, valueNomeResp, valueOrgExpAluno, valueOrgExpResp, valuePaiAluno, valuePenitenciaria, valueProfAluno, valueRegime, valueRgResp, valueSexoAluno, valueSexoResp, valueUfNaturAluno, valueUfPris, valueUfResidAluno}
+    const test = ["valueNomeAluno", "valueCpfAluno", "valueAtuacaoAluno", "valueAla", "valueBairroAluno", "valueBloco", "valueCela", "valueCelularResp", "valueCepAluno", "valueCidadeAluno", "valueCondicao", "valueCpfResp", "valueDtNascAluno", "valueEmail", "valueEnderAluno", "valueFoneResidResp", "valueFoneTrabResp", "valueGrauInstAluno", "valueIdentidadeAluno", "valueInfoPen", "valueMaeAluno", "valueNacionAluno", "valueNaturAluno", "valueNomeResp", "valueOrgExpAluno", "valueOrgExpResp", "valuePaiAluno", "valuePenitenciaria", "valueProfAluno", "valueRegime", "valueRgResp", "valueSexoAluno", "valueSexoResp", "valueUfNaturAluno", "valueUfPris", "valueUfResidAluno"]
 
     function Submit(){
-        let array = [];
-        listElements.forEach(function(item){});
-        if(array.length > 0){
-            alert('Itens incompletos:',array);
-        }
+        let elementsEmpty = []
+        test.forEach(t=>{
+            if(listElements[t] === '' || undefined){
+                elementsEmpty.push(t)
+            }
+        })
+        clearElements()
+        console.log(elementsEmpty)
     }
     function cpfAlunoFormat(cpf){
 		cpf = cpf.replace(/[^\d]/g, "");

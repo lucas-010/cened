@@ -4,9 +4,11 @@ import {MdOutlineExpandMore} from 'react-icons/md'
 
 export default function BoxInfo(props) {
   return (
-    <Accordion className='p-4 border-2 border-black mt-2 m-auto w-11/12' >
+    <div className="w-11/12 rounded-2xl mt-2 m-auto">
+      <Accordion className='p-4 border-2 border-[#D1D5DB] h-full w-full'>
 				<AccordionSummary expandIcon={<MdOutlineExpandMore/>} className='text-2xl font-bold'>{props.title}</AccordionSummary>
 				{props.text ? <AccordionDetails className='text-lg mt-2'>{props.text}</AccordionDetails> : props.children}
     </Accordion>
+    </div>
   )
 }
