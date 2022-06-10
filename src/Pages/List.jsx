@@ -9,6 +9,7 @@ import {BsCart4} from 'react-icons/bs'
 import { RiCheckboxBlankFill } from 'react-icons/ri'
 import { MdCheckBox } from 'react-icons/md'
 import CoursesSelect from '../components/CoursesSelect'
+import Footer from '../components/Footer'
 
 export default function List() {
   const abbres = [
@@ -162,7 +163,7 @@ export default function List() {
     }, [])
   
   return (
-    <div className='absolute pb-5 mt-10 w-screen'>
+    <div className='absolute pb-5 mt-10 w-screen min-h-screen'>
         <Title text={`CURSOS SUGERIDOS PARA O ESTADO: ${state}`}>
           <p className='text-2xl flex items-center'>
           Selecione o(s) curso(s) <MdCheckBox color='#F6B112' className='hidden lg:block md:block' size={25}/> e, ao final, clique na imagem do carrinho de compras<BsArrowRightShort className='hidden lg:block md:block' size={25}/> <BsCart4 className='hidden lg:block md:block' size={25}/>
@@ -178,6 +179,7 @@ export default function List() {
         </div>
         <CoursesSelect/>
         </div>
+      <Footer/>
     </div>
   )
 }

@@ -41,7 +41,7 @@ export default function SelectContent() {
 
 	]
   return (
-    <div className='p-4 mt-2 w-screen'>
+    <div className='p-4 mt-2 w-screen h-screen'>
 			<div className='flex flex-col items-center lg:flex-row justify-center'>
 				{boxContents.map((bx, key)=>{
 					return(

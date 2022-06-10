@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div className='bg-zinc-900 w-screen absolute bottom-0 mt-10'>
-			<span>ESCOLA CENED © 2022. Todos os direitos reservados.</span>
+    <div className='flex flex-col bg-gray-600 text-center justify-center text-white h-40 w-screen bottom-0'>
+			<p>ESCOLA CENED © 2022. Todos os direitos reservados.</p>
     </div>
   )
 }

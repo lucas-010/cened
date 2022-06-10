@@ -10,13 +10,14 @@ import {IoSchoolOutline} from 'react-icons/io5'
 import {AiOutlineArrowDown} from 'react-icons/ai'
 import DetailInfo from '../components/DetailInfo'
 import Title from '../components/Title'
+import Footer from '../components/Footer'
 
 export default function StepByStep() {
   useEffect(()=>{
     window.scrollTo(0, 0)
   }, [])
   return (
-    <div className='absolute mt-10 w-screen'>
+    <div className='absolute mt-10 w-screen min-h-screen'>
       <Title text='PASSO-A-PASSO'>
         VEJA O PASSO A PASSO DO FUNCIONAMENTO DO PROGRAMA EDUCACIONAL PARA INTERNOS DO SISTEMA PRISIONAL BRASILEIRO
       </Title>
@@ -58,6 +59,7 @@ export default function StepByStep() {
 			</div>
 
 			<DetailInfo/>
+      <Footer/>
     </div>
   )
 }
