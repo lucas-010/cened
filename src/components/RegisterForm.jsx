@@ -5,13 +5,6 @@ import { useState } from 'react';
 import { Checkbox, MenuItem } from '@mui/material';
 import { FormControl } from '@mui/material'
 
-function UF(value){
-    return(
-        <div>
-        </div>
-    )
-}
-
 export default function RegisterForm(){
     const [valueNomeAluno, setValueNomeAluno] = useState(''),
     [valueCpfAluno, setValueCpfAluno] = useState(''),
@@ -56,16 +49,15 @@ export default function RegisterForm(){
         setValueNomeAluno(''); setValueCpfAluno(''); setValueAtuacaoAluno(''); setValueAla(''); setValueBairroAluno(''); setValueBloco(''); setValueCela(''); setValueCelularResp(''); setValueCepAluno(''); setValueCidadeAluno(''); setValueCondicao(''); setValueCpfResp(''); setValueDtNascAluno(''); setValueEmail(''); setValueEnderAluno(''); setValueFoneResidResp(''); setValueFoneTrabResp(''); setValueGrauInstAluno(''); setValueIdentidadeAluno(''); setValueInfoPen(''); setValueMaeAluno(''); setValueNacionAluno(''); setValueNaturAluno(''); setValueNomeResp(''); setValueOrgExpAluno(''); setValueOrgExpResp(''); setValuePaiAluno(''); setValuePenitenciaria(''); setValueProfAluno(''); setValueRegime(''); setValueRgResp(''); setValueSexoAluno(''); setValueSexoResp(''); setValueUfNaturAluno(''); setValueUfPris(''); setValueUfResidAluno(''); setValueVinculoResp('');
 	}
     const listElements = {valueNomeAluno, valueCpfAluno, valueAtuacaoAluno, valueAla, valueBairroAluno, valueBloco, valueCela, valueCelularResp, valueCepAluno, valueCidadeAluno, valueCondicao, valueCpfResp, valueDtNascAluno, valueEmail, valueEnderAluno, valueFoneResidResp, valueFoneTrabResp, valueGrauInstAluno, valueIdentidadeAluno, valueInfoPen, valueMaeAluno, valueNacionAluno, valueNaturAluno, valueNomeResp, valueOrgExpAluno, valueOrgExpResp, valuePaiAluno, valuePenitenciaria, valueProfAluno, valueRegime, valueRgResp, valueSexoAluno, valueSexoResp, valueUfNaturAluno, valueUfPris, valueUfResidAluno}
-    const test = ["valueNomeAluno", "valueCpfAluno", "valueAtuacaoAluno", "valueAla", "valueBairroAluno", "valueBloco", "valueCela", "valueCelularResp", "valueCepAluno", "valueCidadeAluno", "valueCondicao", "valueCpfResp", "valueDtNascAluno", "valueEmail", "valueEnderAluno", "valueFoneResidResp", "valueFoneTrabResp", "valueGrauInstAluno", "valueIdentidadeAluno", "valueInfoPen", "valueMaeAluno", "valueNacionAluno", "valueNaturAluno", "valueNomeResp", "valueOrgExpAluno", "valueOrgExpResp", "valuePaiAluno", "valuePenitenciaria", "valueProfAluno", "valueRegime", "valueRgResp", "valueSexoAluno", "valueSexoResp", "valueUfNaturAluno", "valueUfPris", "valueUfResidAluno"]
+    const verificationValues = ["valueNomeAluno", "valueCpfAluno", "valueAtuacaoAluno", "valueAla", "valueBairroAluno", "valueBloco", "valueCela", "valueCelularResp", "valueCepAluno", "valueCidadeAluno", "valueCondicao", "valueCpfResp", "valueDtNascAluno", "valueEmail", "valueEnderAluno", "valueFoneResidResp", "valueFoneTrabResp", "valueGrauInstAluno", "valueIdentidadeAluno", "valueInfoPen", "valueMaeAluno", "valueNacionAluno", "valueNaturAluno", "valueNomeResp", "valueOrgExpAluno", "valueOrgExpResp", "valuePaiAluno", "valuePenitenciaria", "valueProfAluno", "valueRegime", "valueRgResp", "valueSexoAluno", "valueSexoResp", "valueUfNaturAluno", "valueUfPris", "valueUfResidAluno"]
 
     function Submit(){
         let elementsEmpty = []
-        test.forEach(t=>{
-            if(listElements[t] === '' || undefined){
-                elementsEmpty.push(t)
+        verificationValues.forEach(vl=>{
+            if(listElements[vl] === '' || undefined){
+                elementsEmpty.push(vl)
             }
         })
-        clearElements()
         console.log(elementsEmpty)
     }
     function cpfAlunoFormat(cpf){
