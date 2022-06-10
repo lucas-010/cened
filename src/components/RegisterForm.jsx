@@ -43,22 +43,29 @@ export default function RegisterForm(){
 	[valueCela, setValueCela] = useState(''),
 	[valueCondicao, setValueCondicao] = useState(''),
 	[valueRegime, setValueRegime] = useState(''),
+	[senha, setSenha] = useState(''),
+	[confirmaSenha, setConfirmaSenha] = useState(''),
     [generalClauses, setGeneralClauses] = useState(false);
 
     function clearElements(){
         setValueNomeAluno(''); setValueCpfAluno(''); setValueAtuacaoAluno(''); setValueAla(''); setValueBairroAluno(''); setValueBloco(''); setValueCela(''); setValueCelularResp(''); setValueCepAluno(''); setValueCidadeAluno(''); setValueCondicao(''); setValueCpfResp(''); setValueDtNascAluno(''); setValueEmail(''); setValueEnderAluno(''); setValueFoneResidResp(''); setValueFoneTrabResp(''); setValueGrauInstAluno(''); setValueIdentidadeAluno(''); setValueInfoPen(''); setValueMaeAluno(''); setValueNacionAluno(''); setValueNaturAluno(''); setValueNomeResp(''); setValueOrgExpAluno(''); setValueOrgExpResp(''); setValuePaiAluno(''); setValuePenitenciaria(''); setValueProfAluno(''); setValueRegime(''); setValueRgResp(''); setValueSexoAluno(''); setValueSexoResp(''); setValueUfNaturAluno(''); setValueUfPris(''); setValueUfResidAluno(''); setValueVinculoResp('');
 	}
-    const listElements = {valueNomeAluno, valueCpfAluno, valueAtuacaoAluno, valueAla, valueBairroAluno, valueBloco, valueCela, valueCelularResp, valueCepAluno, valueCidadeAluno, valueCondicao, valueCpfResp, valueDtNascAluno, valueEmail, valueEnderAluno, valueFoneResidResp, valueFoneTrabResp, valueGrauInstAluno, valueIdentidadeAluno, valueInfoPen, valueMaeAluno, valueNacionAluno, valueNaturAluno, valueNomeResp, valueOrgExpAluno, valueOrgExpResp, valuePaiAluno, valuePenitenciaria, valueProfAluno, valueRegime, valueRgResp, valueSexoAluno, valueSexoResp, valueUfNaturAluno, valueUfPris, valueUfResidAluno}
-    const verificationValues = ["valueNomeAluno", "valueCpfAluno", "valueAtuacaoAluno", "valueAla", "valueBairroAluno", "valueBloco", "valueCela", "valueCelularResp", "valueCepAluno", "valueCidadeAluno", "valueCondicao", "valueCpfResp", "valueDtNascAluno", "valueEmail", "valueEnderAluno", "valueFoneResidResp", "valueFoneTrabResp", "valueGrauInstAluno", "valueIdentidadeAluno", "valueInfoPen", "valueMaeAluno", "valueNacionAluno", "valueNaturAluno", "valueNomeResp", "valueOrgExpAluno", "valueOrgExpResp", "valuePaiAluno", "valuePenitenciaria", "valueProfAluno", "valueRegime", "valueRgResp", "valueSexoAluno", "valueSexoResp", "valueUfNaturAluno", "valueUfPris", "valueUfResidAluno"]
+    const listElements = {valueNomeAluno, valueCpfAluno, valueAtuacaoAluno, valueAla, valueBairroAluno, valueBloco, valueCela, valueCelularResp, valueCepAluno, valueCidadeAluno, valueCondicao, valueCpfResp, valueDtNascAluno, valueEmail, valueEnderAluno, valueFoneResidResp, valueFoneTrabResp, valueGrauInstAluno, valueIdentidadeAluno, valueInfoPen, valueMaeAluno, valueNacionAluno, valueNaturAluno, valueNomeResp, valueOrgExpAluno, valueOrgExpResp, valuePaiAluno, valuePenitenciaria, valueProfAluno, valueRegime, valueRgResp, valueSexoAluno, valueSexoResp, valueUfNaturAluno, valueUfPris, valueUfResidAluno, senha, confirmaSenha}
+    const verificationValues = ["valueNomeAluno", "valueCpfAluno", "valueAtuacaoAluno", "valueAla", "valueBairroAluno", "valueBloco", "valueCela", "valueCelularResp", "valueCepAluno", "valueCidadeAluno", "valueCondicao", "valueCpfResp", "valueDtNascAluno", "valueEmail", "valueEnderAluno", "valueFoneResidResp", "valueFoneTrabResp", "valueGrauInstAluno", "valueIdentidadeAluno", "valueInfoPen", "valueMaeAluno", "valueNacionAluno", "valueNaturAluno", "valueNomeResp", "valueOrgExpAluno", "valueOrgExpResp", "valuePaiAluno", "valuePenitenciaria", "valueProfAluno", "valueRegime", "valueRgResp", "valueSexoAluno", "valueSexoResp", "valueUfNaturAluno", "valueUfPris", "valueUfResidAluno", "senha", "confirmaSenha"]
 
     function Submit(){
         let elementsEmpty = []
         verificationValues.forEach(vl=>{
             if(listElements[vl] === '' || undefined){
-                elementsEmpty.push(vl)
+                elementsEmpty.push(vl.replace("value", '').split(/(?=[A-ZÂ-Û])/).join(' ').replaceAll(' ', ' do ').replace('Uf do', 'UF').replace('confirma do', 'confirma'))
             }
         })
-        console.log(elementsEmpty)
+        if(elementsEmpty.length >0){
+            alert(`Itens incorretos: ${elementsEmpty}`)
+        }
+        if(!elementsEmpty.length >0 && !generalClauses){
+            alert('Você deve aceitar as cláusulas gerais para continuar')
+        }
     }
     function cpfAlunoFormat(cpf){
 		cpf = cpf.replace(/[^\d]/g, "");
@@ -121,7 +128,7 @@ export default function RegisterForm(){
                         <TextField onChange={(e) => setValueEnderAluno(e.target.value)} value={valueEnderAluno} style={{margin:'1%'}} variant="outlined" label='Endereço Residencial' className='EnderecoResidencial' id='EnderecoResidencial'></TextField>
                         <TextField onChange={(e) => setValueBairroAluno(e.target.value)} value={valueBairroAluno} style={{margin:'1%'}} variant="outlined" label='Bairro' className='inputs' id='Bairro'></TextField>
                         <TextField onChange={(e) => setValueCidadeAluno(e.target.value)} value={valueCidadeAluno} style={{margin:'1%'}} variant="outlined" label='Cidade' className='inputs' id='Cidade'></TextField>
-                        <TextField onChange={(e) => setValueUfResidAluno(e.target.value)} value={valueUfResidAluno} style={{margin:'1%'}} variant="outlined" label='UF Residencial' className='inputs' id='ufResidencial'>
+                        <TextField onChange={(e) => setValueUfResidAluno(e.target.value)} value={valueUfResidAluno} select style={{margin:'1%'}} variant="outlined" label='UF Residencial' className='inputs' id='ufResidencial'>
                             <MenuItem value="AC">Acre</MenuItem>
                             <MenuItem value="AL">Alagoas</MenuItem>
                             <MenuItem value="AP">Amapá</MenuItem>
@@ -214,33 +221,40 @@ export default function RegisterForm(){
                     </div>
                     <h4 className='titles'>4 - DADOS GERAIS</h4>
                         <div className='flex flex-col w-5/6 p-10'>
-                            <div className='text-3xl text-gray-600 lg:ml-10 flex justify-between'>
-                                <div>Crie a senha para acessar a Área do Aluno
+                            <div className='text-gray-600 lg:ml-10 flex justify-between'>
+                                <div className='text-xl'>
                                     <div id='outterForm4'>
+                                    <p>Crie a senha para acessar a Área do Aluno</p>
                                     <div id='Form4'>
-                                        <TextField style={{margin:'1%'}} variant="outlined" type='password' id='senha' label='Senha' className='lg:w-2/5'></TextField>
-                                        <TextField style={{margin:'1%'}} variant="outlined" type='password' id='confirmaSenha' label='Confirmar senha' className='lg:w-2/5'></TextField>
+                                        <TextField onChange={(e) => setSenha(e.target.value)} style={{margin:'1%'}} variant="outlined" type='password' value={senha} id='senha' label='Senha' className='lg:w-2/5'></TextField>
+                                        <TextField onChange={(e) => setConfirmaSenha(e.target.value)} style={{margin:'1%'}} variant="outlined" type='password' value={confirmaSenha} id='confirmaSenha' label='Confirmar senha' className='lg:w-2/5'></TextField>
                                     </div>
                                     </div>
                                 </div>
-                                <div className='lg:flex hidden flex-col max-w-md'>Cláusulas Gerais
-                                    <div className='flex'>
+                                <div className='lg:flex hidden flex-col max-w-md'>
+                                    <div className='flex font-bold text-2xl items-center'>
                                     <Checkbox onChange={()=> {!generalClauses ? setGeneralClauses(true) : setGeneralClauses(false)}} ></Checkbox>
-                                    <h3 className='text-base'>O cursista e/ou preposto declara(m) estar ciente(s) e concorda(m) com as CLÁUSULAS GERAIS que integram o presente Contrato de Prestação de Serviços Educacionais.</h3>
+                                    Cláusulas Gerais
+                                    </div>
+                                    <div className='flex'>
+                                    <h3 className='text-base'>O cursista e/ou preposto declara(m) estar ciente(s) e concorda(m) com as <a className='text-blue-600 font-bold' href='https://google.com'>CLÁUSULAS GERAIS</a> que integram o presente Contrato de Prestação de Serviços Educacionais.</h3>
                                     </div>  
                                 </div>
                             </div>
-                            <div className='lg:hidden flex flex-col max-w-md'>Cláusulas Gerais
+                            <div className='lg:hidden flex flex-col max-w-md'>
+                                <div className='flex font-bold text-xl items-center'>
+                                <Checkbox onChange={()=> {!generalClauses ? setGeneralClauses(true) : setGeneralClauses(false)}} ></Checkbox>
+                                Cláusulas Gerais
+                                </div>
                                     <div className='flex'>
-                                    <Checkbox onChange={()=> {!generalClauses ? setGeneralClauses(true) : setGeneralClauses(false)}} ></Checkbox>
-                                    <h3 className='text-base'>O cursista e/ou preposto declara(m) estar ciente(s) e concorda(m) com as CLÁUSULAS GERAIS que integram o presente Contrato de Prestação de Serviços Educacionais.</h3>
+                                    <h3 className='text-base'>O cursista e/ou preposto declara(m) estar ciente(s) e concorda(m) com as <a className='text-blue-600 font-bold' href='https://google.com'>CLÁUSULAS GERAIS</a> que integram o presente Contrato de Prestação de Serviços Educacionais.</h3>
                                     </div>  
                                 </div>
                         </div>
             </FormControl>
             <div className='w-full flex self-center lg:w-1/2 h-20 justify-around'>
-            <button className='lg:w-1/3 h-fit p-2 rounded-sm bg-red-600' onClick={() => clearElements()}>Limpar</button>
-            <button type='submit' className='lg:w-1/3 h-fit p-2 rounded-sm bg-green-500' onClick={() => {Submit()}}>Concluir Cadastro</button>
+            <button className='lg:w-1/3 h-fit p-2 rounded-sm bg-red-600 text-white font-bold' onClick={() => clearElements()}>LIMPAR</button>
+            <button type='submit' className='lg:w-1/3 h-fit p-2 rounded-sm text-white font-bold bg-green-500' onClick={() => {Submit()}}>CONCLUIR CADASTRO</button>
             </div>
         </div>
     )
