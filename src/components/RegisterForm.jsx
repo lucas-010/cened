@@ -47,7 +47,7 @@ export default function RegisterForm(){
 	[valuePenitenciaria, setValuePenitenciaria] = useState(''),
 	[valueBloco, setValueBloco] = useState(''),
 	[valueAla, setValueAla] = useState(''),
-	[valueCela, setValueCela] = useState(''),
+	[valueCela, setValueCela] = useState('aaa'),
 	[valueCondicao, setValueCondicao] = useState(''),
 	[valueRegime, setValueRegime] = useState(''),
     [generalClauses, setGeneralClauses] = useState(false);
@@ -55,8 +55,16 @@ export default function RegisterForm(){
     function clearElements(){
         setValueNomeAluno(''); setValueCpfAluno(''); setValueAtuacaoAluno(''); setValueAla(''); setValueBairroAluno(''); setValueBloco(''); setValueCela(''); setValueCelularResp(''); setValueCepAluno(''); setValueCidadeAluno(''); setValueCondicao(''); setValueCpfResp(''); setValueDtNascAluno(''); setValueEmail(''); setValueEnderAluno(''); setValueFoneResidResp(''); setValueFoneTrabResp(''); setValueGrauInstAluno(''); setValueIdentidadeAluno(''); setValueInfoPen(''); setValueMaeAluno(''); setValueNacionAluno(''); setValueNaturAluno(''); setValueNomeResp(''); setValueOrgExpAluno(''); setValueOrgExpResp(''); setValuePaiAluno(''); setValuePenitenciaria(''); setValueProfAluno(''); setValueRegime(''); setValueRgResp(''); setValueSexoAluno(''); setValueSexoResp(''); setValueUfNaturAluno(''); setValueUfPris(''); setValueUfResidAluno(''); setValueVinculoResp('');
 	}
+    let listElements = {valueNomeAluno, valueCpfAluno, valueAtuacaoAluno, valueAla, valueBairroAluno, valueBloco, valueCela, valueCelularResp, valueCepAluno, valueCidadeAluno, valueCondicao, valueCpfResp, valueDtNascAluno, valueEmail, valueEnderAluno, valueFoneResidResp, valueFoneTrabResp, valueGrauInstAluno, valueIdentidadeAluno, valueInfoPen, valueMaeAluno, valueNacionAluno, valueNaturAluno, valueNomeResp, valueOrgExpAluno, valueOrgExpResp, valuePaiAluno, valuePenitenciaria, valueProfAluno, valueRegime, valueRgResp, valueSexoAluno, valueSexoResp, valueUfNaturAluno, valueUfPris, valueUfResidAluno}
 
-	function cpfAlunoFormat(cpf){
+    function Submit(){
+        let array = [];
+        listElements.forEach(function(item){});
+        if(array.length > 0){
+            alert('Itens incompletos:',array);
+        }
+    }
+    function cpfAlunoFormat(cpf){
 		cpf = cpf.replace(/[^\d]/g, "");
 		setValueCpfAluno(cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4"))
 	}
@@ -163,7 +171,7 @@ export default function RegisterForm(){
                             <MenuItem value='Núcleo de Ensino Penitenciário'>Núcleo de Ensino Penitenciário</MenuItem>
                             <MenuItem value='Agente Penitenciário'>Agente Penitenciário</MenuItem>
                             <MenuItem value='Pedagogo Penitenciário'>Pedagogo Penitenciário</MenuItem></TextField>
-                        <TextField onChange={(e) => cpfRespFormat(e.target.value)} value={valueCpfResp} style={{margin:'1%'}} inputProps={{ maxLength: 14 }} variant="outlined" label='CPF' className='inputs' id='ufTrabalho'></TextField>
+                        <TextField onChange={(e) => {cpfRespFormat(e.target.value)}} value={valueCpfResp} style={{margin:'1%'}} inputProps={{ maxLength: 14 }} variant="outlined" label='CPF' className='inputs' id='ufTrabalho'></TextField>
                         <TextField onChange={(e) => setValueRgResp(e.target.value)} value={valueRgResp} style={{margin:'1%'}} variant="outlined" label='RG' className='inputs' id='ufTrabalho'></TextField>
                         <TextField onChange={(e) => setValueOrgExpResp(e.target.value)} value={valueOrgExpResp} style={{margin:'1%'}} variant="outlined" label='Órgão Expedidor' className='inputs' id='ufTrabalho'></TextField>
                         <TextField onChange={(e) => phoneCelularRespFormat(e.target.value)} value={valueCelularResp} inputProps={{ maxLength: 14 }} style={{margin:'1%'}} variant="outlined" label='Celular' className='inputs' id='ufTrabalho'></TextField>
@@ -201,12 +209,12 @@ export default function RegisterForm(){
                             <MenuItem value="SP">São Paulo</MenuItem>
                             <MenuItem value="SE">Sergipe</MenuItem>
                             <MenuItem value="TO">Tocantins</MenuItem></TextField>  
-                        <TextField onChange={(e) => setValuePenitenciaria(e.target.value)} value={valuePenitenciaria} style={{margin:'1%'}} variant="outlined" label='Penitenciária' className='penitenciaria' id='ufTrabalho'></TextField>  
-                        <TextField onChange={(e) => setValueBloco(e.target.value)} value={valueBloco} style={{margin:'1%'}} variant="outlined" label='Bloco' className='line5' id='ufTrabalho'></TextField>  
-                        <TextField onChange={(e) => setValueAla(e.target.value)} value={valueAla} style={{margin:'1%'}} variant="outlined" label='Ala' className='line5' id='ufTrabalho'></TextField>  
-                        <TextField onChange={(e) => setValueCela(e.target.value)} value={valueCela} style={{margin:'1%'}} variant="outlined" label='Cela' className='line5' id='ufTrabalho'></TextField>  
-                        <TextField onChange={(e) => setValueCondicao(e.target.value)} value={valueCondicao} style={{margin:'1%'}} variant="outlined" label='Condição' className='line5' id='ufTrabalho'></TextField>  
-                        <TextField onChange={(e) => setValueRegime(e.target.value)} value={valueRegime} style={{margin:'1%'}} variant="outlined" label='Regime' className='line5' id='ufTrabalho'></TextField>  
+                        <TextField onChange={(e) => setValuePenitenciaria(e.target.value)} value={valuePenitenciaria} style={{margin:'1%'}} variant="outlined" label='Penitenciária' className='penitenciaria' id='penitenciaria'></TextField>  
+                        <TextField onChange={(e) => setValueBloco(e.target.value)} value={valueBloco} style={{margin:'1%'}} variant="outlined" label='Bloco' className='line5' id='bloco'></TextField>  
+                        <TextField onChange={(e) => setValueAla(e.target.value)} value={valueAla} style={{margin:'1%'}} variant="outlined" label='Ala' className='line5' id='ala'></TextField>  
+                        <TextField onChange={(e) => setValueCela(e.target.value)} value={valueCela} style={{margin:'1%'}} variant="outlined" label='Cela' className='line5' id='cela'></TextField>  
+                        <TextField onChange={(e) => setValueCondicao(e.target.value)} value={valueCondicao} select style={{margin:'1%'}} variant="outlined" label='Condição' className='line5' id='condicao'><MenuItem value="Sentenciado">Sentenciado</MenuItem><MenuItem value="Aguardando Sentença">Aguardando Sentença</MenuItem></TextField>  
+                        <TextField onChange={(e) => setValueRegime(e.target.value)} value={valueRegime} select style={{margin:'1%'}} variant="outlined" label='Regime' className='line5' id='regime'><MenuItem value="Fechado">Fechado</MenuItem><MenuItem value="Semiaberto">Semiaberto</MenuItem><MenuItem value="Aberto">Aberto</MenuItem></TextField>  
                     </div>
                     <h4 className='titles'>4 - DADOS GERAIS</h4>
                         <div className='flex flex-col w-5/6 p-10'>
@@ -236,7 +244,7 @@ export default function RegisterForm(){
             </FormControl>
             <div className='w-full flex self-center lg:w-1/2 h-20 justify-around'>
             <button className='lg:w-1/3 h-fit p-2 rounded-sm bg-red-600' onClick={() => clearElements()}>Limpar</button>
-            <button type='submit' className='lg:w-1/3 h-fit p-2 rounded-sm bg-green-500' onClick={() => clearElements()}>Concluir Cadastro</button>
+            <button type='submit' className='lg:w-1/3 h-fit p-2 rounded-sm bg-green-500' onClick={() => {Submit()}}>Concluir Cadastro</button>
             </div>
         </div>
     )
