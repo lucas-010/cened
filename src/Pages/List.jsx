@@ -237,8 +237,8 @@ export default function List() {
           Selecione o(s) curso(s) <MdCheckBox color='#F6B112' className='hidden lg:block md:block' size={25}/> e, ao final, clique na imagem do carrinho de compras<BsArrowRightShort className='hidden lg:block md:block' size={25}/> <BsCart4 className='hidden lg:block md:block' size={25}/>
           </p>
         </Title>
-        <div className='w-full flex-col items-center lg:items-start lg:flex-row flex justify-center'>
-        <div className='flex mb-2 flex-col items-center'>
+        <div className='w-full flex-col items-center lg:items-start lg:flex-row flex lg:justify-start justify-center'>
+        <div className='flex mb-2 flex-col lg:items-start lg:ml-10 items-center'>
           <CourseBox addCourseList={addCourseList} removeCourseList={removeCourseList} image={'https://www.cenedqualificando.com.br/Content/images/cened/cursos/84.1.jpg'} id={1} title='DIREITO PROCESSUAL PENAL – PROCEDIMENTO COMUM, NULIDADES E RECURSOS' price={180} time={80} />
 
           <CourseBox addCourseList={addCourseList} removeCourseList={removeCourseList} image={'https://www.cenedqualificando.com.br/Content/images/cened/cursos/84.1.jpg'} id={2} title='DIREITO PROCESSUAL PENAL – PROCEDIMENTO COMUM, NULIDADES E RECURSOS' price={180} time={80} />
