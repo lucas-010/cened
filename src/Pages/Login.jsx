@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 
 export default function Login() {
   return (
-    <div className='absolute w-screen flex flex-col mt-52'>
+    <div className='absolute w-screen flex flex-col lg:mt-52 mt-20'>
       <BoxInstructions/>
       <BoxLogin/>
       <Footer/>

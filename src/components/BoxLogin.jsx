@@ -20,7 +20,7 @@ export default function Box() {
 		}
 	}
   return (
-    <div className='flex flex-col w-screen h-screen'>
+    <div className='flex flex-col w-screen'>
       <div className='flex flex-col items-center self-center mt-10 lg:w-1/2'> 
         <img className='lg:w-4/12 w-1/2 rounded-md mb-10' src={loginIMG} alt=''/>
         <form className='flex flex-col p-5 bg-[#EBECF0] lg:w-1/2 items-center text-xl'>
