@@ -1,19 +1,45 @@
+.titles{
+    font-weight: bold;
+    background-color: lightgrey;
+    width: 87%;
+}
 .inputs{
-    width: 15%;
+    width: 20%;
     border-radius: 5px;
-    border-width: 2px;
-    height: 40px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-right: 10px;
+    border-width: 2px;  
+}
+.nome{
+    border-radius: 5px;
+    border-width: 2px;  
+    width: 35%;
+}
+.sexo{
+    border-radius: 5px;
+    border-width: 2px;  
+    width: 5%;
+}
+.EnderecoResidencial{
+    border-radius: 5px;
+    border-width: 2px;  
+    width: 42%;
+}
+.pai, .mae, .email, .penitenciaria{
+    border-radius: 5px;
+    border-width: 2px;  
+    width: 42%;
+}
+.line5{
+    border-radius: 5px;
+    border-width: 2px;  
+    width: 15.6%;
 }
 #Form1, #Form2, #Form3, #Form4{
     margin-bottom: 10px;
-    width: 90%;   
+    width: 100%;   
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
-    align-self: center;
+    justify-content: flex-start;
+    align-self: start;
     align-items: center;
 }
 #Form4{
@@ -21,7 +47,7 @@
     justify-content: flex-start;
 }
 #outterForm4{
-    margin-left: 80px;
+    margin-left: 5%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -29,11 +55,24 @@
 @media screen and (max-width: 1200px) {
     .inputs{
         width: 80%;
+        margin: 5%;
+    }
+    .nome{
+        width: 58%;
+        margin: 5%;
+    }
+    .pai, .mae, .email, .penitenciaria, .line5{
+        width: 80%;
+    }
+    .sexo{
+        width: 20%;
+        margin: 5%;
+    
     }
     #outterForm4{
         margin-left: 0;
     }
     #Form4{
-        justify-content: center;
+        justify-content: start;
     }
 } 

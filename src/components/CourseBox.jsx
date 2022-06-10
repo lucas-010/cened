@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {MdOutlineCheckBoxOutlineBlank} from 'react-icons/md'
 import {MdOutlineCheckBox} from 'react-icons/md'
+import { MdCheckBox } from 'react-icons/md'
 
 export default function CourseBox({id, image ,title, time, price}) {
     const [selectBox, setSelectBox] = useState(false)
@@ -18,7 +19,7 @@ export default function CourseBox({id, image ,title, time, price}) {
         </div>
             <div className='flex mt-2 text-white lg:flex-row flex-col'>
                 <button className='text-xl font-bold bg-blue-500 hover:bg-blue-600 transition-colors p-2 text-white rounded-lg'>Saiba Mais</button>
-                <button onClick={()=> setSelectBox(!selectBox)} className='flex mt-2 lg:mt-0 lg:flex-row flex-col ml-0 bg-[#0D9F16] text-white p-2 rounded-lg lg:ml-5 items-center text-xl font-bold'>Selecione aqui {selectBox ? <MdOutlineCheckBox color='#fff' className='ml-2' size={50}/> : <MdOutlineCheckBoxOutlineBlank color='white' className='ml-2' size={50}/>}</button>
+                <button onClick={()=> setSelectBox(!selectBox)} className='flex mt-2 lg:mt-0 lg:flex-row flex-col ml-0 bg-[#0D9F16] text-white p-2 rounded-lg lg:ml-5 items-center text-xl font-bold'>Selecione aqui {selectBox ? <MdCheckBox color='yellow' className='ml-2' size={50}/> : <MdOutlineCheckBoxOutlineBlank color='white' className='ml-2' size={50}/>}</button>
             </div>
         </div>
     </div>

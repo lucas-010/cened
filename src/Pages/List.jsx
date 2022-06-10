@@ -6,6 +6,8 @@ import CourseBox from '../components/CourseBox'
 import {AiOutlineCheckSquare} from 'react-icons/ai'
 import {BsArrowRightShort} from 'react-icons/bs'
 import {BsCart4} from 'react-icons/bs'
+import { RiCheckboxBlankFill } from 'react-icons/ri'
+import { MdCheckBox } from 'react-icons/md'
 import CoursesSelect from '../components/CoursesSelect'
 
 export default function List() {
@@ -162,7 +164,9 @@ export default function List() {
   return (
     <div className='absolute pb-5 mt-10 w-screen'>
         <Title text={`CURSOS SUGERIDOS PARA O ESTADO: ${state}`}>
-          Selecione o(s) curso(s) <AiOutlineCheckSquare className='hidden lg:block md:block' size={25}/> e ao final clique na imagem do carrinho de compras<BsArrowRightShort className='hidden lg:block md:block' size={25}/> <BsCart4 className='hidden lg:block md:block' size={25}/>
+          <p className='text-2xl flex items-center'>
+          Selecione o(s) curso(s) <MdCheckBox color='#F6B112' className='hidden lg:block md:block' size={25}/> e, ao final, clique na imagem do carrinho de compras<BsArrowRightShort className='hidden lg:block md:block' size={25}/> <BsCart4 className='hidden lg:block md:block' size={25}/>
+          </p>
         </Title>
         <div className='w-full flex justify-center'>
         <div className='flex flex-col'>
