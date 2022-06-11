@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import ReactDOMServer from 'react-dom/server'
 import { useParams } from 'react-router-dom'
 import Title from '../components/Title'
 import CourseBox from '../components/CourseBox'
@@ -34,6 +35,8 @@ import SC from '../images/flags/SC.png'
 import SE from '../images/flags/SE.png'
 import SP from '../images/flags/SP.png'
 import TO from '../images/flags/TO.png'
+import axios from 'axios'
+const HtmlToReactParser = require('html-to-react').Parser
 
 export default function List() {
   const abbres = [
@@ -199,9 +202,10 @@ export default function List() {
     },
 
   ]
-  const [image, setImage] = useState()
+  const [image , setImage] = useState()
   const [coursesSelected, setCoursesSelected] = useState([])
-
+  const [courses, setCourses] = useState([])
+  const [totalPrice, setTotalPrice] = useState()
   const addCourseList = (id, image ,title, time, price)=>{
     let newCourse = [...coursesSelected, {id, image, title, time, price}]
     setCoursesSelected(newCourse)
@@ -216,6 +220,27 @@ export default function List() {
     })
     setCoursesSelected(newCoursesList)
   }
+
+  const calcTotalPrice = ()=>{
+    let prices = []
+    coursesSelected.map((course)=>{
+      prices.push(course.price)
+    })
+    setTotalPrice(eval(prices.join('+')))
+  }
+
+  const htmlConveterToReact = (html)=>{
+    const htmlInput = html
+    const htmlToReactParser = new HtmlToReactParser();
+    const reactElement = htmlToReactParser.parse(htmlInput);
+    const reactHtml = ReactDOMServer.renderToStaticMarkup(reactElement);
+    console.log(reactHtml)
+  }
+
+    useEffect(()=>{
+      calcTotalPrice()
+    }, [coursesSelected])
+
     let {idState} = useParams()
     const [state, setState] = useState('')
     useEffect(()=>{
@@ -228,8 +253,12 @@ export default function List() {
         }
         
       })
+      axios.get('https://api-cenedqualificando.azurewebsites.net/api/v1/cursos').then(response=>{
+        console.log(response.data.data)
+        setCourses(response.data.data)
+      })
+      console.log(coursesSelected)
     }, [])
-  
   return (
     <div className='absolute mt-10 w-screen min-h-screen'>
         <Title text={`CURSOS SUGERIDOS PARA O ESTADO: ${state}` }>
@@ -239,14 +268,17 @@ export default function List() {
         </Title>
         <div className='w-full flex-col items-center lg:items-start lg:flex-row flex lg:justify-start justify-center'>
         <div className='flex mb-2 flex-col lg:items-start lg:ml-10 items-center'>
-          <CourseBox addCourseList={addCourseList} removeCourseList={removeCourseList} image={'https://www.cenedqualificando.com.br/Content/images/cened/cursos/84.1.jpg'} id={1} title='DIREITO PROCESSUAL PENAL – PROCEDIMENTO COMUM, NULIDADES E RECURSOS' price={180} time={80} />
-
-          <CourseBox addCourseList={addCourseList} removeCourseList={removeCourseList} image={'https://www.cenedqualificando.com.br/Content/images/cened/cursos/84.1.jpg'} id={2} title='DIREITO PROCESSUAL PENAL – PROCEDIMENTO COMUM, NULIDADES E RECURSOS' price={180} time={80} />
-
-          <CourseBox addCourseList={addCourseList} removeCourseList={removeCourseList} image={'https://www.cenedqualificando.com.br/Content/images/cened/cursos/84.1.jpg'} id={3} title='DIREITO PROCESSUAL PENAL – PROCEDIMENTO COMUM, NULIDADES E RECURSOS' price={180} time={80} />
+          {courses.map((course, key)=>{
+            return(
+              <CourseBox key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image={'https://www.cenedqualificando.com.br/Content/images/cened/cursos/84.1.jpg'} id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
+            )
+          })}
         </div>
-        <CoursesSelect courses={coursesSelected}/>
+        <CoursesSelect setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/>
         </div>
+      <div className='bg-yellow-400 p-3 rounded-full fixed bottom-2 right-5'>
+          <BsCart4 size={45}/>
+      </div>
       <Footer/>
     </div>
   )
