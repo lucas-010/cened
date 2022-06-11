@@ -30,15 +30,15 @@ export default function CourseBox({id, image ,title, time, price, addCourseList,
         </div>
         <div className={`${visibleContent ? 'flex flex-col' : 'hidden'} transition-all justify-between w-full`}>
             <div className='flex justify-between items-center flex-col text-white lg:flex-row w-full h-full'>
-                <button onClick={()=>{buttonId===1 ? setButtonId(''): setButtonId(1)}} className={`${buttonId ===1 ? 'bg-transparent border-gray-400 text-black' :'bg-[#888787]'} w-11/12 text-base font-semibold md:h-1/4 lg:w-1/5 rounded-lg p-4 text-center mt-5 lg:mt-0 lg:mr-4 cursor-pointer hover:border-black hover:bg-transparent border-2 border-transparent hover:text-black transition-colors`}>
+                <button onClick={()=>{buttonId===1 ? setButtonId(''): setButtonId(1)}} className={`${buttonId ===1 ? 'bg-transparent border-gray-400 text-black' :'bg-[#888787]'} w-11/12 text-base font-semibold md:h-1/4 lg:w-1/5 rounded-lg p-4 text-center mt-5 lg:mt-0 lg:mr-4 cursor-pointer hover:border-black hover:bg-transparent border-2 hover:text-black transition-colors`}>
                     Objetivo Geral  
                 </button>
 
-                <button onClick={()=>{buttonId===2 ? setButtonId(''): setButtonId(2)}} className={`${buttonId ===2 ? 'bg-transparent border-gray-400 text-black' :'bg-[#888787]'} w-11/12 text-base font-semibold md:h-1/4 lg:w-1/5 rounded-lg p-4 text-center mt-5 lg:mt-0 lg:mr-4 cursor-pointer hover:border-black hover:bg-transparent border-2 border-transparent hover:text-black transition-colors`}>
+                <button onClick={()=>{buttonId===2 ? setButtonId(''): setButtonId(2)}} className={`${buttonId ===2 ? 'bg-transparent border-gray-400 text-black' :'bg-[#888787]'} w-11/12 text-base font-semibold md:h-1/4 lg:w-1/5 rounded-lg p-4 text-center mt-5 lg:mt-0 lg:mr-4 cursor-pointer hover:border-black hover:bg-transparent border-2 hover:text-black transition-colors`}>
                     Objetivos de Aprendizagem   
                 </button>
 
-                <button onClick={()=>{buttonId===3 ? setButtonId(''): setButtonId(3)}} className={`${buttonId ===3 ? 'bg-transparent border-gray-400 text-black' :'bg-[#888787]'} w-11/12 text-base font-semibold md:h-1/4 lg:w-1/5 rounded-lg p-4 text-center mt-5 lg:mt-0 lg:mr-4 cursor-pointer hover:border-black hover:bg-transparent border-2 border-transparent hover:text-black transition-colors`}>
+                <button onClick={()=>{buttonId===3 ? setButtonId(''): setButtonId(3)}} className={`${buttonId ===3 ? 'bg-transparent border-gray-400 text-black' :'bg-[#888787]'} w-11/12 text-base font-semibold md:h-1/4 lg:w-1/5 rounded-lg p-4 text-center mt-5 lg:mt-0 lg:mr-4 cursor-pointer hover:border-black hover:bg-transparent border-2 hover:text-black transition-colors`}>
                     Conteúdo Programático   
                 </button>
             </div>
