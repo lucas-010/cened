@@ -26,7 +26,11 @@ export default function RegisterForm(){
         setData([{"valueNomeAluno": '', "valueCpfAluno": '', "valueAtuacaoAluno": '', "valueAla": '', "valueBairroAluno": '', "valueBloco": '', "valueCela": '', "valueCelularResp": '', "valueCepAluno": '', "valueCidadeAluno": '', "valueCondicao": '', "valueCpfResp": '', "valueDtNascAluno": '', "valueEmail": '', "valueEnderAluno": '', "valueFoneResidResp": '', "valueFoneTrabResp": '', "valueGrauInstAluno": '', "valueIdentidadeAluno": '', "valueInfopen": '', "valueMaeAluno": '', "valueNacionAluno": '', "valueNaturAluno": '', "valueNomeResp": '', "valueOrgExpAluno": '', "valueOrgExpResp": '', "valuePaiAluno": '', "valuePenitenciaria": '', "valueProfAluno": '', "valueRegime": '', "valueRgResp": '', "valueSexoAluno": '', "valueSexoResp": '', "valueUfNaturAluno": '', "valueUfPris": '', "valueUfResidAluno": '', "senha": '', "confirmaSenha": ''}]);
     }
     function Submit(){
-        if(!emptyElements.length > 0 && generalClauses){
+        let confirmaSenha = data[0].senha === data[0].confirmaSenha;
+        if(!confirmaSenha){
+            alert('As senhas não coincidem!')
+        }
+        if(confirmaSenha && !emptyElements.length > 0 && generalClauses){
             setTimeout(function(){alert('Registrado com sucesso!')}, 1000)
         }
         if(emptyElements.length > 0){
