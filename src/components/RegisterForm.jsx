@@ -4,220 +4,93 @@ import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import { Checkbox, MenuItem } from '@mui/material';
 import { FormControl } from '@mui/material'
+import InputMask from 'react-input-mask';
+import {Link} from 'react-router-dom';
 
 export default function RegisterForm(){
-    const [valueNomeAluno, setValueNomeAluno] = useState(''),
-    [valueCpfAluno, setValueCpfAluno] = useState(''),
-    [valueIdentidadeAluno, setValueIdentidadeAluno] = useState(''),
-    [valueOrgExpAluno, setValueOrgExpAluno] = useState(''),
-    [valueDtNascAluno, setValueDtNascAluno] = useState(''),
-    [valueNaturAluno, setValueNaturAluno] = useState(''),
-    [valueUfNaturAluno, setValueUfNaturAluno] = useState(''),
-    [valueNacionAluno, setValueNacionAluno] = useState(''),
-    [valueEnderAluno, setValueEnderAluno] = useState(''),
-    [valueBairroAluno, setValueBairroAluno] = useState(''),
-    [valueCidadeAluno, setValueCidadeAluno] = useState(''),
-    [valueUfResidAluno, setValueUfResidAluno] = useState(''),
-    [valueCepAluno, setValueCepAluno] = useState(''),
-    [valueGrauInstAluno, setValueGrauInstAluno] = useState(''),
-    [valueProfAluno, setValueProfAluno] = useState(''),
-    [valueAtuacaoAluno, setValueAtuacaoAluno] = useState(''),
-    [valuePaiAluno, setValuePaiAluno] = useState(''),
-    [valueMaeAluno, setValueMaeAluno] = useState(''),
-    [valueNomeResp, setValueNomeResp] = useState(''),
-    [valueSexoResp, setValueSexoResp] = useState(''),
-    [valueVinculoResp, setValueVinculoResp] = useState(''),
-    [valueCpfResp, setValueCpfResp] = useState(''),
-    [valueRgResp, setValueRgResp] = useState(''),
-    [valueOrgExpResp, setValueOrgExpResp] = useState(''),
-    [valueCelularResp, setValueCelularResp] = useState(''),
-    [valueFoneResidResp, setValueFoneResidResp] = useState(''),
-    [valueFoneTrabResp, setValueFoneTrabResp] = useState(''),
-	[valueEmail, setValueEmail] = useState(''),
-	[valueSexoAluno, setValueSexoAluno] = useState(''),
-	[valueInfoPen, setValueInfoPen] = useState(''),
-	[valueUfPris, setValueUfPris] = useState(''),
-	[valuePenitenciaria, setValuePenitenciaria] = useState(''),
-	[valueBloco, setValueBloco] = useState(''),
-	[valueAla, setValueAla] = useState(''),
-	[valueCela, setValueCela] = useState(''),
-	[valueCondicao, setValueCondicao] = useState(''),
-	[valueRegime, setValueRegime] = useState(''),
-	[senha, setSenha] = useState(''),
-	[confirmaSenha, setConfirmaSenha] = useState(''),
-    [generalClauses, setGeneralClauses] = useState(false);
-
-    function clearElements(){
-        setValueNomeAluno(''); setValueCpfAluno(''); setValueAtuacaoAluno(''); setValueAla(''); setValueBairroAluno(''); setValueBloco(''); setValueCela(''); setValueCelularResp(''); setValueCepAluno(''); setValueCidadeAluno(''); setValueCondicao(''); setValueCpfResp(''); setValueDtNascAluno(''); setValueEmail(''); setValueEnderAluno(''); setValueFoneResidResp(''); setValueFoneTrabResp(''); setValueGrauInstAluno(''); setValueIdentidadeAluno(''); setValueInfoPen(''); setValueMaeAluno(''); setValueNacionAluno(''); setValueNaturAluno(''); setValueNomeResp(''); setValueOrgExpAluno(''); setValueOrgExpResp(''); setValuePaiAluno(''); setValuePenitenciaria(''); setValueProfAluno(''); setValueRegime(''); setValueRgResp(''); setValueSexoAluno(''); setValueSexoResp(''); setValueUfNaturAluno(''); setValueUfPris(''); setValueUfResidAluno(''); setValueVinculoResp('');
-	}
-    const listElements = {valueNomeAluno, valueCpfAluno, valueAtuacaoAluno, valueAla, valueBairroAluno, valueBloco, valueCela, valueCelularResp, valueCepAluno, valueCidadeAluno, valueCondicao, valueCpfResp, valueDtNascAluno, valueEmail, valueEnderAluno, valueFoneResidResp, valueFoneTrabResp, valueGrauInstAluno, valueIdentidadeAluno, valueInfoPen, valueMaeAluno, valueNacionAluno, valueNaturAluno, valueNomeResp, valueOrgExpAluno, valueOrgExpResp, valuePaiAluno, valuePenitenciaria, valueProfAluno, valueRegime, valueRgResp, valueSexoAluno, valueSexoResp, valueUfNaturAluno, valueUfPris, valueUfResidAluno, senha, confirmaSenha}
-    const verificationValues = ["valueNomeAluno", "valueCpfAluno", "valueAtuacaoAluno", "valueAla", "valueBairroAluno", "valueBloco", "valueCela", "valueCelularResp", "valueCepAluno", "valueCidadeAluno", "valueCondicao", "valueCpfResp", "valueDtNascAluno", "valueEmail", "valueEnderAluno", "valueFoneResidResp", "valueFoneTrabResp", "valueGrauInstAluno", "valueIdentidadeAluno", "valueInfoPen", "valueMaeAluno", "valueNacionAluno", "valueNaturAluno", "valueNomeResp", "valueOrgExpAluno", "valueOrgExpResp", "valuePaiAluno", "valuePenitenciaria", "valueProfAluno", "valueRegime", "valueRgResp", "valueSexoAluno", "valueSexoResp", "valueUfNaturAluno", "valueUfPris", "valueUfResidAluno", "senha", "confirmaSenha"]
-
-    function Submit(){
-        let elementsEmpty = []
-        verificationValues.forEach(vl=>{
-            if(listElements[vl] === '' || undefined){
-                elementsEmpty.push(vl.replace("value", '').split(/(?=[A-ZÂ-Û])/).join(' ').replaceAll(' ', ' do ').replace('Uf do', 'UF').replace('confirma do', 'confirma'))
-            }
-        })
-        if(elementsEmpty.length >0){
-            alert(`Itens incorretos: ${elementsEmpty}`)
+    let [data, setData] = useState([{"valueNomeAluno": '', "valueCpfAluno": '', "valueAtuacaoAluno": '', "valueAla": '', "valueBairroAluno": '', "valueBloco": '', "valueCela": '', "valueCelularResp": '', "valueCepAluno": '', "valueCidadeAluno": '', "valueCondicao": '', "valueCpfResp": '', "valueDtNascAluno": '', "valueEmail": '', "valueEnderAluno": '', "valueFoneResidResp": '', "valueFoneTrabResp": '', "valueGrauInstAluno": '', "valueIdentidadeAluno": '', "valueInfopen": '', "valueMaeAluno": '', "valueNacionAluno": '', "valueNaturAluno": '', "valueNomeResp": '', "valueOrgExpAluno": '', "valueOrgExpResp": '', "valuePaiAluno": '', "valuePenitenciaria": '', "valueProfAluno": '', "valueRegime": '', "valueRgResp": '', "valueSexoAluno": '', "valueSexoResp": '', "valueUfNaturAluno": '', "valueUfPris": '', "valueUfResidAluno": '', "senha": '', "confirmaSenha": ''}]);
+    let [generalClauses, setGeneralClauses] = useState(false),
+    valueElements = Object.keys(data[0]),
+    listElements = Object.assign(data[0]),
+    emptyElements = [],
+    formatCharsYear = {'Y': '[0-9]','m': '[0-1]','M': '[0-9]','d': '[0-3]','D': '[0-9]'},
+    ConditionalLink = ({ children, to, condition }) => (!!condition && to)
+      ? <Link to={to}>{children}</Link>
+      : <>{children}</>;
+    valueElements.forEach(vl=>{
+        if(listElements[vl] === ""){
+            emptyElements.push(vl.replace(/([A-Z])/g, ' $1').replaceAll(' ', ' do ').replace('value do','').replace('Uf do', 'UF').replace('confirma do', ' confirma').replace('Dt do', 'Dt').replace('Fone do', 'Fone').replace('Grau do', 'Grau').replace('Org do', 'Org'));
         }
-        if(!elementsEmpty.length >0 && !generalClauses){
-            alert('Você deve aceitar as cláusulas gerais para continuar')
+    })
+    function clearElements(){
+        setData([{"valueNomeAluno": '', "valueCpfAluno": '', "valueAtuacaoAluno": '', "valueAla": '', "valueBairroAluno": '', "valueBloco": '', "valueCela": '', "valueCelularResp": '', "valueCepAluno": '', "valueCidadeAluno": '', "valueCondicao": '', "valueCpfResp": '', "valueDtNascAluno": '', "valueEmail": '', "valueEnderAluno": '', "valueFoneResidResp": '', "valueFoneTrabResp": '', "valueGrauInstAluno": '', "valueIdentidadeAluno": '', "valueInfopen": '', "valueMaeAluno": '', "valueNacionAluno": '', "valueNaturAluno": '', "valueNomeResp": '', "valueOrgExpAluno": '', "valueOrgExpResp": '', "valuePaiAluno": '', "valuePenitenciaria": '', "valueProfAluno": '', "valueRegime": '', "valueRgResp": '', "valueSexoAluno": '', "valueSexoResp": '', "valueUfNaturAluno": '', "valueUfPris": '', "valueUfResidAluno": '', "senha": '', "confirmaSenha": ''}]);
+    }
+    function Submit(){
+        if(!emptyElements.length > 0 && generalClauses){
+            setTimeout(function(){alert('Registrado com sucesso!')}, 1000)
+        }
+        if(emptyElements.length > 0){
+            alert(`Itens incompletos: ${emptyElements}`);
+        }
+        if(!emptyElements.length > 0 && !generalClauses){
+            alert('Você deve aceitar as cláusulas gerais para continuar');
         }
     }
-    function cpfAlunoFormat(cpf){
-		cpf = cpf.replace(/[^\d]/g, "");
-		setValueCpfAluno(cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4"))
-	}
-	function cpfRespFormat(cpf){
-		cpf = cpf.replace(/[^\d]/g, "");
-		setValueCpfResp(cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4"))
-	}
-	function phoneResidRespFormat(phone){
-		setValueFoneResidResp(phone.replace(/\D/g, '').replace(/(\d{2})(\d)/, '($1)$2').replace(/(\d{4})(\d)/, '$1-$2').replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3').replace(/(-\d{4})\d+?$/, '$1'))
-	}
-	function phoneTrabRespFormat(phone){
-		setValueFoneTrabResp(phone.replace(/\D/g, '').replace(/(\d{2})(\d)/, '($1)$2').replace(/(\d{4})(\d)/, '$1-$2').replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3').replace(/(-\d{4})\d+?$/, '$1'))
-	}
-	function phoneCelularRespFormat(phone){
-		setValueCelularResp(phone.replace(/\D/g, '').replace(/(\d{2})(\d)/, '($1)$2').replace(/(\d{4})(\d)/, '$1-$2').replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3').replace(/(-\d{4})\d+?$/, '$1'))
-	}
     return(
          <div className='flex flex-col mt-10'>
             <FormControl style={{fontSize:'20px', marginLeft:'40px'}}>
                     <h1 className='titles'> 1 - DADOS DO REEDUCANDO</h1>
                     <div id='Form1'>
-                        <TextField onChange={(e) => setValueNomeAluno(e.target.value)} value={valueNomeAluno} style={{margin:'1%'}} variant="outlined" label='Nome' className='nome' id='nomeAluno'></TextField>
-                        <TextField onChange={(e) => setValueSexoAluno(e.target.value)} value={valueSexoAluno} select style={{margin:'1%'}} variant="outlined" label='Sexo' className='sexo' id='SexoAluno'><MenuItem value='M'>M</MenuItem><MenuItem value='F'>F</MenuItem></TextField>
-                        <TextField onChange={(e)=>  cpfAlunoFormat(e.target.value)} value={valueCpfAluno} inputProps={{ maxLength: 14 }} style={{margin:'1%'}} variant="outlined" label='CPF' className='inputs' id='cpfAluno'></TextField>
-                        <TextField onChange={(e) => setValueIdentidadeAluno(e.target.value)} value={valueIdentidadeAluno} style={{margin:'1%'}} variant="outlined" label='Identidade' className='inputs' id='IdentidadeAluno'></TextField>
-                        <TextField onChange={(e) => setValueOrgExpAluno(e.target.value)} value={valueOrgExpAluno} style={{margin:'1%'}} variant="outlined" label='Órgão Expedidor' className='inputs' id='orgaoExpedidor'></TextField>
-                        <TextField onChange={(e) => setValueDtNascAluno(e.target.value)} value={valueDtNascAluno} style={{margin:'1%'}} variant="outlined" label='Data Nascimento' className='inputs' id='DataNascimento'></TextField>
-                        <TextField onChange={(e) => setValueNaturAluno(e.target.value)} value={valueNaturAluno} style={{margin:'1%'}} variant="outlined" label='Naturalidade' className='inputs' id='naturalidade'></TextField>
-                        <TextField onChange={(e) => setValueUfNaturAluno(e.target.value)} value={valueUfNaturAluno} select style={{margin:'1%'}} variant="outlined" label="UF Naturalidade" className='inputs' id='ufNaturalidade'>
-                            <MenuItem value="AC">Acre</MenuItem>
-                            <MenuItem value="AL">Alagoas</MenuItem>
-                            <MenuItem value="AP">Amapá</MenuItem>
-                            <MenuItem value="AM">Amazonas</MenuItem>
-                            <MenuItem value="BA">Bahia</MenuItem>
-                            <MenuItem value="CE">Ceará</MenuItem>
-                            <MenuItem value="DF">Distrito Federal</MenuItem>
-                            <MenuItem value="ES">Espírito Santo</MenuItem>
-                            <MenuItem value="GO">Goiás</MenuItem>
-                            <MenuItem value="MA">Maranhão</MenuItem>
-                            <MenuItem value="MT">Mato Grosso</MenuItem>
-                            <MenuItem value="MS">Mato Grosso do Sul</MenuItem>
-                            <MenuItem value="MG">Minas Gerais</MenuItem>
-                            <MenuItem value="PA">Pará</MenuItem>
-                            <MenuItem value="PB">Paraíba</MenuItem>
-                            <MenuItem value="PR">Paraná</MenuItem>
-                            <MenuItem value="PE">Pernambuco</MenuItem>
-                            <MenuItem value="PI">Piauí</MenuItem>
-                            <MenuItem value="RJ">Rio de Janeiro</MenuItem>
-                            <MenuItem value="RN">Rio Grande do Norte</MenuItem>
-                            <MenuItem value="RS">Rio Grande do Sul</MenuItem>
-                            <MenuItem value="RO">Rondônia</MenuItem>
-                            <MenuItem value="RR">Roraima</MenuItem>
-                            <MenuItem value="SC">Santa Catarina</MenuItem>
-                            <MenuItem value="SP">São Paulo</MenuItem>
-                            <MenuItem value="SE">Sergipe</MenuItem>
-                            <MenuItem value="TO">Tocantins</MenuItem></TextField>
-                        <TextField onChange={(e) => setValueNacionAluno(e.target.value)} value={valueNacionAluno} style={{margin:'1%'}} variant="outlined" label='Nacionalidade' className='inputs' id='nacionalidade'></TextField>
-                        <TextField onChange={(e) => setValueEnderAluno(e.target.value)} value={valueEnderAluno} style={{margin:'1%'}} variant="outlined" label='Endereço Residencial' className='EnderecoResidencial' id='EnderecoResidencial'></TextField>
-                        <TextField onChange={(e) => setValueBairroAluno(e.target.value)} value={valueBairroAluno} style={{margin:'1%'}} variant="outlined" label='Bairro' className='inputs' id='Bairro'></TextField>
-                        <TextField onChange={(e) => setValueCidadeAluno(e.target.value)} value={valueCidadeAluno} style={{margin:'1%'}} variant="outlined" label='Cidade' className='inputs' id='Cidade'></TextField>
-                        <TextField onChange={(e) => setValueUfResidAluno(e.target.value)} value={valueUfResidAluno} select style={{margin:'1%'}} variant="outlined" label='UF Residencial' className='inputs' id='ufResidencial'>
-                            <MenuItem value="AC">Acre</MenuItem>
-                            <MenuItem value="AL">Alagoas</MenuItem>
-                            <MenuItem value="AP">Amapá</MenuItem>
-                            <MenuItem value="AM">Amazonas</MenuItem>
-                            <MenuItem value="BA">Bahia</MenuItem>
-                            <MenuItem value="CE">Ceará</MenuItem>
-                            <MenuItem value="DF">Distrito Federal</MenuItem>
-                            <MenuItem value="ES">Espírito Santo</MenuItem>
-                            <MenuItem value="GO">Goiás</MenuItem>
-                            <MenuItem value="MA">Maranhão</MenuItem>
-                            <MenuItem value="MT">Mato Grosso</MenuItem>
-                            <MenuItem value="MS">Mato Grosso do Sul</MenuItem>
-                            <MenuItem value="MG">Minas Gerais</MenuItem>
-                            <MenuItem value="PA">Pará</MenuItem>
-                            <MenuItem value="PB">Paraíba</MenuItem>
-                            <MenuItem value="PR">Paraná</MenuItem>
-                            <MenuItem value="PE">Pernambuco</MenuItem>
-                            <MenuItem value="PI">Piauí</MenuItem>
-                            <MenuItem value="RJ">Rio de Janeiro</MenuItem>
-                            <MenuItem value="RN">Rio Grande do Norte</MenuItem>
-                            <MenuItem value="RS">Rio Grande do Sul</MenuItem>
-                            <MenuItem value="RO">Rondônia</MenuItem>
-                            <MenuItem value="RR">Roraima</MenuItem>
-                            <MenuItem value="SC">Santa Catarina</MenuItem>
-                            <MenuItem value="SP">São Paulo</MenuItem>
-                            <MenuItem value="SE">Sergipe</MenuItem>
-                            <MenuItem value="TO">Tocantins</MenuItem></TextField>
-                        <TextField onChange={(e) => setValueCepAluno(e.target.value)} value={valueCepAluno} style={{margin:'1%'}} variant="outlined" label='CEP' className='inputs' id='CEP'></TextField>
-                        <TextField onChange={(e) => setValueGrauInstAluno(e.target.value)} value={valueGrauInstAluno} style={{margin:'1%'}} variant="outlined" label='Grau de Instrução' className='inputs' id='grauDeInstrucao'></TextField>
-                        <TextField onChange={(e) => setValueProfAluno(e.target.value)} value={valueProfAluno} style={{margin:'1%'}} variant="outlined" label='Profissão/Cargo/Função' className='inputs' id='profissao'></TextField>
-                        <TextField onChange={(e) => setValueAtuacaoAluno(e.target.value)} value={valueAtuacaoAluno} style={{margin:'1%'}} variant="outlined" label='Área de Atuação/Habilitação' className='inputs' id='habilitacao'></TextField>
-                        <TextField onChange={(e) => setValuePaiAluno(e.target.value)} value={valuePaiAluno} style={{margin:'1%'}} variant="outlined" label='Pai' className='pai' id='pai'></TextField>  
-                        <TextField onChange={(e) => setValueMaeAluno(e.target.value)} value={valueMaeAluno} style={{margin:'1%'}} variant="outlined" label='Mãe' className='mae' id='mae'></TextField>  
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueNomeAluno':e.target.value.toUpperCase()}])} value={data[0].valueNomeAluno} style={{margin:'1%'}} variant="outlined" label='Nome' className='nome' id='nomeAluno'></TextField>
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueSexoAluno':e.target.value.toUpperCase()}])} value={data[0].valueSexoAluno} select style={{margin:'1%'}} variant="outlined" label='Sexo' className='sexo' id='SexoAluno'><MenuItem value='M'>M</MenuItem><MenuItem value='F'>F</MenuItem></TextField>
+                        <InputMask mask="999.999.999-99" maskChar={null} onChange={(e) => setData((data)=>[{...data[0],'valueCpfAluno':e.target.value}])} value={data[0].valueCpfAluno} id='cpfAluno' >{() => <TextField style={{margin:'1%'}} label='CPF' className='inputs'/>}</InputMask>
+                        <InputMask mask="999999999999999" maskChar={null} onChange={(e) => setData((data)=>[{...data[0],'valueIdentidadeAluno':e.target.value.toUpperCase()}])} value={data[0].valueIdentidadeAluno} id='IdentidadeAluno'>{() => <TextField style={{margin:'1%'}} label='Identidade' className='inputs'  />}</InputMask>
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueOrgExpAluno':e.target.value.toUpperCase()}])} value={data[0].valueOrgExpAluno} style={{margin:'1%'}} variant="outlined" label='Órgão Expedidor' className='inputs' id='orgaoExpedidor'></TextField>
+
+                        <InputMask mask='dD/mM/YYYY' maskChar={null} formatChars={formatCharsYear} onChange={(e) => setData((data)=>[{...data[0],'valueDtNascAluno':e.target.value.toUpperCase()}])} value={data[0].valueDtNascAluno} id='DataNascimento'>{() => <TextField label='Data Nascimento' className='inputs' style={{margin:'1%'}} />}</InputMask>
+                        
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueNaturAluno':e.target.value.toUpperCase()}])} value={data[0].valueNaturAluno} style={{margin:'1%'}} variant="outlined" label='Naturalidade' className='inputs' id='naturalidade'></TextField>
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueUfNaturAluno':e.target.value}])} value={data[0].valueUfNaturAluno} select style={{margin:'1%'}} variant="outlined" label="UF Naturalidade" className='inputs' id='ufNaturalidade'>
+                            <MenuItem value="AC">Acre</MenuItem><MenuItem value="AL">Alagoas</MenuItem><MenuItem value="AP">Amapá</MenuItem><MenuItem value="AM">Amazonas</MenuItem><MenuItem value="BA">Bahia</MenuItem><MenuItem value="CE">Ceará</MenuItem><MenuItem value="DF">Distrito Federal</MenuItem><MenuItem value="ES">Espírito Santo</MenuItem><MenuItem value="GO">Goiás</MenuItem><MenuItem value="MA">Maranhão</MenuItem><MenuItem value="MT">Mato Grosso</MenuItem><MenuItem value="MS">Mato Grosso do Sul</MenuItem><MenuItem value="MG">Minas Gerais</MenuItem><MenuItem value="PA">Pará</MenuItem><MenuItem value="PB">Paraíba</MenuItem><MenuItem value="PR">Paraná</MenuItem><MenuItem value="PE">Pernambuco</MenuItem><MenuItem value="PI">Piauí</MenuItem><MenuItem value="RJ">Rio de Janeiro</MenuItem><MenuItem value="RN">Rio Grande do Norte</MenuItem><MenuItem value="RS">Rio Grande do Sul</MenuItem><MenuItem value="RO">Rondônia</MenuItem><MenuItem value="RR">Roraima</MenuItem><MenuItem value="SC">Santa Catarina</MenuItem><MenuItem value="SP">São Paulo</MenuItem><MenuItem value="SE">Sergipe</MenuItem><MenuItem value="TO">Tocantins</MenuItem></TextField>
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueNacionAluno':e.target.value.toUpperCase()}])} value={data[0].valueNacionAluno} style={{margin:'1%'}} variant="outlined" label='Nacionalidade' className='inputs' id='nacionalidade'></TextField>
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueEnderAluno':e.target.value.toUpperCase()}])} value={data[0].valueEnderAluno} style={{margin:'1%'}} variant="outlined" label='Endereço Residencial' className='EnderecoResidencial' id='EnderecoResidencial'></TextField>
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueBairroAluno':e.target.value.toUpperCase()}])} value={data[0].valueBairroAluno} style={{margin:'1%'}} variant="outlined" label='Bairro' className='inputs' id='Bairro'></TextField>
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueCidadeAluno':e.target.value.toUpperCase()}])} value={data[0].valueCidadeAluno} style={{margin:'1%'}} variant="outlined" label='Cidade' className='inputs' id='Cidade'></TextField>
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueUfResidAluno':e.target.value}])} value={data[0].valueUfResidAluno} select style={{margin:'1%'}} variant="outlined" label='UF Residencial' className='inputs' id='ufResidencial'>
+                            <MenuItem value="AC">Acre</MenuItem><MenuItem value="AL">Alagoas</MenuItem><MenuItem value="AP">Amapá</MenuItem><MenuItem value="AM">Amazonas</MenuItem><MenuItem value="BA">Bahia</MenuItem><MenuItem value="CE">Ceará</MenuItem><MenuItem value="DF">Distrito Federal</MenuItem><MenuItem value="ES">Espírito Santo</MenuItem><MenuItem value="GO">Goiás</MenuItem><MenuItem value="MA">Maranhão</MenuItem><MenuItem value="MT">Mato Grosso</MenuItem><MenuItem value="MS">Mato Grosso do Sul</MenuItem><MenuItem value="MG">Minas Gerais</MenuItem><MenuItem value="PA">Pará</MenuItem><MenuItem value="PB">Paraíba</MenuItem><MenuItem value="PR">Paraná</MenuItem><MenuItem value="PE">Pernambuco</MenuItem><MenuItem value="PI">Piauí</MenuItem><MenuItem value="RJ">Rio de Janeiro</MenuItem><MenuItem value="RN">Rio Grande do Norte</MenuItem><MenuItem value="RS">Rio Grande do Sul</MenuItem><MenuItem value="RO">Rondônia</MenuItem><MenuItem value="RR">Roraima</MenuItem><MenuItem value="SC">Santa Catarina</MenuItem><MenuItem value="SP">São Paulo</MenuItem><MenuItem value="SE">Sergipe</MenuItem><MenuItem value="TO">Tocantins</MenuItem></TextField>
+                        <InputMask mask="99999-999" maskChar={null} onChange={(e) => setData((data)=>[{...data[0],'valueCepAluno':e.target.value.toUpperCase()}])} value={data[0].valueCepAluno} id='CEP' >{() => <TextField style={{margin:'1%'}} variant="outlined" label='CEP' className='inputs' />}</InputMask>          
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueGrauInstAluno':e.target.value.toUpperCase()}])} value={data[0].valueGrauInstAluno} style={{margin:'1%'}} variant="outlined" label='Grau de Instrução' className='inputs' id='grauDeInstrucao'></TextField>
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueProfAluno':e.target.value.toUpperCase()}])} value={data[0].valueProfAluno} style={{margin:'1%'}} variant="outlined" label='Profissão/Cargo/Função' className='inputs' id='profissao'></TextField>
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueAtuacaoAluno':e.target.value.toUpperCase()}])} value={data[0].valueAtuacaoAluno} style={{margin:'1%'}} variant="outlined" label='Área de Atuação/Habilitação' className='inputs' id='habilitacao'></TextField>
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valuePaiAluno':e.target.value.toUpperCase()}])} value={data[0].valuePaiAluno} style={{margin:'1%'}} variant="outlined" label='Pai' className='pai' id='pai'></TextField>  
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueMaeAluno':e.target.value.toUpperCase()}])} value={data[0].valueMaeAluno} style={{margin:'1%'}} variant="outlined" label='Mãe' className='mae' id='mae'></TextField>  
                     </div>
                     <h2 className='titles'>2 - DADOS DO RESPONSÁVEL: Familiar / Visitante / Advogado</h2>
                     <div id='Form2'>
-                        <TextField onChange={(e) => setValueNomeResp(e.target.value)} value={valueNomeResp} style={{margin:'1%'}} variant="outlined" label='Nome do Responsável (seu nome)' className='nome' id='ufTrabalho'></TextField>
-                        <TextField onChange={(e) => setValueSexoResp(e.target.value)} value={valueSexoResp} select style={{margin:'1%'}} variant="outlined" label='Sexo' className='sexo' id='ufTrabalho'><MenuItem value='M'>M</MenuItem><MenuItem value='F'>F</MenuItem></TextField>
-                        <TextField onChange={(e) => setValueVinculoResp(e.target.value)} select value={valueVinculoResp} style={{margin:'1%'}} variant="outlined" label='Vínculo' className='inputs' id='ufTrabalho'>
-                            <MenuItem value='Familiar'>Familiar</MenuItem>
-                            <MenuItem value='Advogado'>Advogado</MenuItem>
-                            <MenuItem value='Visitante'>Visitante</MenuItem>
-                            <MenuItem value='Núcleo de Ensino Penitenciário'>Núcleo de Ensino Penitenciário</MenuItem>
-                            <MenuItem value='Agente Penitenciário'>Agente Penitenciário</MenuItem>
-                            <MenuItem value='Pedagogo Penitenciário'>Pedagogo Penitenciário</MenuItem></TextField>
-                        <TextField onChange={(e) => {cpfRespFormat(e.target.value)}} value={valueCpfResp} style={{margin:'1%'}} inputProps={{ maxLength: 14 }} variant="outlined" label='CPF' className='inputs' id='ufTrabalho'></TextField>
-                        <TextField onChange={(e) => setValueRgResp(e.target.value)} value={valueRgResp} style={{margin:'1%'}} variant="outlined" label='RG' className='inputs' id='ufTrabalho'></TextField>
-                        <TextField onChange={(e) => setValueOrgExpResp(e.target.value)} value={valueOrgExpResp} style={{margin:'1%'}} variant="outlined" label='Órgão Expedidor' className='inputs' id='ufTrabalho'></TextField>
-                        <TextField onChange={(e) => phoneCelularRespFormat(e.target.value)} value={valueCelularResp} inputProps={{ maxLength: 14 }} style={{margin:'1%'}} variant="outlined" label='Celular' className='inputs' id='ufTrabalho'></TextField>
-                        <TextField onChange={(e) => phoneResidRespFormat(e.target.value)} value={valueFoneResidResp} inputProps={{ maxLength: 14 }} style={{margin:'1%'}} variant="outlined" label='Fone Residencial' className='inputs' id='ufTrabalho'></TextField>
-                        <TextField onChange={(e) => phoneTrabRespFormat(e.target.value)} value={valueFoneTrabResp} inputProps={{ maxLength: 14 }} style={{margin:'1%'}} variant="outlined" label='Fone Trabalho' className='inputs' id='ufTrabalho'></TextField>
-                        <TextField onChange={(e) => setValueEmail(e.target.value)} value={valueEmail} style={{margin:'1%'}} variant="outlined" label='Email' className='email' id='ufTrabalho'></TextField>  
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueNomeResp':e.target.value.toUpperCase()}])} value={data[0].valueNomeResp} style={{margin:'1%'}} variant="outlined" label='Nome do Responsável (seu nome)' className='nome' id='nomeResp'></TextField>
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueSexoResp':e.target.value.toUpperCase()}])} value={data[0].valueSexoResp} select style={{margin:'1%'}} variant="outlined" label='Sexo' className='sexo' id='sexoResp'><MenuItem value='M'>M</MenuItem><MenuItem value='F'>F</MenuItem></TextField>
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueVinculo':e.target.value}])} select value={data[0].valueVinculoResp} style={{margin:'1%'}} variant="outlined" label='Vínculo' className='inputs' id='vinculoResp'>
+                            <MenuItem value='FAMILIAR'>Familiar</MenuItem><MenuItem value='ADVOGADO'>Advogado</MenuItem><MenuItem value='VISITANTE'>Visitante</MenuItem><MenuItem value='NÚCLEO DE ENSINO PENITENCIÁRIO'>Núcleo de Ensino Penitenciário</MenuItem><MenuItem value='AGENTE PENITENCIÁRIO'>Agente Penitenciário</MenuItem><MenuItem value='PEDAGOOG PENITENCIÁRIO'>Pedagogo Penitenciário</MenuItem></TextField>
+                        <InputMask mask='999.999.999-99' maskChar={null} onChange={(e) => setData((data)=>[{...data[0],'valueCpfResp':e.target.value}])} value={data[0].valueCpfResp} id='cpfResp'>{() => <TextField style={{margin:'1%'}} label='CPF' className='inputs'  />}</InputMask>
+                        <InputMask mask="999999999999999" maskChar={null} onChange={(e) => setData((data)=>[{...data[0],'valueRgResp':e.target.value.toUpperCase()}])} value={data[0].valueRgResp}  d='rgResp'>{() => <TextField variant="outlined" label='RG' className='inputs' style={{margin:'1%'}}/>}</InputMask>
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueOrgExpResp':e.target.value.toUpperCase()}])} value={data[0].valueOrgExpResp} style={{margin:'1%'}} variant="outlined" label='Órgão Expedidor' className='inputs' id='orgExpResp'></TextField>
+                        <InputMask mask="(99)99999-9999" onChange={(e) => setData((data)=>[{...data[0],'valueCelularResp':e.target.value}])} value={data[0].valueCelularResp} maskChar={null} id='celularResp' >{() => <TextField style={{margin:'1%'}} variant="outlined" label='Celular' className='inputs'/>}</InputMask>
+                        <InputMask mask="(99)99999-9999" onChange={(e) => setData((data)=>[{...data[0],'valueFoneResidResp':e.target.value}])} value={data[0].valueFoneResidResp} maskChar={null} id='foneResidResp' >{() => <TextField style={{margin:'1%'}} variant="outlined" label='Fone Residencial' className='inputs'/>}</InputMask>
+                        <InputMask mask="(99)99999-9999" onChange={(e) => setData((data)=>[{...data[0],'valueFoneTrabResp':e.target.value.toUpperCase()}])} value={data[0].valueFoneTrabResp} maskChar={null} id='foneTrapResp'>{() => <TextField style={{margin:'1%'}} variant="outlined" label='Fone Trabalho' className='inputs'/>}</InputMask>
+
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueEmail':e.target.value.toUpperCase()}])} value={data[0].valueEmail} type='email' placeholder="email@example.com" style={{margin:'1%'}} variant="outlined" label='Email' className='email' id='emailResp'></TextField>  
                     </div>
                     <h3 className='titles'>3 - DADOS PRISIONAIS</h3>
                     <div id='Form3'>
-                        <TextField onChange={(e) => setValueInfoPen(e.target.value)} value={valueInfoPen} style={{margin:'1%'}} variant="outlined" label='INFOPEN' className='inputs' id='infopen'></TextField>  
-                        <TextField onChange={(e) => setValueUfPris(e.target.value)} value={valueUfPris} select style={{margin:'1%'}} variant="outlined" label='UF' className='inputs' id='ufTrabalho'><MenuItem value="AC">Acre</MenuItem>
-                            <MenuItem value="AL">Alagoas</MenuItem>
-                            <MenuItem value="AP">Amapá</MenuItem>
-                            <MenuItem value="AM">Amazonas</MenuItem>
-                            <MenuItem value="BA">Bahia</MenuItem>
-                            <MenuItem value="CE">Ceará</MenuItem>
-                            <MenuItem value="DF">Distrito Federal</MenuItem>
-                            <MenuItem value="ES">Espírito Santo</MenuItem>
-                            <MenuItem value="GO">Goiás</MenuItem>
-                            <MenuItem value="MA">Maranhão</MenuItem>
-                            <MenuItem value="MT">Mato Grosso</MenuItem>
-                            <MenuItem value="MS">Mato Grosso do Sul</MenuItem>
-                            <MenuItem value="MG">Minas Gerais</MenuItem>
-                            <MenuItem value="PA">Pará</MenuItem>
-                            <MenuItem value="PB">Paraíba</MenuItem>
-                            <MenuItem value="PR">Paraná</MenuItem>
-                            <MenuItem value="PE">Pernambuco</MenuItem>
-                            <MenuItem value="PI">Piauí</MenuItem>
-                            <MenuItem value="RJ">Rio de Janeiro</MenuItem>
-                            <MenuItem value="RN">Rio Grande do Norte</MenuItem>
-                            <MenuItem value="RS">Rio Grande do Sul</MenuItem>
-                            <MenuItem value="RO">Rondônia</MenuItem>
-                            <MenuItem value="RR">Roraima</MenuItem>
-                            <MenuItem value="SC">Santa Catarina</MenuItem>
-                            <MenuItem value="SP">São Paulo</MenuItem>
-                            <MenuItem value="SE">Sergipe</MenuItem>
-                            <MenuItem value="TO">Tocantins</MenuItem></TextField>  
-                        <TextField onChange={(e) => setValuePenitenciaria(e.target.value)} value={valuePenitenciaria} style={{margin:'1%'}} variant="outlined" label='Penitenciária' className='penitenciaria' id='penitenciaria'></TextField>  
-                        <TextField onChange={(e) => setValueBloco(e.target.value)} value={valueBloco} style={{margin:'1%'}} variant="outlined" label='Bloco' className='line5' id='bloco'></TextField>  
-                        <TextField onChange={(e) => setValueAla(e.target.value)} value={valueAla} style={{margin:'1%'}} variant="outlined" label='Ala' className='line5' id='ala'></TextField>  
-                        <TextField onChange={(e) => setValueCela(e.target.value)} value={valueCela} style={{margin:'1%'}} variant="outlined" label='Cela' className='line5' id='cela'></TextField>  
-                        <TextField onChange={(e) => setValueCondicao(e.target.value)} value={valueCondicao} select style={{margin:'1%'}} variant="outlined" label='Condição' className='line5' id='condicao'><MenuItem value="Sentenciado">Sentenciado</MenuItem><MenuItem value="Aguardando Sentença">Aguardando Sentença</MenuItem></TextField>  
-                        <TextField onChange={(e) => setValueRegime(e.target.value)} value={valueRegime} select style={{margin:'1%'}} variant="outlined" label='Regime' className='line5' id='regime'><MenuItem value="Fechado">Fechado</MenuItem><MenuItem value="Semiaberto">Semiaberto</MenuItem><MenuItem value="Aberto">Aberto</MenuItem></TextField>  
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueInfopen':e.target.value.toUpperCase()}])} value={data[0].valueInfopen} style={{margin:'1%'}} variant="outlined" label='INFOPEN' className='inputs' id='infopen'></TextField>  
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueUfPris':e.target.value}])} value={data[0].valueUfPris} select style={{margin:'1%'}} variant="outlined" label='UF' className='inputs' id='ufPris'>
+                            <MenuItem value="AC">Acre</MenuItem><MenuItem value="AL">Alagoas</MenuItem><MenuItem value="AP">Amapá</MenuItem><MenuItem value="AM">Amazonas</MenuItem><MenuItem value="BA">Bahia</MenuItem><MenuItem value="CE">Ceará</MenuItem><MenuItem value="DF">Distrito Federal</MenuItem><MenuItem value="ES">Espírito Santo</MenuItem><MenuItem value="GO">Goiás</MenuItem><MenuItem value="MA">Maranhão</MenuItem><MenuItem value="MT">Mato Grosso</MenuItem><MenuItem value="MS">Mato Grosso do Sul</MenuItem><MenuItem value="MG">Minas Gerais</MenuItem><MenuItem value="PA">Pará</MenuItem><MenuItem value="PB">Paraíba</MenuItem><MenuItem value="PR">Paraná</MenuItem><MenuItem value="PE">Pernambuco</MenuItem><MenuItem value="PI">Piauí</MenuItem><MenuItem value="RJ">Rio de Janeiro</MenuItem><MenuItem value="RN">Rio Grande do Norte</MenuItem><MenuItem value="RS">Rio Grande do Sul</MenuItem><MenuItem value="RO">Rondônia</MenuItem><MenuItem value="RR">Roraima</MenuItem><MenuItem value="SC">Santa Catarina</MenuItem><MenuItem value="SP">São Paulo</MenuItem><MenuItem value="SE">Sergipe</MenuItem><MenuItem value="TO">Tocantins</MenuItem></TextField>  
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valuePenitenciaria':e.target.value.toUpperCase()}])} value={data[0].valuePenitenciaria} style={{margin:'1%'}} variant="outlined" label='Penitenciária' className='penitenciaria' id='penitenciaria'></TextField>  
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueBloco':e.target.value.toUpperCase()}])} value={data[0].valueBloco} style={{margin:'1%'}} variant="outlined" label='Bloco' className='line5' id='bloco'></TextField>  
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueAla':e.target.value.toUpperCase()}])} value={data[0].valueAla} style={{margin:'1%'}} variant="outlined" label='Ala' className='line5' id='ala'></TextField>  
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueCela':e.target.value.toUpperCase()}])} value={data[0].valueCela} style={{margin:'1%'}} variant="outlined" label='Cela' className='line5' id='cela'></TextField>  
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueCondicao':e.target.value}])} value={data[0].valueCondicao} select style={{margin:'1%'}} variant="outlined" label='Condição' className='line5' id='condicao'><MenuItem value="SENTENCIADO">Sentenciado</MenuItem><MenuItem value="AGUARDANDO SENTENÇA">Aguardando Sentença</MenuItem></TextField>  
+                        <TextField onChange={(e) => setData((data)=>[{...data[0],'valueRegime':e.target.value}])} value={data[0].valueRegime} select style={{margin:'1%'}} variant="outlined" label='Regime' className='line5' id='regime'><MenuItem value="FECHADO">Fechado</MenuItem><MenuItem value="SEMIABERTO">Semiaberto</MenuItem><MenuItem value="ABERTO">Aberto</MenuItem></TextField>  
                     </div>
                     <h4 className='titles'>4 - DADOS GERAIS</h4>
                         <div className='flex flex-col w-5/6 p-10'>
@@ -226,8 +99,8 @@ export default function RegisterForm(){
                                     <div id='outterForm4'>
                                     <p>Crie a senha para acessar a Área do Aluno</p>
                                     <div id='Form4'>
-                                        <TextField onChange={(e) => setSenha(e.target.value)} style={{margin:'1%'}} variant="outlined" type='password' value={senha} id='senha' label='Senha' className='lg:w-2/5'></TextField>
-                                        <TextField onChange={(e) => setConfirmaSenha(e.target.value)} style={{margin:'1%'}} variant="outlined" type='password' value={confirmaSenha} id='confirmaSenha' label='Confirmar senha' className='lg:w-2/5'></TextField>
+                                        <TextField onChange={(e) => setData((data)=>[{...data[0],'senha':e.target.value.toUpperCase()}])} style={{margin:'1%'}} variant="outlined" type='password' value={data.senha} id='senha' label='Senha' className='lg:w-2/5'></TextField>
+                                        <TextField onChange={(e) => setData((data)=>[{...data[0],'confirmaSenha':e.target.value.toUpperCase()}])} style={{margin:'1%'}} variant="outlined" type='password' value={data.confirmaSenha} id='confirmaSenha' label='Confirmar senha' className='lg:w-2/5'></TextField>
                                     </div>
                                     </div>
                                 </div>
@@ -253,8 +126,10 @@ export default function RegisterForm(){
                         </div>
             </FormControl>
             <div className='w-full flex self-center lg:w-1/2 h-20 justify-around'>
-            <button className='lg:w-1/3 h-fit p-2 rounded-sm bg-red-600 text-white font-bold' onClick={() => clearElements()}>LIMPAR</button>
-            <button type='submit' className='lg:w-1/3 h-fit p-2 rounded-sm text-white font-bold bg-green-500' onClick={() => {Submit()}}>CONCLUIR CADASTRO</button>
+            <button className='lg:w-1/3 h-fit p-2 rounded-sm bg-red-600 text-white font-bold' onClick={()=> clearElements()}>LIMPAR</button>
+            <ConditionalLink to="/login" condition={!emptyElements.length > 0 && generalClauses}>
+            <button type='submit' className='lg:w-80 h-fit p-2 rounded-sm text-white font-bold bg-green-500' onClick={()=> Submit()}>CONCLUIR CADASTRO</button>
+            </ConditionalLink>
             </div>
         </div>
     )

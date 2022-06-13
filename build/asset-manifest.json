@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/cened/static/css/main.e48d3a44.css",
-    "main.js": "/cened/static/js/main.6b47fcef.js",
+    "main.css": "/cened/static/css/main.43cbfd58.css",
+    "main.js": "/cened/static/js/main.ab268805.js",
     "static/media/slideIMG2.png": "/cened/static/media/slideIMG2.c1fab22b8e783f3eeaf1.png",
     "static/media/slideIMG3.png": "/cened/static/media/slideIMG3.3864416cab9c1b834bd3.png",
     "static/media/slideIMG1.png": "/cened/static/media/slideIMG1.ce5957b1c8a3859eb2d7.png",
@@ -12,11 +12,11 @@
     "static/media/bandeiradobrasil.jpg": "/cened/static/media/bandeiradobrasil.54251ad6dc86ef62d8d0.jpg",
     "static/media/whatsappIcon.png": "/cened/static/media/whatsappIcon.69a72697fa4550c2f5d3.png",
     "index.html": "/cened/index.html",
-    "main.e48d3a44.css.map": "/cened/static/css/main.e48d3a44.css.map",
-    "main.6b47fcef.js.map": "/cened/static/js/main.6b47fcef.js.map"
+    "main.43cbfd58.css.map": "/cened/static/css/main.43cbfd58.css.map",
+    "main.ab268805.js.map": "/cened/static/js/main.ab268805.js.map"
   },
   "entrypoints": [
-    "static/css/main.e48d3a44.css",
-    "static/js/main.6b47fcef.js"
+    "static/css/main.43cbfd58.css",
+    "static/js/main.ab268805.js"
   ]
 }

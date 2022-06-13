@@ -45,7 +45,7 @@ export default function Intro() {
             <div className='hidden md:flex flex-col justify-evenly lg:justify-between items-center h-96 w-1/4'>
             <p>Remição da pena pelo estudo</p>
             <button className='w-2/3 hover:w-3/4 hover:transition-all h-fit flex flex-col' onClick={() => { allClosed ? setOpen4(true) : open4 ? setOpen4(false) : setTimeout(function(){setOpen4(true)}, 450); 
-            setOpen2(false);setOpen3(false);setOpen1(false);}}><img src={slideImg4} alt='' /><p className='text-white mt-2 hover:bg-green-500 hover:transition-colors text-base rounded-xl pl-2 pr-2 bg-blue-800 w-fit place-self-center'>SAIBA +</p></button>
+            setOpen2(false);setOpen3(false);setOpen1(false);}}><img src={slideImg4} alt='' className='rounded-xl' /><p className='text-white mt-2 hover:bg-green-500 hover:transition-colors text-base rounded-xl pl-2 pr-2 bg-blue-800 w-fit place-self-center'>SAIBA +</p></button>
             </div>
         </div>
         <div className='md:hidden flex mt-4 text-xs text-center'>

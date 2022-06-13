@@ -14,9 +14,9 @@ import Register from './Pages/Register';
 import axios from 'axios'
 
 function App() {
-  const [translateNavbar, setTranslateNavbar] = useState(false)
-  const [visible, setVisible] = useState(false)
-  let [id, setId] = useState()
+  const [translateNavbar, setTranslateNavbar] = useState(false),
+  [visible, setVisible] = useState(false);
+  let [id, setId] = useState();
   return (
     <div className="App w-screen flex flex-col h-screen overflow-x-hidden overflow-y-auto">
       <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
