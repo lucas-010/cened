@@ -36,7 +36,7 @@ export default function Form() {
 		if(valueCpf !== '' && valuePhone || valueSmartPhone !== '' && valueEmail !== '' &&  message !== ''){
 			alert(`CPF: ${valueCpf}`)
 		}else{
-			alert('Itens Incompletos')
+			return false
 		}
 	}
   return (
