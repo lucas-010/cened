@@ -324,6 +324,7 @@ export default function List() {
         setCourses(response.data.data)
       })
     }, [])
+    let [openCart, setOpenCart] = useState(false);
   return (
     <div className='absolute mt-10 w-screen min-h-screen'>
         <Title text={`CURSOS SUGERIDOS PARA O ESTADO: ${state}` }>
@@ -331,6 +332,9 @@ export default function List() {
           Selecione o(s) curso(s) <MdCheckBox color='#F6B112' className='hidden lg:block md:block' size={25}/> e, ao final, clique na imagem do carrinho de compras<BsArrowRightShort className='hidden lg:block md:block' size={25}/> <BsCart4 className='hidden lg:block md:block' size={25}/>
           </p>
         </Title>
+        <div className={`${openCart ? 'fixed flex': 'hidden'} w-screen h-screen`}>
+          <CoursesSelect openCart={openCart} setOpenCart={setOpenCart} setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/>
+        </div>
         {courses.length ?
         <div className='w-full flex-col items-center lg:items-start lg:flex-row flex lg:justify-start justify-center'>
           <div className='flex mb-2 flex-col lg:items-start lg:ml-10 items-center'>
@@ -346,11 +350,13 @@ export default function List() {
               }
             })}
           </div>
+          <div className='w-fit h-fit lg:block hidden'>
           <CoursesSelect setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/>
+          </div>
         </div>
         :courses ? <div className='w-full h-screen flex justify-center'><CircularProgress size='8rem' /></div>
         :<div className='w-full h-screen flex text-3xl justify-center'>Não encontramos cursos disponíveis!</div>}
-        <div className='bg-yellow-400 p-3 rounded-full fixed bottom-2 right-5'>
+        <div onClick={()=>{openCart ? setOpenCart(false) :setOpenCart(true)}} className='bg-yellow-400 block lg:hidden p-3 rounded-full fixed bottom-2 right-5'>
             <BsCart4 size={45}/>
         </div>
       <Footer/>
