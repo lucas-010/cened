@@ -27,14 +27,14 @@ export default function RegisterForm(){
     }
     function Submit(){
         let confirmaSenha = data[0].senha === data[0].confirmaSenha;
-        if(!confirmaSenha){
-            alert('As senhas não coincidem!')
-        }
         if(confirmaSenha && !emptyElements.length > 0 && generalClauses){
             setTimeout(function(){alert('Registrado com sucesso!')}, 1000)
         }
         if(emptyElements.length > 0){
             alert(`Itens incompletos: ${emptyElements}`);
+        }
+        if(!confirmaSenha && !emptyElements.length > 0){
+            alert('As senhas não coincidem!');
         }
         if(!emptyElements.length > 0 && !generalClauses){
             alert('Você deve aceitar as cláusulas gerais para continuar');
@@ -103,8 +103,8 @@ export default function RegisterForm(){
                                     <div id='outterForm4'>
                                     <p>Crie a senha para acessar a Área do Aluno</p>
                                     <div id='Form4'>
-                                        <TextField onChange={(e) => setData((data)=>[{...data[0],'senha':e.target.value.toUpperCase()}])} style={{margin:'1%'}} variant="outlined" type='password' value={data.senha} id='senha' label='Senha' className='lg:w-2/5'></TextField>
-                                        <TextField onChange={(e) => setData((data)=>[{...data[0],'confirmaSenha':e.target.value.toUpperCase()}])} style={{margin:'1%'}} variant="outlined" type='password' value={data.confirmaSenha} id='confirmaSenha' label='Confirmar senha' className='lg:w-2/5'></TextField>
+                                        <TextField onChange={(e) => setData((data)=>[{...data[0],'senha':e.target.value.toUpperCase()}])} style={{margin:'1%'}} variant="outlined" type='password' value={data[0].senha} id='senha' label='Senha' className='lg:w-2/5'></TextField>
+                                        <TextField onChange={(e) => setData((data)=>[{...data[0],'confirmaSenha':e.target.value.toUpperCase()}])} style={{margin:'1%'}} variant="outlined" type='password' value={data[0].confirmaSenha} id='confirmaSenha' label='Confirmar senha' className='lg:w-2/5'></TextField>
                                     </div>
                                     </div>
                                 </div>
