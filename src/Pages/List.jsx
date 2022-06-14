@@ -327,7 +327,7 @@ export default function List() {
   return (
     <div className='absolute mt-10 w-screen min-h-screen'>
         <Title text={`CURSOS SUGERIDOS PARA O ESTADO: ${state}` }>
-          <p className='text-2xl text-center flex items-center font-bold'>
+          <p className='lg:text-2xl text-center flex items-center font-bold'>
           Selecione o(s) curso(s) <MdCheckBox color='#F6B112' className='hidden lg:block md:block' size={25}/> e, ao final, clique na imagem do carrinho de compras<BsArrowRightShort className='hidden lg:block md:block' size={25}/> <BsCart4 className='hidden lg:block md:block' size={25}/>
           </p>
         </Title>
@@ -339,7 +339,7 @@ export default function List() {
               let image = imagesCode[code]
               if(image){
                 return(
-                  <CourseBox key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image={image} id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
+                  <CourseBox coursesSelected={coursesSelected} key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image={image} id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
                 )
               }else{
                 return false

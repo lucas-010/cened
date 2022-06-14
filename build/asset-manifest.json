@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/cened/static/css/main.d421b65a.css",
-    "main.js": "/cened/static/js/main.70f1216c.js",
+    "main.css": "/cened/static/css/main.75be2691.css",
+    "main.js": "/cened/static/js/main.2210417a.js",
     "static/media/slideIMG2.png": "/cened/static/media/slideIMG2.c1fab22b8e783f3eeaf1.png",
     "static/media/slideIMG3.png": "/cened/static/media/slideIMG3.3864416cab9c1b834bd3.png",
     "static/media/slideIMG1.png": "/cened/static/media/slideIMG1.ce5957b1c8a3859eb2d7.png",
-    "static/media/slideIMG4.png": "/cened/static/media/slideIMG4.2acb2b2e9221dd414685.png",
+    "static/media/slideIMG4.png": "/cened/static/media/slideIMG4.da34b654105dce033cb8.png",
     "static/media/51.jpg": "/cened/static/media/51.e81cb52259ce83799b67.jpg",
     "static/media/96.jpg": "/cened/static/media/96.5e711f4edb34081f5d12.jpg",
     "static/media/179.jpg": "/cened/static/media/179.4ffdefe856ed56cef3a2.jpg",
@@ -72,20 +72,11 @@
     "static/media/whatsappIcon.png": "/cened/static/media/whatsappIcon.69a72697fa4550c2f5d3.png",
     "static/media/45.1.jpg": "/cened/static/media/45.1.b50186c70480e3fd7b45.jpg",
     "index.html": "/cened/index.html",
-<<<<<<< HEAD
-    "main.43cbfd58.css.map": "/cened/static/css/main.43cbfd58.css.map",
-    "main.ab268805.js.map": "/cened/static/js/main.ab268805.js.map"
+    "main.75be2691.css.map": "/cened/static/css/main.75be2691.css.map",
+    "main.2210417a.js.map": "/cened/static/js/main.2210417a.js.map"
   },
   "entrypoints": [
-    "static/css/main.43cbfd58.css",
-    "static/js/main.ab268805.js"
-=======
-    "main.d421b65a.css.map": "/cened/static/css/main.d421b65a.css.map",
-    "main.70f1216c.js.map": "/cened/static/js/main.70f1216c.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.d421b65a.css",
-    "static/js/main.70f1216c.js"
->>>>>>> 0b213dd5550715cb36c970984ce63bd22a01f885
+    "static/css/main.75be2691.css",
+    "static/js/main.2210417a.js"
   ]
 }
