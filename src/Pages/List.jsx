@@ -7,6 +7,7 @@ import {BsArrowRightShort} from 'react-icons/bs'
 import {BsCart4} from 'react-icons/bs'
 import { MdCheckBox } from 'react-icons/md'
 import CoursesSelect from '../components/CoursesSelect'
+import CircularProgress from '@mui/material/CircularProgress';
 import Footer from '../components/Footer'
 import img23 from '../images/cursos/23.1.jpg'
 import img40 from '../images/cursos/40.jpg'
@@ -302,7 +303,6 @@ export default function List() {
     const htmlToReactParser = new HtmlToReactParser();
     const reactElement = htmlToReactParser.parse(htmlInput);
     const reactHtml = ReactDOMServer.renderToStaticMarkup(reactElement);
-    console.log(reactHtml)
   }
 
     useEffect(()=>{
@@ -331,25 +331,28 @@ export default function List() {
           Selecione o(s) curso(s) <MdCheckBox color='#F6B112' className='hidden lg:block md:block' size={25}/> e, ao final, clique na imagem do carrinho de compras<BsArrowRightShort className='hidden lg:block md:block' size={25}/> <BsCart4 className='hidden lg:block md:block' size={25}/>
           </p>
         </Title>
+        {courses.length ?
         <div className='w-full flex-col items-center lg:items-start lg:flex-row flex lg:justify-start justify-center'>
-        <div className='flex mb-2 flex-col lg:items-start lg:ml-10 items-center'>
-          {courses.map((course, key)=>{
-            let code = course.codigo.toString().replace('.1', '')
-            let image = imagesCode[code]
-            if(image){
-              return(
-                <CourseBox key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image={image} id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
-              )
-            }else{
-              return false
-            }
-          })}
-        </div>
+          <div className='flex mb-2 flex-col lg:items-start lg:ml-10 items-center'>
+            {courses.map((course, key)=>{
+              let code = course.codigo.toString().replace('.1', '')
+              let image = imagesCode[code]
+              if(image){
+                return(
+                  <CourseBox key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image={image} id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
+                )
+              }else{
+                return false
+              }
+            })}
+          </div>
           <CoursesSelect setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/>
         </div>
-      <div className='bg-yellow-400 p-3 rounded-full fixed bottom-2 right-5'>
-          <BsCart4 size={45}/>
-      </div>
+        :courses ? <div className='w-full h-screen flex justify-center'><CircularProgress size='8rem' /></div>
+        :<div className='w-full h-screen flex text-3xl justify-center'>Não encontramos cursos disponíveis!</div>}
+        <div className='bg-yellow-400 p-3 rounded-full fixed bottom-2 right-5'>
+            <BsCart4 size={45}/>
+        </div>
       <Footer/>
     </div>
   )
