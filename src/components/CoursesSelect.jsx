@@ -16,9 +16,10 @@ export default function CoursesSelect({courses, totalPrice, setCoursesSelected,s
             })}
         </ul>
         {!openCart?<span className='text-2xl font-semibold'>Total: R${totalPrice},00</span>:''}
-        <div className='mt-5 flex flex-col lg:flex-row justify-between'>
-          <button onClick={()=> {setCoursesSelected([]);setOpenCart(false)}} className='bg-red-600 text-white text-2xl font-semibold rounded-lg p-2'>Limpar Carrinho</button>
-          <button className='bg-yellow-400 text-2xl lg:ml-5 mt-5 lg:mt-0 font-semibold rounded-lg p-2'>Finalizar Compra</button>
+        <div className='mt-5 flex flex-col lg:flex-row justify-around'>
+          <button onClick={()=> {setCoursesSelected([]);setOpenCart(false)}} className='bg-red-600 text-white text-xl font-semibold rounded-lg p-2'>Limpar Carrinho</button>
+          <button onClick={()=> {setOpenCart(false)}} className='lg:hidden text-white bg-green-400 text-xl lg:ml-5 mt-5 lg:mt-0 font-semibold rounded-lg p-2'>Continuar comprando</button>
+          <button className='bg-yellow-400 text-xl lg:ml-5 mt-5 lg:mt-0 font-semibold rounded-lg p-2'>Finalizar Compra</button>
         </div>
     </div>
   )
