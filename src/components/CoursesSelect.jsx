@@ -5,7 +5,7 @@ export default function CoursesSelect({courses, totalPrice, setCoursesSelected,s
   let map = courses.map(item =>item);
   let filter = map.splice(0,3);
   return (
-    <div className={`${!courses.length && !openCart > 0 ? 'invisible' : false} bg-[#D1D5DB] lg:fixed lg:right-20 lg:mt-0 p-4 rounded-xl md:w-2/3 w-full lg:w-1/4`}>
+    <div className={`${!courses.length && !openCart > 0 ? 'invisible' : false} bg-[#D1D5DB] lg:fixed lg:right-20 lg:mt-0 h-fit p-4 rounded-xl md:w-2/3 w-full lg:w-1/4`}>
         <h2 className='text-3xl text-center flex items-center justify-center font-bold'><BsCart4 size={40}/>Carrinho:</h2>
         <ul className='flex flex-col ml-5 list-outside list-decimal'>
             {filter.map((c, key)=>{

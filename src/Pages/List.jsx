@@ -332,7 +332,7 @@ export default function List() {
           Selecione o(s) curso(s) <MdCheckBox color='#F6B112' className='hidden lg:block md:block' size={25}/> e, ao final, clique na imagem do carrinho de compras<BsArrowRightShort className='hidden lg:block md:block' size={25}/> <BsCart4 className='hidden lg:block md:block' size={25}/>
           </p>
         </Title>
-        <div className={`${openCart ? 'fixed flex': 'hidden'} w-screen h-screen`}>
+        <div className={`${openCart ? 'fixed flex bg-black bg-opacity-40': 'hidden'} top-20 p-6 justify-center items-center w-full h-screen`}>
           <CoursesSelect openCart={openCart} setOpenCart={setOpenCart} setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/>
         </div>
         {courses.length ?
