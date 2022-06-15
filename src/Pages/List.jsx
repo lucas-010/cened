@@ -70,11 +70,11 @@ import img306 from '../images/cursos/306.jpg'
 import img307 from '../images/cursos/307.jpg'
 import img308 from '../images/cursos/308.jpg'
 import img309 from '../images/cursos/309.jpg'
+import notfound from '../images/notfound.png'
 import axios from 'axios'
 import { TextField } from '@mui/material'
 const HtmlToReactParser = require('html-to-react').Parser
 const parse = require('html-react-parser')
-
 export default function List() {
   const abbres = [
     {
@@ -213,37 +213,42 @@ export default function List() {
 
   ]
   const imagesCode = {
-      "23": img23,
+      "23.1": img23,
+      "27": notfound,
       "40": img40,
       "41": img41,
-      "45": img45,
+      "45.1": img45,
       "47": img47,
       "51": img51,
       "53": img53,
-      "55": img55,
+      "55.1": img55,
       "56": img56,
       "58": img58,
       "59": img59,
       "66": img66,
-      "82": img82,
+      "82.1": img82,
       "83": img83,
-      "84": img84,
+      "84.1": img84,
       "88": img88,
       "91": img91,
-      "93": img93,
-      "95": img95,
+      "93.1": img93,
+      "94": notfound,
+      "95.1": img95,
       "96": img96,
-      "102": img102,
       "103": img103,
-      "110": img110,
-      "114": img114,
+      "110.1": img110,
+      "118.1": img118,
+      "143.1": img143,
+      "150.1": img150,
+      "161.1": img161,
+      "178.1": img178,
+      "316.1": notfound,
+      "323.1": notfound,
+      "324.1": notfound,
       "115": img115,
       "116": img116,
       "118": img118,
-      "142": img142,
-      "143": img143,
-      "145": img145,
-      "150": img150,
+      "122": notfound,
       "151": img151,
       "154": img154,
       "155": img155,
@@ -252,18 +257,17 @@ export default function List() {
       "158": img158,
       "159": img159,
       "160": img160,
-      "161": img161,
       "167": img167,
       "168": img168,
-      "169": img169,
       "177": img177,
-      "178": img178,
       "179": img179,
       "180": img180,
       "181": img181,
       "187": img187,
-      "211": img211,
       "212": img212,
+      "222": notfound,
+      "223": notfound,
+      "224": notfound,
       "300": img300,
       "301": img301,
       "302": img302,
@@ -274,6 +278,20 @@ export default function List() {
       "307": img307,
       "308": img308,
       "309": img309,
+      "320": notfound,
+      "321": notfound,
+      "325": notfound,
+      "326": notfound,
+      "327": notfound,
+      "328": notfound,
+      "329": notfound,
+      "330": notfound,
+      "331": notfound,
+      "334": notfound,
+      "335": notfound,
+      "336": notfound,
+      "337": notfound,
+      "338": notfound,
     }
   const [coursesSelected, setCoursesSelected] = useState([])
   const [courses, setCourses] = useState([])
@@ -282,6 +300,8 @@ export default function List() {
     let newCourse = [...coursesSelected, {id, image, title, time, price}]
     setCoursesSelected(newCourse)
   }
+  const imagesTrue = []
+  console.log(imagesTrue)
   const removeCourseList = (id)=>{
     let newCoursesList = []
 
@@ -375,20 +395,21 @@ export default function List() {
         {filteredData.length ?
         <div className='w-full flex-col items-center lg:items-start lg:flex-row flex lg:justify-start justify-center'>
           <div className='flex mb-2 flex-col lg:items-start lg:ml-10 items-center'>
-            {filteredData.map((course, key)=>{
-              let code = course.codigo.toString().replace('.1', '')
+            {
+            filteredData.map((course, key)=>{
+              let code = course.codigo.toString()
               let image = imagesCode[code]
               let content = htmlConveterToReact(course.conteudo)
-              if(image){
-                return(
-                  <CourseBox content={content} coursesSelected={coursesSelected} key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image={image} id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
-                )
-              }else{
-                return(
-                  <CourseBox content={content} coursesSelected={coursesSelected} key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image="https://img.freepik.com/vetores-gratis/icone-de-erro-minimo-moderno-nao-encontrado-oops-pagina-nao-encontrada-404-erro-a-pagina-nao-encontrada-com-conceito_599740-716.jpg" id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
-                )
+                if(image){
+                  imagesTrue.push(course)
+                  console.log(imagesTrue)
+                  return(
+                    <CourseBox content={content} coursesSelected={coursesSelected} key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image={image} id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
+                  )
+                }
               }
-            })}
+            )
+            }
           </div>
           <div className='w-fit h-screen items-center lg:flex hidden top-24 absolute'>
           <CoursesSelect setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/>

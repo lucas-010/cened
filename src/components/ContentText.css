@@ -1,0 +1,13 @@
+.ContentText strong{
+    text-align: center;
+}
+
+.ContentText li{
+    padding-left: 30px;
+    list-style: disc;
+}
+
+.ContentText strong{
+    color: black;
+    padding-left: 30px;
+}

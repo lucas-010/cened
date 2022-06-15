@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {MdOutlineCheckBoxOutlineBlank} from 'react-icons/md'
+import './ContentText.css'
 import { MdCheckBox } from 'react-icons/md'
 
 export default function CourseBox({id, content, image ,title, time, price, addCourseList, removeCourseList, code, coursesSelected}) {
@@ -33,9 +34,8 @@ export default function CourseBox({id, content, image ,title, time, price, addCo
         </div>
         </div>
         <div className={`${visibleContent ? 'flex flex-col' : 'hidden'} transition-all justify-between w-full`}>
-            <div className={`mt-5`}>
-                <p className='lg:max-w-5xl lg:text-lg'>
-                {content}</p>
+            <div className="ContentText list-outside">
+                {content}
             </div>
         </div>
     </div>
