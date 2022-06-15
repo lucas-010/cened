@@ -20,11 +20,7 @@ function App() {
   const [translateNavbar, setTranslateNavbar] = useState(false),
   [visible, setVisible] = useState(false);
   let [id, setId] = useState();
-  if(loading){
-    return <div className='flex bg-blue-400 items-center justify-center w-screen h-screen'><CircularProgress size='5em'/></div>
-  }
-  else{
-  return (
+  if(!loading){return (
     <div className="App w-screen flex flex-col h-screen overflow-x-hidden overflow-y-auto">
       <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
         <Header id={id} setId={setId} setVisible={setVisible} visible={visible} translateNavbar={translateNavbar} setTranslateNavbar={setTranslateNavbar}/>
@@ -42,7 +38,12 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
-  );}
+  );
+    
+  }
+  else{
+    return <div className='flex bg-blue-400 items-center justify-center w-screen h-screen'><CircularProgress size='5em'/></div>
+  }
 }
 
 export default App;

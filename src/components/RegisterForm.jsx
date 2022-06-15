@@ -28,7 +28,7 @@ export default function RegisterForm(){
     function Submit(){
         let confirmaSenha = data.senha === data.confirmaSenha;
         if(confirmaSenha && !emptyElements.length > 0 && generalClauses){
-            setTimeout(function(){alert('Registrado com sucesso!')}, 1000)
+            setTimeout(function(){alert('Registrado com sucesso!')}, 500)
         }
         if(emptyElements.length > 0){
             alert(`Itens incompletos: ${emptyElements}`);
