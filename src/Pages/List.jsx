@@ -91,6 +91,10 @@ import img329 from '../images/cursos/329.jpg'
 import img330 from '../images/cursos/330.jpg'
 import img331 from '../images/cursos/331.jpg'
 import img334 from '../images/cursos/334.jpg'
+import img335 from '../images/cursos/335.jpg'
+import img336 from '../images/cursos/336.jpg'
+import img337 from '../images/cursos/337.jpg'
+import img338 from '../images/cursos/338.jpg'
 import notfound from '../images/notfound.png'
 import axios from 'axios'
 import useMediaQuery from '@mui/material/useMediaQuery'
@@ -309,11 +313,11 @@ export default function List() {
       "329": img329,
       "330": img330,
       "331": img331,
-      "334": img334,
-      "335": notfound,
-      "336": notfound,
-      "337": notfound,
-      "338": notfound,
+      "334": img335,
+      "335": img335,
+      "336": img336,
+      "337": img337,
+      "338": img338,
     }
   const [coursesSelected, setCoursesSelected] = useState([])
   const [courses, setCourses] = useState([])
@@ -322,7 +326,6 @@ export default function List() {
     let newCourse = [...coursesSelected, {id, image, title, time, price}]
     setCoursesSelected(newCourse)
   }
-  const imagesTrue = []
   const removeCourseList = (id)=>{
     let newCoursesList = []
 
@@ -422,7 +425,6 @@ export default function List() {
               let image = imagesCode[code]
               let content = htmlConveterToReact(course.conteudo)
                 if(image){
-                  imagesTrue.push(course)
                   return(
                     <CourseBox content={content} coursesSelected={coursesSelected} key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image={image} id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
                   )
@@ -436,7 +438,7 @@ export default function List() {
           </div>
         </div>
         : !courses.length ? <div className='w-full flex justify-center'><CircularProgress size='8rem' /></div>
-        :<div className='w-full flex text-center lg:justify-center mt-10'><p className='text-3xl'>Não encontramos cursos disponíveis!</p><div className='w-fit h-screen items-center lg:flex hidden top-24 absolute'><CoursesSelect setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/></div></div>}
+        :<div className='w-full flex lg:justify-center mt-10'><p className='text-3xl'>Não encontramos cursos disponíveis!</p><div className='w-fit h-screen items-center lg:flex hidden top-24 absolute'><CoursesSelect setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/></div></div>}
         <div onClick={()=>{openCart ? setOpenCart(false) :setOpenCart(true)}} className='bg-yellow-400 block lg:hidden p-3 rounded-full fixed bottom-2 right-5'>
             <BsCart4 size={45}/>
         </div>
