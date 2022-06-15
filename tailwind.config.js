@@ -8,7 +8,7 @@ module.exports = {
       xs: '280px',
       sm: '640px',
       md: '768px',
-      lg: '1242px',
+      lg: '1100px',
       xl: '1280px'
     }
   },
