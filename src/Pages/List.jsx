@@ -71,6 +71,7 @@ import img307 from '../images/cursos/307.jpg'
 import img308 from '../images/cursos/308.jpg'
 import img309 from '../images/cursos/309.jpg'
 import axios from 'axios'
+import { TextField } from '@mui/material'
 const HtmlToReactParser = require('html-to-react').Parser
 
 export default function List() {
@@ -325,20 +326,52 @@ export default function List() {
       })
     }, [])
     let [openCart, setOpenCart] = useState(false);
+    let [inputText, setInputText] = useState("");
+    let inputHandler = (e) => {
+      //convert input text to lower case
+      var lowerCase = e.target.value.toLowerCase();
+      setInputText(lowerCase);
+    };
+    const filteredData = courses.filter((el) => {
+        if (inputText === '') {
+            return el;
+        }
+        if(el.nome.toLowerCase().includes(inputText)) {
+            return el;
+        }
+        if(el.codigo.includes(inputText)){
+          return el;
+        }
+    })
   return (
-    <div className='absolute mt-10 w-screen min-h-screen'>
+    <div className='absolute mt-10 w-screen'>
+      <div className='min-h-screen'>
         <Title text={`CURSOS SUGERIDOS PARA O ESTADO: ${state}` }>
           <p className='lg:text-2xl text-sm text-center justify-center flex flex-wrap items-center font-bold'>
           Selecione o(s) curso(s) <MdCheckBox color='#F6B112' size={25}/> e, ao final, clique na imagem do carrinho de compras<BsArrowRightShort size={25}/><BsCart4 size={25}/>
           </p>
         </Title>
+        <div className="mt-10 lg:mt-0 flex h-full w-full items-center flex-col" >
+          <div className="lg:w-1/3 w-2/3">
+            <TextField
+              id="outlined-basic"
+              onChange={inputHandler}
+              variant="outlined"
+              fullWidth
+              placeholder='Insira o código ou nome do curso'
+              label="Buscar curso"
+            />
+          </div>
+          <div className="hidden">
+          </div>
+        </div>
         <div className={`${openCart ? 'fixed flex bg-black bg-opacity-40': 'hidden'} lg:hidden top-0 p-6 justify-center items-center w-full h-screen`}>
           <CoursesSelect openCart={openCart} setOpenCart={setOpenCart} setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/>
         </div>
         {courses.length ?
         <div className='w-full flex-col items-center lg:items-start lg:flex-row flex lg:justify-start justify-center'>
           <div className='flex mb-2 flex-col lg:items-start lg:ml-10 items-center'>
-            {courses.map((course, key)=>{
+            {filteredData.map((course, key)=>{
               let code = course.codigo.toString().replace('.1', '')
               let image = imagesCode[code]
               if(image){
@@ -358,6 +391,7 @@ export default function List() {
         :<div className='w-full h-screen flex text-3xl justify-center'>Não encontramos cursos disponíveis!</div>}
         <div onClick={()=>{openCart ? setOpenCart(false) :setOpenCart(true)}} className='bg-yellow-400 block lg:hidden p-3 rounded-full fixed bottom-2 right-5'>
             <BsCart4 size={45}/>
+        </div>
         </div>
       <Footer/>
     </div>
