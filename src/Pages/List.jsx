@@ -72,6 +72,7 @@ import img308 from '../images/cursos/308.jpg'
 import img309 from '../images/cursos/309.jpg'
 import axios from 'axios'
 const HtmlToReactParser = require('html-to-react').Parser
+const parse = require('html-react-parser')
 
 export default function List() {
   const abbres = [
@@ -303,6 +304,7 @@ export default function List() {
     const htmlToReactParser = new HtmlToReactParser();
     const reactElement = htmlToReactParser.parse(htmlInput);
     const reactHtml = ReactDOMServer.renderToStaticMarkup(reactElement);
+    return parse(reactHtml)
   }
 
     useEffect(()=>{
@@ -323,6 +325,7 @@ export default function List() {
       axios.get('https://api-cenedqualificando.azurewebsites.net/api/v1/cursos?limit=200').then(response=>{
         setCourses(response.data.data)
       })
+      
     }, [])
     let [openCart, setOpenCart] = useState(false);
   return (
@@ -341,12 +344,15 @@ export default function List() {
             {courses.map((course, key)=>{
               let code = course.codigo.toString().replace('.1', '')
               let image = imagesCode[code]
+              let content = htmlConveterToReact(course.conteudo)
               if(image){
                 return(
-                  <CourseBox coursesSelected={coursesSelected} key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image={image} id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
+                  <CourseBox content={content} coursesSelected={coursesSelected} key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image={image} id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
                 )
               }else{
-                return false
+                return(
+                  <CourseBox content={content} coursesSelected={coursesSelected} key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image="https://img.freepik.com/vetores-gratis/icone-de-erro-minimo-moderno-nao-encontrado-oops-pagina-nao-encontrada-404-erro-a-pagina-nao-encontrada-com-conceito_599740-716.jpg" id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
+                )
               }
             })}
           </div>
