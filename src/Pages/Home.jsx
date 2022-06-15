@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react' 
-import AboutSchool from '../components/AboutSchool'
-import HowItWorks from '../components/HowItWorks'
-import MostInfo from '../components/MostInfo'
-import Tutoring from '../components/Tutoring'
-import Intro from '../components/Introduction'
-import Footer from '../components/Footer'
+import React, { useEffect } from 'react';
+import AboutSchool from '../components/AboutSchool';
+import HowItWorks from '../components/HowItWorks';
+import MostInfo from '../components/MostInfo';
+import Tutoring from '../components/Tutoring';
+import Intro from '../components/Introduction';
+import Footer from '../components/Footer';
+
 
 export default function Home() {
   useEffect(()=>{
