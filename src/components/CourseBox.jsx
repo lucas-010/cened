@@ -34,7 +34,7 @@ export default function CourseBox({id, content, image ,title, time, price, addCo
         </div>
         </div>
         <div className={`${visibleContent ? 'flex flex-col' : 'hidden'} transition-all justify-between w-full`}>
-            <div className="ContentText list-outside">
+            <div className="ContentText mt-10 bg-gray-200 p-4 rounded-lg">
                 {content}
             </div>
         </div>

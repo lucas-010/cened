@@ -322,7 +322,6 @@ export default function List() {
     setCoursesSelected(newCourse)
   }
   const imagesTrue = []
-  console.log(imagesTrue)
   const removeCourseList = (id)=>{
     let newCoursesList = []
 
@@ -387,7 +386,6 @@ export default function List() {
           return el;
         }
     })
-    console.log(filteredData);
   return (
     <div className='absolute mt-10 w-screen'>
       <div className='min-h-screen'>
@@ -423,7 +421,6 @@ export default function List() {
               let content = htmlConveterToReact(course.conteudo)
                 if(image){
                   imagesTrue.push(course)
-                  console.log(imagesTrue)
                   return(
                     <CourseBox content={content} coursesSelected={coursesSelected} key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image={image} id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
                   )
