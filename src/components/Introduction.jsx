@@ -1,13 +1,11 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import slideImg1 from '../images/slideIMG1.png'
 import slideImg2 from '../images/slideIMG2.png'
 import slideImg3 from '../images/slideIMG3.png'
 import slideImg4 from '../images/slideIMG4.png'
-import { useState, useEffect } from 'react';
 import { Accordion, AccordionDetails} from '@mui/material'
 import {Collapse} from 'react-collapse';
 import './Introduction.css';
-import { CircularProgress } from '@mui/material';
 
 export default function Intro() {
   const listText1 = [
@@ -22,8 +20,7 @@ export default function Intro() {
     {text: 'Possibilitar a recuperação da autoestima do REEDUCANDO por meio dos estudos que o qualificarão para o exercício de uma profissão útil à sociedade.'}],
   listText4 = [
     {text: 'Possibilitar aos REEDUCANDOS a pleitear o benefício de remição da pena pelo estudo, previsto no art. 126 da Lei nº 7.210/84 (Lei de Execução Penal) e regulamentado pela Resolução nº 391/2021, do Conselho Nacional de Justiça.'}];
-  let [open1, setOpen1] = useState(), [open2, setOpen2] = useState(), [open3, setOpen3] = useState(), [open4, setOpen4] = useState(), allClosed = true, [loading, setLoading] = useState(true);
-    useEffect(()=>{if(slideImg1 && slideImg2 && slideImg3 && slideImg4){setTimeout(()=>{setLoading(false)},500)}},[loading])
+  let [open1, setOpen1] = useState(), [open2, setOpen2] = useState(), [open3, setOpen3] = useState(), [open4, setOpen4] = useState(), allClosed = true;
     if(open1 || open2 || open3 || open4){allClosed = false}
     else{allClosed = true};
   return (
@@ -33,34 +30,34 @@ export default function Intro() {
             <div className='flex flex-col justify-evenly lg:justify-between items-center w-1/2 md:w-1/4 xs:h-48 md:h-96'>
             <p>Projeto de vida!</p>
             <button className='w-2/3 hover:w-3/4 hover:md:transition-all h-fit flex flex-col' onClick={() => { allClosed ? setOpen1(true) : open1 ? setOpen1(false) : setTimeout(function(){setOpen1(true)}, 450); 
-            setOpen2(false);setOpen3(false);setOpen4(false);}}>{loading ? <CircularProgress size='8em' style={{alignSelf:'center', marginBottom:'3em'}}/>:<img src={slideImg1} alt='' />}<p className='text-white mt-2 text-xs md:text-base hover:bg-green-500 hover:md:transition-colors rounded-xl pl-2 pr-2 bg-blue-800 w-fit place-self-center'>SAIBA +</p></button>
+            setOpen2(false);setOpen3(false);setOpen4(false);}}><img src={slideImg1} alt='' /><p className='text-white mt-2 text-xs md:text-base hover:bg-green-500 hover:md:transition-colors rounded-xl pl-2 pr-2 bg-blue-800 w-fit place-self-center'>SAIBA +</p></button>
             </div>
             <div className='flex flex-col justify-evenly lg:justify-between items-center xs:h-48 md:h-96 w-1/2 md:w-1/4'>
             <p>Educação para todos!</p>
             <button className='w-2/3 hover:w-3/4 hover:md:transition-all h-fit flex flex-col' onClick={() => { allClosed ? setOpen2(true) : open2 ? setOpen2(false) : setTimeout(function(){setOpen2(true)}, 450); 
-            setOpen1(false);setOpen3(false);setOpen4(false);}}> {loading ? <CircularProgress size='8em' style={{alignSelf:'center', marginBottom:'3em'}}/>:<img src={slideImg2} alt='' />}<p className='text-white mt-2 text-xs md:text-base hover:bg-green-500 hover:md:transition-colors rounded-xl pl-2 pr-2 bg-blue-800 w-fit place-self-center'>SAIBA +</p></button> 
+            setOpen1(false);setOpen3(false);setOpen4(false);}}> <img src={slideImg2} alt='' /><p className='text-white mt-2 text-xs md:text-base hover:bg-green-500 hover:md:transition-colors rounded-xl pl-2 pr-2 bg-blue-800 w-fit place-self-center'>SAIBA +</p></button> 
             </div>
             <div className='hidden md:flex flex-col justify-evenly lg:justify-between items-center h-96 w-1/4'>
             <p>Formação profissional!</p>
             <button className='w-2/3 hover:w-3/4 hover:transition-all h-fit flex flex-col' onClick={() => { allClosed ? setOpen3(true) : open3 ? setOpen3(false) : setTimeout(function(){setOpen3(true)}, 450); 
-            setOpen1(false);setOpen2(false);setOpen4(false);}}> {loading ? <CircularProgress size='8em' style={{alignSelf:'center', marginBottom:'3em'}}/>:<img src={slideImg3} alt='' />}<p className='text-white mt-2 text-base hover:bg-green-500 hover:transition-colors rounded-xl pl-2 pr-2 bg-blue-800 w-fit place-self-center'>SAIBA +</p></button>
+            setOpen1(false);setOpen2(false);setOpen4(false);}}> <img src={slideImg3} alt='' /><p className='text-white mt-2 text-base hover:bg-green-500 hover:transition-colors rounded-xl pl-2 pr-2 bg-blue-800 w-fit place-self-center'>SAIBA +</p></button>
             </div>
             <div className='hidden md:flex flex-col justify-evenly lg:justify-between items-center h-96 w-1/4'>
             <p>Remição da pena pelo estudo</p>
             <button className='w-2/3 hover:w-3/4 hover:transition-all h-fit flex flex-col' onClick={() => { allClosed ? setOpen4(true) : open4 ? setOpen4(false) : setTimeout(function(){setOpen4(true)}, 450); 
-            setOpen2(false);setOpen3(false);setOpen1(false);}}>{loading ? <CircularProgress size='8em' style={{alignSelf:'center', marginBottom:'3em'}}/>:<img src={slideImg4} alt='' className='rounded-xl' />}<p className='text-white mt-2 hover:bg-green-500 hover:transition-colors text-base rounded-xl pl-2 pr-2 bg-blue-800 w-fit place-self-center'>SAIBA +</p></button>
+            setOpen2(false);setOpen3(false);setOpen1(false);}}><img src={slideImg4} alt='' className='rounded-xl' /><p className='text-white mt-2 hover:bg-green-500 hover:transition-colors text-base rounded-xl pl-2 pr-2 bg-blue-800 w-fit place-self-center'>SAIBA +</p></button>
             </div>
         </div>
         <div className='md:hidden flex mt-4 text-xs text-center'>
         <div className='flex flex-col justify-evenly items-center h-48 w-1/2'>
             <p>Formação profissional!</p>
             <button className='w-2/3 hover:w-3/4 h-fit flex flex-col' onClick={() => { allClosed ? setOpen3(true) : open3 ? setOpen3(false) : setTimeout(function(){setOpen3(true)}, 450); 
-            setOpen1(false);setOpen2(false);setOpen4(false);}}> {loading ? <CircularProgress size='8em' style={{alignSelf:'center', marginBottom:'3em'}}/>:<img src={slideImg3} alt='' />}<p className='text-white mt-2 text-xs hover:bg-green-500 rounded-xl pl-2 pr-2 bg-blue-800 w-fit place-self-center'>SAIBA +</p></button>
+            setOpen1(false);setOpen2(false);setOpen4(false);}}> <img src={slideImg3} alt='' /><p className='text-white mt-2 text-xs hover:bg-green-500 rounded-xl pl-2 pr-2 bg-blue-800 w-fit place-self-center'>SAIBA +</p></button>
             </div>
             <div className='flex flex-col justify-evenly items-center h-48 w-1/2'>
             <p>Remição da pena pelo estudo</p>
             <button className='w-2/3 hover:w-3/4 h-fit flex flex-col' onClick={() => { allClosed ? setOpen4(true) : open4 ? setOpen4(false) : setTimeout(function(){setOpen4(true)}, 450); 
-            setOpen2(false);setOpen3(false);setOpen1(false);}}>{loading ? <CircularProgress size='8em' style={{alignSelf:'center', marginBottom:'3em'}}/>:<img src={slideImg4} alt='' />}<p className='text-white mt-2 text-xs hover:bg-green-500 rounded-xl pl-2 pr-2 bg-blue-800 w-fit place-self-center'>SAIBA +</p></button>
+            setOpen2(false);setOpen3(false);setOpen1(false);}}><img src={slideImg4} alt='' /><p className='text-white mt-2 text-xs hover:bg-green-500 rounded-xl pl-2 pr-2 bg-blue-800 w-fit place-self-center'>SAIBA +</p></button>
             </div>
         </div>
         <Collapse isOpened={open1}>

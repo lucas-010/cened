@@ -16,7 +16,7 @@ import { CircularProgress } from '@mui/material';
 
 function App() {
   let [loading, setLoading] = useState(true);
-    useEffect(()=>{setTimeout(()=>{setLoading(false)},1000)},[loading])
+    useEffect(()=>{if(window.location){setTimeout(()=>{setLoading(false)},1000)}},[loading])
   const [translateNavbar, setTranslateNavbar] = useState(false),
   [visible, setVisible] = useState(false);
   let [id, setId] = useState();
