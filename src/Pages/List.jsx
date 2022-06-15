@@ -10,6 +10,7 @@ import CoursesSelect from '../components/CoursesSelect'
 import CircularProgress from '@mui/material/CircularProgress';
 import Footer from '../components/Footer'
 import img23 from '../images/cursos/23.1.jpg'
+import img27 from '../images/cursos/27.jpg'
 import img40 from '../images/cursos/40.jpg'
 import img41 from '../images/cursos/41.jpg'
 import img45 from '../images/cursos/45.1.jpg'
@@ -27,6 +28,7 @@ import img84 from '../images/cursos/84.1.jpg'
 import img88 from '../images/cursos/88.jpg'
 import img91 from '../images/cursos/91.jpg'
 import img93 from '../images/cursos/93.1.jpg'
+import img94 from '../images/cursos/94.jpg'
 import img95 from '../images/cursos/95.1.jpg'
 import img96 from '../images/cursos/96.jpg'
 import img102 from '../images/cursos/102.jpg'
@@ -36,6 +38,7 @@ import img114 from '../images/cursos/114.jpg'
 import img115 from '../images/cursos/115.jpg'
 import img116 from '../images/cursos/116.jpg'
 import img118 from '../images/cursos/118.1.jpg'
+import img122 from '../images/cursos/122.jpg'
 import img142 from '../images/cursos/142.jpg'
 import img143 from '../images/cursos/143.1.jpg'
 import img145 from '../images/cursos/145.jpg'
@@ -60,6 +63,10 @@ import img181 from '../images/cursos/181.jpg'
 import img187 from '../images/cursos/187.jpg'
 import img211 from '../images/cursos/211.jpg'
 import img212 from '../images/cursos/212.jpg'
+import img221 from '../images/cursos/221.jpg'
+import img222 from '../images/cursos/222.jpg'
+import img223 from '../images/cursos/223.jpg'
+import img224 from '../images/cursos/224.jpg'
 import img300 from '../images/cursos/300.jpg'
 import img301 from '../images/cursos/301.jpg'
 import img302 from '../images/cursos/302.jpg'
@@ -70,6 +77,20 @@ import img306 from '../images/cursos/306.jpg'
 import img307 from '../images/cursos/307.jpg'
 import img308 from '../images/cursos/308.jpg'
 import img309 from '../images/cursos/309.jpg'
+import img316 from '../images/cursos/316.1.jpg'
+import img319 from '../images/cursos/319.jpg'
+import img320 from '../images/cursos/320.jpg'
+import img321 from '../images/cursos/321.jpg'
+import img323 from '../images/cursos/323.1.jpg'
+import img324 from '../images/cursos/324.1.jpg'
+import img325 from '../images/cursos/325.jpg'
+import img326 from '../images/cursos/326.jpg'
+import img327 from '../images/cursos/327.jpg'
+import img328 from '../images/cursos/328.jpg'
+import img329 from '../images/cursos/329.jpg'
+import img330 from '../images/cursos/330.jpg'
+import img331 from '../images/cursos/331.jpg'
+import img334 from '../images/cursos/334.jpg'
 import notfound from '../images/notfound.png'
 import axios from 'axios'
 import { TextField } from '@mui/material'
@@ -214,7 +235,7 @@ export default function List() {
   ]
   const imagesCode = {
       "23.1": img23,
-      "27": notfound,
+      "27": img27,
       "40": img40,
       "41": img41,
       "45.1": img45,
@@ -232,7 +253,7 @@ export default function List() {
       "88": img88,
       "91": img91,
       "93.1": img93,
-      "94": notfound,
+      "94": img94,
       "95.1": img95,
       "96": img96,
       "103": img103,
@@ -242,13 +263,13 @@ export default function List() {
       "150.1": img150,
       "161.1": img161,
       "178.1": img178,
-      "316.1": notfound,
-      "323.1": notfound,
-      "324.1": notfound,
+      "316.1": img316,
+      "323.1": img323,
+      "324.1": img324,
       "115": img115,
       "116": img116,
       "118": img118,
-      "122": notfound,
+      "122": img122,
       "151": img151,
       "154": img154,
       "155": img155,
@@ -265,9 +286,9 @@ export default function List() {
       "181": img181,
       "187": img187,
       "212": img212,
-      "222": notfound,
-      "223": notfound,
-      "224": notfound,
+      "222": img222,
+      "223": img223,
+      "224": img224,
       "300": img300,
       "301": img301,
       "302": img302,
@@ -278,16 +299,16 @@ export default function List() {
       "307": img307,
       "308": img308,
       "309": img309,
-      "320": notfound,
-      "321": notfound,
-      "325": notfound,
-      "326": notfound,
-      "327": notfound,
-      "328": notfound,
-      "329": notfound,
-      "330": notfound,
-      "331": notfound,
-      "334": notfound,
+      "320": img320,
+      "321": img321,
+      "325": img325,
+      "326": img326,
+      "327": img327,
+      "328": img328,
+      "329": img329,
+      "330": img330,
+      "331": img331,
+      "334": img334,
       "335": notfound,
       "336": notfound,
       "337": notfound,
