@@ -350,7 +350,7 @@ export default function List() {
               }
             })}
           </div>
-          <div className='w-fit h-screen items-center lg:flex hidden top-10 absolute'>
+          <div className='w-fit h-screen items-center lg:flex hidden top-24 absolute'>
           <CoursesSelect setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/>
           </div>
         </div>
