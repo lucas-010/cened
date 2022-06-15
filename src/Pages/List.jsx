@@ -93,6 +93,7 @@ import img331 from '../images/cursos/331.jpg'
 import img334 from '../images/cursos/334.jpg'
 import notfound from '../images/notfound.png'
 import axios from 'axios'
+import useMediaQuery from '@mui/material/useMediaQuery'
 import { TextField } from '@mui/material'
 const HtmlToReactParser = require('html-to-react').Parser
 const parse = require('html-react-parser')
@@ -345,7 +346,8 @@ export default function List() {
     const htmlToReactParser = new HtmlToReactParser();
     const reactElement = htmlToReactParser.parse(htmlInput);
     const reactHtml = ReactDOMServer.renderToStaticMarkup(reactElement);
-    return parse(reactHtml)
+    let padding = '0px'
+    return parse(reactHtml.replaceAll('span', 'p').replaceAll('<p','<li').replaceAll('</p>','</li>').replaceAll('30px', padding).replaceAll('justify', 'start'))
   }
 
     useEffect(()=>{

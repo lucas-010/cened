@@ -1,14 +1,25 @@
 .ContentText strong{
-    text-align: center;
+    color: black;   
 }
 
 .ContentText li{
-    padding-left: 30px;
     list-style: disc;
     display: block;
+    text-align: justify;
 }
 
-.ContentText strong{
-    color: black;
-    padding-left: 30px;
+.ContentText{
+    width: 95%;
+    display: flex;
+}
+@media screen and (max-width:1100px) {
+    .ContentText li{
+        padding-left: 0px;
+        text-align: start;
+        
+    }
+    .ContentText{
+        width: 90%;
+        display: flex;
+    }
 }

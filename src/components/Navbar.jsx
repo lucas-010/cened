@@ -5,7 +5,7 @@ import {AiOutlineUser} from 'react-icons/ai'
 import {FiUsers} from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 
-export default function Navbar({translateNavbar, visible, setVisible, setId, id}) {
+export default function Navbar({translateNavbar, setVisible, setId, id}) {
   return (
     <div className='fixed'>
     <div className={`absolute ${translateNavbar ? 'translate-x-0' : 'translate-x-full'} lg:translate-x-0 h-screen overflow-y-auto right-0 transition-transform lg:flex lg:items-center lg:relative px-4 justify-between bg-[#F6B112] lg:p-0 lg:right-0 text-black md:p-4 lg:h-auto lg:w-screen`}>
@@ -14,7 +14,7 @@ export default function Navbar({translateNavbar, visible, setVisible, setId, id}
             <ListItem text={'Início'} link=''/>
             <ListItem text={'Instituição'} link='instituicao'/>
             <ListItem text={'Cursos'} link='cursos'/>
-            <li onClick={()=> {setVisible(true); setId(1)}} onMouseEnter={()=> {!id ? setVisible(true) : setTimeout(()=> {setVisible(true)}, 110); setId(1)}} onMouseLeave={()=> setTimeout(()=> {setVisible(false)}, 100)} className='p-2 m-2 text-sm font-bold h-auto transition-colors cursor-default ease-in delay-70 flex justify-center items-center hover:bg-blue-800 hover:text-white rounded-xl'>Como Funciona</li>
+            <li onClick={()=> {setVisible(true); setId(1)}} onMouseEnter={()=> {!id ? setVisible(true) : setTimeout(()=> {setVisible(true)}); setId(1)}} onMouseLeave={()=> setTimeout(()=> {setVisible(false)})} className='p-2 m-2 text-sm font-bold h-auto transition-colors cursor-default ease-in delay-70 flex justify-center items-center hover:bg-blue-800 hover:text-white rounded-xl'>Como Funciona</li>
             <ListItem text={'Contato'} link='contato'/>
             <ListItem text={'Trabalhe Conosco'} link='trabalheconosco'/>
           </ul>

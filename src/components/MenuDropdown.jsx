@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 export default function MenuDropdown({collapse, visible, id}) {
   return (
     <div>
-        <ul className={`bg-[#c8c9cd] top-52 left-44 text-center ${!(id === 1) ? 'hidden' : visible ? 'block' : 'hidden'} md:hover:block lg:hover:block fixed ${collapse ? 'lg:top-12' : 'lg:top-40'} md:top-56 rounded-b-lg mt-1 p-4 md:left-48 lg:left-64`}>
+        <ul className={`bg-[#c8c9cd] top-52 left-44 ${!(id === 1) ? 'hidden' : visible ? 'block' : 'hidden'} md:hover:block lg:hover:block fixed ${collapse ? 'lg:top-12' : 'lg:top-40'} md:top-56 rounded-b-lg mt-1 p-4 md:left-48 lg:left-64`}>
             <Link to='passoapasso'>
               <li className='p-2 text-base font-bold transition-colors ease-in delay-70 hover:bg-blue-800 hover:text-white rounded-xl'>Passo a Passo</li>
             </Link>
