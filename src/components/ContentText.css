@@ -5,6 +5,7 @@
 .ContentText li{
     padding-left: 30px;
     list-style: disc;
+    display: block;
 }
 
 .ContentText strong{
