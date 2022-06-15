@@ -343,6 +343,7 @@ export default function List() {
           return el;
         }
     })
+    console.log(filteredData);
   return (
     <div className='absolute mt-10 w-screen'>
       <div className='min-h-screen'>
@@ -368,7 +369,7 @@ export default function List() {
         <div className={`${openCart ? 'fixed flex bg-black bg-opacity-40': 'hidden'} lg:hidden top-0 p-6 justify-center items-center w-full h-screen`}>
           <CoursesSelect openCart={openCart} setOpenCart={setOpenCart} setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/>
         </div>
-        {courses.length ?
+        {filteredData.length ?
         <div className='w-full flex-col items-center lg:items-start lg:flex-row flex lg:justify-start justify-center'>
           <div className='flex mb-2 flex-col lg:items-start lg:ml-10 items-center'>
             {filteredData.map((course, key)=>{
@@ -387,8 +388,8 @@ export default function List() {
           <CoursesSelect setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/>
           </div>
         </div>
-        :courses ? <div className='w-full h-screen flex justify-center'><CircularProgress size='8rem' /></div>
-        :<div className='w-full h-screen flex text-3xl justify-center'>Não encontramos cursos disponíveis!</div>}
+        : !courses.length ? <div className='w-full flex justify-center'><CircularProgress size='8rem' /></div>
+        :<div className='w-full flex text-center lg:justify-center mt-10'><p className='text-3xl'>Não encontramos cursos disponíveis!</p><div className='w-fit h-screen items-center lg:flex hidden top-24 absolute'><CoursesSelect setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/></div></div>}
         <div onClick={()=>{openCart ? setOpenCart(false) :setOpenCart(true)}} className='bg-yellow-400 block lg:hidden p-3 rounded-full fixed bottom-2 right-5'>
             <BsCart4 size={45}/>
         </div>
