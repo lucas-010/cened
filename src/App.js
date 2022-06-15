@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Header from './components/Header';
 import Contact from './Pages/Contact';
@@ -11,12 +11,16 @@ import Login from './Pages/Login';
 import StepByStep from './Pages/StepByStep';
 import WorkWithUs from './Pages/WorkWithUs';
 import Register from './Pages/Register';
+import { CircularProgress } from '@mui/material';
+
 
 function App() {
+  let [loading, setLoading] = useState(true);
+    useEffect(()=>{if(window.location){setTimeout(()=>{setLoading(false)},1000)}},[loading])
   const [translateNavbar, setTranslateNavbar] = useState(false),
   [visible, setVisible] = useState(false);
   let [id, setId] = useState();
-  return (
+  if(!loading){return (
     <div className="App w-screen flex flex-col h-screen overflow-x-hidden overflow-y-auto">
       <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
         <Header id={id} setId={setId} setVisible={setVisible} visible={visible} translateNavbar={translateNavbar} setTranslateNavbar={setTranslateNavbar}/>
@@ -35,6 +39,11 @@ function App() {
       </BrowserRouter>
     </div>
   );
+    
+  }
+  else{
+    return <div className='flex bg-blue-400 items-center justify-center w-screen h-screen'><CircularProgress size='5em'/></div>
+  }
 }
 
 export default App;

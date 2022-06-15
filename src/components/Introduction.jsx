@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import slideImg1 from '../images/slideIMG1.png'
 import slideImg2 from '../images/slideIMG2.png'
 import slideImg3 from '../images/slideIMG3.png'
@@ -20,7 +20,7 @@ export default function Intro() {
     {text: 'Possibilitar a recuperação da autoestima do REEDUCANDO por meio dos estudos que o qualificarão para o exercício de uma profissão útil à sociedade.'}],
   listText4 = [
     {text: 'Possibilitar aos REEDUCANDOS a pleitear o benefício de remição da pena pelo estudo, previsto no art. 126 da Lei nº 7.210/84 (Lei de Execução Penal) e regulamentado pela Resolução nº 391/2021, do Conselho Nacional de Justiça.'}];
-  let [open1, setOpen1] = React.useState(), [open2, setOpen2] = React.useState(), [open3, setOpen3] = React.useState(), [open4, setOpen4] = React.useState(), allClosed = true;
+  let [open1, setOpen1] = useState(), [open2, setOpen2] = useState(), [open3, setOpen3] = useState(), [open4, setOpen4] = useState(), allClosed = true;
     if(open1 || open2 || open3 || open4){allClosed = false}
     else{allClosed = true};
   return (
