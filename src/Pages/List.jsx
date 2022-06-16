@@ -95,7 +95,6 @@ import img335 from '../images/cursos/335.jpg'
 import img336 from '../images/cursos/336.jpg'
 import img337 from '../images/cursos/337.jpg'
 import img338 from '../images/cursos/338.jpg'
-import notfound from '../images/notfound.png'
 import axios from 'axios'
 import { TextField } from '@mui/material'
 import Pagination from '../components/Pagination'
@@ -340,8 +339,8 @@ export default function List() {
       console.log(courses)
     }, [currentPage])
 
-    const addCourseList = (id, image ,title, time, price)=>{
-      let newCourse = [...coursesSelected, {id, image, title, time, price}]
+    const addCourseList = (id, image ,title, time, price, code)=>{
+      let newCourse = [...coursesSelected, {id, image, title, time, price, code}]
     setCoursesSelected(newCourse)
   }
   const removeCourseList = (id)=>{
@@ -458,7 +457,7 @@ export default function List() {
               let content = htmlConveterToReact(course.conteudo)
                 if(image){
                   return(
-                    <CourseBox content={content} coursesSelected={coursesSelected} key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image={image} id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
+                    <CourseBox inputText={inputText} filteredData={filteredData} currentPage={currentPage} content={content} coursesPerPage={courses} coursesSelected={coursesSelected} key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image={image} id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
                   )
                 }
               }
