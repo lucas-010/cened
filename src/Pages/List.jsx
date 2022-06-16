@@ -428,7 +428,6 @@ export default function List() {
           Selecione o(s) curso(s) <MdCheckBox color='#F6B112' size={25}/> e, ao final, clique na imagem do carrinho de compras<BsArrowRightShort size={25}/><BsCart4 size={25}/>
           </p>
         </Title>
-        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage}/>
         <div className="mt-10 lg:mt-0 flex h-full w-full items-center flex-col" >
           <div className="lg:w-1/3 w-2/3">
             <TextField
@@ -444,6 +443,7 @@ export default function List() {
           <div className="hidden">
           </div>
         </div>
+        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage}/>
         <div className={`${openCart ? 'fixed flex bg-black bg-opacity-40': 'hidden'} lg:hidden top-0 p-6 justify-center items-center w-full h-screen`}>
           <CoursesSelect openCart={openCart} setOpenCart={setOpenCart} setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/>
         </div>

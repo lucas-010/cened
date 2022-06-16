@@ -21,8 +21,8 @@ export default function CoursesSelect({courses, totalPrice, setCoursesSelected,s
         {courses.length ? <span className='text-2xl font-semibold'>Total: R${totalPrice},00</span>:''}
         <div className='mt-5 flex flex-col md:flex-row justify-around'>
           <button onClick={()=> {setCoursesSelected([]);setOpenCart(false)}} className={`${!courses.length ? 'hidden':''} bg-red-600 text-white xl:text-lg font-semibold rounded-lg p-2 md:p-1 lg:p-2`}>Limpar Carrinho</button>
-          <button onClick={()=> {setOpenCart(false)}} className='lg:hidden text-white bg-green-400 md:ml-5 mt-3 md:mt-0 font-semibold rounded-lg p-2 md:p-1'>Continuar comprando</button>
-          <button className={`${!courses.length ? 'hidden':''} bg-yellow-400 xl:text-lg md:ml-5 mt-3 md:mt-0 font-semibold rounded-lg p-2 md:p-1 lg:p-2`}>Finalizar Compra</button>
+          <button onClick={()=> {setOpenCart(false)}} className='lg:hidden text-white bg-blue-500 md:ml-5 mt-3 md:mt-0 font-semibold rounded-lg p-2 md:p-1'>Continuar comprando</button>
+          <button className={`${!courses.length ? 'hidden':''} bg-[#0D9F16] text-white xl:text-lg md:ml-5 mt-3 md:mt-0 font-semibold rounded-lg p-2 md:p-1 lg:p-2`}>Finalizar Compra</button>
         </div>
     </div>
   )
