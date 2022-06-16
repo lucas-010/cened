@@ -97,8 +97,8 @@ import img337 from '../images/cursos/337.jpg'
 import img338 from '../images/cursos/338.jpg'
 import notfound from '../images/notfound.png'
 import axios from 'axios'
-import useMediaQuery from '@mui/material/useMediaQuery'
 import { TextField } from '@mui/material'
+import Pagination from '../components/Pagination'
 const HtmlToReactParser = require('html-to-react').Parser
 const parse = require('html-react-parser')
 export default function List() {
@@ -319,11 +319,29 @@ export default function List() {
       "337": img337,
       "338": img338,
     }
-  const [coursesSelected, setCoursesSelected] = useState([])
-  const [courses, setCourses] = useState([])
-  const [totalPrice, setTotalPrice] = useState()
-  const addCourseList = (id, image ,title, time, price)=>{
-    let newCourse = [...coursesSelected, {id, image, title, time, price}]
+    const [coursesSelected, setCoursesSelected] = useState([])
+    const [courses, setCourses] = useState([])
+    const [totalPrice, setTotalPrice] = useState()
+    let filteredData = courses
+    const [allCourses, setAllCourses] = useState([])
+    const [currentPage, setCurrentPage] = useState(0)
+    useEffect(()=>{
+      let page1 = allCourses.slice(0, 10)
+      let page2 = allCourses.slice(10, 20)
+      let page3 = allCourses.slice(20, 30)
+      let page4 = allCourses.slice(30, 40)
+      let page5 = allCourses.slice(40, 50)
+      let page6 = allCourses.slice(50, 60)
+      let page7 = allCourses.slice(60, 70)
+      let page8 = allCourses.slice(70, 77) 
+      let dataPagesAll = [page1, page2, page3, page4, page5, page6, page7, page8]
+      setCourses(dataPagesAll[currentPage])
+      setInputText('')
+      console.log(courses)
+    }, [currentPage])
+
+    const addCourseList = (id, image ,title, time, price)=>{
+      let newCourse = [...coursesSelected, {id, image, title, time, price}]
     setCoursesSelected(newCourse)
   }
   const removeCourseList = (id)=>{
@@ -350,7 +368,7 @@ export default function List() {
     const reactElement = htmlToReactParser.parse(htmlInput);
     const reactHtml = ReactDOMServer.renderToStaticMarkup(reactElement);
     let padding = '0px'
-    return parse(reactHtml.replaceAll('span', 'p').replaceAll('<p','<li').replaceAll('</p>','</li>').replaceAll('30px', padding).replaceAll('justify', 'start'))
+    return parse(reactHtml.replaceAll('span', 'p').replaceAll('<p','<li').replaceAll('</p>','</li>').replaceAll('30px', padding).replaceAll('justify', 'start').replaceAll('<html>', '<div>').replaceAll('</html>', '</div>'))
   }
 
     useEffect(()=>{
@@ -369,9 +387,17 @@ export default function List() {
         
       })
       axios.get('https://api-cenedqualificando.azurewebsites.net/api/v1/cursos?limit=200').then(response=>{
-        setCourses(response.data.data)
+        let coursesActives = []
+        response.data.data.map((course)=>{
+        let code = course.codigo.toString()
+        let image = imagesCode[code]
+        if(image){
+          coursesActives.push(course)
+        }
+        })
+        setAllCourses(coursesActives)
+        setCourses(coursesActives.slice(0, 10))
       })
-      
     }, [])
     let [openCart, setOpenCart] = useState(false);
     let [inputText, setInputText] = useState("");
@@ -380,7 +406,8 @@ export default function List() {
       var lowerCase = e.target.value.toLowerCase();
       setInputText(lowerCase);
     };
-    const filteredData = courses.filter((el) => {
+    if(inputText !== ''){
+      filteredData = allCourses.filter((el) => {
         if (inputText === '') {
             return el;
         }
@@ -391,6 +418,9 @@ export default function List() {
           return el;
         }
     })
+    }else{
+      filteredData = courses
+    }
   return (
     <div className='absolute mt-10 w-screen'>
       <div className='min-h-screen'>
@@ -399,9 +429,11 @@ export default function List() {
           Selecione o(s) curso(s) <MdCheckBox color='#F6B112' size={25}/> e, ao final, clique na imagem do carrinho de compras<BsArrowRightShort size={25}/><BsCart4 size={25}/>
           </p>
         </Title>
+        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage}/>
         <div className="mt-10 lg:mt-0 flex h-full w-full items-center flex-col" >
           <div className="lg:w-1/3 w-2/3">
             <TextField
+              value={inputText}
               id="outlined-basic"
               onChange={inputHandler}
               variant="outlined"

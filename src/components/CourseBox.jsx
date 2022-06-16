@@ -6,7 +6,6 @@ import { MdCheckBox } from 'react-icons/md'
 export default function CourseBox({id, content, image ,title, time, price, addCourseList, removeCourseList, code, coursesSelected}) {
     const [selectBox, setSelectBox] = useState(false)
     const [visibleContent, setVisibleContent] = useState(false)
-    let [buttonId, setButtonId] = useState(1)
     useEffect(()=>{
         if(coursesSelected.length===0){setSelectBox(false);}
     },
