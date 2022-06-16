@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/cened/static/css/main.0ef8e2d6.css",
-    "main.js": "/cened/static/js/main.e400e0b4.js",
+    "main.js": "/cened/static/js/main.717c8a91.js",
     "static/media/slideIMG2.png": "/cened/static/media/slideIMG2.c1fab22b8e783f3eeaf1.png",
     "static/media/slideIMG3.png": "/cened/static/media/slideIMG3.3864416cab9c1b834bd3.png",
     "static/media/slideIMG1.png": "/cened/static/media/slideIMG1.ce5957b1c8a3859eb2d7.png",
@@ -49,7 +49,6 @@
     "static/media/301.jpg": "/cened/static/media/301.e5d30e2a788d0af9dd12.jpg",
     "static/media/302.jpg": "/cened/static/media/302.e5d30e2a788d0af9dd12.jpg",
     "static/media/156.jpg": "/cened/static/media/156.4ba132ca60818e56768e.jpg",
-    "static/media/notfound.png": "/cened/static/media/notfound.295cf90aa4bc156e1ea4.png",
     "static/media/58.jpg": "/cened/static/media/58.6bb37ff8de4ecd5202f2.jpg",
     "static/media/223.jpg": "/cened/static/media/223.5361337ef451ab850a34.jpg",
     "static/media/84.1.jpg": "/cened/static/media/84.1.68d8659c396bdf0a4415.jpg",
@@ -99,10 +98,10 @@
     "static/media/45.1.jpg": "/cened/static/media/45.1.b50186c70480e3fd7b45.jpg",
     "index.html": "/cened/index.html",
     "main.0ef8e2d6.css.map": "/cened/static/css/main.0ef8e2d6.css.map",
-    "main.e400e0b4.js.map": "/cened/static/js/main.e400e0b4.js.map"
+    "main.717c8a91.js.map": "/cened/static/js/main.717c8a91.js.map"
   },
   "entrypoints": [
     "static/css/main.0ef8e2d6.css",
-    "static/js/main.e400e0b4.js"
+    "static/js/main.717c8a91.js"
   ]
 }
