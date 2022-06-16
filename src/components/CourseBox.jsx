@@ -9,6 +9,7 @@ export default function CourseBox({id, content, image, title, time, price, addCo
 
     useEffect(()=>{
         setSelectBox(false)
+        setVisibleContent(false)
     }, [currentPage])
 
     useEffect(()=>{
@@ -35,7 +36,7 @@ export default function CourseBox({id, content, image, title, time, price, addCo
     },
     [coursesSelected])
   return (
-    <div style={{minWidth:'57vw'}} className={`flex flex-col lg:w-2/3 w-11/12 mt-10 transition-all bg-gray-300 rounded-xl p-4`}>
+    <div style={{minWidth:'57vw'}} className={`flex flex-col lg:max-w-xs w-11/12 mt-10 transition-all bg-gray-300 rounded-xl p-4`}>
         <div className='flex lg:flex-row flex-col items-center'>
         <div className='w-11/12 flex justify-center lg:w-1/6'>
             <img src={image} className='rounded-xl' alt="" />
