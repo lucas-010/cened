@@ -11,12 +11,16 @@ import {AiOutlineArrowDown} from 'react-icons/ai'
 import DetailInfo from '../components/DetailInfo'
 import Title from '../components/Title'
 import Footer from '../components/Footer'
+import Header from '../components/Header'
+
 
 export default function StepByStep() {
   useEffect(()=>{
     window.scrollTo(0, 0)
   }, [])
   return (
+    <div>
+      <Header/>
     <div className='absolute mt-10 w-screen min-h-screen'>
       <Title text='PASSO-A-PASSO'>
         <p className='text-center flex text-lg items-center font-bold'>VEJA O PASSO A PASSO DO FUNCIONAMENTO DO PROGRAMA EDUCACIONAL PARA INTERNOS DO SISTEMA PRISIONAL BRASILEIRO</p>
@@ -60,6 +64,7 @@ export default function StepByStep() {
 
 			<DetailInfo/>
       <Footer/>
+    </div>
     </div>
   )
 }

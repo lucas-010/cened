@@ -7,6 +7,8 @@ import { ImEnter } from "react-icons/im";
 import { Link } from 'react-router-dom';
 
 export default function Box() {
+  let ConditionalLink = ({ children, to, condition }) => (!!condition && to)
+      ? <Link to={to}>{children}</Link>: <>{children}</>;
   let [valueCpf, setValueCpf] = useState('')
   function cpfFormat(cpf){
 		cpf = cpf.replace(/[^\d]/g, "");
@@ -14,7 +16,7 @@ export default function Box() {
 	}
   function submitForm(e){
 		if(valueCpf !== ''){
-			alert(`CPF: ${valueCpf}`)
+			setTimeout(()=> alert(`Logado com sucesso!`),300)
 		}else{
 			alert('Itens Incompletos')
 		}
@@ -26,11 +28,13 @@ export default function Box() {
         <form className='flex flex-col p-5 bg-[#EBECF0] lg:w-1/2 items-center text-xl'>
         <div className='w-5/6 flex items-center bg-white mb-2'><MdAccountBox/><input placeholder='CPF' type='text' id='cpf-form' onChange={(e)=> cpfFormat(e.target.value)} value={valueCpf} maxLength={14} className='p-2 w-full'></input></div>
         <div className='w-5/6 flex items-center bg-white mb-2'><RiLockPasswordFill/><input placeholder='Senha' maxLength={30} id='password' type='password' className='p-2 w-full'></input></div>
-        <button className='bg-blue-900 text-white mb-4 items-center justify-center rounded-md p-2 w-4/6 flex' type='button' onClick={()=> submitForm()}><ImEnter/>&nbsp; Acessar</button>
-        <Link to='/register' className='mb-4 text-base w-4/6 bg-white text-black items-center justify-center rounded-md p-1 flex'>
+        <ConditionalLink to="/studentarea" condition={valueCpf} >
+        <button className='bg-blue-900 text-white mb-4 items-center justify-center rounded-md p-2 xl:w-72 w-52 flex' type='button' onClick={()=> submitForm()}><ImEnter/>&nbsp; Acessar</button>
+        </ConditionalLink>
+        <Link to='/register' className='mb-4 text-base xl:w-72 w-52 bg-white text-black items-center justify-center rounded-md p-1 flex'>
         <button type='button' className='flex'><MdPersonAddAlt1/>&nbsp; Primeiro Acesso</button>
         </Link>
-        <Link to='/register' className='mb-4 text-base w-4/6 bg-white text-black items-center justify-center rounded-md p-1 flex'><button type='button' className='flex'><MdPersonAddAlt1/>&nbsp; Esqueci minha senha</button>
+        <Link to='/register' className='mb-4 text-base xl:w-72 w-52 bg-white text-black items-center justify-center rounded-md p-1 flex'><button type='button' className='flex'><MdPersonAddAlt1/>&nbsp; Esqueci minha senha</button>
         </Link>
         </form>
       </div>

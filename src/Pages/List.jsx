@@ -8,6 +8,7 @@ import {BsCart4} from 'react-icons/bs'
 import { MdCheckBox } from 'react-icons/md'
 import CoursesSelect from '../components/CoursesSelect'
 import CircularProgress from '@mui/material/CircularProgress';
+import Header from '../components/Header'
 import Footer from '../components/Footer'
 import img23 from '../images/cursos/23.1.jpg'
 import img27 from '../images/cursos/27.jpg'
@@ -421,6 +422,8 @@ export default function List() {
       filteredData = courses
     }
   return (
+    <div>
+      <Header/>
     <div className='absolute mt-10 w-screen'>
       <div className='min-h-screen'>
         <Title text={`CURSOS SUGERIDOS PARA O ESTADO: ${state}` }>
@@ -428,7 +431,6 @@ export default function List() {
           Selecione o(s) curso(s) <MdCheckBox color='#F6B112' size={25}/> e, ao final, clique na imagem do carrinho de compras<BsArrowRightShort size={25}/><BsCart4 size={25}/>
           </p>
         </Title>
-        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage}/>
         <div className="mt-10 lg:mt-0 flex h-full w-full items-center flex-col" >
           <div className="lg:w-1/3 w-2/3">
             <TextField
@@ -444,6 +446,7 @@ export default function List() {
           <div className="hidden">
           </div>
         </div>
+        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage}/>
         <div className={`${openCart ? 'fixed flex bg-black bg-opacity-40': 'hidden'} lg:hidden top-0 p-6 justify-center items-center w-full h-screen`}>
           <CoursesSelect openCart={openCart} setOpenCart={setOpenCart} setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/>
         </div>
@@ -475,6 +478,7 @@ export default function List() {
         </div>
         </div>
       <Footer/>
+    </div>
     </div>
   )
 }
