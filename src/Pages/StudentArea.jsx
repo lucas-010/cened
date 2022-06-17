@@ -10,10 +10,11 @@ import { useState } from 'react'
 export default function StudentArea() {
   let [selected, setSelected] = useState(1);
   return (
-    <div className='bg-cyan-200'>
+    <div className='bg-[rgb(229,247,252)]'>
       <StudentAreaHeader/>
       <div className='min-h-screen w-screen flex flex-col mt-20 p-4'>
-        <div className='mt-10 flex flex-col overflow-auto lg:flex-row bg-cyan-400 min-w-screen lg:min-w-min lg:border-2 border-gray-600 rounded-lg'>
+        <p className='text-center font-bold text-3xl text-blue-800'>ÁREA DO ALUNO</p>
+        <div className='mt-10 flex flex-col overflow-auto lg:flex-row bg-white min-w-screen lg:min-w-min lg:border-2 border-gray-600 rounded-lg'>
           <StudentOptions selected={selected} setSelected={setSelected}/>
         {
         selected ===1 ? <StudentStart/>
