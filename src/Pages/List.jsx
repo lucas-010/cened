@@ -322,24 +322,13 @@ export default function List() {
     const [coursesSelected, setCoursesSelected] = useState([])
     const [courses, setCourses] = useState([])
     const [totalPrice, setTotalPrice] = useState()
+    const [totalPages, setTotalPages] = useState()
     const apiCursos = process.env.REACT_APP_API_KEY
     let filteredData = courses
     const [allCourses, setAllCourses] = useState([])
     const [currentPage, setCurrentPage] = useState(0)
-    useEffect(()=>{
-      let page1 = allCourses.slice(0, 10)
-      let page2 = allCourses.slice(10, 20)
-      let page3 = allCourses.slice(20, 30)
-      let page4 = allCourses.slice(30, 40)
-      let page5 = allCourses.slice(40, 50)
-      let page6 = allCourses.slice(50, 60)
-      let page7 = allCourses.slice(60, 70)
-      let page8 = allCourses.slice(70, 77) 
-      let dataPagesAll = [page1, page2, page3, page4, page5, page6, page7, page8]
-      setCourses(dataPagesAll[currentPage])
-      setInputText('')
-      console.log(courses)
-    }, [currentPage])
+    let indexFor = []
+  
 
     const addCourseList = (id, image ,title, time, price, code)=>{
       let newCourse = [...coursesSelected, {id, image, title, time, price, code}]
@@ -400,6 +389,20 @@ export default function List() {
         setCourses(coursesActives.slice(0, 10))
       })
     }, [])
+
+    useEffect(()=>{
+      for(let i=10;i<=allCourses.length+10;i=i+10){
+        indexFor.push(i)
+      }
+      let dataPagesAll = []
+      indexFor.forEach((item)=>{
+        dataPagesAll.push(allCourses.slice(item-10, item))
+      })
+      setTotalPages(indexFor.length)
+      setCourses(dataPagesAll[currentPage])
+      setInputText('')
+    }, [allCourses, currentPage])
+    
     let [openCart, setOpenCart] = useState(false);
     let [inputText, setInputText] = useState("");
     let inputHandler = (e) => {
@@ -447,7 +450,7 @@ export default function List() {
           <div className="hidden">
           </div>
         </div>
-        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+        <Pagination totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
         <div className={`${openCart ? 'fixed flex bg-black bg-opacity-40': 'hidden'} lg:hidden top-0 p-6 justify-center items-center w-full h-screen`}>
           <CoursesSelect openCart={openCart} setOpenCart={setOpenCart} setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/>
         </div>
@@ -459,11 +462,9 @@ export default function List() {
               let code = course.codigo.toString()
               let image = imagesCode[code]
               let content = htmlConveterToReact(course.conteudo)
-                if(image){
                   return(
                     <CourseBox inputText={inputText} filteredData={filteredData} currentPage={currentPage} content={content} coursesPerPage={courses} coursesSelected={coursesSelected} key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image={image} id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
                   )
-                }
               }
             )
             }
