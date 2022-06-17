@@ -11,19 +11,16 @@ import Login from './Pages/Login';
 import StepByStep from './Pages/StepByStep';
 import WorkWithUs from './Pages/WorkWithUs';
 import Register from './Pages/Register';
+import StudentArea from './Pages/StudentArea'
 import { CircularProgress } from '@mui/material';
 
 
 function App() {
   let [loading, setLoading] = useState(true);
     useEffect(()=>{if(window.location){setTimeout(()=>{setLoading(false)},1000)}},[loading])
-  const [translateNavbar, setTranslateNavbar] = useState(false),
-  [visible, setVisible] = useState(false);
-  let [id, setId] = useState();
   if(!loading){return (
     <div className="App w-screen flex flex-col h-screen overflow-x-hidden overflow-y-auto">
       <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
-        <Header id={id} setId={setId} setVisible={setVisible} visible={visible} translateNavbar={translateNavbar} setTranslateNavbar={setTranslateNavbar}/>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/instituicao' element={<Institution/>}/>
@@ -35,6 +32,7 @@ function App() {
           <Route path='/lista/:idState' element={<List/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register/>}/>
+          <Route path='/studentarea' element={<StudentArea/>}/>
         </Routes>
       </BrowserRouter>
     </div>

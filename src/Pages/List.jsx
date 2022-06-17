@@ -8,6 +8,7 @@ import {BsCart4} from 'react-icons/bs'
 import { MdCheckBox } from 'react-icons/md'
 import CoursesSelect from '../components/CoursesSelect'
 import CircularProgress from '@mui/material/CircularProgress';
+import Header from '../components/Header'
 import Footer from '../components/Footer'
 import img23 from '../images/cursos/23.1.jpg'
 import img27 from '../images/cursos/27.jpg'
@@ -421,6 +422,8 @@ export default function List() {
       filteredData = courses
     }
   return (
+    <div>
+      <Header/>
     <div className='absolute mt-10 w-screen'>
       <div className='min-h-screen'>
         <Title text={`CURSOS SUGERIDOS PARA O ESTADO: ${state}` }>
@@ -475,6 +478,7 @@ export default function List() {
         </div>
         </div>
       <Footer/>
+    </div>
     </div>
   )
 }
