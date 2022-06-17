@@ -322,6 +322,7 @@ export default function List() {
     const [coursesSelected, setCoursesSelected] = useState([])
     const [courses, setCourses] = useState([])
     const [totalPrice, setTotalPrice] = useState()
+    const apiCursos = process.env.REACT_APP_API_KEY
     let filteredData = courses
     const [allCourses, setAllCourses] = useState([])
     const [currentPage, setCurrentPage] = useState(0)
@@ -386,7 +387,7 @@ export default function List() {
         }
         
       })
-      axios.get('https://api-cenedqualificando.azurewebsites.net/api/v1/cursos?limit=200').then(response=>{
+      axios.get(`${apiCursos}/cursos?limit=200`).then(response=>{
         let coursesActives = []
         response.data.data.map((course)=>{
         let code = course.codigo.toString()
