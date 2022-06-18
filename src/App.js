@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Header from './components/Header';
 import Contact from './Pages/Contact';
 import Courses from './Pages/Courses';
 import Education from './Pages/Education';
@@ -13,7 +12,6 @@ import WorkWithUs from './Pages/WorkWithUs';
 import Register from './Pages/Register';
 import StudentArea from './Pages/StudentArea'
 import { CircularProgress } from '@mui/material';
-
 
 function App() {
   let [loading, setLoading] = useState(true);
