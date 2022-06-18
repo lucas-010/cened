@@ -4,15 +4,19 @@ import StudentAreaHeader from '../components/StudentAreaHeader'
 import StudentOptions from '../components/StudentOptions'
 import StudentStart from '../components/StudentStart'
 import StudentCurrentCourse from '../components/StudentCurrentCourse'
-import { useState } from 'react'
-
+import { useState, useContext } from 'react'
+import Box from '../components/BoxLogin'
 
 export default function StudentArea() {
   let [selected, setSelected] = useState(1);
+  let [loginVerify, setLoginVerify] = useState('');
+  console.log(loginVerify);
+  <Box loginVerify={loginVerify} setLoginVerify={setLoginVerify}/>
+
   return (
-    <div className='bg-[rgb(229,247,252)]'>
+    <div className='bg-[rgb(229,247,252)] absolute'>
       <StudentAreaHeader/>
-      <div className='min-h-screen w-screen flex flex-col mt-20 p-4'>
+      <div className='min-h-screen w-screen flex flex-col mt-20 p-8'>
         <p className='text-center font-bold text-3xl text-blue-800'>ÁREA DO ALUNO</p>
         <div className='mt-10 flex flex-col overflow-auto lg:flex-row bg-white min-w-screen lg:min-w-min lg:border-2 border-gray-600 rounded-lg'>
           <StudentOptions selected={selected} setSelected={setSelected}/>
