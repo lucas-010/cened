@@ -5,7 +5,7 @@ import img41 from './images/cursos/41.jpg'
 import img45 from './images/cursos/45.1.jpg'
 import img47 from './images/cursos/47.jpg'
 import img51 from './images/cursos/51.jpg'
-import img53 from './images/cursos/55.1.jpg'
+import img53 from './images/cursos/53.jpg'
 import img55 from './images/cursos/55.1.jpg'
 import img56 from './images/cursos/56.jpg'
 import img58 from './images/cursos/58.jpg'
@@ -15,7 +15,6 @@ import img82 from './images/cursos/82.1.jpg'
 import img83 from './images/cursos/83.jpg'
 import img84 from './images/cursos/84.1.jpg'
 import img88 from './images/cursos/88.jpg'
-import img91 from './images/cursos/91.jpg'
 import img93 from './images/cursos/93.1.jpg'
 import img94 from './images/cursos/94.jpg'
 import img95 from './images/cursos/95.1.jpg'
@@ -45,7 +44,7 @@ import img179 from './images/cursos/179.jpg'
 import img180 from './images/cursos/180.jpg'
 import img181 from './images/cursos/181.jpg'
 import img187 from './images/cursos/187.jpg'
-import img212 from './images/cursos/212.jpg'
+import img221 from './images/cursos/221.jpg'
 import img222 from './images/cursos/222.jpg'
 import img223 from './images/cursos/223.jpg'
 import img224 from './images/cursos/224.jpg'
@@ -75,6 +74,7 @@ import img335 from './images/cursos/335.jpg'
 import img336 from './images/cursos/336.jpg'
 import img337 from './images/cursos/337.jpg'
 import img338 from './images/cursos/338.jpg'
+import img319 from './images/cursos/319.jpg'
 
 const imagesCode = {
   "23.1": img23,
@@ -94,7 +94,6 @@ const imagesCode = {
   "83": img83,
   "84.1": img84,
   "88": img88,
-  "91": img91,
   "93.1": img93,
   "94": img94,
   "95.1": img95,
@@ -111,7 +110,6 @@ const imagesCode = {
   "324.1": img324,
   "115": img115,
   "116": img116,
-  "118": img118,
   "122": img122,
   "151": img151,
   "154": img154,
@@ -128,7 +126,7 @@ const imagesCode = {
   "180": img180,
   "181": img181,
   "187": img187,
-  "212": img212,
+  "221": img221,
   "222": img222,
   "223": img223,
   "224": img224,
@@ -142,6 +140,7 @@ const imagesCode = {
   "307": img307,
   "308": img308,
   "309": img309,
+  "319": img319,
   "320": img320,
   "321": img321,
   "325": img325,

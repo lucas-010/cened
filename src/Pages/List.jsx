@@ -166,7 +166,6 @@ export default function List() {
   const addCourseList = (id, image ,title, time, price, code)=>{
       let newCourse = [...coursesSelected, {id, image, title, time, price, code}]
       setCoursesSelected(newCourse)
-
   }
   const removeCourseList = (id)=>{
     let newCoursesList = []

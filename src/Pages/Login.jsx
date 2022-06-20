@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 
 
-export default function Login(register) {
+export default function Login() {
   let [loginVerify, setLoginVerify] = useState(false);
   return (
     <div className='absolute'>

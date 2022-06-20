@@ -1,8 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import ListItem from './ListItem';
 import { AiFillHome } from 'react-icons/ai';
-import {MdMessage, MdPowerSettingsNew} from 'react-icons/md'
+import {MdPowerSettingsNew} from 'react-icons/md'
 import imagemBackground from '../images/barraVictor.jpg'
 import logo from '../images/logoCened.png'
 
@@ -12,7 +11,7 @@ export default function StudentAreaHeader(){
       <div className='text-white justify-between lg:text-lg self-center flex lg:justify-between w-11/12 h-full items-center'>
                 <Link to={'/'}>
                 <ul className='flex items-center'>
-                  <img src={logo} className='lg:w-28 lg:h-20 w-24 h-20'/>
+                  <img src={logo} alt='' className='lg:w-28 lg:h-20 w-24 h-20'/>
                   <li className='ease-in delay-70 transition-colors rounded-lg hidden lg:block cursor-pointer p-1 hover:bg-blue-800'>ESCOLA CENED </li>
                 </ul>
                 </Link>

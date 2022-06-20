@@ -1,13 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import AboutSchool from '../components/AboutSchool';
-import HowItWorks from '../components/HowItWorks';
-import MostInfo from '../components/MostInfo';
-import Tutoring from '../components/Tutoring';
+import React, { useEffect } from 'react';
 import Intro from '../components/Introduction';
 import Footer from '../components/Footer';
 import Header from '../components/Header'
-
-
 
 export default function Home() {
   useEffect(()=>{
