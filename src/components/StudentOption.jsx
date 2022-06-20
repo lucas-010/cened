@@ -16,7 +16,7 @@ export default function StudentOption({id ,text, selected, setSelected}) {
   : <>{children}</>;
   return (
       <ConditionalLink to='/' condition={id===10}>
-			<button onClick={()=>setSelected(id)} className={`${selected ===id ? 'bg-[rgb(151,150,150)]' : ''} font-bold flex gap-5 items-end bg-[rgb(206,222,220)] border-2 border-white  hover:bg-[rgb(150,150,150)] transition-colors p-4 rounded-lg w-full`}>
+			<button onClick={()=>setSelected(id)} className={`${selected ===id ? 'bg-gray-400' : ''} font-bold flex gap-5 items-end bg-gray-300 border-2 border-white  hover:bg-gray-400 transition-colors p-4 rounded-lg w-full`}>
         {id===1 ? <AiFillHome size={25}/>
         :id===2 ? <HiOutlineDocumentSearch size={25}/>
         :id===3 ? <IoDocuments size={25}/>

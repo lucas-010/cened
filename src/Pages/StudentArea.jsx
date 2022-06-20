@@ -4,14 +4,22 @@ import StudentAreaHeader from '../components/StudentAreaHeader'
 import StudentOptions from '../components/StudentOptions'
 import StudentStart from '../components/StudentStart'
 import StudentCurrentCourse from '../components/StudentCurrentCourse'
-import { useState, useContext } from 'react'
-import Box from '../components/BoxLogin'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 export default function StudentArea() {
   let [selected, setSelected] = useState(1);
-  let [loginVerify, setLoginVerify] = useState('');
-  console.log(loginVerify);
-  <Box loginVerify={loginVerify} setLoginVerify={setLoginVerify}/>
+  let [studentData, setStudentData] = useState('');
+  let API = process.env.REACT_APP_API_KEY;
+
+  useEffect(()=>{
+    axios.get(`${API}alunos?Cpf=07571414636`).then(response=>{
+      if(response.data.data.length ===1){
+      setStudentData(response.data.data[0])}
+    
+  })},[])
+
+  console.log(studentData);
 
   return (
     <div className='bg-[rgb(229,247,252)] absolute'>
