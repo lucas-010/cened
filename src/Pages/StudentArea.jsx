@@ -9,17 +9,19 @@ import axios from 'axios'
 
 export default function StudentArea() {
   let [selected, setSelected] = useState(1);
+  let [student, setStudent] = useState('');
   let [studentData, setStudentData] = useState('');
   let API = process.env.REACT_APP_API_KEY;
 
   useEffect(()=>{
     axios.get(`${API}alunos?Cpf=07571414636`).then(response=>{
       if(response.data.data.length ===1){
-      setStudentData(response.data.data[0])}
-    
-  })},[])
-
-  console.log(studentData);
+        setStudent(response.data.data[0])}
+      });
+    axios.get(`${API}matriculas?IdAluno=${student.idAluno}`).then(response=>{
+      setStudentData(response.data.data[0]);
+    })
+  },[selected])
 
   return (
     <div className='bg-[rgb(229,247,252)] absolute'>
@@ -31,7 +33,7 @@ export default function StudentArea() {
         {
         selected ===1 ? <StudentStart/>
         :
-        selected ===2 ? <StudentCurrentCourse/>
+        selected ===2 ? <StudentCurrentCourse studentData={studentData}/>
         :
         selected ===3 ? <div className='text-center w-5/6'>Todos os cursos</div>
         :
