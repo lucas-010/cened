@@ -8,7 +8,7 @@ export default function StudentCurrentCourse({studentData}){
             <div className='w-full h-5/6 flex flex-col lg:flex-row border-8 border-white rounded-xl flex-wrap'>
                 <div className='lg:w-1/2 p-2 h-72 overflow-auto lg:h-auto border-2 border-black'>
                     <p className='text-xl text-center font-bold'>Trâmites da Matrícula e do Curso</p>
-                    <h1 className='border-2'>A pré-matrícula foi recebida/registrada na Escola CENED em:<b>{data}</b></h1>
+                    <h1 className='border-2'>A pré-matrícula foi recebida/registrada na Escola CENED em: <b>{data}</b></h1>
                     </div>
                 <div className='text-xl lg:w-1/2 p-2 h-72 overflow-auto lg:h-auto border-2 lg:border-l-0 border-black text-center font-bold'>Trâmite da Prova Final</div>
             </div>
