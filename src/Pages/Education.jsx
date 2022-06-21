@@ -12,7 +12,7 @@ export default function Education() {
   return (
     <div>
       <Header/>
-    <div className='absolute mt-10 w-screen'>
+    <div className='absolute pt-10 w-screen'>
 			<Title text={'Programa de Qualificação Profissional às Pessoas Privadas de Liberdade'}>
       </Title>
 			<SelectContent/>

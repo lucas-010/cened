@@ -9,7 +9,7 @@ export default function Register() {
   return (
     <div>
       <Header/>
-    <div className='absolute w-screen min-h-screen flex flex-col mt-24 lg:mt-52'>
+    <div className='absolute w-screen min-h-screen flex flex-col pt-24 lg:pt-52'>
       <header className='text-center'><h1 className='lg:text-5xl text-3xl font-bold'>
         CADASTRO DE ALUNO / INTERNO
         </h1>

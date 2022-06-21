@@ -24,7 +24,7 @@ export default function Intro() {
     if(open1 || open2 || open3 || open4){allClosed = false}
     else{allClosed = true};
   return (
-    <div className='p-6 md:p-10 lg:mt-14 md:text-2xl min-h-screen'>
+    <div className='p-6 md:p-10 lg:pt-24 md:text-2xl min-h-screen'>
         <h1 className='text-center font-bold md:text-4xl'>Programa de Qualificação Profissional às Pessoas Privadas de Liberdade</h1>
         <div className='flex md:mt-10 mt-4 text-xs text-center md:text-xl md:font-bold'>
             <div className='flex flex-col justify-evenly lg:justify-between items-center w-1/2 md:w-1/4 xs:h-48 md:h-96'>

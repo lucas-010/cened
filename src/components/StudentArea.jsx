@@ -19,13 +19,16 @@ export default function StudentArea({studentData, API}) {
       setStudentReg(response.data);
     })
   },[studentData])
+  console.log(studentData);
   keys.forEach(item=>{if(studentReg[item].statusCurso === 2){currentCourse.push(studentReg[item]);}})
   return (
     <div className='bg-[rgb(229,247,252)] absolute'>
       <StudentAreaHeader/>
-      <div className='min-h-screen w-screen flex flex-col mt-20 p-8'>
-        <p className='text-center font-bold text-3xl text-blue-800'>ÁREA DO ALUNO</p>
-        <div className='mt-10 flex flex-col overflow-auto lg:flex-row bg-white min-w-screen lg:min-w-min lg:border-2 border-gray-400 rounded-lg'>
+      <div className='min-h-screen w-screen flex flex-col pt-24 p-8'>
+        <p className='text-center font-bold text-3xl text-blue-800 mb-5 lg-mb-0'>ÁREA DO ALUNO</p>
+        <ul className='flex gap-4 flex-wrap'><li>Reeducando: <b>{studentData.nome}</b></li><li>CPF: <b>{studentData.cpf}</b></li></ul>
+        <ul className='flex gap-4 flex-wrap'><li>UF: <b>{studentData.penitenciaria.ufDescricao}</b></li><li>Penitenciária: <b>{studentData.penitenciaria.nome}</b></li></ul>
+        <div className='mt-5 flex flex-col overflow-auto lg:flex-row bg-white min-w-screen lg:min-w-min lg:border-2 border-gray-400 rounded-lg'>
           <StudentOptions selected={selected} setSelected={setSelected}/>
         {
         selected ===1 ? <StudentStart/>

@@ -11,7 +11,7 @@ export default function Contact() {
   return (
     <div>
       <Header/>
-    <div className='absolute mt-10 w-screen'>
+    <div className='absolute pt-10 w-screen'>
 			<Title text={'CONTATO ESCOLA CENED'}>
         <p className='text-center flex text-lg items-center font-bold'>PREENCHA O FORMULÁRIO ABAIXO PARA ENVIAR MENSAGEM A ESCOLA, OU LIGUE EM UM DOS TELEFONES INFORMADOS.</p>
 			</Title>

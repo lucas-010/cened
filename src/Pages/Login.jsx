@@ -36,7 +36,7 @@ export default function Login() {
     return(
     <div className='absolute'>
         <Header/>
-        <div className='w-screen min-h-screen flex flex-col lg:mt-40 mt-20'>
+        <div className='w-screen min-h-screen flex flex-col lg:pt-40 pt-20'>
           <BoxInstructions/>
           <BoxLogin cpfApi={cpfApi} studentData={studentData} valueSenha={valueSenha} setValueSenha={setValueSenha} valueCpf={valueCpf} setValueCpf={setValueCpf} setVerified={setVerified} loginVerify={loginVerify}/>
         </div>
