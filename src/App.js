@@ -12,7 +12,6 @@ import WorkWithUs from './Pages/WorkWithUs';
 import Register from './Pages/Register';
 import StudentArea from './Pages/StudentArea'
 import { CircularProgress } from '@mui/material';
-import Penitentiary from './Pages/Penitentiary';
 
 function App() {
   let [loading, setLoading] = useState(true);
@@ -32,7 +31,6 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register/>}/>
           <Route path='/studentarea' element={<StudentArea/>}/>
-          <Route path='/penitenciaria' element={<Penitentiary/>}/>
         </Routes>
       </BrowserRouter>
     </div>
