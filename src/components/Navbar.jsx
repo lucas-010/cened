@@ -23,9 +23,9 @@ export default function Navbar({visible, translateNavbar, setVisible, setId, id}
             <Link to="/login" className='text-sm transition mt-3 ease-in-out hover:scale-110 hover:text-white hover:bg-blue-800 text-center duration-150 lg:mr-6 lg:mt-0 flex items-center p-2 rounded-xl'>
               <AiOutlineUser size={15}/> <span>ÁREA DO ALUNO</span>
             </Link>
-            <Link to={'/penitenciaria'} className="text-sm transition text-center mt-3 ease-in-out hover:bg-blue-800 hover:scale-110 hover:text-white duration-300 lg:mr-6 lg:mt-0 flex items-center p-2 rounded-xl">
+            <a target='_blank' href={'https://lucas-010.github.io/cened-penitenciaria/'} className="text-sm transition text-center mt-3 ease-in-out hover:bg-blue-800 hover:scale-110 hover:text-white duration-300 lg:mr-6 lg:mt-0 flex items-center p-2 rounded-xl">
               <FiUsers size={15}/> <span>PENITENCIÁRIA</span>
-            </Link>
+            </a>
             <Link to='/cursos' className='text-sm transition text-center mt-3 ease-in-out hover:bg-blue-800 hover:scale-110 hover:text-white duration-300 lg:mr-6 lg:mt-0 flex items-center p-2 rounded-xl'>
               ADMINISTRAÇÃO PENITENCIÁRIA
             </Link>
