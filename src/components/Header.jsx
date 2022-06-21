@@ -28,21 +28,21 @@ export default function Header() {
   }, []);
   return (
     <div className={`fixed z-20`}>
-      <div style={{backgroundImage: `url(${imagemBackground})`, backgroundSize: 'cover'}} className={`flex lg:justify-around w-screen items-center ${collapse ? 'lg:h-0' : ''}`}>
+      <div style={{backgroundImage: `url(${imagemBackground})`, backgroundSize: 'cover'}} className={`flex lg:justify-around w-screen items-center ${collapse ? 'lg:hidden' : ''}`}>
         <Link to={'/'}>
             <img src={logo} alt="Icone de um livro" className='lg:h-28 h-24'/>
         </Link>
         <AiOutlineMenu onClick={()=> setTranslateNavbar(!translateNavbar)} className='absolute right-5 md:right-8 lg:hidden cursor-pointer block' color='#fff' size={45}/>
-        <div className='hidden p-5 text-white lg:block text-center'>
+        <div className='hidden p-4 text-white lg:block text-center'>
           <h1 className='font-bold text-lg'>CENTRO DE EDUCAÇÃO PROFISSIONAL</h1>
           <span>Credenciada na Secretaria de Educação do DF<br/>Cadastrada no SISTEC / MEC </span>
         </div>
-        <div className='hidden p-5 text-white lg:block text-center'>
+        <div className='hidden p-4 text-white lg:block text-center'>
           <h1 className='font-bold'>PROGRAMA DE QUALIFICAÇÃO PROFISSIONAL <br/> ÀS PESSOAS PRIVADAS DE LIBERDADE</h1>
           <span className='text-base'>Ofertado há 9 anos!</span>
         </div>
         <div className='lg:flex md:blck hidden justify-center h-24 lg:flex-col-reverse text-white'>
-          <h1 className='mt-1 lg:text-xl'>Brasil - Brasília - DF</h1>
+          <h1 className='pt-1 lg:text-xl'>Brasil - Brasília - DF</h1>
           <div className='flex lg:justify-between'><img className='lg:w-20 w-14' src={bandeiraBrasil} alt=''/>
           <img className='lg:w-20 w-16' src={bandeiraDF} alt=''/></div>
         </div>
