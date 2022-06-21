@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function StudentCurrentCourse({currentCourse}){
-    /* console.log(currentCourse); */
     let dateInitCourse = '', calcDays='',oldDate='',testDate='';
     let date = new Date(currentCourse.dataMatricula).toLocaleDateString('pt-BR');
     let datePayment = '', dateFinalTest = '', testGrade ='', testResult='';

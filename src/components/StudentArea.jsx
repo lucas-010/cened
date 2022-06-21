@@ -19,7 +19,6 @@ export default function StudentArea({studentData, API}) {
       setStudentReg(response.data);
     })
   },[studentData])
-  console.log(studentData);
   keys.forEach(item=>{if(studentReg[item].statusCurso === 2){currentCourse.push(studentReg[item]);}})
   return (
     <div className='bg-[rgb(229,247,252)] absolute'>

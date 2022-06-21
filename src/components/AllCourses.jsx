@@ -14,8 +14,6 @@ export default function AllCourses({data}){
     {dateFinalTest = new Date(data.ultimaProvaRealizada.dataRecebidaProva).toLocaleDateString('pt-Br');
     testGrade = data.ultimaProvaRealizada.nota}
 
-
-    console.log(data);
     return(
     <div className='lg:w-5/6 h-full'>
             <h1 className='flex p-10 justify-center items-center text-2xl font-bold'>Todos os cursos</h1>
