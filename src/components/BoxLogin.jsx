@@ -10,28 +10,13 @@ import InputMask from 'react-input-mask';
 import { TextField } from '@mui/material';
 
 
-export default function Box({loginVerify, setLoginVerify}) {
+export default function Box({valueCpf, cpfApi, studentData, valueSenha, setValueSenha, setValueCpf, setVerified, loginVerify}){
   let ConditionalLink = ({ children, to, condition }) => (!!condition && to)
       ? <Link to={to}>{children}</Link>: <>{children}</>;
-  let [valueCpf, setValueCpf] = useState(''),
-  [valueSenha, setValueSenha] = useState(''),
-  cpfApi = valueCpf.replaceAll('.','').replaceAll('-',''),
-  [missPass, setMissPass] = useState(false);
-  let [studentData, setStudentData] = useState({"cpf":'', "senha":''});
-  let API = process.env.REACT_APP_API_KEY;
-  const verificationLogin = createContext(loginVerify);
-  useEffect(()=>{
-    axios.get(`${API}/alunos?Cpf=${cpfApi}`).then(response=>{
-      if(response.data.data.length ===1){
-      setStudentData(response.data.data[0])}
-      if(cpfApi === studentData.cpf && valueSenha === studentData.senha ){
-        setLoginVerify(true);}
-        else{
-          setLoginVerify(false);}
-        })
-  },[cpfApi, valueSenha])
+  console.log(loginVerify);
   function submitForm(e){
     if(loginVerify){
+      setVerified(true);
       setTimeout(()=> alert(`Logado com sucesso!`),300);}
     else if(cpfApi === studentData.cpf && valueSenha !== studentData.senha){ 
       alert('Senha incorreta!');
@@ -49,10 +34,8 @@ export default function Box({loginVerify, setLoginVerify}) {
         <InputMask mask="999.999.999-99" maskChar={null} onChange={(e)=> setValueCpf(e.target.value)} value={valueCpf} id='cpfAluno' className='p-2 w-full' >{() =><TextField label='CPF' className='w-full'/>}</InputMask>
         </div>
         <div className='w-5/6 flex items-center bg-white rounded-lg mb-2'><RiLockPasswordFill/>
-        <TextField label='Senha' {...missPass ? 'error' : ''} onChange={(e)=> setValueSenha(e.target.value)} id='password' type='password' className='w-full'></TextField></div>
-        <ConditionalLink to="/studentarea" condition={loginVerify} >
+        <TextField label='Senha' onChange={(e)=> setValueSenha(e.target.value)} id='password' type='password' className='w-full'></TextField></div>
         <button className='bg-blue-900 text-white mb-4 items-center justify-center rounded-md p-2 xl:w-72 w-52 flex' type='button' onClick={()=> submitForm()}><ImEnter/>&nbsp; Acessar</button>
-        </ConditionalLink>
         <Link to='/register' className='mb-4 text-base xl:w-72 w-52 bg-white text-black items-center justify-center rounded-md p-1 flex'>
         <button type='button' className='flex'><MdPersonAddAlt1/>&nbsp; Primeiro Acesso</button>
         </Link>

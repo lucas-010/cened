@@ -1,41 +1,38 @@
 import React from 'react'
-import Footer from '../components/Footer'
-import StudentAreaHeader from '../components/StudentAreaHeader'
-import StudentOptions from '../components/StudentOptions'
-import StudentStart from '../components/StudentStart'
-import StudentCurrentCourse from '../components/StudentCurrentCourse'
+import Footer from './Footer'
+import StudentAreaHeader from './StudentAreaHeader'
+import StudentOptions from './StudentOptions'
+import StudentStart from './StudentStart'
+import StudentCurrentCourse from './StudentCurrentCourse'
+import AllCourses from './AllCourses'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-export default function StudentArea() {
+export default function StudentArea({studentData, API}) {
   let [selected, setSelected] = useState(1);
-  let [student, setStudent] = useState('');
-  let [studentData, setStudentData] = useState('');
-  let API = process.env.REACT_APP_API_KEY;
-
+  let [studentReg, setStudentReg] = useState('');
+  let [courseHistory, setCourseHistory] = useState('');
+  let keys = Object.keys(studentReg);
+  let currentCourse = []
   useEffect(()=>{
-    axios.get(`${API}alunos?Cpf=07571414636`).then(response=>{
-      if(response.data.data.length ===1){
-        setStudent(response.data.data[0])}
-      });
-    axios.get(`${API}matriculas?IdAluno=${student.idAluno}`).then(response=>{
-      setStudentData(response.data.data[0]);
+    axios.get(`${API}documentos/consultas/matriculas?IdAluno=${studentData.idAluno}`).then(response=>{
+      setStudentReg(response.data);
     })
-  },[selected])
-
+  },[studentData])
+  keys.forEach(item=>{if(studentReg[item].statusCurso === 2){currentCourse.push(studentReg[item]);}})
   return (
     <div className='bg-[rgb(229,247,252)] absolute'>
       <StudentAreaHeader/>
       <div className='min-h-screen w-screen flex flex-col mt-20 p-8'>
         <p className='text-center font-bold text-3xl text-blue-800'>ÁREA DO ALUNO</p>
-        <div className='mt-10 flex flex-col overflow-auto lg:flex-row bg-white min-w-screen lg:min-w-min lg:border-2 border-gray-600 rounded-lg'>
+        <div className='mt-10 flex flex-col overflow-auto lg:flex-row bg-white min-w-screen lg:min-w-min lg:border-2 border-gray-400 rounded-lg'>
           <StudentOptions selected={selected} setSelected={setSelected}/>
         {
         selected ===1 ? <StudentStart/>
         :
-        selected ===2 ? <StudentCurrentCourse studentData={studentData}/>
+        selected ===2 ? <StudentCurrentCourse currentCourse={currentCourse[0]}/>
         :
-        selected ===3 ? <div className='text-center w-5/6'>Todos os cursos</div>
+        selected ===3 ? <AllCourses data={studentReg}/>
         :
         selected ===4 ? <div className='text-center w-5/6'>Comprar novo curso</div>
         :

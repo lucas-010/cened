@@ -10,8 +10,8 @@ import {RiLockPasswordFill} from 'react-icons/ri'
 
 export default function StudentStart(){
     return(
-        <div className='lg:w-5/6'>
-            <h1 className='flex h-1/6 justify-center items-center text-2xl font-bold'>Conheça a área do aluno</h1>
+        <div className='lg:w-5/6 h-full'>
+            <h1 className='flex p-10 justify-center items-center text-2xl font-bold'>Conheça a área do aluno</h1>
             <div className='w-full h-5/6 flex lg:flex-row flex-col flex-wrap text-green-700 '>
                 <div className='flex flex-col bg-amber-100 overflow-auto h-72 lg:h-auto lg:w-1/4 border-8 rounded-xl border-white p-4'>                    
                 <p className='flex items-center font-bold'><HiOutlineDocumentSearch/>CURSO ATUAL</p>

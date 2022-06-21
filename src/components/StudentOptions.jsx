@@ -5,7 +5,7 @@ import { useState } from 'react';
 export default function StudentOptions({selected, setSelected}){
     return(
         <div className='flex flex-col h-full lg:w-1/6'>
-            <StudentOption id={1} selected={selected} setSelected={setSelected} text={'Início'}/>
+            <StudentOption id={1} selected={selected} setSelected={setSelected} text={'Instruções'}/>
             <StudentOption id={2} selected={selected} setSelected={setSelected} text={'Curso atual'}/>
             <StudentOption id={3} selected={selected} setSelected={setSelected} text={'Todos os cursos'}/>
             <StudentOption id={4} selected={selected} setSelected={setSelected} text={'Comprar novo curso'}/>
