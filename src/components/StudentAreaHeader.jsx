@@ -12,7 +12,6 @@ export default function StudentAreaHeader(){
                 <Link to={'/'}>
                 <ul className='flex items-center'>
                   <img src={logo} alt='' className='lg:w-28 lg:h-20 w-24 h-20'/>
-                  <li className='ease-in delay-70 transition-colors rounded-lg hidden lg:block cursor-pointer p-1 hover:bg-blue-800'>ESCOLA CENED </li>
                 </ul>
                 </Link>
               <ul className='flex justify-between gap-10'>
