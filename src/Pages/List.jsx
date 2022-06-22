@@ -273,8 +273,8 @@ export default function List() {
     <div className='absolute pt-10 w-screen'>
       <div className='min-h-screen'>
         <Title text={`CURSOS SUGERIDOS PARA O ESTADO: ${state}` }>
-          <p className='lg:text-2xl text-sm text-center justify-center flex flex-wrap items-center font-bold'>
-          Selecione o(s) curso(s) <MdCheckBox color='#F6B112' size={25}/> e, ao final, clique na imagem do carrinho de compras<BsArrowRightShort size={25}/><BsCart4 size={25}/>
+          <p className='lg:text-xl text-sm text-center justify-center flex flex-wrap items-center font-bold'>
+          Selecione o(s) curso(s) <MdCheckBox color='#F6B112' size={35}/> e, ao final, clique na imagem do carrinho de compras<BsArrowRightShort size={35}/><span className='bg-yellow-400 p-1 rounded-full'><BsCart4 size={40}/></span>
           </p>
         </Title>
         <div className="mt-10 lg:mt-0 flex h-full w-full items-center flex-col" >

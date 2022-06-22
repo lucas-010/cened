@@ -43,9 +43,9 @@ export default function CourseBox({id, content, image, title, time, price, addCo
             <img src={image} className='rounded-xl' alt="" />
         </div>
         <div className='flex flex-col lg:text-left text-center p-4'>
-        <h1 className='text-xl font-bold'>{code} - {title}</h1>
+        <h1 className='text-xl text-gray-600 font-bold'>{code} - {title}</h1>
 
-        <div className='font-bold text-xl'>
+        <div className='text-xl text-gray-600'>
             <h2>Carga horária: {time} h</h2>
             <h2>Investimento: R${price},00</h2>
         </div>
