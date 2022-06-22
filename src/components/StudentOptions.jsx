@@ -3,10 +3,9 @@ import StudentOption from '../components/StudentOption'
 import { useState } from 'react';
 
 export default function StudentOptions({selected, setSelected}){
-    let color = [{'color': '#3B82F6'}]
     return(
         <div className='flex flex-col h-full lg:w-1/6'>
-            <StudentOption id={0} style={color} text={'ÁREA DO ALUNO'}/>
+            <StudentOption id={0} text={'ÁREA DO ALUNO'}/>
             <StudentOption id={1} selected={selected} setSelected={setSelected} text={'Instruções'}/>
             <StudentOption id={2} selected={selected} setSelected={setSelected} text={'Curso atual'}/>
             <StudentOption id={3} selected={selected} setSelected={setSelected} text={'Todos os cursos'}/>

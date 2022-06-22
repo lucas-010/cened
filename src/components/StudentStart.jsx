@@ -41,7 +41,7 @@ export default function StudentStart(){
                 <p className='flex items-center font-bold'><MdPowerSettingsNew/>SAIR</p>
                 <li className='flex mt-10 h-full'>Efetue Logoff da Área do Aluno</li></div>
             </div>
-            <Collapse in={open}><p className='flex items-center bg-amber-100 p-2 rounded-sm text-red-500 text-lg'><MdError/>&nbsp;<b>Atenção! Mantenha sempre atualizado o cadastro do estudante/reeducando!</b></p></Collapse>
+            <Collapse in={open}><div className='w-full flex justify-center'><p className='border-white border-8 w-fit flex flex-wrap items-center bg-amber-100 p-2 rounded-sm text-red-500 text-lg'><MdError/>&nbsp;<b>Atenção! Mantenha sempre atualizado o cadastro do estudante/reeducando!</b></p></div></Collapse>
         </div>
     )
 }

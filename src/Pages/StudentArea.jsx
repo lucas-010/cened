@@ -30,7 +30,7 @@ export default function StudentArea() {
     <div className='bg-[rgb(229,247,252)] absolute'>
       <StudentAreaHeader/>
       <div className='min-h-screen w-screen flex flex-col pt-24 p-8'>
-        <div className='w-full flex flex-col'>
+        <div className='w-full flex flex-col lg:flex-row'>
         <div className='lg:w-1/2'>
         <ul className='flex gap-4 flex-wrap'><li>Reeducando: <b>{studentData.nome}</b></li><li>CPF: <b>{studentData.cpf}</b></li></ul>
         <ul className='flex gap-4 flex-wrap'><li>UF: <b>{studentData.penitenciaria.ufDescricao}</b></li><li>Penitenciária: <b>{studentData.penitenciaria.nome}</b></li></ul>
