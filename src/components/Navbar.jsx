@@ -18,7 +18,7 @@ export default function Navbar({translateNavbar}) {
             <ListItem text={'Instituição'} link='/instituicao'/>
             <ListItem text={'Cursos'} link='/cursos'/>
             <div onMouseEnter={()=>{setOpen(true);setOpenId(1)}} onMouseLeave={()=>{setOpen(false)}}>
-              <p className='w-fit lg:text-center p-2 m-2 mb-1 text-sm font-bold h-auto transition-colors ease-in delay-70 lg:justify-center items-center hover:bg-blue-800 hover:text-white cursor-pointer rounded-xl'>Como Funciona</p>
+              <p className='w-fit lg:text-center p-2 m-2 mb-1 text-sm font-bold h-auto transition-colors ease-in delay-70 lg:justify-center items-center hover:bg-blue-800 hover:text-white rounded-xl'>Como Funciona</p>
             <Collapse className='w-fit lg:-mr-10 ml-2 mb-1' in={openId===1?open:false}>
                 <ul className='bg-gray-300 rounded-lg'>
                 <a href='passoapasso'><h1 className='hover:bg-blue-800 hover:text-white cursor-pointer rounded-lg p-1 font-normal transition-colors'>Passo a passo</h1></a>
@@ -48,8 +48,8 @@ export default function Navbar({translateNavbar}) {
               ADMINISTRAÇÃO PENITENCIÁRIA
             </Link>
             <div onMouseEnter={()=>{setOpen(true);setOpenId(2)}} onMouseLeave={()=>{setOpen(false)}}>
-              <p className='w-fit lg:text-center p-2 mr-5 text-sm font-bold h-auto transition-colors ease-in delay-70 lg:justify-center items-center hover:bg-blue-800 hover:text-white cursor-pointer rounded-xl'>MATRICULE-SE</p>
-            <Collapse className='w-fit ml-1' in={openId===2?open:false}>
+              <p className='w-fit lg:text-center p-2 mr-5 text-sm font-bold h-auto transition ease-in delay-70 lg:justify-center items-center bg-green-700 hover:scale-110 duration-300 hover:bg-blue-800 text-white rounded-xl'>MATRICULE-SE</p>
+            <Collapse className='w-fit' in={openId===2?open:false}>
                 <ul className='mt-1 bg-gray-300 rounded-lg'>
                 <a href='login'><h1 className='hover:bg-blue-800 hover:text-white cursor-pointer rounded-lg p-1 font-normal transition-colors'>Já sou aluno</h1></a>
                 <a href='register'><h2 className='hover:bg-blue-800 hover:text-white cursor-pointer rounded-lg p-1 font-normal transition-colors'>Não sou aluno</h2></a>
