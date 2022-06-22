@@ -37,9 +37,9 @@ export default function Navbar({translateNavbar}) {
             <a target='_blank' href={'https://lucas-010.github.io/cened-penitenciaria/'} className="h-fit transition mt-3 ease-in-out hover:bg-blue-800 hover:scale-110 hover:text-white duration-300 lg:mr-6 lg:mt-0 flex p-2 rounded-xl">
               <FiUsers size={15}/> <span>PENITENCIÁRIA</span>
             </a>
-            <Link to='/cursos' className='h-fit transition mt-3 ease-in-out hover:bg-blue-800 hover:scale-110 hover:text-white duration-300 lg:mr-6 lg:mt-0 flex p-2 rounded-xl'>
+            <a target={'_blank'} href='https://lucas-010.github.io/cened-administracao-penitenciaria/' className='h-fit transition mt-3 ease-in-out hover:bg-blue-800 hover:scale-110 hover:text-white duration-300 lg:mr-6 lg:mt-0 flex p-2 rounded-xl'>
               ADMINISTRAÇÃO PENITENCIÁRIA
-            </Link>
+            </a>
             <div onMouseEnter={()=>{setOpen(true);setOpenId(2)}} onMouseLeave={()=>{setOpen(false)}} className='xl:text-base text-sm'>
               <p className='w-max lg:text-center p-2 mr-5 font-bold h-auto transition ease-in delay-70 lg:justify-center items-center bg-green-700 hover:scale-110 duration-300 hover:bg-blue-800 text-white rounded-xl'>MATRICULE-SE</p>
             <Collapse className='rounded-lg mr-4 bg-gray-300' in={openId===2?open:false}>
