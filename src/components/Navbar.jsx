@@ -20,7 +20,7 @@ export default function Navbar({translateNavbar}) {
             <div onMouseEnter={()=>{setOpen(true);setOpenId(1)}} onMouseLeave={()=>{setOpen(false)}}>
               <p className='w-fit lg:text-center p-2 m-2 mb-1 text-sm font-bold h-auto transition-colors ease-in delay-70 lg:justify-center items-center hover:bg-blue-800 hover:text-white rounded-xl'>Como Funciona</p>
             <Collapse className='w-fit lg:-mr-10 ml-2 mb-1' in={openId===1?open:false}>
-                <ul className='bg-gray-300 rounded-lg'>
+                <ul className='bg-gray-300 rounded-lg text-sm'>
                 <a href='passoapasso'><h1 className='hover:bg-blue-800 hover:text-white cursor-pointer rounded-lg p-1 font-normal transition-colors'>Passo a passo</h1></a>
                 <a href='programaeducacional'><h2 className='hover:bg-blue-800 hover:text-white cursor-pointer rounded-lg p-1 font-normal transition-colors'>Programa educacional</h2></a>
                 </ul>
