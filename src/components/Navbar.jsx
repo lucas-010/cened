@@ -19,8 +19,8 @@ export default function Navbar({translateNavbar}) {
             <ListItem text={'Cursos'} link='/cursos'/>
             <div onMouseEnter={()=>{setOpen(true);setOpenId(1)}} onMouseLeave={()=>{setOpen(false)}}>
               <p className='w-fit lg:text-center p-2 m-2 lg:mb-0 font-bold h-auto transition-colors ease-in delay-70 lg:justify-center items-center hover:bg-blue-800 hover:text-white rounded-xl'>Como Funciona</p>
-            <Collapse className='lg:ml-2 lg:-mr-2 p-1 bg-gray-300 rounded-lg' in={openId===1?open:false}>
-                <ul>
+            <Collapse className='lg:ml-2 lg:-mr-6 bg-gray-300 rounded-lg' in={openId===1?open:false}>
+                <ul className='m-1'>
                 <a href='passoapasso'><h1 className='hover:bg-blue-800 hover:text-white cursor-pointer rounded-lg p-1 font-normal transition-colors'>Passo a passo</h1></a>
                 <a href='programaeducacional'><h2 className='hover:bg-blue-800 hover:text-white cursor-pointer rounded-lg p-1 font-normal transition-colors'>Programa educacional</h2></a>
                 </ul>
@@ -42,8 +42,8 @@ export default function Navbar({translateNavbar}) {
             </Link>
             <div onMouseEnter={()=>{setOpen(true);setOpenId(2)}} onMouseLeave={()=>{setOpen(false)}} className='xl:text-base text-sm'>
               <p className='w-max lg:text-center p-2 mr-5 font-bold h-auto transition ease-in delay-70 lg:justify-center items-center bg-green-700 hover:scale-110 duration-300 hover:bg-blue-800 text-white rounded-xl'>MATRICULE-SE</p>
-            <Collapse className='rounded-lg p-1 mr-4 bg-gray-300' in={openId===2?open:false}>
-                <ul>
+            <Collapse className='rounded-lg mr-4 bg-gray-300' in={openId===2?open:false}>
+                <ul className='m-1'>
                 <a href='login'><h1 className='hover:bg-blue-800 hover:text-white cursor-pointer rounded-lg p-1 font-normal transition-colors'>Já sou aluno</h1></a>
                 <a href='register'><h2 className='hover:bg-blue-800 hover:text-white cursor-pointer rounded-lg p-1 font-normal transition-colors'>Não sou aluno</h2></a>
                 </ul>
