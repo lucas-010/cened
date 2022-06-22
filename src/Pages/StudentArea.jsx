@@ -15,14 +15,16 @@ export default function StudentArea() {
   let [studentReg, setStudentReg] = useState('');
   let keys = Object.keys(studentReg);
   let currentCourse = [];
-  if(JSON.parse(sessionStorage.getItem('verified'))===false){
-    window.location='/cened/login'}
+  
   useEffect(()=>{
     axios.get(`${API}documentos/consultas/matriculas?IdAluno=${studentData.idAluno}`).then(response=>{
       setStudentReg(response.data);
     })
   },[])
   keys.forEach(item=>{if(studentReg[item].statusCurso === 2){currentCourse.push(studentReg[item]);}})
+  if(JSON.parse(sessionStorage.getItem('verified'))===false){
+    window.location='/cened/login'}
+  else{
   return (
     <div className='bg-[rgb(229,247,252)] absolute'>
       <StudentAreaHeader/>
@@ -54,4 +56,5 @@ export default function StudentArea() {
         <Footer/>
     </div>
   )
+  }
 }
