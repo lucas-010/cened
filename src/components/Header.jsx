@@ -27,7 +27,7 @@ export default function Header() {
     <div className={`fixed z-20`}>
       <div style={{backgroundImage: `url(${imagemBackground})`, backgroundSize: 'cover'}} className={`flex lg:justify-around w-screen items-center ${collapse ? 'lg:hidden' : ''}`}>
         <Link to={'/'}>
-            <img src={logo} alt="Icone de um livro" className='lg:h-28 h-24'/>
+            <img src={logo} alt="Icone de um livro" className='lg:h-28 h-20'/>
         </Link>
         <AiOutlineMenu onClick={()=> setTranslateNavbar(!translateNavbar)} className='absolute right-5 md:right-8 lg:hidden cursor-pointer block' color='#fff' size={45}/>
         <div className='hidden p-4 text-white lg:block text-center'>
