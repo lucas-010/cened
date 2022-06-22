@@ -197,7 +197,7 @@ export default function Flags() {
         return(
           <div className='w-48 p-2 transition-colors flex flex-col justify-between items-center h-36 m-5 text-center' key={key}>
             <a href={`lista/${flag.abbre}`}><img className='md:hover:transition-all hover:w-44 hover:h-32 w-40 h-28' src={flag.img} alt="" /></a>
-            <span className='text-black font-bold'>{flag.text}</span>
+            <span className='text-gray-600 font-bold'>{flag.text}</span>
           </div>
         )
       })}
