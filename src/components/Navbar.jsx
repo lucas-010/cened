@@ -36,7 +36,7 @@ export default function Navbar({translateNavbar}) {
             <Link to='/cursos' className='text-sm transition mt-3 ease-in-out hover:bg-blue-800 hover:scale-110 hover:text-white duration-300 lg:mr-6 lg:mt-0 flex items-center p-2 rounded-xl'>
               ADMINISTRAÇÃO PENITENCIÁRIA
             </Link>
-            <div className='lg:w-1/5 pl-2 pr-2 pt-1 lg:mr-6 rounded-xl bg-green-400'>
+            <div className='lg:w-1/5 pl-2 pr-2 pt-1 lg:mr-6 rounded-xl bg-green-500'>
             <TextField size='small' select variant='standard' defaultValue={1} className='w-full'>
               <MenuItem value={1} disabled><b>MATRICULE-SE</b></MenuItem>
               <a href='login'><MenuItem>Já sou aluno</MenuItem></a>
