@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {MdOutlineCheckBoxOutlineBlank} from 'react-icons/md'
 import './ContentText.css'
 import { MdCheckBox } from 'react-icons/md'
+import Collapse from '@material-ui/core/Collapse'
 
 export default function CourseBox({id, content, image, title, time, price, addCourseList, removeCourseList, code, coursesSelected, coursesPerPage, currentPage, inputText, filteredData}) {
     const [selectBox, setSelectBox] = useState(false)
@@ -58,11 +59,13 @@ export default function CourseBox({id, content, image, title, time, price, addCo
         <div>
         </div>
         </div>
-        <div className={`${visibleContent ? 'flex flex-col' : 'hidden'} transition-all items-center mt-5 p-4 rounded-lg bg-gray-200 justify-between w-full`}>
+        <Collapse in={visibleContent}>
+        <div className={`flex flex-col transition-all items-center mt-5 p-4 rounded-lg bg-gray-200 justify-between w-full`}>
             <div className="ContentText">
                 {content}
             </div>
         </div>
+        </Collapse>
     </div>
   )
 }

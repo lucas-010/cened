@@ -270,7 +270,7 @@ export default function List() {
   return (
     <div>
       <Header/>
-    <div className='absolute mt-10 w-screen'>
+    <div className='absolute pt-10 w-screen'>
       <div className='min-h-screen'>
         <Title text={`CURSOS SUGERIDOS PARA O ESTADO: ${state}` }>
           <p className='lg:text-2xl text-sm text-center justify-center flex flex-wrap items-center font-bold'>

@@ -1,9 +1,6 @@
-.ReactCollapse--collapse {
-    height: 0;
-    margin: 0;
+.MuiCollapse-wrapperInner {
     width: 100%;
     display: flex;
-    transition: height .5s;
     border-radius: 10px 10px 0 0;
     justify-content: center;
     margin-top: 1%;

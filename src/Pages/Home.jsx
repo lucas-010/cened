@@ -8,13 +8,12 @@ export default function Home() {
     window.scrollTo(0, 0)
   }, []);
   return (
-    <div>
-    <Header/>
-    <div className='absolute w-screen bg-white' style={{background: 'linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(82,82,253,1) 100%)'}}>
-      <div className='lg:h-28 h-20'></div>
-      <Intro/>
+    <div className='absolute'>
+      <Header/>
+      <div className='lg:pt-28 pt-20 w-screen min-h-screen' style={{background: 'linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(82,82,253,1) 100%)'}}>
+        <Intro/>
+      </div>
       <Footer/>
-    </div>
     </div>
   )
 }
