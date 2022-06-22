@@ -195,15 +195,9 @@ export default function Flags() {
     <div  className='flex p-4 mt-10 lg:mt-0 w-11/12 justify-center flex-wrap m-auto'>
 			{flags.map((flag, key)=>{
         return(
-<<<<<<< HEAD
-          <div className='w-48 p-2 transition-colors flex flex-col justify-between items-center h-36 m-5 text-center' key={key}>
-            <a href={`lista/${flag.abbre}`}><img className='md:hover:transition-all hover:w-44 hover:h-32 w-40 h-28' src={flag.img} alt="" /></a>
-            <span className='text-gray-600 font-bold'>{flag.text}</span>
-=======
           <div className='transition hover:scale-110 w-48 p-2 flex flex-col justify-between items-center h-36 m-5 text-center' key={key}>
             <a href={`lista/${flag.abbre}`}><img className='w-40 h-28' src={flag.img} alt="" /></a>
             <span className='text-black font-bold'>{flag.text}</span>
->>>>>>> e1cb47e991e834abf17cfd888cd85da6c1e0ae68
           </div>
         )
       })}

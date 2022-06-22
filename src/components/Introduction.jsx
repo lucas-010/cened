@@ -5,7 +5,6 @@ import slideImg3 from '../images/slideIMG3.png'
 import slideImg4 from '../images/slideIMG4.png'
 import { Accordion, AccordionDetails} from '@mui/material'
 import { Collapse } from '@material-ui/core';
-import './Introduction.css';
 
 export default function Intro() {
   const listText1 = [
