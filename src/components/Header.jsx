@@ -7,13 +7,10 @@ import { useState, useEffect } from 'react';
 import imagemBackground from '../images/headerimg.png';
 import bandeiraDF from '../images/flags/DF.png';
 import bandeiraBrasil from '../images/flags/bandeiradobrasil.jpg';
-import MenuDropdown from './MenuDropdown';
 
 
 export default function Header() {
-  const [translateNavbar, setTranslateNavbar] = useState(false),
-  [visible, setVisible] = useState(false);
-  let [id, setId] = useState();
+  const [translateNavbar, setTranslateNavbar] = useState(false);
   let [collapse, setCollapse] = useState(false);
   useEffect(function () {
     function posicaoScroll() {
@@ -47,8 +44,7 @@ export default function Header() {
           <img className='lg:w-20 w-16' src={bandeiraDF} alt=''/></div>
         </div>
       </div>
-      <Navbar visible={visible} setVisible={setVisible} translateNavbar={!translateNavbar} setId={setId} id={id}/>
-      <MenuDropdown collapse={collapse} visible={visible} id={id}/>
+      <Navbar translateNavbar={!translateNavbar}/>
     </div>
   )
 }
