@@ -22,6 +22,7 @@ export default function StudentArea() {
     })
   },[])
   keys.forEach(item=>{if(studentReg[item].statusCurso === 2){currentCourse.push(studentReg[item]);}})
+  console.log(studentData);
   if(JSON.parse(sessionStorage.getItem('verified'))===false){
     window.location='/cened/login'}
   else{
@@ -29,10 +30,17 @@ export default function StudentArea() {
     <div className='bg-[rgb(229,247,252)] absolute'>
       <StudentAreaHeader/>
       <div className='min-h-screen w-screen flex flex-col pt-24 p-8'>
-        <p className='text-center font-bold text-3xl text-blue-800 mb-5 lg-mb-0'>ÁREA DO ALUNO</p>
+        <div className='w-full flex flex-col'>
+        <div className='lg:w-1/2'>
         <ul className='flex gap-4 flex-wrap'><li>Reeducando: <b>{studentData.nome}</b></li><li>CPF: <b>{studentData.cpf}</b></li></ul>
         <ul className='flex gap-4 flex-wrap'><li>UF: <b>{studentData.penitenciaria.ufDescricao}</b></li><li>Penitenciária: <b>{studentData.penitenciaria.nome}</b></li></ul>
-        <div className='mt-5 flex flex-col overflow-auto lg:flex-row bg-white min-w-screen lg:min-w-min lg:border-2 border-gray-400 rounded-lg'>
+        </div>
+        <div className='lg:w-1/2 flex flex-col lg:items-end'>
+        <ul className='flex gap-4 flex-wrap'><li>Responsável: <b>{studentData.nomePreposto}</b></li></ul>
+        <ul className='flex gap-4 flex-wrap'><li>Email: <b>{studentData.email}</b></li></ul>
+        </div>
+        </div>
+        <div className='flex flex-col overflow-auto lg:flex-row bg-white min-w-screen lg:min-w-min lg:border-4 mt-2 border-gray-400 rounded-lg'>
           <StudentOptions selected={selected} setSelected={setSelected}/>
         {
         selected ===1 ? <StudentStart/>

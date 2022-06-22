@@ -1,4 +1,4 @@
-import React from 'react'
+import {React, useState} from 'react'
 import { AiFillHome } from 'react-icons/ai';
 import {MdMessage, MdPowerSettingsNew} from 'react-icons/md'
 import {HiOutlineDocumentSearch} from 'react-icons/hi';
@@ -7,8 +7,11 @@ import {GrFormAdd,GrCertificate} from 'react-icons/gr'
 import {FiEdit} from 'react-icons/fi'
 import {BiBarcodeReader} from 'react-icons/bi'
 import {RiLockPasswordFill} from 'react-icons/ri'
+import {MdError} from 'react-icons/md'
+import { Collapse } from '@mui/material';
 
 export default function StudentStart(){
+    let [open, setOpen] = useState(false);
     return(
         <div className='lg:w-5/6 h-full'>
             <h1 className='flex p-10 justify-center items-center text-2xl font-bold'>Conheça a área do aluno</h1>
@@ -31,13 +34,14 @@ export default function StudentStart(){
                 <div className='flex flex-col bg-amber-100 overflow-auto lg:w-1/4 border-8 rounded-xl border-white p-4'>
                 <p className='flex items-center font-bold'><RiLockPasswordFill/>ALTERAR SENHA</p>
                 <li className='flex mt-10 h-full'>Altere a senha de acesso à Área do Aluno</li></div>
-                <div className='flex flex-col bg-amber-100 overflow-auto lg:w-1/4 border-8 rounded-xl border-white p-4'>
-                <p className='flex items-center font-bold'><FiEdit/>ATUALIZAR CADASTRO</p>
+                <div className='flex flex-col bg-amber-100 overflow-auto lg:w-1/4 border-8 rounded-xl border-white p-4' onMouseEnter={()=>setOpen(true)} onMouseLeave={()=>setOpen(false)}>
+                <ul className='flex justify-between'><li className='flex items-center font-bold'><FiEdit/>ATUALIZAR CADASTRO</li><MdError color='red' size={25}/></ul>
                 <li className='flex mt-10 h-full'>Visualize e Altere os Dados Pessoais do Aluno, Dados Penitenciários e os Dados do Responsável/Preposto</li></div>
                 <div className='flex flex-col bg-amber-100 overflow-auto lg:w-1/4 border-8 rounded-xl border-white p-4'>
                 <p className='flex items-center font-bold'><MdPowerSettingsNew/>SAIR</p>
                 <li className='flex mt-10 h-full'>Efetue Logoff da Área do Aluno</li></div>
             </div>
+            <Collapse in={open}><p className='flex items-center bg-amber-100 p-2 rounded-sm text-red-500 text-lg'><MdError/>&nbsp;<b>Atenção! Mantenha sempre atualizado o cadastro do estudante/reeducando!</b></p></Collapse>
         </div>
     )
 }
