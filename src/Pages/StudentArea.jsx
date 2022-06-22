@@ -1,24 +1,27 @@
 import React from 'react'
-import Footer from './Footer'
-import StudentAreaHeader from './StudentAreaHeader'
-import StudentOptions from './StudentOptions'
-import StudentStart from './StudentStart'
-import StudentCurrentCourse from './StudentCurrentCourse'
-import AllCourses from './AllCourses'
+import Footer from '../components/Footer'
+import StudentAreaHeader from '../components/StudentAreaHeader'
+import StudentOptions from '../components/StudentOptions'
+import StudentStart from '../components/StudentStart'
+import StudentCurrentCourse from '../components/StudentCurrentCourse'
+import AllCourses from '../components/AllCourses'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-export default function StudentArea({studentData, API}) {
+export default function StudentArea() {
+  let studentData = JSON.parse(sessionStorage.getItem('studentData')),
+  API = process.env.REACT_APP_API_KEY;
   let [selected, setSelected] = useState(1);
   let [studentReg, setStudentReg] = useState('');
-  let [courseHistory, setCourseHistory] = useState('');
   let keys = Object.keys(studentReg);
-  let currentCourse = []
+  let currentCourse = [];
+  if(JSON.parse(sessionStorage.getItem('verified'))===false){
+    window.location='/cened/login'}
   useEffect(()=>{
     axios.get(`${API}documentos/consultas/matriculas?IdAluno=${studentData.idAluno}`).then(response=>{
       setStudentReg(response.data);
     })
-  },[studentData])
+  },[])
   keys.forEach(item=>{if(studentReg[item].statusCurso === 2){currentCourse.push(studentReg[item]);}})
   return (
     <div className='bg-[rgb(229,247,252)] absolute'>
@@ -48,7 +51,7 @@ export default function StudentArea({studentData, API}) {
         :<div className='text-center w-5/6'>Atualizar cadastro</div>}
         </div>
       </div>
-      <Footer/>
+        <Footer/>
     </div>
   )
 }

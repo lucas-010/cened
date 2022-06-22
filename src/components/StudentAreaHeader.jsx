@@ -17,10 +17,10 @@ export default function StudentAreaHeader(){
                 </Link>
               <ul className='flex justify-between gap-10'>
                 <Link to={'/'}>
-                <li className='flex items-center gap-1 ease-in delay-70 transition-colors rounded-lg cursor-pointer p-1 hover:bg-blue-800'><AiFillHome/>Voltar ao Site</li>
+                <li className='flex items-center gap-1 ease-in delay-70 transition-colors rounded-lg cursor-pointer p-1 hover:bg-blue-800 font-bold'><AiFillHome/>Voltar ao Site</li>
                 </Link>
                 <Link to={'/'}>
-                <li className='flex items-center gap-1 ease-in delay-70 transition-colors rounded-lg cursor-pointer p-1 hover:bg-blue-800'><MdPowerSettingsNew/>SAIR</li>
+                <button onClick={()=>sessionStorage.setItem('verified', false)} className='flex items-center gap-1 ease-in delay-70 transition-colors rounded-lg cursor-pointer p-1 hover:bg-blue-800 font-bold'><MdPowerSettingsNew/>SAIR</button>
                 </Link>
               </ul>
             </div>

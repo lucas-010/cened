@@ -3,12 +3,14 @@ import './RegisterForm.css';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import { Checkbox, MenuItem } from '@mui/material';
-import { FormControl } from '@mui/material'
+import { FormControl, Collapse, Alert } from '@mui/material'
 import InputMask from 'react-input-mask';
 import {Link} from 'react-router-dom';
 
 export default function RegisterForm(){
-    let [data, setData] = useState({"valueNomeAluno": '', "valueCpfAluno": '', "valueAtuacaoAluno": '', "valueAla": '', "valueBairroAluno": '', "valueBloco": '', "valueCela": '', "valueCelularResp": '', "valueCepAluno": '', "valueCidadeAluno": '', "valueCondicao": '', "valueCpfResp": '', "valueDtNascAluno": '', "valueEmail": '', "valueEnderAluno": '', "valueFoneResidResp": '', "valueFoneTrabResp": '', "valueGrauInstAluno": '', "valueIdentidadeAluno": '', "valueInfopen": '', "valueMaeAluno": '', "valueNacionAluno": '', "valueNaturAluno": '', "valueNomeResp": '', "valueOrgExpAluno": '', "valueOrgExpResp": '', "valuePaiAluno": '', "valuePenitenciaria": '', "valueProfAluno": '', "valueRegime": '', "valueRgResp": '', "valueSexoAluno": '', "valueSexoResp": '', "valueUfNaturAluno": '', "valueUfPris": '', "valueUfResidAluno": '', "senha": '', "confirmaSenha": ''});
+    let [alert, setAlert] = useState(false),
+    [alertTxt, setAlertTxt] = useState(''),
+    [data, setData] = useState({"valueNomeAluno": '', "valueCpfAluno": '', "valueAtuacaoAluno": '', "valueAla": '', "valueBairroAluno": '', "valueBloco": '', "valueCela": '', "valueCelularResp": '', "valueCepAluno": '', "valueCidadeAluno": '', "valueCondicao": '', "valueCpfResp": '', "valueDtNascAluno": '', "valueEmail": '', "valueEnderAluno": '', "valueFoneResidResp": '', "valueFoneTrabResp": '', "valueGrauInstAluno": '', "valueIdentidadeAluno": '', "valueInfopen": '', "valueMaeAluno": '', "valueNacionAluno": '', "valueNaturAluno": '', "valueNomeResp": '', "valueOrgExpAluno": '', "valueOrgExpResp": '', "valuePaiAluno": '', "valuePenitenciaria": '', "valueProfAluno": '', "valueRegime": '', "valueRgResp": '', "valueSexoAluno": '', "valueSexoResp": '', "valueUfNaturAluno": '', "valueUfPris": '', "valueUfResidAluno": '', "senha": '', "confirmaSenha": ''});
     let [generalClauses, setGeneralClauses] = useState(false),
     valueElements = Object.keys(data),
     listElements = Object.assign(data),
@@ -19,7 +21,7 @@ export default function RegisterForm(){
       : <>{children}</>;
     valueElements.forEach(vl=>{
         if(listElements[vl] === ""){
-            emptyElements.push(vl.replace(/([A-Z])/g, ' $1').replaceAll(' ', ' do ').replace('value do','').replace('Uf do', 'UF').replace('confirma do', ' confirma').replace('Dt do', 'Dt').replace('Fone do', 'Fone').replace('Grau do', 'Grau').replace('Org do', 'Org'));
+            emptyElements.push(vl.replace(/([A-Z])/g, ' $1').replaceAll(' ', ' do ').replace('value do','').replace('Uf do', 'UF').replace('senha', ' senha').replace('confirma do', ' confirma').replace('Dt do', 'Dt').replace('Fone do', 'Fone').replace('Grau do', 'Grau').replace('Org do', 'Org'));
         }
     })
     function clearElements(){
@@ -31,13 +33,16 @@ export default function RegisterForm(){
             setTimeout(function(){alert('Registrado com sucesso!')}, 500)
         }
         if(emptyElements.length > 0){
-            alert(`Itens incompletos: ${emptyElements}`);
+            setAlert(true);
+            setAlertTxt(`Itens incompletos: ${emptyElements}`)
         }
         if(!confirmaSenha && !emptyElements.length > 0){
-            alert('As senhas não coincidem!');
+            setAlert(true);
+            setAlertTxt('As senhas não coincidem!');
         }
         if(!emptyElements.length > 0 && !generalClauses){
-            alert('Você deve aceitar as cláusulas gerais para continuar');
+            setAlert(true);
+            setAlertTxt('Você deve aceitar as cláusulas gerais para continuar');
         }
     }
     return(
@@ -128,6 +133,9 @@ export default function RegisterForm(){
                                     </div>  
                                 </div>
                         </div>
+                        <Collapse in={alert}>
+                        <Alert className='w-1/2 mb-10' severity='error' onClose={() => {setAlert(false)}}>{alertTxt}</Alert>
+                        </Collapse>
             </FormControl>
             <div className='w-full flex self-center lg:w-1/2 h-20 justify-around'>
             <button className='lg:w-1/3 h-fit p-2 rounded-sm bg-red-600 text-white font-bold' onClick={()=> clearElements()}>LIMPAR</button>

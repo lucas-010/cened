@@ -10,6 +10,7 @@ import Login from './Pages/Login';
 import StepByStep from './Pages/StepByStep';
 import WorkWithUs from './Pages/WorkWithUs';
 import Register from './Pages/Register';
+import StudentArea from './Pages/StudentArea';
 import { CircularProgress } from '@mui/material';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path='/trabalheconosco' element={<WorkWithUs/>}/>
           <Route path='/lista/:idState' element={<List/>}/>
           <Route path='/login' element={<Login/>}/>
+          <Route path='/areadoaluno/:idAluno' element={<StudentArea/>}/>
           <Route path='/register' element={<Register/>}/>
         </Routes>
       </BrowserRouter>
