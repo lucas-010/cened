@@ -21,7 +21,6 @@ export default function StudentArea() {
       setStudentReg(response.data);
     })
   },[])
-  console.log(studentReg);
   keys.forEach(item=>{if(studentReg[item].statusCurso === 2){currentCourse.push(studentReg[item]);}})
   if(currentCourse.length ===0){currentCourse = studentReg}
   if(JSON.parse(sessionStorage.getItem('verified'))===false){
