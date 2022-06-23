@@ -6,13 +6,7 @@ export default function AllCourses({data}){
     let datePayment = '', dateFinalTest = '', testGrade ='', testResult='';
     if(data.statusCurso === 4 || data.statusCurso === 7){testResult = `${data.statusCursoDescricao}. Fará 2ª Prova.`}
     else{testResult=data.statusCursoDescricao}
-    if(data.dataPagamento){datePayment = new Date(data.dataPagamento).toLocaleDateString('pt-BR');}
-    if(data.inicioCurso) {dateInitCourse = new Date(data.inicioCurso).toLocaleDateString('pt-BR');
-    calcDays = (data.curso.cargaHoraria/4); oldDate = new Date(data.inicioCurso.toString());
-    testDate= new Date(oldDate.getFullYear(),oldDate.getMonth(),oldDate.getDate()+calcDays).toLocaleDateString('pt-BR');}
-    if(data.ultimaProvaRealizada)
-    {dateFinalTest = new Date(data.ultimaProvaRealizada.dataRecebidaProva).toLocaleDateString('pt-Br');
-    testGrade = data.ultimaProvaRealizada.nota}
+    
 
     return(
     <div className='lg:w-5/6 h-full'>

@@ -4,7 +4,7 @@ import ListItem from './ListItem'
 import {AiOutlineUser} from 'react-icons/ai'
 import {FiUsers} from 'react-icons/fi'
 import { Link } from 'react-router-dom'
-import { TextField, MenuItem, Collapse } from '@mui/material'
+import {Collapse } from '@mui/material'
 
 export default function Navbar({translateNavbar}) {
   let [open, setOpen] = useState(false);

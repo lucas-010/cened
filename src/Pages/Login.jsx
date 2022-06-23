@@ -36,6 +36,7 @@ export default function Login() {
           setLoginVerify(false);}
         })
   },[cpfApi, valueSenha])
+
   if(verified){window.location=`areadoaluno/${studentData.idAluno}`;}
   else{
     return(

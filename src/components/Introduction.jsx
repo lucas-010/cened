@@ -3,7 +3,6 @@ import slideImg1 from '../images/slideIMG1.png'
 import slideImg2 from '../images/slideIMG2.png'
 import slideImg3 from '../images/slideIMG3.png'
 import slideImg4 from '../images/slideIMG4.png'
-import { Accordion} from '@mui/material'
 import { Collapse } from '@material-ui/core';
 
 export default function Intro() {
@@ -23,7 +22,7 @@ export default function Intro() {
     if(open1 || open2 || open3 || open4){allClosed = false}
     else{allClosed = true};
   return (
-    <div className='p-6 md:p-10 lg:pt-24 md:text-2xl min-h-screen'>
+    <div className='p-6 md:p-10 lg:pt-24 md:text-2xl'>
         <h1 className='text-center font-bold md:text-4xl'>Programa de Qualificação Profissional às Pessoas Privadas de Liberdade</h1>
         <div className='flex md:mt-10 mt-4 text-xs text-center md:text-xl md:font-bold'>
             <div className='flex flex-col justify-evenly lg:justify-between items-center w-1/2 md:w-1/4 xs:h-48 md:h-96'>
@@ -59,29 +58,29 @@ export default function Intro() {
             setOpen2(false);setOpen3(false);setOpen1(false);}}><img src={slideImg4} alt='' className='rounded-xl'/><p className='text-white mt-2 text-xs hover:bg-green-500 rounded-xl pl-2 pr-2 bg-blue-800 w-fit place-self-center'>SAIBA +</p></button>
             </div>
         </div>
-        <Collapse className='w-full flex rounded-lg justify-center mt-4' in={open1}>
-          <Accordion className='p-4 border-4 border-gray-400 mt-2 max-w-5xl'>
-          <ul className='text-lg p-2 list-outside list-disc'>{listText1.map((item, key)=>{return <li key={key}>{item.text}</li>})}
+        <Collapse className='w-full' in={open1}>
+          <div className='flex rounded-lg justify-center mt-4'>
+          <ul className='p-6 border-4 bg-white border-gray-400 mt-2 max-w-5xl text-lg list-outside list-disc'>{listText1.map((item, key)=>{return <li key={key}>{item.text}</li>})}
           </ul>
-          </Accordion>
+          </div>
         </Collapse>
-        <Collapse className='w-full flex rounded-lg justify-center' in={open2}>
-          <Accordion className='p-4 border-4 border-gray-400 mt-2 max-w-5xl'>
-          <ul className='text-lg p-2 list-outside list-disc'>{listText2.map((item, key)=>{return <li key={key}>{item.text}</li>})}
+        <Collapse className='w-full' in={open2}>
+          <div className='flex rounded-lg justify-center mt-4'>
+          <ul className='p-6 border-4 bg-white border-gray-400 mt-2 max-w-5xl text-lg list-outside list-disc'>{listText2.map((item, key)=>{return <li key={key}>{item.text}</li>})}
           </ul>
-          </Accordion>
+          </div>
         </Collapse>
-        <Collapse className='w-full flex rounded-lg justify-center' in={open3}>
-          <Accordion className='p-4 border-4 border-gray-400 mt-2 max-w-5xl'>
-          <ul className='text-lg p-2 list-outside list-disc'>{listText3.map((item, key)=>{return <li key={key}>{item.text}</li>})}
+        <Collapse className='w-full' in={open3}>
+          <div className='flex rounded-lg justify-center mt-4'>
+          <ul className='p-6 border-4 bg-white border-gray-400 mt-2 max-w-5xl text-lg list-outside list-disc'>{listText3.map((item, key)=>{return <li key={key}>{item.text}</li>})}
           </ul>
-          </Accordion>
+          </div>
         </Collapse>
-        <Collapse className='w-full flex rounded-lg justify-center' in={open4}>
-          <Accordion className='p-4 border-4 border-gray-400 mt-2 max-w-5xl'>
-          <ul className='text-lg p-2 list-outside list-disc'>{listText4.map((item, key)=>{return <li key={key}>{item.text}</li>})}
+        <Collapse className='w-full' in={open4}>
+          <div className='flex rounded-lg justify-center mt-4'>
+          <ul className='p-6 border-4 bg-white border-gray-400 mt-2 max-w-5xl text-lg list-outside list-disc'>{listText4.map((item, key)=>{return <li key={key}>{item.text}</li>})}
           </ul>
-          </Accordion>
+          </div>
         </Collapse>
     </div>
   )
