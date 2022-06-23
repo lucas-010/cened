@@ -1,21 +1,17 @@
 {
   "files": {
-<<<<<<< HEAD
-    "main.css": "/cened/static/css/main.8359570e.css",
-    "main.js": "/cened/static/js/main.3f1f0963.js",
-=======
-    "main.css": "/cened/static/css/main.e27397a9.css",
-    "main.js": "/cened/static/js/main.263b4438.js",
->>>>>>> f089a330df31cbf6caff8aeaf008267fdbd94b3e
-    "static/media/slideIMG2.png": "/cened/static/media/slideIMG2.c1fab22b8e783f3eeaf1.png",
-    "static/media/slideIMG3.png": "/cened/static/media/slideIMG3.3864416cab9c1b834bd3.png",
-    "static/media/slideIMG1.png": "/cened/static/media/slideIMG1.ce5957b1c8a3859eb2d7.png",
-    "static/media/slideIMG4.png": "/cened/static/media/slideIMG4.da34b654105dce033cb8.png",
+    "main.css": "/cened/static/css/main.0972c29d.css",
+    "main.js": "/cened/static/js/main.2cd227fa.js",
     "static/media/337.jpg": "/cened/static/media/337.4f6a5ce259c1a73b0e93.jpg",
     "static/media/336.jpg": "/cened/static/media/336.5b733beac9b91ab9303c.jpg",
+    "static/media/slideIMG2.png": "/cened/static/media/slideIMG2.d71d68191360e7909ad5.png",
     "static/media/338.jpg": "/cened/static/media/338.4958f5ae2cd695c9f4bb.jpg",
+    "static/media/slideIMG4.png": "/cened/static/media/slideIMG4.2d7cda3fe27a63841ed0.png",
+    "static/media/slideIMG1.png": "/cened/static/media/slideIMG1.0c17d5dfa29ebafa17db.png",
     "static/media/335.jpg": "/cened/static/media/335.cedeec8657eefb6419bf.jpg",
     "static/media/barraVictor.jpg": "/cened/static/media/barraVictor.cd0403d9e50776c6070c.jpg",
+    "static/media/slideIMG3.png": "/cened/static/media/slideIMG3.fa3cb7554cb4ae727c8f.png",
+    "static/media/backgroundInstitution.jpeg": "/cened/static/media/backgroundInstitution.82be0585956511befa9f.jpeg",
     "static/media/326.jpg": "/cened/static/media/326.c6de0852cda0668e94ac.jpg",
     "static/media/331.jpg": "/cened/static/media/331.ddc15fc1ae7d7c38581d.jpg",
     "static/media/222.jpg": "/cened/static/media/222.bf61842076d6e317a21b.jpg",
@@ -95,20 +91,11 @@
     "static/media/whatsappIcon.png": "/cened/static/media/whatsappIcon.69a72697fa4550c2f5d3.png",
     "static/media/45.1.jpg": "/cened/static/media/45.1.b50186c70480e3fd7b45.jpg",
     "index.html": "/cened/index.html",
-<<<<<<< HEAD
-    "main.8359570e.css.map": "/cened/static/css/main.8359570e.css.map",
-    "main.3f1f0963.js.map": "/cened/static/js/main.3f1f0963.js.map"
+    "main.0972c29d.css.map": "/cened/static/css/main.0972c29d.css.map",
+    "main.2cd227fa.js.map": "/cened/static/js/main.2cd227fa.js.map"
   },
   "entrypoints": [
-    "static/css/main.8359570e.css",
-    "static/js/main.3f1f0963.js"
-=======
-    "main.e27397a9.css.map": "/cened/static/css/main.e27397a9.css.map",
-    "main.263b4438.js.map": "/cened/static/js/main.263b4438.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.e27397a9.css",
-    "static/js/main.263b4438.js"
->>>>>>> f089a330df31cbf6caff8aeaf008267fdbd94b3e
+    "static/css/main.0972c29d.css",
+    "static/js/main.2cd227fa.js"
   ]
 }
