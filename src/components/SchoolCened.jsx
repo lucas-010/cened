@@ -1,5 +1,5 @@
 import React from 'react'
-import image from '../images/backgroundInstitution.jpeg'
+import image from '../images/backgroundInstitution.jpg'
 
 export default function SchoolCened() {
   return (
