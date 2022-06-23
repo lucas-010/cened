@@ -45,16 +45,16 @@ export default function ContentInstution() {
         
     }
   return (
-    <div className='w-11/12 lg:w-1/2 lg:mt-10 ml-5 mt-10'>
-        <div className='lg:justify-around justify-center flex flex-wrap lg:max-w-screen-md max-w-max'>
-            <AwesomeButton onPress={()=> setTextCurrent(1)} type='secondary'>BOTÃO 1</AwesomeButton>
-            <AwesomeButton onPress={()=> setTextCurrent(2)} type='secondary'>BOTÃO 2</AwesomeButton>
-            <AwesomeButton onPress={()=> setTextCurrent(3)} type='secondary'>BOTÃO 3</AwesomeButton>
-            <AwesomeButton onPress={()=> setTextCurrent(4)} type='secondary'>BOTÃO 4</AwesomeButton>
-            <AwesomeButton onPress={()=> setTextCurrent(5)} type='secondary'>BOTÃO 5</AwesomeButton>
+    <div className='w-11/12 lg:w-1/2 h-full ml-5 lg:mt-0 mt-10 flex'>
+        <div className='lg:justify-around justify-center flex flex-col flex-wrap lg:max-w-screen-md max-w-max'>
+            <AwesomeButton onPress={()=> setTextCurrent(1)} type='secondary'>OBJETIVO GERAL</AwesomeButton>
+            <AwesomeButton onPress={()=> setTextCurrent(2)} type='secondary'>MISSÃO</AwesomeButton>
+            <AwesomeButton onPress={()=> setTextCurrent(3)} type='secondary'>META</AwesomeButton>
+            <AwesomeButton onPress={()=> setTextCurrent(4)} type='secondary'>CREDENCIAMENTO</AwesomeButton>
+            <AwesomeButton onPress={()=> setTextCurrent(5)} type='secondary'>QUEM SOMOS</AwesomeButton>
         </div>
 
-        <div className='p-6'>
+        <div className='px-8'>
             {returnTextCurrent()}
         </div>
     </div>

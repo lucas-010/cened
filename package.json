@@ -17,6 +17,7 @@
     "html-react-parser": "^1.4.14",
     "html-to-react": "^1.4.8",
     "react": "^18.2.0",
+    "react-animated-3d-card": "^1.0.2",
     "react-awesome-button": "^6.5.1",
     "react-collapse": "^5.1.1",
     "react-dom": "^18.0.0",
