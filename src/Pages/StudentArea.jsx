@@ -22,7 +22,6 @@ export default function StudentArea() {
     })
   },[])
   keys.forEach(item=>{if(studentReg[item].statusCurso === 2){currentCourse.push(studentReg[item]);}})
-  console.log(studentData);
   if(JSON.parse(sessionStorage.getItem('verified'))===false){
     window.location='/cened/login'}
   else{

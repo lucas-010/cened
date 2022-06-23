@@ -20,7 +20,6 @@ export default function Login() {
     setVerified(JSON.parse(sessionStorage.getItem('verified')));
     setStudentData(JSON.parse(sessionStorage.getItem('studentData')));}
   },[])
-  console.log(loginVerify);
   useEffect(()=>{setCpfApi(valueCpf.replaceAll('.','').replaceAll('-',''))},[valueCpf])
   useEffect(()=>{
     if(studentData){

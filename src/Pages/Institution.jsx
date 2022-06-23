@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react'
-import AboutSchool from '../components/AboutSchool'
 import Footer from '../components/Footer'
 import Title from '../components/Title'
 import Header from '../components/Header'
+import SchoolCened from '../components/SchoolCened'
 
 
 export default function Institution() {
@@ -10,15 +10,11 @@ export default function Institution() {
     window.scrollTo(0, 0)
   }, [])
   return (
-    <div>
+    <div className='p-4'>
       <Header/>
-    <div className='absolute lg:pt-5 w-screen min-h-screen bg-white'>
 			<Title text={'INSTITUIÇÃO CENED'}/>
-			<div className='-mt-14'>
-        <AboutSchool/>
-      </div>
+      <SchoolCened/>
       <Footer/>
-    </div>
     </div>
   )
 }
