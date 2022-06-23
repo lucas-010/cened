@@ -13,7 +13,7 @@ export default function Institution() {
     <div>
       <Header/>
     <div className='absolute lg:pt-5 w-screen min-h-screen bg-white'>
-			<Title text={'INSTITUIÇÃO CENED'}/>
+			<Title text={''}/>
 			<div className='-mt-14'>
         <AboutSchool/>
       </div>

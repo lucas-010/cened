@@ -1,10 +1,12 @@
 import React from 'react'
 import {IoSchoolOutline} from 'react-icons/io5'
+import background from '../images/backgroundInstitution.jpeg'
 
 export default function AboutSchool() {
   return (
-    <div className='mt-10 text-black border-4 border-black p-2 flex flex-col lg:flex-row w-11/12 m-auto rounded-xl'>
-			<div className='w-full p-4 lg:w-1/4 border-b-2 border-black border-collapse lg:border-b-0 flex flex-col items-center'>
+    <div className='lg:flex-row w-full'>
+		<img src={background}  className='w-1/2 pl-10 rounded-lg' alt=''/>
+			{/* <div className='w-full p-4 lg:w-1/4 border-b-2 border-black border-collapse lg:border-b-0 flex flex-col items-center'>
 				<IoSchoolOutline size={80}/>
 				<h1 className='text-3xl font-bold'>A ESCOLA CENED</h1>
 				<ul className='list-disc mt-5'>
@@ -59,7 +61,7 @@ export default function AboutSchool() {
 				<p className='mt-5'>A ESCOLA CENED oferta também, cursos de  Formação Inicial e Continuada ou de Qualificação Profissional - EaD , assim tipificados pelo art. 39 da Lei de Diretrizes e Bases da Educação Nacional (LDB) nº 9.394/96 e pelo art. 2º da Resolução MEC CNE/CEB nº 6, de 20/09/2012.</p>
 
 				<p className='mt-5'>Os cursos de qualificação ou capacitação profissional da Escola CENED estão cadastrados no MEC/SISTEC - Sistema Nacional de Informações da Educação Profissional e Tecnológica.</p>
-			</div>
+			</div> */}
     </div>
   )
 }

@@ -28,7 +28,6 @@ export default function Box({valueCpf, cpfApi, studentData, valueSenha, setValue
       setAlert(true);setAlertId(2);
     }
   }
-  console.log(studentData);
   return (
     <div className='flex flex-col w-screen'>
       <div className='flex flex-col items-center self-center mt-10 lg:w-1/2'> 
