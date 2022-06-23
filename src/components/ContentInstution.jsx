@@ -46,7 +46,7 @@ export default function ContentInstution() {
     }
   return (
     <div className='w-11/12 lg:w-1/2 h-full ml-5 lg:mt-0 mt-10 flex'>
-        <div className='lg:justify-around justify-center flex flex-col flex-wrap lg:max-w-screen-md max-w-max'>
+        <div className='justify-between h-72 flex flex-col'>
             <AwesomeButton onPress={()=> setTextCurrent(1)} type='secondary'>OBJETIVO GERAL</AwesomeButton>
             <AwesomeButton onPress={()=> setTextCurrent(2)} type='secondary'>MISSÃO</AwesomeButton>
             <AwesomeButton onPress={()=> setTextCurrent(3)} type='secondary'>META</AwesomeButton>

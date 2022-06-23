@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/cened/static/css/main.c697d4be.css",
-    "main.js": "/cened/static/js/main.37c3167e.js",
+    "main.js": "/cened/static/js/main.23f871e7.js",
     "static/media/337.jpg": "/cened/static/media/337.4f6a5ce259c1a73b0e93.jpg",
     "static/media/336.jpg": "/cened/static/media/336.5b733beac9b91ab9303c.jpg",
     "static/media/slideIMG2.png": "/cened/static/media/slideIMG2.d71d68191360e7909ad5.png",
@@ -11,7 +11,7 @@
     "static/media/335.jpg": "/cened/static/media/335.cedeec8657eefb6419bf.jpg",
     "static/media/barraVictor.jpg": "/cened/static/media/barraVictor.cd0403d9e50776c6070c.jpg",
     "static/media/slideIMG3.png": "/cened/static/media/slideIMG3.fa3cb7554cb4ae727c8f.png",
-    "static/media/backgroundInstitution.jpeg": "/cened/static/media/backgroundInstitution.82be0585956511befa9f.jpeg",
+    "static/media/backgroundInstitution.jpg": "/cened/static/media/backgroundInstitution.c6433987a9a4887dd78b.jpg",
     "static/media/326.jpg": "/cened/static/media/326.c6de0852cda0668e94ac.jpg",
     "static/media/331.jpg": "/cened/static/media/331.ddc15fc1ae7d7c38581d.jpg",
     "static/media/222.jpg": "/cened/static/media/222.bf61842076d6e317a21b.jpg",
@@ -92,10 +92,10 @@
     "static/media/45.1.jpg": "/cened/static/media/45.1.b50186c70480e3fd7b45.jpg",
     "index.html": "/cened/index.html",
     "main.c697d4be.css.map": "/cened/static/css/main.c697d4be.css.map",
-    "main.37c3167e.js.map": "/cened/static/js/main.37c3167e.js.map"
+    "main.23f871e7.js.map": "/cened/static/js/main.23f871e7.js.map"
   },
   "entrypoints": [
     "static/css/main.c697d4be.css",
-    "static/js/main.37c3167e.js"
+    "static/js/main.23f871e7.js"
   ]
 }
