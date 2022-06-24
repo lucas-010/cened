@@ -1,4 +1,5 @@
 import React from 'react'
+import {HiOutlineDocumentSearch} from 'react-icons/hi'
 
 export default function StudentCurrentCourse({currentCourse}){
     let dateInitCourse = '', calcDays='',oldDate='',testDate='';
@@ -16,7 +17,7 @@ export default function StudentCurrentCourse({currentCourse}){
 
     return(
         <div className='lg:w-5/6 h-full'>
-            <h1 className='flex p-10 justify-center items-center text-2xl font-bold'>Curso atual</h1>
+            <h1 className='flex p-10 justify-center items-center text-2xl font-bold'><HiOutlineDocumentSearch/>Curso atual</h1>
             <div className='w-full h-5/6 flex flex-col lg:flex-row border-8 border-white rounded-xl flex-wrap'>
                 <div className='lg:w-1/2 p-2 overflow-auto lg:h-auto  border-gray-400'>
                     <p className='text-xl text-center font-bold mb-10'>Trâmites da Matrícula e do Curso</p>

@@ -7,7 +7,7 @@ import {GrFormAdd,GrCertificate} from 'react-icons/gr'
 import {FiEdit} from 'react-icons/fi'
 import {BiBarcodeReader} from 'react-icons/bi'
 import {RiLockPasswordFill} from 'react-icons/ri'
-import {MdError} from 'react-icons/md'
+import {MdError} from 'react-icons/md';
 import { Collapse } from '@mui/material';
 
 export default function StudentStart(){

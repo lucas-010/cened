@@ -8,7 +8,7 @@ export default function Instructions() {
 			<p className='text-xl mt-5'>Seja você pessoa FÍSICA ou JURÍDICA, convidamos-lhe a trabalhar conosco como parceiro no marketing e divulgação do nosso Programa de Qualificação Profissional as Pessoas Privadas de Liberdade, aplicado nos estados. Faça contato, por telefone ou via e-mail. No e-mail, escreva:</p>
 			<div className='flex lg:flex-row flex-col justify-between'>
 			<div className='outterCard'>
-				<Card >
+				<Card style={{width: '20vw', marginTop: '20px',padding: '10px', backgroundColor: '#E5E7EB', border: '1px black solid',display: 'flex', flexDirection: 'column', justify: 'space-betewenn'}}>
 					<p>1.Assunto: Proposta de parceria.</p>
 					<p className='mt-5'>2.Nome Completo.</p>
 				</Card>

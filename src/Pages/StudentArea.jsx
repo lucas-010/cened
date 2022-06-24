@@ -17,7 +17,7 @@ export default function StudentArea() {
   let currentCourse = [];
   
   useEffect(()=>{
-    axios.get(`${API}documentos/consultas/matriculas?IdAluno=${studentData.idAluno}`).then(response=>{
+    axios.get(`${API}documentos/consultas/matriculas?IdAluno=${studentData.idAluno}&limit=50`).then(response=>{
       setStudentReg(response.data);
     })
   },[])
