@@ -27,7 +27,7 @@ export default function AllCourses({data}){
             <h1 className='flex p-10 justify-center items-center text-2xl font-bold'><IoDocuments/>Todos os cursos</h1>
             <div className='p-2 border-gray-400'>
             {data.map(item=>
-            <div className='flex justify-between lg:p-1 border-t-2 border-gray-400'>
+            <div className='flex flex-col lg:flex-row justify-between lg:p-1 border-t-2 border-gray-400'>
                 <div className='flex flex-col'>
                     <ul className='flex flex-col lg:flex-row lg:gap-6'><li>Curso: <b>{item.curso.codigo}</b> - {item.curso.nome}</li> <li>CargaHorária: <b>{item.curso.cargaHoraria}</b></li></ul>
                     <ul className='flex flex-col lg:flex-row lg:gap-6'><li>Matrícula: <b>{item.numeroMatricula ? item.numeroMatricula : 'N/D'}</b></li><li>Início do Curso: <b>{item.inicioCurso ? new Date(item.inicioCurso).toLocaleDateString('pt-BR'):'Aguardando'}</b></li>
@@ -35,10 +35,10 @@ export default function AllCourses({data}){
                     <li>Situação: <b>{item.statusCursoDescricao}</b></li>
                     </ul>
                 </div>
-                {item.statusCurso!==1?<div className='flex flex-col lg:flex-row lg:justify-start justify-center items-center'>
-                <button onClick={()=>{setVisCourseDetails(true);setSelectedCourse(item)}} className='flex-wrap justify-center lg:justify-start bg-green-500 h-fit rounded-md p-1 text-white flex items-center hover:bg-green-600 transition'><AiFillFileText/>&nbsp;Ver histórico&nbsp;</button></div>
-                :<div className='flex flex-col lg:flex-row lg:justify-start justify-center items-center gap-2'><button className='flex-wrap justify-center lg:justify-start flex items-center border border-black rounded-md p-1 text-sm hover:bg-gray-200 transition'><AiFillPrinter/>&nbsp;Imprimir boleto bancário</button>
-                <button className='flex-wrap justify-center lg:justify-start bg-red-500 rounded-md p-1 text-white flex items-center hover:bg-red-600 transition'><FaTimesCircle/>&nbsp;Cancelar este curso&nbsp;</button></div>
+                {item.statusCurso!==1?<div className='p-2 lg:p-0 text-sm lg:text-base flex flex-col lg:flex-row lg:justify-start justify-center items-center'>
+                <button onClick={()=>{setVisCourseDetails(true);setSelectedCourse(item)}} className='justify-center lg:justify-start bg-green-500 h-fit rounded-md p-1 text-white flex items-center hover:bg-green-600 transition'><AiFillFileText/>&nbsp;Ver histórico&nbsp;</button></div>
+                :<div className='p-2 lg:p-0 flex flex-col lg:flex-row lg:justify-start justify-center items-center gap-2 text-sm lg:text-base'><button className='justify-center lg:justify-start flex items-center border border-black rounded-md p-1 hover:bg-gray-200 transition'><AiFillPrinter/>&nbsp;Imprimir boleto bancário</button>
+                <button className='justify-center lg:justify-start bg-red-500 rounded-md p-1 text-white flex items-center hover:bg-red-600 transition'><FaTimesCircle/>&nbsp;Cancelar este curso&nbsp;</button></div>
                 }
             </div>
             )}

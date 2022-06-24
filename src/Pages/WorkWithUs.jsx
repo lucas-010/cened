@@ -10,14 +10,14 @@ export default function WorkWithUs() {
     window.scrollTo(0, 0)
   }, [])
   return (
-    <div>
+    <div className='absolute'>
       <Header/>
-    <div className='absolute w-screen min-h-screen'>
+    <div className='w-screen min-h-screen'>
 			<Title text={'TRABALHE CONOSCO!'}/>
 			<Instructions/>
 			<BoxContact/>
-      <Footer/>
     </div>
+    <Footer/>
     </div>
   )
 }
