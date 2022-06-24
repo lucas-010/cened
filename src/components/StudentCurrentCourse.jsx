@@ -17,7 +17,10 @@ export default function StudentCurrentCourse({currentCourse}){
 
     return(
         <div className='lg:w-5/6 h-full'>
-            <h1 className='flex p-10 justify-center items-center text-2xl font-bold'><HiOutlineDocumentSearch/>Curso atual</h1>
+            <div className='lg:p-10 p-5 flex flex-col items-center'>
+                <h1 className='flex items-center text-2xl font-bold'><HiOutlineDocumentSearch/>Curso atual</h1>
+                <h2 className='text-gray-500 text-center lg:text-start'>Histórico completo do Curso em Andamento ou Último Curso realizado pelo Aluno</h2>
+            </div>
             <div className='w-full h-5/6 flex flex-col lg:flex-row border-8 border-white rounded-xl flex-wrap'>
                 <div className='lg:w-1/2 p-2 overflow-auto lg:h-auto  border-gray-400'>
                     <p className='text-xl text-center font-bold mb-10'>Trâmites da Matrícula e do Curso</p>

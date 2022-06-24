@@ -5,6 +5,7 @@ import StudentOptions from '../components/StudentOptions'
 import StudentStart from '../components/StudentStart'
 import StudentCurrentCourse from '../components/StudentCurrentCourse'
 import AllCourses from '../components/AllCourses'
+import BuyNewCourse from '../components/BuyNewCourse'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
@@ -49,7 +50,7 @@ export default function StudentArea() {
         :
         selected ===3 ? <AllCourses data={studentReg}/>
         :
-        selected ===4 ? <div className='text-center w-5/6'>Comprar novo curso</div>
+        selected ===4 ? <BuyNewCourse/>
         :
         selected ===5 ? <div className='text-center w-5/6'>Solicitar certificado</div>
         :

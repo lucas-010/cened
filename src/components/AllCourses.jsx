@@ -23,8 +23,10 @@ export default function AllCourses({data}){
 
     if(visCourseDetails===false){
     return(
-    <div className='lg:w-5/6 h-full'>
-            <h1 className='flex p-10 justify-center items-center text-2xl font-bold'><IoDocuments/>Todos os cursos</h1>
+    <div className='lg:w-5/6 h-full'><div className='lg:p-10 p-5 flex flex-col items-center'>
+        <h1 className='flex items-center text-2xl font-bold'><IoDocuments/>Todos os cursos</h1>
+        <h2 className='text-gray-500 text-center lg:text-start'>Visualize a lista de todos os Cursos do Aluno</h2>
+    </div>
             <div className='p-2 border-gray-400'>
             {data.map(item=>
             <div className='flex flex-col lg:flex-row justify-between lg:p-1 border-t-2 border-gray-400'>

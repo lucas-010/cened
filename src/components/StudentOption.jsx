@@ -4,10 +4,11 @@ import { AiFillHome } from 'react-icons/ai';
 import {MdMessage, MdPowerSettingsNew} from 'react-icons/md'
 import {HiOutlineDocumentSearch} from 'react-icons/hi';
 import {IoDocuments} from 'react-icons/io5'
-import {GrFormAdd,GrCertificate} from 'react-icons/gr'
+import {GrCertificate} from 'react-icons/gr'
 import {FiEdit} from 'react-icons/fi'
 import {BiBarcodeReader} from 'react-icons/bi'
 import {RiLockPasswordFill} from 'react-icons/ri'
+import {FaDollarSign} from 'react-icons/fa'
 
 
 export default function StudentOption({id ,text, selected, setSelected}) {
@@ -20,7 +21,7 @@ export default function StudentOption({id ,text, selected, setSelected}) {
         {id===1 ? <AiFillHome size={25}/>
         :id===2 ? <HiOutlineDocumentSearch size={25}/>
         :id===3 ? <IoDocuments size={25}/>
-        :id===4 ? <GrFormAdd size={25}/>
+        :id===4 ? <FaDollarSign size={25}/>
         :id===5 ? <GrCertificate size={25}/>
         :id===6 ? <BiBarcodeReader size={25}/>
         :id===7 ? <MdMessage size={25}/>
