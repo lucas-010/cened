@@ -45,8 +45,8 @@ export default function ContentInstution() {
         
     }
   return (
-    <div className='w-11/12 lg:w-1/2 h-full ml-5 lg:mt-0 mt-10 flex'>
-        <div className='justify-between h-72 flex flex-col'>
+    <div className='w-11/12 lg:w-1/2 h-full ml-5 lg:mt-0 mt-10 flex lg:flex-row flex-col'>
+        <div className='justify-between h-72 max-w-xs flex flex-col'>
             <AwesomeButton onPress={()=> setTextCurrent(1)} type='secondary'>OBJETIVO GERAL</AwesomeButton>
             <AwesomeButton onPress={()=> setTextCurrent(2)} type='secondary'>MISSÃO</AwesomeButton>
             <AwesomeButton onPress={()=> setTextCurrent(3)} type='secondary'>META</AwesomeButton>
@@ -54,7 +54,7 @@ export default function ContentInstution() {
             <AwesomeButton onPress={()=> setTextCurrent(5)} type='secondary'>QUEM SOMOS</AwesomeButton>
         </div>
 
-        <div className='px-8'>
+        <div className='px-8 lg:mt-0 mt-10'>
             {returnTextCurrent()}
         </div>
     </div>
