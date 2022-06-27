@@ -6,20 +6,23 @@ export default function QueryDocument() {
   return (
     <div className='w-11/12 mt-10 m-auto text-gray-600 p-4 border-4 rounded-lg border-gray-400 lg:w-1/2'>
         <h2 className='text-2xl text-center font-semibold'>Informe os dados do documento</h2>
-        <div className='flex mt-5 flex-col text-sm lg:flex-row p-4 lg:justify-between md:flex-col'>
-            <div onClick={()=> setTypeDoc(1)} className='flex items-center cursor-pointer'>
-                {typeDoc === 1 ? <MdOutlineCheckBox size={30}/> : <MdOutlineCheckBoxOutlineBlank size={30}/>}
-                Declaração de Curso
-            </div>
+        <div className='p-4 mt-5'>
+            <h2 className='text-lg font-bold'>Tipo de Documento: </h2>
+            <div className='flex flex-col text-sm lg:flex-row lg:justify-between md:flex-col'>
+                <div onClick={()=> setTypeDoc(1)} className='flex items-center cursor-pointer'>
+                    {typeDoc === 1 ? <MdOutlineCheckBox size={30}/> : <MdOutlineCheckBoxOutlineBlank size={30}/>}
+                    Declaração de Curso
+                </div>
 
-            <div onClick={()=> setTypeDoc(2)} className='flex mt-2 items-center cursor-pointer'>
-                {typeDoc === 2 ? <MdOutlineCheckBox size={30}/> : <MdOutlineCheckBoxOutlineBlank size={30}/>}
-                Certificado
-            </div>
+                <div onClick={()=> setTypeDoc(2)} className='flex mt-2 items-center cursor-pointer'>
+                    {typeDoc === 2 ? <MdOutlineCheckBox size={30}/> : <MdOutlineCheckBoxOutlineBlank size={30}/>}
+                    Certificado
+                </div>
 
-            <div onClick={()=> setTypeDoc(3)} className='flex mt-2 items-center cursor-pointer'>
-                {typeDoc === 3 ? <MdOutlineCheckBox size={30}/> : <MdOutlineCheckBoxOutlineBlank size={30}/>}
-                Certidão Relativa ao Estudo do Interno
+                <div onClick={()=> setTypeDoc(3)} className='flex mt-2 items-center cursor-pointer'>
+                    {typeDoc === 3 ? <MdOutlineCheckBox size={30}/> : <MdOutlineCheckBoxOutlineBlank size={30}/>}
+                    Certidão Relativa ao Estudo do Interno
+                </div>
             </div>
         </div>
 
