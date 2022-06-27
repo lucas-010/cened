@@ -12,6 +12,7 @@ import WorkWithUs from './Pages/WorkWithUs';
 import Register from './Pages/Register';
 import StudentArea from './Pages/StudentArea';
 import { CircularProgress } from '@mui/material';
+import Documents from './Pages/Documents';
 
 function App() {
   let [loading, setLoading] = useState(true);
@@ -31,6 +32,7 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='/areadoaluno/:idAluno' element={<StudentArea/>}/>
           <Route path='/register' element={<Register/>}/>
+          <Route path='/documentos' element={<Documents/>}/>
         </Routes>
       </BrowserRouter>
     </div>

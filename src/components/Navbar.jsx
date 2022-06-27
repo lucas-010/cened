@@ -28,6 +28,7 @@ export default function Navbar({translateNavbar}) {
             </div>
             <ListItem text={'Contato'} link='/contato'/>
             <ListItem text={'Trabalhe Conosco'} link='/trabalheconosco'/>
+            <ListItem text={'Documentos'} link='/documentos'/>
           </ul>
         </div>
         <div className="flex flex-col lg:flex-row p-2 font-bold lg:justify-end xl:text-sm right-0 text-xs">

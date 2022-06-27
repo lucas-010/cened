@@ -226,8 +226,10 @@ export default function List() {
         })
         setAllCourses(coursesActives)
         setCourses(coursesActives.slice(0, 10))
-        if(JSON.parse(sessionStorage.getItem('coursesSelected').length > 0)){
-          setCoursesSelected(JSON.parse(sessionStorage.getItem('coursesSelected')))
+        if(sessionStorage.getItem('coursesSelected')){
+          if(JSON.parse(sessionStorage.getItem('coursesSelected').length > 0)){
+            setCoursesSelected(JSON.parse(sessionStorage.getItem('coursesSelected')))
+          }
         }
       })
     }, [])
