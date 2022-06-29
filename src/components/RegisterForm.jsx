@@ -32,7 +32,19 @@ export default function RegisterForm(){
     condicaoPreso: '', regime: '',
     infopen: '', mae: '', pai: ''}, 
     penitenciaria:{idPenitenciaria:'', uf: ''}});
-    let uf = [{value:"1"}, {txt:'Acre'}, {value:"2"}, {txt:'Alagoas'}, {value:"3"}, {txt:'Amapá'}, {value:"4"}, {txt:'Amazonas'}, {value:"5"}, {txt:'Bahia'}, {value:"6"}, {txt:'Ceará'}, {value:"7"}, {txt:'Distrito Federal'}, {value:"8"}, {txt:'Espírito Santo'}, {value:"9"}, {txt:'Goiás'}, {value:"10"}, {txt:'Maranhão'}, {value:"11"}, {txt:'Mato Grosso'}, {value:"12"}, {txt:'Mato Grosso do Sul'}, {value:"13"}, {txt:'Minas Gerais'}, {value:"14"}, {txt:'Pará'}, {value:"15"}, {txt:'Paraíba'}, {value:"16"}, {txt:'Paraná'}, {value:"17"}, {txt:'Pernambuco'}, {value:"18"}, {txt:'Piauí'}, {value:"19"}, {txt:'Rio de Janeiro'}, {value:"20"}, {txt:'Rio Grande do Norte'}, {value:"21"}, {txt:'Rio Grande do Sul'}, {value:"22"}, {txt:'Rondônia'}, {value:"23"}, {txt:'Roraima'}, {value:"24"}, {txt:'Santa Catarina'}, {value:"25"}, {txt:'São Paulo'}, {value:"26"}, {txt:'Sergipe'}, {value:"27"}, {txt:'Tocantins'}]
+    let uf = [{value:"1",txt:'Acre'}, 
+    {value:"2",txt:'Alagoas'}, {value:"3",txt:'Amapá'}, 
+    {value:"4",txt:'Amazonas'}, {value:"5",txt:'Bahia'}, 
+    {value:"6",txt:'Ceará'}, {value:"7",txt:'Distrito Federal'}, 
+    {value:"8",txt:'Espírito Santo'}, {value:"9",txt:'Goiás'}, 
+    {value:"10",txt:'Maranhão'}, {value:"11",txt:'Mato Grosso'}, 
+    {value:"12",txt:'Mato Grosso do Sul'}, {value:"13",txt:'Minas Gerais'}, 
+    {value:"14",txt:'Minas Gerais'}, {value:"15",txt:'Paraíba'}, {value:"16",txt:'Paraná'}, 
+    {value:"17",txt:'Pernambuco'}, {value:"18",txt:'Piauí'}, {value:"19",txt:'Rio de Janeiro'}, 
+    {value:"20",txt:'Rio Grande do Norte'}, {value:"21",txt:'Rio Grande do Sul'}, 
+    {value:"22",txt:'Rondônia'}, {value:"23",txt:'Roraima'}, {value:"24",txt:'Santa Catarina'}, 
+    {value:"25",txt:'São Paulo'}, {value:"26",txt:'Sergipe'}, 
+    {value:"27",txt:'Tocantins'}];
 
 
     let [generalClauses, setGeneralClauses] = useState(false),

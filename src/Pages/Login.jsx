@@ -26,6 +26,7 @@ export default function Login() {
       sessionStorage.setItem('studentData', JSON.stringify(studentData));
     }
   }, [studentData])
+  axios.get(`${API}/alunos`).then(res=>console.log(res))
   useEffect(()=>{
     axios.get(`${API}/alunos?Cpf=${cpfApi}`).then(response=>{
       if(response.data.data.length ===1){
