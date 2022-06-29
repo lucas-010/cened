@@ -6,7 +6,7 @@ import { Checkbox, MenuItem } from '@mui/material';
 import { FormControl, Collapse, Alert } from '@mui/material'
 import InputMask from 'react-input-mask';
 import {Link} from 'react-router-dom';
-import {axios, AxiosError} from 'axios';
+import axios from 'axios';
 
 
 export default function RegisterForm(){
@@ -30,8 +30,9 @@ export default function RegisterForm(){
     profissao: '', idPenitenciaria: '',
     bloco: '', ala: '',  cela: '',
     condicaoPreso: '', regime: '',
-    infopen: '', mae: '', 
-    pai: ''}, penitenciaria:{idPenitenciaria:'', uf: ''}});
+    infopen: '', mae: '', pai: ''}, 
+    penitenciaria:{idPenitenciaria:'', uf: ''}});
+    
     let [generalClauses, setGeneralClauses] = useState(false),
     valueElements = Object.keys(data.aluno);
     let [listElements, setListElements] = useState({})
@@ -43,11 +44,10 @@ export default function RegisterForm(){
       : <>{children}</>;
     valueElements.forEach(vl=>{if(data.aluno[vl] === '' || data.penitenciaria[vl]){emptyElements.push(vl.replace(/([A-Z])/g, ' $1'));}})
     function clearElements(){valueElements.forEach(vl=>{setData(listElements)})}
-    useEffect(()=>{if(data.penitenciaria.idPenitenciaria!== ''){
-        axios.get(`https://api-cenedqualificando.azurewebsites.net/api/v1/penitenciarias/3`).then(response=>console.log(response.data))}
+   
+    axios.get(`https://api-cenedqualificando.azurewebsites.net/api/v1/penitenciarias`).then(res=>console.log(res))
+        
     
-    },[data.penitenciaria.idPenitenciaria])
-
 
     function Submit(){
         let confirmarSenha = data.aluno.senha === data.aluno.confirmarSenha;
@@ -55,7 +55,6 @@ export default function RegisterForm(){
 
 
         if(confirmarSenha && !emptyElements.length > 0 && generalClauses){
-            axios.get(`${api}penitenciarias/${data.penitenciaria.idPenitenciaria}`).then(res=>console.log(res))
             //setData((data)=>({...data, penitenciaria:{res.data}}))
             //axios.post(`${apialunos`,data)
             setTimeout(function(){alert('Registrado com sucesso!')}, 500)}
@@ -101,9 +100,9 @@ export default function RegisterForm(){
                         <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'pai':e.target.value.toUpperCase()}}))} value={data.aluno.pai} style={{margin:'1%'}} variant="outlined" label='Pai' className='pai' id='pai'></TextField>  
                         <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'mae':e.target.value.toUpperCase()}}))} value={data.aluno.mae} style={{margin:'1%'}} variant="outlined" label='Mãe' className='mae' id='mae'></TextField>  
                     </div>
-                    <h2 className='titles'>2 - DADOS DO PrepostoONSÁVEL: Familiar / Visitante / Advogado</h2>
+                    <h2 className='titles'>2 - DADOS DO RESPONSÁVEL: Familiar / Visitante / Advogado</h2>
                     <div id='Form2'>
-                        <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'nomePreposto':e.target.value.toUpperCase()}}))} value={data.aluno.nomePreposto} style={{margin:'1%'}} variant="outlined" label='Nome do Prepostoonsável (seu nome)' className='nome' id='nomePreposto'></TextField>
+                        <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'nomePreposto':e.target.value.toUpperCase()}}))} value={data.aluno.nomePreposto} style={{margin:'1%'}} variant="outlined" label='Nome do Responsável (seu nome)' className='nome' id='nomePreposto'></TextField>
                         <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'sexoPreposto':e.target.value.toUpperCase()}}))} value={data.aluno.sexoPreposto} select style={{margin:'1%'}} variant="outlined" label='Sexo' className='sexo' id='sexoPreposto'><MenuItem value='M'>M</MenuItem><MenuItem value='F'>F</MenuItem></TextField>
                         <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'vinculo':e.target.value}}))} select value={data.aluno.vinculo} style={{margin:'1%'}} variant="outlined" label='Vínculo' className='inputs' id='vinculoPreposto'>
                             <MenuItem value='FAMILIAR'>Familiar</MenuItem><MenuItem value='ADVOGADO'>Advogado</MenuItem><MenuItem value='VISITANTE'>Visitante</MenuItem><MenuItem value='NÚCLEO DE ENSINO PENITENCIÁRIO'>Núcleo de Ensino Penitenciário</MenuItem><MenuItem value='AGENTE PENITENCIÁRIO'>Agente Penitenciário</MenuItem><MenuItem value='PEDAGOOG PENITENCIÁRIO'>Pedagogo Penitenciário</MenuItem></TextField>
