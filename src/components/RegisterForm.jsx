@@ -14,21 +14,13 @@ export default function RegisterForm() {
   [alertTxt, setAlertTxt] = useState(""),
     [data, setData] = useState({
       aluno: {
-        nome: "",sexo: "",cpf: "",rg: "",
-        orgaoExpedidor: "",dataNascimento: "",
-        naturalidade: "",ufNaturalidade: "",
-        nacionalidade: "",endereco: "",
-        bairro: "",cidade: "",
-        ufResidencial: "",cep: "",
-        senha: "",confirmarSenha: "",
-        celular: "",foneResidencial: "",
-        foneComercial: "",email: "",
-        nomePreposto: "",vinculo: "",
-        sexoPreposto: "",cpfPreposto: "",
-        rgPreposto: "",orgaoExpedidorPreposto: "",
-        grauInstrucao: "",atuacaoHabilitacao: "",
-        profissao: "",idPenitenciaria: "",bloco: "",
-        ala: "",cela: "",condicaoPreso: "",
+        nome: "",sexo: "",cpf: "",rg: "",orgaoExpedidor: "",dataNascimento: "",
+        naturalidade: "",ufNaturalidade: "",nacionalidade: "",endereco: "",
+        bairro: "",cidade: "",ufResidencial: "",cep: "",senha: "",confirmarSenha: "",
+        celular: "",foneResidencial: "",foneComercial: "",email: "",
+        nomePreposto: "",vinculo: "",sexoPreposto: "",cpfPreposto: "",
+        rgPreposto: "",orgaoExpedidorPreposto: "",grauInstrucao: "",atuacaoHabilitacao: "",
+        profissao: "",bloco: "",ala: "",cela: "",condicaoPreso: "",
         regime: "",infopen: "",mae: "",pai: "",
       },
       penitenciaria: { idPenitenciaria: "", uf: "" },
@@ -63,7 +55,7 @@ export default function RegisterForm() {
       window.location.href = `login`;
       setTimeout(function () {
         alert("Registrado com sucesso!");
-      }, 500);
+      }, 200);
     }
     if (emptyElements.length > 0) {
       setAlert(true);
@@ -91,7 +83,6 @@ export default function RegisterForm() {
         <RegForm3 data={data} setData={setData} />
         <h4 className="titles">4 - DADOS GERAIS</h4>
         <RegForm4 data={data} setData={setData} generalClauses={generalClauses} setGeneralClauses={setGeneralClauses} />
-        
       </FormControl>
       <Collapse in={alert}>
         <div className="flex justify-center">
@@ -113,7 +104,6 @@ export default function RegisterForm() {
         >
           LIMPAR
         </button>
-
         <button
           type="submit"
           className="lg:w-80 h-fit p-2 rounded-sm text-white font-bold bg-green-500"
