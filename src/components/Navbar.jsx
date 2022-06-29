@@ -42,7 +42,7 @@ export default function Navbar({translateNavbar}) {
               ADMINISTRAÇÃO PENITENCIÁRIA
             </a>
             <div onMouseEnter={()=>{setOpen(true);setOpenId(2)}} onMouseLeave={()=>{setOpen(false)}} className='xl:text-base text-sm'>
-              <p className='w-max lg:text-center p-2 mr-5 font-bold h-auto transition ease-in lg:justify-center items-center bg-green-700 hover:scale-105 duration-300 hover:bg-blue-800 text-white rounded-xl'>MATRICULE-SE</p>
+              <p className='w-max lg:text-center p-2 mr-5 font-bold h-auto transition ease-in-out lg:justify-center items-center bg-green-700 hover:scale-105 duration-300 hover:bg-blue-800 text-white rounded-xl'>MATRICULE-SE</p>
             <Collapse className='rounded-lg mr-4 bg-gray-300' in={openId===2?open:false}>
                 <ul className='m-1'>
                 <Link to='/login'><h1 className='hover:bg-blue-800 hover:text-white cursor-pointer rounded-lg p-1 font-normal transition-colors'>Já sou aluno</h1></Link>
