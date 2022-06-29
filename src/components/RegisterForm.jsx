@@ -27,40 +27,48 @@ export default function RegisterForm(){
     sexoPreposto: '', cpfPreposto: '',
     rgPreposto: '', orgaoExpedidorPreposto: '',
     grauInstrucao: '', atuacaoHabilitacao: '',
-    profissao: '', idPenitenciaria: '',
+    profissao: '', idPenitenciaria:'',
     bloco: '', ala: '',  cela: '',
     condicaoPreso: '', regime: '',
     infopen: '', mae: '', pai: ''}, 
     penitenciaria:{idPenitenciaria:'', uf: ''}});
-    let uf = [{value:"1"}, {txt:'Acre'}, {value:"2"}, {txt:'Alagoas'}, {value:"3"}, {txt:'Amapá'}, {value:"4"}, {txt:'Amazonas'}, {value:"5"}, {txt:'Bahia'}, {value:"6"}, {txt:'Ceará'}, {value:"7"}, {txt:'Distrito Federal'}, {value:"8"}, {txt:'Espírito Santo'}, {value:"9"}, {txt:'Goiás'}, {value:"10"}, {txt:'Maranhão'}, {value:"11"}, {txt:'Mato Grosso'}, {value:"12"}, {txt:'Mato Grosso do Sul'}, {value:"13"}, {txt:'Minas Gerais'}, {value:"14"}, {txt:'Pará'}, {value:"15"}, {txt:'Paraíba'}, {value:"16"}, {txt:'Paraná'}, {value:"17"}, {txt:'Pernambuco'}, {value:"18"}, {txt:'Piauí'}, {value:"19"}, {txt:'Rio de Janeiro'}, {value:"20"}, {txt:'Rio Grande do Norte'}, {value:"21"}, {txt:'Rio Grande do Sul'}, {value:"22"}, {txt:'Rondônia'}, {value:"23"}, {txt:'Roraima'}, {value:"24"}, {txt:'Santa Catarina'}, {value:"25"}, {txt:'São Paulo'}, {value:"26"}, {txt:'Sergipe'}, {value:"27"}, {txt:'Tocantins'}]
+    let uf = [{value:"1",txt:'Acre'}, 
+    {value:"2",txt:'Alagoas'}, {value:"3",txt:'Amapá'}, 
+    {value:"4",txt:'Amazonas'}, {value:"5",txt:'Bahia'}, 
+    {value:"6",txt:'Ceará'}, {value:"7",txt:'Distrito Federal'}, 
+    {value:"8",txt:'Espírito Santo'}, {value:"9",txt:'Goiás'}, 
+    {value:"10",txt:'Maranhão'}, {value:"11",txt:'Mato Grosso'}, 
+    {value:"12",txt:'Mato Grosso do Sul'}, {value:"13",txt:'Minas Gerais'}, 
+    {value:"14",txt:'Minas Gerais'}, {value:"15",txt:'Paraíba'}, {value:"16",txt:'Paraná'}, 
+    {value:"17",txt:'Pernambuco'}, {value:"18",txt:'Piauí'}, {value:"19",txt:'Rio de Janeiro'}, 
+    {value:"20",txt:'Rio Grande do Norte'}, {value:"21",txt:'Rio Grande do Sul'}, 
+    {value:"22",txt:'Rondônia'}, {value:"23",txt:'Roraima'}, {value:"24",txt:'Santa Catarina'}, 
+    {value:"25",txt:'São Paulo'}, {value:"26",txt:'Sergipe'}, 
+    {value:"27",txt:'Tocantins'}];
 
 
     let [generalClauses, setGeneralClauses] = useState(false),
-    valueElements = Object.keys(data.aluno);
+    keysPenitenciaria = Object.keys(data.penitenciaria),
+    keysAluno = Object.keys(data.aluno),
+    valueElements = [...keysPenitenciaria,...keysAluno];
     let [listElements, setListElements] = useState({});
     let emptyElements = [],
     formatCharsYear = {'Y': '[0-9]','m': '[0-1]','M': '[0-9]','d': '[0-3]','D': '[0-9]'};
     useEffect(()=>{setListElements(Object.assign(data))},[])
-    useEffect(()=>{valueElements.forEach(vl=>{if(data.aluno[vl] === '' || data.penitenciaria[vl]){emptyElements.push(vl.replace(/([A-Z])/g, ' $1'));}})},[data])
+    valueElements.forEach(vl=>{if(data.aluno[vl] === '' || data.penitenciaria[vl] ===''){emptyElements.push(vl.replace(/([A-Z])/g, ' $1'));}})
     
     function clearElements(){valueElements.forEach(vl=>{setData(listElements)})}
         
-    console.log(data);
+    console.log(emptyElements);
 
     function Submit(){
         let confirmarSenha = data.aluno.senha === data.aluno.confirmarSenha;
-
-
-
         if(confirmarSenha && !emptyElements.length > 0 && generalClauses){
             //setData((data)=>({...data, penitenciaria:{res.data}}))
             //axios.post(`${apialunos`,data)
-            setTimeout(function(){alert('Registrado com sucesso!')}, 500)}
             window.location.href=`login`;
-            
-            
-            
-            if(emptyElements.length > 0){
+            setTimeout(function(){alert('Registrado com sucesso!')}, 500)}
+        if(emptyElements.length > 0){
             setAlert(true);
             setAlertTxt(`Itens incompletos: ${emptyElements}`)}
         if(!confirmarSenha && !emptyElements.length > 0){
@@ -68,14 +76,15 @@ export default function RegisterForm(){
             setAlertTxt('As senhas não coincidem!');}
         if(!emptyElements.length > 0 && !generalClauses){
             setAlert(true);
-            setAlertTxt('Você deve aceitar as cláusulas gerais para continuar');}}
+            setAlertTxt('Você deve aceitar as cláusulas gerais para continuar');
+        }}
     return(
          <div className='flex flex-col mt-10'>
             <FormControl style={{fontSize:'20px', marginLeft:'40px'}}>
                     <h1 className='titles'> 1 - DADOS DO REEDUCANDO</h1>
                     <div id='Form1'>
                         <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'nome':e.target.value.toUpperCase()}}))} value={data.aluno.nome} style={{margin:'1%'}} variant="outlined" label='Nome' className='nome' id='nome'></TextField>
-                        <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'sexo':e.target.value.toUpperCase()}}))} value={data.aluno.sexo} select style={{margin:'1%'}} variant="outlined" label='Sexo' className='sexo' id='Sexo'><MenuItem value='M'>M</MenuItem><MenuItem value='F'>F</MenuItem></TextField>
+                        <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'sexo':e.target.value.toUpperCase()}}))} value={data.aluno.sexo} select style={{margin:'1%'}} variant="outlined" label='Sexo' className='sexo' id='Sexo'><MenuItem value='1'>M</MenuItem><MenuItem value='2'>F</MenuItem></TextField>
                         <InputMask mask="999.999.999-99" maskChar={''} onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'cpf':e.target.value}}))} value={data.aluno.cpf} id='cpf' >{() => <TextField style={{margin:'1%'}} label='CPF' className='inputs'/>}</InputMask>
                         <InputMask mask="999999999999999" maskChar={''} onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'rg':e.target.value.toUpperCase()}}))} value={data.aluno.rg} id='Identidade'>{() => <TextField style={{margin:'1%'}} label='Identidade' className='inputs'  />}</InputMask>
                         <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'orgaoExpedidor':e.target.value.toUpperCase()}}))} value={data.aluno.orgaoExpedidor} style={{margin:'1%'}} variant="outlined" label='Órgão Expedidor' className='inputs' id='orgaoExpedidor'></TextField>
@@ -101,9 +110,9 @@ export default function RegisterForm(){
                     <h2 className='titles'>2 - DADOS DO RESPONSÁVEL: Familiar / Visitante / Advogado</h2>
                     <div id='Form2'>
                         <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'nomePreposto':e.target.value.toUpperCase()}}))} value={data.aluno.nomePreposto} style={{margin:'1%'}} variant="outlined" label='Nome do Responsável (seu nome)' className='nome' id='nomePreposto'></TextField>
-                        <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'sexoPreposto':e.target.value.toUpperCase()}}))} value={data.aluno.sexoPreposto} select style={{margin:'1%'}} variant="outlined" label='Sexo' className='sexo' id='sexoPreposto'><MenuItem value='M'>M</MenuItem><MenuItem value='F'>F</MenuItem></TextField>
+                        <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'sexoPreposto':e.target.value.toUpperCase()}}))} value={data.aluno.sexoPreposto} select style={{margin:'1%'}} variant="outlined" label='Sexo' className='sexo' id='sexoPreposto'><MenuItem value='1'>M</MenuItem><MenuItem value='2'>F</MenuItem></TextField>
                         <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'vinculo':e.target.value}}))} select value={data.aluno.vinculo} style={{margin:'1%'}} variant="outlined" label='Vínculo' className='inputs' id='vinculoPreposto'>
-                            <MenuItem value='FAMILIAR'>Familiar</MenuItem><MenuItem value='ADVOGADO'>Advogado</MenuItem><MenuItem value='VISITANTE'>Visitante</MenuItem><MenuItem value='NÚCLEO DE ENSINO PENITENCIÁRIO'>Núcleo de Ensino Penitenciário</MenuItem><MenuItem value='AGENTE PENITENCIÁRIO'>Agente Penitenciário</MenuItem><MenuItem value='PEDAGOOG PENITENCIÁRIO'>Pedagogo Penitenciário</MenuItem></TextField>
+                        <MenuItem value='1'>Familiar</MenuItem><MenuItem value='2'>Advogado</MenuItem><MenuItem value='3'>Visitante</MenuItem><MenuItem value='4'>Núcleo de Ensino Penitenciário</MenuItem><MenuItem value='5'>Agente Penitenciário</MenuItem><MenuItem value='6'>Pedagogo Penitenciário</MenuItem></TextField>
                         <InputMask mask='999.999.999-99' maskChar={''} onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'cpfPreposto':e.target.value}}))} value={data.aluno.cpfPreposto} id='cpfPreposto'>{() => <TextField style={{margin:'1%'}} label='CPF' className='inputs'  />}</InputMask>
                         <InputMask mask="999999999999999" maskChar={''} onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'rgPreposto':e.target.value.toUpperCase()}}))} value={data.aluno.RgPreposto}  id='rgPreposto'>{() => <TextField variant="outlined" label='RG' className='inputs' style={{margin:'1%'}}/>}</InputMask>
                         <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'orgaoExpedidorPreposto':e.target.value.toUpperCase()}}))} value={data.aluno.orgaoExpedidorPreposto} style={{margin:'1%'}} variant="outlined" label='Órgão Expedidor' className='inputs' id='orgExpPreposto'></TextField>
@@ -122,8 +131,9 @@ export default function RegisterForm(){
                         <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'bloco':e.target.value.toUpperCase()}}))} value={data.aluno.bloco} style={{margin:'1%'}} variant="outlined" label='Bloco' className='line5' id='bloco'></TextField>  
                         <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'ala':e.target.value.toUpperCase()}}))} value={data.aluno.ala} style={{margin:'1%'}} variant="outlined" label='Ala' className='line5' id='ala'></TextField>  
                         <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'cela':e.target.value.toUpperCase()}}))} value={data.aluno.cela} style={{margin:'1%'}} variant="outlined" label='Cela' className='line5' id='cela'></TextField>  
-                        <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'condicao':e.target.value}}))} value={data.aluno.condicao} select style={{margin:'1%'}} variant="outlined" label='Condição' className='line5' id='condicao'><MenuItem value="SENTENCIADO">Sentenciado</MenuItem><MenuItem value="AGUARDANDO SENTENÇA">Aguardando Sentença</MenuItem></TextField>  
-                        <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'regime':e.target.value}}))} value={data.aluno.regime} select style={{margin:'1%'}} variant="outlined" label='Regime' className='line5' id='regime'><MenuItem value="FECHADO">Fechado</MenuItem><MenuItem value="SEMIABERTO">Semiaberto</MenuItem><MenuItem value="ABERTO">Aberto</MenuItem></TextField>  
+                        <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'condicao':e.target.value}}))} value={data.aluno.condicaoPreso} select style={{margin:'1%'}} variant="outlined" label='Condição' className='line5' id='condicao'>
+                        <MenuItem value='1'>Sentenciado</MenuItem><MenuItem value='2'>Aguardando Sentença</MenuItem></TextField>  
+                        <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'regime':e.target.value}}))} value={data.aluno.regime} select style={{margin:'1%'}} variant="outlined" label='Regime' className='line5' id='regime'><MenuItem value='1'>Fechado</MenuItem><MenuItem value='2'>Semiaberto</MenuItem><MenuItem value='3'>Aberto</MenuItem></TextField>  
                     </div>
                     <h4 className='titles'>4 - DADOS GERAIS</h4>
                         <div className='flex flex-col w-5/6 p-10'>
