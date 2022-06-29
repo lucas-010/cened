@@ -8,6 +8,7 @@ import AllCourses from '../components/AllCourses'
 import BuyNewCourse from '../components/BuyNewCourse'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import ContactUsStudentArea from '../components/ContactUsStudentArea'
 
 export default function StudentArea() {
   let studentData = JSON.parse(sessionStorage.getItem('studentData')),
@@ -56,7 +57,7 @@ export default function StudentArea() {
         :
         selected ===6 ? <div className='text-center w-5/6'>Boletos</div>
         :
-        selected ===7 ? <div className='text-center w-5/6'>Fale conosco</div>
+        selected ===7 ? <ContactUsStudentArea studentData={studentData}/>
         :
         selected ===8 ? <div className='text-center w-5/6'>Alterar senha</div>
         :<div className='text-center w-5/6'>Atualizar cadastro</div>}

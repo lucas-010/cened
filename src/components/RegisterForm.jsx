@@ -111,7 +111,7 @@ export default function RegisterForm(){
                         <InputMask mask="(99)99999-9999" onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'foneResidencial':e.target.value}}))} value={data.aluno.foneResidencial} maskChar={''} id='foneResidPreposto' >{() => <TextField style={{margin:'1%'}} variant="outlined" label='Fone Residencial' className='inputs'/>}</InputMask>
                         <InputMask mask="(99)99999-9999" onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'foneComercial':e.target.value.toUpperCase()}}))} value={data.aluno.foneComercial} maskChar={''} id='foneTrapPreposto'>{() => <TextField style={{margin:'1%'}} variant="outlined" label='Fone Trabalho' className='inputs'/>}</InputMask>
 
-                        <TextField refs='email' type='email' onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'email':e.target.value.toUpperCase()}}))} value={data.aluno.email} type='email' placeholder="email@example.com" style={{margin:'1%'}} variant="outlined" label='Email' className='email' id='emailPreposto'></TextField>  
+                        <TextField refs='email' type='email' onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'email':e.target.value.toUpperCase()}}))} value={data.aluno.email} placeholder="email@example.com" style={{margin:'1%'}} variant="outlined" label='Email' className='email' id='emailPreposto'></TextField>  
                     </div>
                     <h3 className='titles'>3 - DADOS PRISIONAIS</h3>
                     <div id='Form3'>
