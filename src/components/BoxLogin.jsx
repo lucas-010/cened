@@ -19,7 +19,10 @@ export default function Box({valueCpf, cpfApi, studentData, valueSenha, setValue
   function submitForm(e){
     if(loginVerify){
       sessionStorage.setItem('verified', JSON.stringify(true));
-      window.location=`areadoaluno/${studentData.idAluno}`;
+      window.location=`areadoaluno`;
+    }
+    else if(valueCpf === studentData.cpf && valueSenha !== studentData.senha){ 
+      setAlert(true);setAlertId(1);
     }
     else if(cpfApi === studentData.cpf && valueSenha !== studentData.senha){ 
       setAlert(true);setAlertId(1);

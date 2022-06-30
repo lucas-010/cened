@@ -13,32 +13,37 @@ export default function Login() {
   [valueSenha, setValueSenha] = useState(''),
   [cpfApi, setCpfApi] = useState(''),
   [verified, setVerified] = useState(undefined),
-  [studentData, setStudentData] = useState({"cpf":undefined, "senha":undefined}),
+  [studentData, setStudentData] = useState(false),
   API = process.env.REACT_APP_API_KEY;
+  
   useEffect(()=>{
     if(JSON.parse(sessionStorage.getItem('verified'))){
     setVerified(JSON.parse(sessionStorage.getItem('verified')));
     setStudentData(JSON.parse(sessionStorage.getItem('studentData')));}
   },[])
+
   useEffect(()=>{setCpfApi(valueCpf.replaceAll('.','').replaceAll('-',''))},[valueCpf])
-  useEffect(()=>{
-    if(studentData){
-      sessionStorage.setItem('studentData', JSON.stringify(studentData));
-    }
+  useEffect(()=>{if(studentData){sessionStorage.setItem('studentData', JSON.stringify(studentData));}
   }, [studentData])
-  axios.get(`${API}/alunos`).then(res=>console.log(res))
   useEffect(()=>{
     axios.get(`${API}/alunos?Cpf=${cpfApi}`).then(response=>{
       if(response.data.data.length ===1){
       setStudentData(response.data.data[0])}
-      if(cpfApi === studentData.cpf && valueSenha === studentData.senha ){
+      else{axios.get(`${API}/alunos?Cpf=${valueCpf}`).then(response=>{
+        if(response.data.data.length ===1){
+        setStudentData(response.data.data[0])}
+        });}
+      if(valueCpf === studentData.cpf && valueSenha === studentData.senha ){
         setLoginVerify(true);}
-        else{
-          setLoginVerify(false);}
-        })
+      else if(cpfApi === studentData.cpf && valueSenha === studentData.senha ){
+      setLoginVerify(true);}
+      else{
+        console.log(studentData)
+        setLoginVerify(false);}
+      });
   },[cpfApi, valueSenha])
 
-  if(verified){window.location=`areadoaluno/${studentData.idAluno}`;}
+  if(verified){window.location=`areadoaluno`;}
   else{
     return(
     <div className='absolute'>
