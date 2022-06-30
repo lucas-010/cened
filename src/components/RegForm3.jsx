@@ -1,4 +1,5 @@
 import { MenuItem, TextField } from '@mui/material';
+import InputMask from 'react-input-mask';
 import React from 'react';
 
 export default function RegForm3({data, setData}){
@@ -17,7 +18,7 @@ export default function RegForm3({data, setData}){
     {value:"27",txt:'Tocantins'}];
     return(
         <div id='Form3'>
-            <TextField onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'infopen':e.target.value.toUpperCase()}}))} value={data.aluno.infopen} style={{margin:'1%'}} variant="outlined" label='INFOPEN' className='inputs' id='infopen'></TextField>  
+            <InputMask mask={'999999999999'} maskChar={''} onChange={(e) => setData((data)=>({...data, aluno:{...data.aluno,'infopen':e.target.value.toUpperCase()}}))} value={data.aluno.infopen} >{()=><TextField variant="outlined" style={{margin:'1%'}}  label='INFOPEN' className='inputs' id='infopen'></TextField>}</InputMask> 
             <TextField onChange={(e) => setData((data)=>({...data, penitenciaria:{...data.penitenciaria,'uf':e.target.value}}))} value={data.penitenciaria.uf} select style={{margin:'1%'}} variant="outlined" label='UF' className='inputs' id='ufPris'>
             {uf.map(item=><MenuItem value={item.value}>{item.txt}</MenuItem>)}</TextField>
             <TextField onChange={(e) => setData((data)=>({...data, penitenciaria:{...data.penitenciaria,'idPenitenciaria':e.target.value}}))} type='number' value={data.penitenciaria.idPenitenciaria} style={{margin:'1%'}} variant="outlined" label='Penitenciária' className='penitenciaria' id='penitenciaria'></TextField>  
