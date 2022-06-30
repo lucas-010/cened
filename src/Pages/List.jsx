@@ -161,6 +161,7 @@ export default function List() {
     let filteredData = courses
     const [allCourses, setAllCourses] = useState([])
     const [currentPage, setCurrentPage] = useState(0)
+    const [waitLoad, setWaiLoad] = useState(false)
     let indexFor = []
 
   const addCourseList = (id, image ,title, time, price, code)=>{
@@ -245,6 +246,7 @@ export default function List() {
       setTotalPages(indexFor.length)
       setCourses(dataPagesAll[currentPage])
       setInputText('')
+      setWaiLoad(true)
     }, [allCourses, currentPage])
     
     let [openCart, setOpenCart] = useState(false);
@@ -300,19 +302,25 @@ export default function List() {
         </div>
         {filteredData.length ?
         <div className='w-full flex-col items-center lg:items-start lg:flex-row flex lg:justify-start justify-center'>
-          <div className='flex mb-2 flex-col lg:items-start lg:ml-10 items-center'>
-            {
-            filteredData.map((course, key)=>{
-              let code = course.codigo.toString()
-              let image = imagesCode[code]
-              let content = htmlConveterToReact(course.conteudo)
-                  return(
-                    <CourseBox inputText={inputText} filteredData={filteredData} currentPage={currentPage} content={content} coursesPerPage={courses} coursesSelected={coursesSelected} key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image={image} id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
-                  )
+          {
+          waitLoad ? 
+          <div className='w-full flex justify-center'><CircularProgress size='8rem' />
+            <span className='hidden'>{setTimeout(()=>{setWaiLoad()}, 500)}</span>
+          </div> 
+            : 
+            <div className='flex mb-2 flex-col lg:items-start lg:ml-10 items-center'>
+                {
+                filteredData.map((course, key)=>{
+                  let code = course.codigo.toString()
+                  let image = imagesCode[code]
+                  let content = htmlConveterToReact(course.conteudo)
+                      return(
+                        <CourseBox inputText={inputText} filteredData={filteredData} currentPage={currentPage} content={content} coursesPerPage={courses} coursesSelected={coursesSelected} key={key} addCourseList={addCourseList} removeCourseList={removeCourseList} image={image} id={course.id} code={course.codigo} title={course.nome} price={course.valor} time={course.cargaHoraria} />
+                      )
+                  }
+                )
               }
-            )
-            }
-          </div>
+            </div>}
           <div className='w-fit h-screen items-center lg:flex hidden top-24 absolute'>
             <CoursesSelect setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/>
           </div>

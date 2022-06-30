@@ -1,35 +1,30 @@
 import React from 'react'
 import { useState } from 'react'
 import BoxInfoContact from './BoxInfoContact'
+import { TextField, MenuItem, FormControl } from '@mui/material'
+import InputMask from 'react-input-mask'
+import { useEffect } from 'react'
 
 export default function Form() {
-	
+	const [valueName, setValueName] = useState('')
 	const [valueCpf, setValueCpf] = useState('')
 	const [valuePhone, setValuePhone] = useState('')
 	const [valueSmartPhone, setValueSmartPhone] = useState('')
 	const [valueEmail, setValueEmail] = useState('')
 	const [message, setMessage] = useState('')
 	const [uf, setUf] = useState('')
-	function cpfFormat(cpf){
-		cpf = cpf.replace(/[^\d]/g, "");
-		setValueCpf(cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4"))
-	}
-
-	function phoneFormat(phone){
-		setValuePhone(phone.replace(/\D/g, '').replace(/(\d{2})(\d)/, '($1)$2').replace(/(\d{4})(\d)/, '$1-$2').replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3').replace(/(-\d{4})\d+?$/, '$1'))
-	}
-
-	function smartPhoneFormat(phone){
-		setValueSmartPhone(phone.replace(/\D/g, '').replace(/(\d{2})(\d)/, '($1)$2').replace(/(\d{4})(\d)/, '$1-$2').replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3').replace(/(-\d{4})\d+?$/, '$1'))
-	}
-
+	useEffect(()=>{
+		console.log(valuePhone)
+	}, [valuePhone])
 
 	function clearElements(){
 		setValueCpf('')
+		setValueName('')
 		setValuePhone('')
 		setValueSmartPhone('')
 		setValueEmail('')
 		setMessage('')
+		setUf('')
 	}
 
 	function submitForm(){
@@ -41,74 +36,70 @@ export default function Form() {
 	}
   return (
 		<div className='w-11/12 flex flex-col lg:flex-row font-bold lg:w-3/4 mt-10 m-auto p-6 border-4 border-gray-400 rounded-xl'>
-			<form autoComplete='off'>
+			<FormControl autoComplete='off'>
 				<div className='w-full max-w-full p-2 flex flex-wrap'>
 					<div className='flex w-full justify-between flex-wrap items-center'>
-						<div className='flex flex-col w-full md:w-4/5 lg:w-3/4'>
-							<label htmlFor="name-form">
-								Nome
-							</label>
-							<input id='name-form' type="text" className='border-4 p-2 rounded-md outline-none border-gray-400'/>
-						</div>
-						<div className='flex flex-col mt-5 lg:mt-0'>
-							<label htmlFor="uf-form">UF</label>
-							<select onChange={(e)=> setUf(e.target.value)} value={uf} id="uf-form" className='border-gray-400 border-4 p-2 text-lg rounded-md' name="uf-form">
-								<option value="AC">Acre</option>
-								<option value="AL">Alagoas</option>
-								<option value="AP">Amapá</option>
-								<option value="AM">Amazonas</option>
-								<option value="BA">Bahia</option>
-								<option value="CE">Ceará</option>
-								<option value="DF">Distrito Federal</option>
-								<option value="ES">Espírito Santo</option>
-								<option value="GO">Goiás</option>
-								<option value="MA">Maranhão</option>
-								<option value="MT">Mato Grosso</option>
-								<option value="MS">Mato Grosso do Sul</option>
-								<option value="MG">Minas Gerais</option>
-								<option value="PA">Pará</option>
-								<option value="PB">Paraíba</option>
-								<option value="PR">Paraná</option>
-								<option value="PE">Pernambuco</option>
-								<option value="PI">Piauí</option>
-								<option value="RJ">Rio de Janeiro</option>
-								<option value="RN">Rio Grande do Norte</option>
-								<option value="RS">Rio Grande do Sul</option>
-								<option value="RO">Rondônia</option>
-								<option value="RR">Roraima</option>
-								<option value="SC">Santa Catarina</option>
-								<option value="SP">São Paulo</option>
-								<option value="SE">Sergipe</option>
-								<option value="TO">Tocantins</option>
-							</select>
+						<TextField value={valueName} onChange={(e)=> setValueName(e.target.value)} className='w-full md:w-4/5 mb-10 lg:w-3/4' label='Nome'/>
+						<div className='w-full lg:w-1/5 mt-5 lg:mt-0'>
+						<TextField select className='w-full' onChange={(e)=> setUf(e.target.value)} value={uf} label="UF">
+								<MenuItem value="AC">Acre</MenuItem>
+								<MenuItem value="AL">Alagoas</MenuItem>
+								<MenuItem value="AP">Amapá</MenuItem>
+								<MenuItem value="AM">Amazonas</MenuItem>
+								<MenuItem value="BA">Bahia</MenuItem>
+								<MenuItem value="CE">Ceará</MenuItem>
+								<MenuItem value="DF">Distrito Federal</MenuItem>
+								<MenuItem value="ES">Espírito Santo</MenuItem>
+								<MenuItem value="GO">Goiás</MenuItem>
+								<MenuItem value="MA">Maranhão</MenuItem>
+								<MenuItem value="MT">Mato Grosso</MenuItem>
+								<MenuItem value="MS">Mato Grosso do Sul</MenuItem>
+								<MenuItem value="MG">Minas Gerais</MenuItem>
+								<MenuItem value="PA">Pará</MenuItem>
+								<MenuItem value="PB">Paraíba</MenuItem>
+								<MenuItem value="PR">Paraná</MenuItem>
+								<MenuItem value="PE">Pernambuco</MenuItem>
+								<MenuItem value="PI">Piauí</MenuItem>
+								<MenuItem value="RJ">Rio de Janeiro</MenuItem>
+								<MenuItem value="RN">Rio Grande do Norte</MenuItem>
+								<MenuItem value="RS">Rio Grande do Sul</MenuItem>
+								<MenuItem value="RO">Rondônia</MenuItem>
+								<MenuItem value="RR">Roraima</MenuItem>
+								<MenuItem value="SC">Santa Catarina</MenuItem>
+								<MenuItem value="SP">São Paulo</MenuItem>
+								<MenuItem value="SE">Sergipe</MenuItem>
+								<MenuItem value="TO">Tocantins</MenuItem>
+							</TextField>
 						</div>
 					</div>
 
 					<div className='flex w-4/5 justify-between flex-wrap ml-0 m-5'>
 						<div className='flex flex-col mt-5'>
-							<label htmlFor="cpf-form">CPF</label>
-							<input type='text' id='cpf-form' onChange={(e)=> cpfFormat(e.target.value)} value={valueCpf} maxLength={14} className='border-4 p-2 rounded-md outline-none border-gray-400' />
+							<InputMask maskChar={''} mask="999.999.999-99" type='text' id='cpf-form' onChange={(e)=> setValueCpf(e.target.value)} value={valueCpf}>
+								{()=> <TextField label='CPF'/>}
+							</InputMask>
 						</div>
 						
 						<div className='flex flex-col mt-5'>
-							<label htmlFor="tel-form">Telefone Fixo</label>
-							<input value={valuePhone} onChange={(e)=> phoneFormat(e.target.value)} maxLength={14} type="text" id='tel-form' className='border-4 p-2 rounded-md outline-none border-gray-400'/>
+							<InputMask maskChar={''} mask={'(99)99999-9999'} value={valuePhone} onChange={(e)=> setValuePhone(e.target.value)} id='tel-form'>
+								{()=> <TextField label='Telefone Fixo'/>}
+							</InputMask>
 						</div>
 
 						<div className='flex flex-col mt-5'>
-							<label htmlFor="smart-form">Celular</label>
-							<input type="text" value={valueSmartPhone} onChange={(e)=> {smartPhoneFormat(e.target.value)}} maxLength={14} id='smart-form' className='border-4 p-2 rounded-md outline-none border-gray-400'/>
+							<InputMask maskChar={''} mask={'(99)99999-9999'} value={valueSmartPhone} onChange={(e)=> setValueSmartPhone(e.target.value)}  id='smart-form' >
+								{()=> <TextField label='Telefone'/>}
+							</InputMask>
 						</div>
 
 					</div>
 					<div  className='flex flex-col mt-2 w-11/12'>
-						<label htmlFor="email-form">E-mail</label>
-						<input value={valueEmail} onChange={(e)=> setValueEmail(e.target.value)} type="email" id="email-form" className='border-4 p-2 rounded-md outline-none border-gray-400'/>
+						<TextField value={valueEmail} onChange={(e)=> setValueEmail(e.target.value)} label='E-mail'/>
 					</div>
 
 					<div className='flex w-full flex-col mt-5'>
 						<label htmlFor="msg-form">Mensagem</label>
-						<textarea value={message} onChange={(e)=> setMessage(e.target.value)} name="msg-form" id="msg-form" cols="30" rows="10" className='border-4 border-gray-400 resize-none rounded-xl p-2 text-lg outline-none w-full'></textarea>
+						<textarea value={message} onChange={(e)=> setMessage(e.target.value)} name="msg-form" id="msg-form" cols="30" rows="10" className='border-2 transition-colors focus:border-blue-600 border-gray-400 resize-none rounded-xl p-2 text-lg outline-none w-full'></textarea>
 					</div>
 
 					<div className='py-4 flex w-full justify-around flex-wrap'>
@@ -119,7 +110,7 @@ export default function Form() {
 						
 					</div>
 				</div>
-			</form>
+			</FormControl>
 			<BoxInfoContact/>
 			
 		</div>
