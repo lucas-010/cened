@@ -31,14 +31,14 @@ export default function Navbar({translateNavbar}) {
             <ListItem text={'Documentos'} link='/documentos'/>
           </ul>
         </div>
-        <div className="flex flex-col lg:flex-row p-1 pt-2 font-bold lg:justify-end xl:text-sm right-0 text-xs">
-            <Link to="/login" className='w-fit transition mt-3 p-1 pt-2 ease-in-out hover:scale-105 hover:text-white hover:bg-blue-800 duration-150 lg:mr-6 lg:mt-0 flex h-fit rounded-xl'>
+        <div className="flex flex-col lg:flex-row p-1 pt-2 font-bold lg:justify-end xl:text-sm right-0 text-xs gap-3">
+            <Link to="/login" className='w-fit transition mt-3 p-2 ease-in-out hover:scale-105 hover:text-white hover:bg-blue-800 duration-150 lg:mt-0 flex h-fit rounded-xl'>
               <AiOutlineUser size={15}/> <span>ÁREA DO ALUNO</span>
             </Link>
-            <a target='_blank' href={'https://lucas-010.github.io/cened-penitenciaria/'} className="w-fit h-fit transition mt-3 ease-in-out hover:bg-blue-800 hover:scale-105 hover:text-white duration-300 lg:mr-6 lg:mt-0 flex p-2 rounded-xl">
+            <a target='_blank' href={'https://lucas-010.github.io/cened-penitenciaria/'} className="w-fit h-fit transition mt-3 ease-in-out hover:bg-blue-800 hover:scale-105 hover:text-white duration-300 lg:mt-0 flex p-2 rounded-xl">
               <FiUsers size={15}/> <span>PENITENCIÁRIA</span>
             </a>
-            <a target={'_blank'} href='https://lucas-010.github.io/cened-administracao-penitenciaria/' className='w-fit h-fit transition mt-3 ease-in-out hover:bg-blue-800 hover:scale-105 hover:text-white duration-300 lg:mr-6 lg:mt-0 flex p-2 rounded-xl'>
+            <a target={'_blank'} href='https://lucas-010.github.io/cened-administracao-penitenciaria/' className='w-fit h-fit transition mt-3 ease-in-out hover:bg-blue-800 hover:scale-105 hover:text-white duration-300 lg:mt-0 flex p-2 rounded-xl'>
               ADMINISTRAÇÃO PENITENCIÁRIA
             </a>
             <div onMouseEnter={()=>{setOpen(true);setOpenId(2)}} onMouseLeave={()=>{setOpen(false)}} className='xl:text-base text-sm'>

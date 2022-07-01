@@ -7,13 +7,14 @@ import RegForm1 from "./RegForm1";
 import RegForm2 from "./RegForm2";
 import RegForm3 from "./RegForm3";
 import RegForm4 from "./RegForm4";
+import { stringify } from "postcss";
 
 export default function RegisterForm() {
   let api = process.env.REACT_APP_API_KEY;
+  let [penitenciaria, setPenitenciaria] = useState([]);
   let [alert, setAlert] = useState(false),
   [alertTxt, setAlertTxt] = useState(""),
     [data, setData] = useState({
-      aluno: {
         nome: "",sexo: "",cpf: "",rg: "",orgaoExpedidor: "",dataNascimento: "",
         naturalidade: "",ufNaturalidade: "",nacionalidade: "",endereco: "",
         bairro: "",cidade: "",ufResidencial: "",cep: "",senha: "",confirmarSenha: "",
@@ -22,13 +23,12 @@ export default function RegisterForm() {
         rgPreposto: "",orgaoExpedidorPreposto: "",grauInstrucao: "",atuacaoHabilitacao: "",
         profissao: "",bloco: "",ala: "",cela: "",condicaoPreso: "",
         regime: "",infopen: "",mae: "",pai: "",
-      },
-      penitenciaria: { idPenitenciaria: "", uf: "" },
+      penitenciaria: { idPenitenciaria: "", uf: "" }
     });
 
   let [generalClauses, setGeneralClauses] = useState(false),
     keysPenitenciaria = Object.keys(data.penitenciaria),
-    keysAluno = Object.keys(data.aluno),
+    keysAluno = Object.keys(data),
     valueElements = [...keysAluno,...keysPenitenciaria];
   let [listElements, setListElements] = useState({});
   let emptyElements = [];
@@ -36,8 +36,8 @@ export default function RegisterForm() {
     setListElements(Object.assign(data));
   }, []);
   valueElements.forEach((vl) => {
-    if (data.aluno[vl] === "" || data.penitenciaria[vl] === "") {
-      emptyElements.push(vl.replace(/([A-Z])/g, " $1"));
+    if (data[vl] === "" || data.penitenciaria[vl] === "") {
+      emptyElements.push(vl.replace(/([A-Z])/g, " $1").replace('id Pen','pen').replace('condicao Preso','condicao'));
     }
   });
 
@@ -48,7 +48,7 @@ export default function RegisterForm() {
   }
 
   function Submit() {
-    let confirmarSenha = data.aluno.senha === data.aluno.confirmarSenha;
+    let confirmarSenha = data.senha === data.confirmarSenha;
     if (confirmarSenha && !emptyElements.length > 0 && generalClauses) {
       //setData((data)=>({...data, penitenciaria:{res.data}}))
       //axios.post(`${apialunos`,data)
@@ -70,6 +70,21 @@ export default function RegisterForm() {
       setAlertTxt("Você deve aceitar as cláusulas gerais para continuar");
     }
   }
+
+
+  useEffect(()=>{
+    axios.get(`${api}penitenciarias?Limit=400`).then(res=>{
+      setPenitenciaria([]);
+      let dataPenitenciaria = res.data.data;
+      dataPenitenciaria.forEach((item)=>{
+      if(data.penitenciaria.uf===item.uf){
+        setPenitenciaria((data)=>[...data,item])
+      }
+    })
+    })
+  },[data.penitenciaria])
+
+  console.log(data)
   return (
     <div className="flex flex-col mt-10">
       <FormControl style={{ fontSize: "20px", marginLeft: "40px" }}>
@@ -80,7 +95,7 @@ export default function RegisterForm() {
         </h2>
         <RegForm2 data={data} setData={setData} />
         <h3 className="titles">3 - DADOS PRISIONAIS</h3>
-        <RegForm3 data={data} setData={setData} />
+        <RegForm3 data={data} setData={setData} penitenciaria={penitenciaria} />
         <h4 className="titles">4 - DADOS GERAIS</h4>
         <RegForm4 data={data} setData={setData} generalClauses={generalClauses} setGeneralClauses={setGeneralClauses} />
       </FormControl>

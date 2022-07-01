@@ -11,36 +11,26 @@ export default function RegForm4({data, setData, generalClauses, setGeneralClaus
                 <div id="Form4">
                   <TextField
                     onChange={(e) =>
-                      setData((data) => ({
-                        ...data,
-                        aluno: {
-                          ...data.aluno,
-                          senha: e.target.value.toUpperCase(),
-                        },
+                      setData((data) => ({...data,senha: e.target.value,
                       }))
                     }
                     style={{ margin: "1%" }}
                     variant="outlined"
                     type="password"
-                    value={data.aluno.senha}
+                    value={data.senha}
                     id="senha"
                     label="Senha"
                     className="lg:w-2/5"
                   ></TextField>
                   <TextField
                     onChange={(e) =>
-                      setData((data) => ({
-                        ...data,
-                        aluno: {
-                          ...data.aluno,
-                          confirmarSenha: e.target.value.toUpperCase(),
-                        },
+                      setData((data) => ({...data,confirmarSenha: e.target.value,
                       }))
                     }
                     style={{ margin: "1%" }}
                     variant="outlined"
                     type="password"
-                    value={data.aluno.confirmarSenha}
+                    value={data.confirmarSenha}
                     id="confirmarSenha"
                     label="Confirmar senha"
                     className="lg:w-2/5"
