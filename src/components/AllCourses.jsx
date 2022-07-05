@@ -3,6 +3,8 @@ import {AiFillFileText, AiFillPrinter} from 'react-icons/ai';
 import {FaTimesCircle} from 'react-icons/fa'
 import {IoIosArrowBack} from 'react-icons/io'
 import { IoDocuments } from 'react-icons/io5';
+import { TableRow, TableCell, Table, TableHead, TableContainer } from '@material-ui/core';
+import { Typography } from '@mui/material';
 
 export default function AllCourses({data}){
     let [visCourseDetails ,setVisCourseDetails] = useState(false);
@@ -23,29 +25,76 @@ export default function AllCourses({data}){
 
     if(visCourseDetails===false){
     return(
-    <div className='lg:w-5/6 h-full'><div className='lg:p-10 p-5 flex flex-col items-center'>
+    <div className='lg:w-5/6 h-full'>
+        <div className='lg:p-10 p-5 flex flex-col items-center'>
         <h1 className='flex items-center text-2xl font-bold'><IoDocuments/>Todos os cursos</h1>
         <h2 className='text-gray-500 text-center lg:text-start'>Visualize a lista de todos os Cursos do Aluno</h2>
-    </div>
-            <div className='p-2 border-gray-400'>
-            {data.map(item=>
-            <div className='flex flex-col lg:flex-row justify-between lg:p-1 border-t-2 border-gray-400'>
-                <div className='flex flex-col'>
-                    <ul className='flex flex-col lg:flex-row lg:gap-6'><li>Curso: <b>{item.curso.codigo}</b> - {item.curso.nome}</li> <li>CargaHorária: <b>{item.curso.cargaHoraria}</b></li></ul>
-                    <ul className='flex flex-col lg:flex-row lg:gap-6'><li>Matrícula: <b>{item.numeroMatricula ? item.numeroMatricula : 'N/D'}</b></li><li>Início do Curso: <b>{item.inicioCurso ? new Date(item.inicioCurso).toLocaleDateString('pt-BR'):'Aguardando'}</b></li>
-                    <li>Término: <b>{item.terminoCurso ? new Date(item.terminoCurso).toLocaleDateString('pt-BR') : 'Indefinido'}</b></li><li>Financeiro: <b>{item.statusFinanceiroDescricao}</b></li>
-                    <li>Situação: <b>{item.statusCursoDescricao}</b></li>
-                    </ul>
-                </div>
-                {item.statusCurso!==1?<div className='p-2 lg:p-0 text-sm lg:text-base flex flex-col lg:flex-row lg:justify-start justify-center items-center'>
-                <button onClick={()=>{setVisCourseDetails(true);setSelectedCourse(item)}} className='justify-center lg:justify-start bg-green-500 h-fit rounded-md p-1 text-white flex items-center hover:bg-green-600 transition'><AiFillFileText/>&nbsp;Ver histórico&nbsp;</button></div>
-                :<div className='p-2 lg:p-0 flex flex-col lg:flex-row lg:justify-start justify-center items-center gap-2 text-sm lg:text-base'><button className='justify-center lg:justify-start flex items-center border border-black rounded-md p-1 hover:bg-gray-200 transition'><AiFillPrinter/>&nbsp;Imprimir boleto bancário</button>
-                <button className='justify-center lg:justify-start bg-red-500 rounded-md p-1 text-white flex items-center hover:bg-red-600 transition'><FaTimesCircle/>&nbsp;Cancelar este curso&nbsp;</button></div>
-                }
-            </div>
-            )}
-            </div>
         </div>
+        <TableContainer style={{maxHeight:'60vh'}}>
+            <Table stickyHeader>
+                <TableHead>
+                <TableRow>
+                    <TableCell colSpan={2}>
+                        <Typography>Curso</Typography>
+                    </TableCell>
+                    <TableCell>
+                        <Typography>Matrícula</Typography>
+                    </TableCell>
+                    <TableCell>
+                        <Typography>Término</Typography>
+                    </TableCell>
+                    <TableCell colSpan={3}>
+                        <Typography>Situação</Typography>
+                    </TableCell>
+                </TableRow>
+                </TableHead>
+                {data.map(item=>
+                <TableRow>
+                    <TableCell>
+                        <Typography>{item.curso.codigo}</Typography>
+                    </TableCell>
+                    <TableCell>
+                        <Typography>{item.curso.nome}</Typography>
+                    </TableCell>
+                    <TableCell>
+                        <Typography>{item.numeroMatricula ? item.numeroMatricula : 'N/D'}</Typography>
+                    </TableCell>
+
+                    <TableCell>
+                        <Typography>{item.terminoCurso ? new Date(item.terminoCurso).toLocaleDateString('pt-BR') : 'Indefinido'}</Typography>
+                    </TableCell>
+
+                    <TableCell>
+                        <Typography>{item.statusCursoDescricao}</Typography>
+                    </TableCell>
+                    {item.statusCurso!==1?<TableCell>
+                    <button onClick={()=>{setVisCourseDetails(true);setSelectedCourse(item)}} className='justify-center lg:justify-start bg-green-500 h-fit rounded-md p-1 text-white flex items-center hover:bg-green-600 transition'><AiFillFileText/>&nbsp;Ver histórico&nbsp;</button></TableCell>
+                    :<TableCell><button className='justify-center lg:justify-start flex items-center border border-black rounded-md p-1 hover:bg-gray-200 transition'><AiFillPrinter/>&nbsp;Imprimir boleto bancário</button>
+                    <button className='justify-center lg:justify-start bg-red-500 rounded-md p-1 text-white flex items-center hover:bg-red-600 transition'><FaTimesCircle/>&nbsp;Cancelar este curso&nbsp;</button></TableCell>
+                    }
+                </TableRow>
+                )}
+            </Table>
+        </TableContainer>
+        {/* <div className='p-2 border-gray-400'>
+                {data.map(item=>
+                <div className='flex flex-col lg:flex-row justify-between lg:p-1 border-t-2 border-gray-400'>
+                    <div className='flex flex-col'>
+                        <ul className='flex flex-col lg:flex-row lg:gap-6'><li>Curso: <b>{item.curso.codigo}</b> - {item.curso.nome}</li> <li>CargaHorária: <b>{item.curso.cargaHoraria}</b></li></ul>
+                        <ul className='flex flex-col lg:flex-row lg:gap-6'><li>Matrícula: <b>{item.numeroMatricula ? item.numeroMatricula : 'N/D'}</b></li><li>Início do Curso: <b>{item.inicioCurso ? new Date(item.inicioCurso).toLocaleDateString('pt-BR'):'Aguardando'}</b></li>
+                        <li>Término: <b>{item.terminoCurso ? new Date(item.terminoCurso).toLocaleDateString('pt-BR') : 'Indefinido'}</b></li><li>Financeiro: <b>{item.statusFinanceiroDescricao}</b></li>
+                        <li>Situação: <b>{item.statusCursoDescricao}</b></li>
+                        </ul>
+                    </div>
+                    {item.statusCurso!==1?<div className='p-2 lg:p-0 text-sm lg:text-base flex flex-col lg:flex-row lg:justify-start justify-center items-center'>
+                    <button onClick={()=>{setVisCourseDetails(true);setSelectedCourse(item)}} className='justify-center lg:justify-start bg-green-500 h-fit rounded-md p-1 text-white flex items-center hover:bg-green-600 transition'><AiFillFileText/>&nbsp;Ver histórico&nbsp;</button></div>
+                    :<div className='p-2 lg:p-0 flex flex-col lg:flex-row lg:justify-start justify-center items-center gap-2 text-sm lg:text-base'><button className='justify-center lg:justify-start flex items-center border border-black rounded-md p-1 hover:bg-gray-200 transition'><AiFillPrinter/>&nbsp;Imprimir boleto bancário</button>
+                    <button className='justify-center lg:justify-start bg-red-500 rounded-md p-1 text-white flex items-center hover:bg-red-600 transition'><FaTimesCircle/>&nbsp;Cancelar este curso&nbsp;</button></div>
+                    }
+                </div>
+                )}
+        </div> */}
+    </div>
     )}
     else{
         return(
