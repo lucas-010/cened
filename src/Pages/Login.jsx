@@ -38,7 +38,6 @@ export default function Login() {
       else if(cpfApi === studentData.cpf && valueSenha === studentData.senha ){
       setLoginVerify(true);}
       else{
-        console.log(studentData)
         setLoginVerify(false);}
       });
   },[cpfApi, valueSenha])

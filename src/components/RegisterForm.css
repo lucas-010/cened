@@ -25,10 +25,14 @@
     border-width: 2px;  
     width: 42%;
 }
-.pai, .mae, .email, .penitenciaria{
+.pai, .mae, .email{
     border-radius: 5px;
     border-width: 2px;  
     width: 42%;
+}
+.penitenciaria{
+    width: 42%;
+    margin: 1%;
 }
 .line5{
     border-radius: 5px;
