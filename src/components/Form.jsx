@@ -104,8 +104,7 @@ export default function Form() {
 					</div>
 				</div>
 			</form>
-			<BoxInfoContact/>
-			
+			<BoxInfoContact/>		
 		</div>
 	)
 }
