@@ -47,22 +47,22 @@ export default function RegisterForm() {
     event.preventDefault();
     let confirmarSenha = data.senha === data.confirmarSenha;
     if (confirmarSenha && !emptyElements.length > 0 && generalClauses) {
-      NotificationManager.success('Aluno cadastrado', 'SUCESSO');
+      NotificationManager.success('Aluno cadastrado', 'SUCESSO',500);
       setTimeout(function () {
         Navigate('/login')
       }, 500);
     }
     if (emptyElements.length > 0) {
       setAlert(true);
-      NotificationManager.error(`${emptyElements.slice(0,4)}...`, 'HÁ ITENS INCOMPLETOS');
+      NotificationManager.error(`${emptyElements.slice(0,4)}...`, 'HÁ ITENS INCOMPLETOS', 1500);
     }
     if (!confirmarSenha && !emptyElements.length > 0) {
       setAlert(true);
-      NotificationManager.error('As senhas não coincidem', 'ERRO');
+      NotificationManager.error('As senhas não coincidem', 'ERRO', 1500);
     }
     if (!emptyElements.length > 0 && !generalClauses) {
       setAlert(true);
-      NotificationManager.error('Você deve aceitar as cláusulas gerais para continuar', 'ERRO');
+      NotificationManager.error('Você deve aceitar as cláusulas gerais para continuar', 'ERRO', 1500);
     }
   }
 
