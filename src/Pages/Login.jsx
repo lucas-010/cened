@@ -4,7 +4,6 @@ import BoxInstructions from '../components/BoxInstructions'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import axios from 'axios'
-import StudentArea from './StudentArea'
 
 
 export default function Login() {
@@ -15,7 +14,6 @@ export default function Login() {
   [verified, setVerified] = useState(undefined),
   [studentData, setStudentData] = useState(false),
   API = process.env.REACT_APP_API_KEY;
-  
   useEffect(()=>{
     if(JSON.parse(sessionStorage.getItem('verified'))){
     setVerified(JSON.parse(sessionStorage.getItem('verified')));

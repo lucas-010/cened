@@ -12,7 +12,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import axios from 'axios'
 import imagesCode from '../imagesCode'
-import { TextField } from '@mui/material'
+import { Grid, TextField } from '@mui/material'
 import Pagination from '../components/Pagination'
 const HtmlToReactParser = require('html-to-react').Parser
 const parse = require('html-react-parser')
@@ -297,9 +297,9 @@ export default function List() {
           </div>
         </div>
         <Pagination totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
-        <div className={`${openCart ? 'fixed flex bg-black bg-opacity-40': 'hidden'} lg:hidden top-0 p-6 justify-center items-center w-full h-screen`}>
+        <Grid className={`${openCart ? 'fixed flex bg-black bg-opacity-40': 'hidden'} lg:hidden top-0 p-6 justify-center items-center w-full h-screen`}>
           <CoursesSelect openCart={openCart} setOpenCart={setOpenCart} setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/>
-        </div>
+        </Grid>
         {filteredData.length ?
         <div className='w-full flex-col items-center lg:items-start lg:flex-row flex lg:justify-start justify-center'>
           {
@@ -321,9 +321,9 @@ export default function List() {
                 )
               }
             </div>}
-          <div className='w-fit h-screen items-center lg:flex hidden top-24 absolute'>
+          <Grid className='w-fit h-screen items-center lg:flex hidden lg:top-24 absolute'>
             <CoursesSelect setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/>
-          </div>
+          </Grid>
         </div>
         : !courses.length ? <div className='w-full flex justify-center'><CircularProgress size='8rem' /></div>
         :<div className='w-full flex lg:justify-center mt-10'><p className='text-3xl'>Não encontramos cursos disponíveis!</p><div className='w-fit h-screen items-center lg:flex hidden top-24 absolute'><CoursesSelect setCoursesSelected={setCoursesSelected} totalPrice={totalPrice} courses={coursesSelected}/></div></div>}

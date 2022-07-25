@@ -1,7 +1,7 @@
 import { Checkbox, TextField } from '@mui/material';
 import React from 'react';
 
-export default function RegForm4({data, setData, generalClauses, setGeneralClauses}){
+export default function RegForm4({data, setData, generalClauses, setGeneralClauses, alert}){
     return(
         <div className="flex flex-col w-5/6 p-10">
           <div className="text-gray-600 lg:ml-10 flex justify-between">
@@ -10,6 +10,7 @@ export default function RegForm4({data, setData, generalClauses, setGeneralClaus
                 <p>Crie a senha para acessar a Área do Aluno</p>
                 <div id="Form4">
                   <TextField
+                    error={alert && !data.senha}
                     onChange={(e) =>
                       setData((data) => ({...data,senha: e.target.value,
                       }))
@@ -23,6 +24,7 @@ export default function RegForm4({data, setData, generalClauses, setGeneralClaus
                     className="lg:w-2/5"
                   ></TextField>
                   <TextField
+                    error={alert && !data.confirmarSenha}
                     onChange={(e) =>
                       setData((data) => ({...data,confirmarSenha: e.target.value,
                       }))

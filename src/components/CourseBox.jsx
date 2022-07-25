@@ -3,6 +3,7 @@ import {MdOutlineCheckBoxOutlineBlank} from 'react-icons/md'
 import './ContentText.css'
 import { MdCheckBox } from 'react-icons/md'
 import Collapse from '@material-ui/core/Collapse'
+import { Button, Grid } from '@mui/material'
 
 export default function CourseBox({id, content, image, title, time, price, addCourseList, removeCourseList, code, coursesSelected, coursesPerPage, currentPage, inputText, filteredData}) {
     const [selectBox, setSelectBox] = useState(false)
@@ -49,11 +50,11 @@ export default function CourseBox({id, content, image, title, time, price, addCo
             <h2>Carga horária: {time} h</h2>
             <h2>Investimento: R${price},00</h2>
         </div>
-            <div className='flex mt-2 text-white lg:flex-row flex-col'>
-                <button onClick={()=> setVisibleContent(!visibleContent)} className='text-xl font-bold bg-blue-500 hover:bg-blue-600 transition-colors p-2 text-white rounded-lg'>Saiba Mais</button>
-                <button onClick={()=> {setSelectBox(!selectBox); selectBox ? removeCourseList(id) : addCourseList(id, image ,title, time, price, code)}} className='flex mt-2 lg:mt-0 ml-0 bg-[#0D9F16] text-white p-2 rounded-lg lg:ml-5 items-center text-xl justify-center font-bold'>Selecione aqui 
-                {selectBox ? <MdCheckBox color='yellow' className='ml-2' size={50}/> : <MdOutlineCheckBoxOutlineBlank color='white' className='ml-2' size={50}/>}</button>
-            </div>
+            <Grid className='flex mt-2 gap-2 text-white lg:flex-row flex-col'>
+                <Button variant='contained' color='info' onClick={()=> setVisibleContent(!visibleContent)}>Saiba Mais</Button>
+                <Button variant='contained' color='warning' onClick={()=> {setSelectBox(!selectBox); selectBox ? removeCourseList(id) : addCourseList(id, image ,title, time, price, code)}}>Selecione aqui 
+                {selectBox ? <MdCheckBox color='yellow' className='ml-2' size={50}/> : <MdOutlineCheckBoxOutlineBlank color='white' className='ml-2' size={50}/>}</Button>
+            </Grid>
         </div>
 
         <div>
