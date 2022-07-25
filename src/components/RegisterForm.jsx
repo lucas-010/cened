@@ -9,52 +9,47 @@ import RegForm3 from "./RegForm3";
 import RegForm4 from "./RegForm4";
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterForm() {
+  let Navigate = useNavigate();
   let api = process.env.REACT_APP_API_KEY;
   let [penitenciaria, setPenitenciaria] = useState([]);
   let [alert, setAlert] = useState(false),
   [alertTxt, setAlertTxt] = useState(""),
-    [data, setData] = useState({
-        nome: "",sexo: "",cpf: "",rg: "",orgaoExpedidor: "",dataNascimento: "",
-        naturalidade: "",ufNaturalidade: "",nacionalidade: "",endereco: "",
-        bairro: "",cidade: "",ufResidencial: "",cep: "",senha: "",confirmarSenha: "",
-        celular: "",foneResidencial: "",foneComercial: "",email: "",
-        nomePreposto: "",vinculo: "",sexoPreposto: "",cpfPreposto: "",
-        rgPreposto: "",orgaoExpedidorPreposto: "",grauInstrucao: "",atuacaoHabilitacao: "",
-        profissao: "",bloco: "",ala: "",cela: "",condicaoPreso: "",
-        regime: "",infopen: "",mae: "",pai: "",
-      penitenciaria: { idPenitenciaria: "", uf: "" }
-    });
+  startData = {
+    nome: '',sexo: '',cpf: '',rg: '',orgaoExpedidor: '',dataNascimento: '',
+    naturalidade: '',ufNaturalidade: '',nacionalidade: '',endereco: '',
+    bairro: '',cidade: '',ufResidencial: '',cep: '',senha: '',confirmarSenha: '',
+    celular: '',foneResidencial: '',foneComercial: '',email: '',
+    nomePreposto: '',vinculo: '',sexoPreposto: '',cpfPreposto: '',
+    rgPreposto: '',orgaoExpedidorPreposto: '',grauInstrucao: '',atuacaoHabilitacao: '',
+    profissao: '',bloco: '',ala: '',cela: '',condicaoPreso: '',
+    regime: '',infopen: '',mae: '',pai: '',
+    penitenciaria: { idPenitenciaria: '', uf: '' }
+  },
+  [data, setData] = useState(startData);
 
   let [generalClauses, setGeneralClauses] = useState(false),
     keysPenitenciaria = Object.keys(data.penitenciaria),
     keysAluno = Object.keys(data),
     valueElements = [...keysAluno,...keysPenitenciaria];
-  let [listElements, setListElements] = useState({});
   let emptyElements = [];
-  useEffect(() => {
-    setListElements(Object.assign(data));
-  }, []);
   valueElements.forEach((vl) => {
-    if (data[vl] === "" || data.penitenciaria[vl] === "") {
+    if (data[vl] === '' || data.penitenciaria[vl] === '') {
       emptyElements.push(vl);
     }
   });
-
   function clearElements() {
-    valueElements.forEach((vl) => {
-      setData(listElements);
-    });
+    setData(startData)
   }
-
   const handleSubmit = event =>{
     event.preventDefault();
     let confirmarSenha = data.senha === data.confirmarSenha;
     if (confirmarSenha && !emptyElements.length > 0 && generalClauses) {
       NotificationManager.success('Aluno cadastrado', 'SUCESSO');
       setTimeout(function () {
-        window.location.href = `login`;
+        Navigate('/login')
       }, 500);
     }
     if (emptyElements.length > 0) {

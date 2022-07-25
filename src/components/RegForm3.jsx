@@ -1,4 +1,4 @@
-import { MenuItem, TextField } from '@mui/material';
+import { Button, MenuItem, TextField } from '@mui/material';
 import InputMask from 'react-input-mask';
 import React from 'react';
 import { useState } from 'react';
@@ -32,10 +32,10 @@ export default function RegForm3({data, setData, penitenciaria, alert}){
             </Collapse>
             <Collapse in={open}>
             <div className='w-full flex gap-5'>
-            <button onClick={()=>{setOpen(false);setData((data)=>({...data, penitenciaria:{...data.penitenciaria,'idPenitenciaria':''}}));
-            setData((data)=>({...data, observacoes:''}))}} className='w-fit rounded-md text-sm'>VOLTAR</button>
+            <Button onClick={()=>{setOpen(false);setData((data)=>({...data, penitenciaria:{...data.penitenciaria,'idPenitenciaria':''}}));
+            setData((data)=>({...data, observacoes:null}))}} className='w-fit rounded-md text-sm'>VOLTAR</Button>
             <div className='flex w-full'>
-            <TextField error={alert && !data.observacoes } style={{width:'100%'}} onChange={(e) => setData((data)=>({...data,'observacoes':e.target.value.toUpperCase()}))} value={data.observacoes} variant="outlined" label='Nome e endereço da penitenciaria' /></div>
+            <TextField style={{width:'100%'}} onChange={(e) => setData((data)=>({...data,'observacoes':e.target.value.toUpperCase()}))} value={data.observacoes} variant="outlined" label='Nome e endereço da penitenciaria' /></div>
             </div>
             </Collapse>
             </div>
