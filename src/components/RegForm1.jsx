@@ -1,10 +1,14 @@
 import { MenuItem, TextField } from '@mui/material';
 import React from 'react';
 import InputMask from 'react-input-mask';
+import { ptBR } from 'date-fns/locale';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import { useEffect } from 'react';
 
 
 export default function RegForm1({data, setData, alert}){
-    let formatCharsYear = {'Y': '[0-9]','m': '[0-1]','M': '[0-9]','d': '[0-3]','D': '[0-9]'};
     let uf = [{value:1,txt:'Acre'}, 
     {value:2, txt:'Alagoas'}, {value:3, txt:'Amapá'}, 
     {value:4, txt:'Amazonas'}, {value:5, txt:'Bahia'}, 
@@ -20,14 +24,20 @@ export default function RegForm1({data, setData, alert}){
     {value:27,txt:'Tocantins'}];
     return(
         <div id='Form1'>
+            <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={ptBR} >
                         <TextField error={alert && !data.nome} onChange={(e) => setData((data)=>({...data,'nome':e.target.value.toUpperCase()}))} value={data.nome} style={{margin:'1%'}} variant="outlined" label='Nome' className='nome' id='nome'></TextField>
                         <TextField error={alert && !data.sexo} onChange={(e) => setData((data)=>({...data,'sexo':e.target.value}))} value={data.sexo} select style={{margin:'1%'}} variant="outlined" label='Sexo' className='sexo' id='Sexo'><MenuItem value={1}>M</MenuItem><MenuItem value={2}>F</MenuItem></TextField>
                         <InputMask mask="999.999.999-99" maskChar={''} onChange={(e) => setData((data)=>({...data,'cpf':e.target.value}))} value={data.cpf} id='cpf' >{() => <TextField error={alert && !data.cpf} style={{margin:'1%'}} label='CPF' className='inputs'/>}</InputMask>
                         <InputMask mask="999999999999999" maskChar={''} onChange={(e) => setData((data)=>({...data,'rg':e.target.value}))} value={data.rg} id='Identidade'>{() => <TextField error={alert && !data.rg} style={{margin:'1%'}} label='Identidade' className='inputs'  />}</InputMask>
                         <TextField error={alert && !data.orgaoExpedidor} onChange={(e) => setData((data)=>({...data,'orgaoExpedidor':e.target.value.toUpperCase()}))} value={data.orgaoExpedidor} style={{margin:'1%'}} variant="outlined" label='Órgão Expedidor' className='inputs' id='orgaoExpedidor'></TextField>
-
-                        <InputMask mask='dD/mM/YYYY' maskChar={''} formatChars={formatCharsYear} onChange={(e) => setData((data)=>({...data,'dataNascimento':e.target.value.toUpperCase()}))} value={data.dataNascimento} id='dataNascimento'>{() => <TextField error={alert && !data.dataNascimento} label='Data Nascimento' className='inputs' style={{margin:'1%'}} />}</InputMask>
-                        
+                        <DesktopDatePicker
+                        label="Data de nascimento"
+                        inputFormat="dd/MM/yyyy"
+                        value={data.dataNascimento}
+                        onChange={(e)=>setData((data)=>({...data, dataNascimento: e}))}
+                        renderInput={(params) => <TextField {...params} error={alert && !data.dataNascimento} 
+                        className='inputs' style={{margin:'1%'}} />}
+                        />
                         <TextField error={alert && !data.naturalidade} onChange={(e) => setData((data)=>({...data,'naturalidade':e.target.value.toUpperCase()}))} value={data.naturalidade} style={{margin:'1%'}} variant="outlined" label='Naturalidade' className='inputs' id='naturalidade'></TextField>
                         <TextField error={alert && !data.ufNaturalidade} onChange={(e) => setData((data)=>({...data,'ufNaturalidade':e.target.value}))} value={data.ufNaturalidade} select style={{margin:'1%'}} variant="outlined" label="UF Naturalidade" className='inputs' id='ufNaturalidade'>
                         {uf.map((item)=><MenuItem value={item.value}>{item.txt}</MenuItem>)}</TextField>
@@ -43,6 +53,7 @@ export default function RegForm1({data, setData, alert}){
                         <TextField error={alert && !data.atuacaoHabilitacao} onChange={(e) => setData((data)=>({...data,'atuacaoHabilitacao':e.target.value.toUpperCase()}))} value={data.atuacaoHabilitacao} style={{margin:'1%'}} variant="outlined" label='Área de Atuação/Habilitação' className='inputs' id='habilitacao'></TextField>
                         <TextField error={alert && !data.pai} onChange={(e) => setData((data)=>({...data,'pai':e.target.value.toUpperCase()}))} value={data.pai} style={{margin:'1%'}} variant="outlined" label='Pai' className='pai' id='pai'></TextField>  
                         <TextField error={alert && !data.mae} onChange={(e) => setData((data)=>({...data,'mae':e.target.value.toUpperCase()}))} value={data.mae} style={{margin:'1%'}} variant="outlined" label='Mãe' className='mae' id='mae'></TextField>  
+                        </LocalizationProvider>
             </div>
     )
 }
