@@ -4,7 +4,7 @@ import {FaTimesCircle} from 'react-icons/fa'
 import {IoIosArrowBack} from 'react-icons/io'
 import { IoDocuments } from 'react-icons/io5';
 import { TableRow, TableCell, Table, TableHead, TableContainer } from '@material-ui/core';
-import { Box, Button, Grid, Typography } from '@mui/material';
+import { Box, Button, Grid, Paper, Typography } from '@mui/material';
 
 export default function AllCourses({data}){
     let [visCourseDetails ,setVisCourseDetails] = useState(false);
@@ -25,12 +25,13 @@ export default function AllCourses({data}){
 
     if(visCourseDetails===false){
     return(
-    <Grid className='lg:w-5/6 h-full'>
+    <Grid>
         <Box className='lg:p-10 p-5 flex flex-col items-center'>
         <h1 className='flex items-center text-2xl font-bold'><IoDocuments/>Todos os cursos</h1>
         <h2 className='text-gray-500 text-center lg:text-start'>Visualize a lista de todos os Cursos do Aluno</h2>
         </Box>
-        <TableContainer style={{maxHeight:'60vh'}}>
+        <Paper sx={{overflow:'hidden', width:'100%'}} >
+        <TableContainer style={{maxHeight:'60vh'}} >
             <Table stickyHeader>
                 <TableHead>
                 <TableRow>
@@ -43,7 +44,7 @@ export default function AllCourses({data}){
                     <TableCell>
                         <Typography>Término</Typography>
                     </TableCell>
-                    <TableCell colSpan={3}>
+                    <TableCell colSpan={2}>
                         <Typography>Situação</Typography>
                     </TableCell>
                 </TableRow>
@@ -80,6 +81,7 @@ export default function AllCourses({data}){
                 )}
             </Table>
         </TableContainer>
+        </Paper>
     </Grid>
     )}
     else{

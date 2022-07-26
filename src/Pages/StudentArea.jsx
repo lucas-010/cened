@@ -9,6 +9,7 @@ import BuyNewCourse from '../components/BuyNewCourse'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ContactUsStudentArea from '../components/ContactUsStudentArea'
+import { Grid } from '@mui/material'
 
 export default function StudentArea() {
   let studentData = JSON.parse(sessionStorage.getItem('studentData')),
@@ -29,7 +30,7 @@ export default function StudentArea() {
     window.location='/cened/login'}
   else{
   return (
-    <div className='bg-[rgb(229,247,252)] absolute'>
+    <Grid className='bg-[rgb(229,247,252)] absolute'>
       <StudentAreaHeader/>
       <div className='min-h-screen w-screen flex flex-col pt-24 p-8'>
         <div className='w-full flex flex-col lg:flex-row'>
@@ -64,7 +65,7 @@ export default function StudentArea() {
         </div>
       </div>
         <Footer/>
-    </div>
+    </Grid>
   )
   }
 }
